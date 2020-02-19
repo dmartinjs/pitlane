@@ -15,8 +15,11 @@ export class AppHome {
       </ion-header>,
 
       <ion-content class="ion-padding">
-        <h2 class="home-title">Next race</h2>
+        <h2 class="home-title">Next Race</h2>
         <next-race></next-race>
+
+        <h2 class="home-title ion-padding-top">Driver Ranking</h2>
+        <driver-ranking></driver-ranking>
       </ion-content>
     ];
   }

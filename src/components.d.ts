@@ -12,6 +12,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface AppHome {}
   interface AppRoot {}
+  interface DriverRanking {}
   interface NextRace {}
 }
 
@@ -30,6 +31,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLDriverRankingElement extends Components.DriverRanking, HTMLStencilElement {}
+  var HTMLDriverRankingElement: {
+    prototype: HTMLDriverRankingElement;
+    new (): HTMLDriverRankingElement;
+  };
+
   interface HTMLNextRaceElement extends Components.NextRace, HTMLStencilElement {}
   var HTMLNextRaceElement: {
     prototype: HTMLNextRaceElement;
@@ -38,6 +45,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-root': HTMLAppRootElement;
+    'driver-ranking': HTMLDriverRankingElement;
     'next-race': HTMLNextRaceElement;
   }
 }
@@ -45,11 +53,13 @@ declare global {
 declare namespace LocalJSX {
   interface AppHome {}
   interface AppRoot {}
+  interface DriverRanking {}
   interface NextRace {}
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-root': AppRoot;
+    'driver-ranking': DriverRanking;
     'next-race': NextRace;
   }
 }
@@ -62,6 +72,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'driver-ranking': LocalJSX.DriverRanking & JSXBase.HTMLAttributes<HTMLDriverRankingElement>;
       'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
     }
   }

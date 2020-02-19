@@ -1,7 +1,7 @@
-import { Race } from './race';
+import { NextRace } from './next-race';
 
 describe('next-race', () => {
   it('builds', () => {
-    expect(new Race()).toBeTruthy();
+    expect(new NextRace()).toBeTruthy();
   });
 });
