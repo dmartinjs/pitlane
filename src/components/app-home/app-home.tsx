@@ -19,7 +19,7 @@ export class AppHome {
         <next-race></next-race>
 
         <h2 class="home-title ion-padding-top">Driver Ranking</h2>
-        <driver-ranking></driver-ranking>
+        <driver-ranking list-length="3"></driver-ranking>
       </ion-content>
     ];
   }

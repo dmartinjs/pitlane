@@ -12,7 +12,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface AppHome {}
   interface AppRoot {}
-  interface DriverRanking {}
+  interface DriverRanking {
+    'listLength': number;
+  }
   interface NextRace {}
 }
 
@@ -53,7 +55,9 @@ declare global {
 declare namespace LocalJSX {
   interface AppHome {}
   interface AppRoot {}
-  interface DriverRanking {}
+  interface DriverRanking {
+    'listLength'?: number;
+  }
   interface NextRace {}
 
   interface IntrinsicElements {

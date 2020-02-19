@@ -1,4 +1,4 @@
-import { Component, Host, h, State } from '@stencil/core';
+import { Component, Host, h, Prop, State } from '@stencil/core';
 
 export interface DriverStanding {
   position?:     string;
@@ -34,6 +34,8 @@ export interface DriverClass {
 })
 export class DriverRanking {
 
+  @Prop() listLength: number;
+
   @State() error = null;
 
   @State() isLoaded = false;
@@ -56,10 +58,12 @@ export class DriverRanking {
   }
 
   render() {
+    const driver = this.listLength ? this.driver.slice(0, this.listLength) : this.driver;
+
     return (
       <Host>
         <ion-list>
-          {this.driver.map(DriverStanding => 
+          {driver.map(DriverStanding => 
             <ion-item>
               <ion-label>
                 {DriverStanding.position} - {DriverStanding.Driver.givenName} {DriverStanding.Driver.familyName}
