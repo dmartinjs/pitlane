@@ -20,6 +20,9 @@ export class AppHome {
 
         <h2 class="home-title ion-padding-top">Driver Ranking</h2>
         <driver-ranking list-length="3"></driver-ranking>
+
+        <h2 class="home-title ion-padding-top">Constructor Ranking</h2>
+        <constructor-ranking list-length="3"></constructor-ranking>
       </ion-content>
     ];
   }

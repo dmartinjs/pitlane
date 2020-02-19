@@ -12,6 +12,9 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface AppHome {}
   interface AppRoot {}
+  interface ConstructorRanking {
+    'listLength': number;
+  }
   interface DriverRanking {
     'listLength': number;
   }
@@ -33,6 +36,12 @@ declare global {
     new (): HTMLAppRootElement;
   };
 
+  interface HTMLConstructorRankingElement extends Components.ConstructorRanking, HTMLStencilElement {}
+  var HTMLConstructorRankingElement: {
+    prototype: HTMLConstructorRankingElement;
+    new (): HTMLConstructorRankingElement;
+  };
+
   interface HTMLDriverRankingElement extends Components.DriverRanking, HTMLStencilElement {}
   var HTMLDriverRankingElement: {
     prototype: HTMLDriverRankingElement;
@@ -47,6 +56,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-root': HTMLAppRootElement;
+    'constructor-ranking': HTMLConstructorRankingElement;
     'driver-ranking': HTMLDriverRankingElement;
     'next-race': HTMLNextRaceElement;
   }
@@ -55,6 +65,9 @@ declare global {
 declare namespace LocalJSX {
   interface AppHome {}
   interface AppRoot {}
+  interface ConstructorRanking {
+    'listLength'?: number;
+  }
   interface DriverRanking {
     'listLength'?: number;
   }
@@ -63,6 +76,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-root': AppRoot;
+    'constructor-ranking': ConstructorRanking;
     'driver-ranking': DriverRanking;
     'next-race': NextRace;
   }
@@ -76,6 +90,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'constructor-ranking': LocalJSX.ConstructorRanking & JSXBase.HTMLAttributes<HTMLConstructorRankingElement>;
       'driver-ranking': LocalJSX.DriverRanking & JSXBase.HTMLAttributes<HTMLDriverRankingElement>;
       'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
     }

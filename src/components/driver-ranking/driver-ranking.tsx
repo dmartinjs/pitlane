@@ -1,6 +1,6 @@
 import { Component, Host, h, Prop, State } from '@stencil/core';
 
-export interface DriverStanding {
+interface DriverStanding {
   position?:     string;
   positionText?: string;
   points?:       string;
@@ -9,14 +9,14 @@ export interface DriverStanding {
   Constructors?: Constructor[];
 }
 
-export interface Constructor {
+interface Constructor {
   constructorId?: string;
   url?:           string;
   name?:          string;
   nationality?:   string;
 }
 
-export interface DriverClass {
+interface DriverClass {
   driverId?:        string;
   permanentNumber?: string;
   code?:            string;
@@ -40,7 +40,7 @@ export class DriverRanking {
 
   @State() isLoaded = false;
 
-  @State() driver: Array<DriverStanding> = [];
+  @State() drivers: Array<DriverStanding> = [];
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/driverStandings.json')
@@ -48,7 +48,7 @@ export class DriverRanking {
       .then(
         (result) => {
           this.isLoaded = true;
-          this.driver = result.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+          this.drivers = result.MRData.StandingsTable.StandingsLists[0].DriverStandings;
         },
         (error) => {
           this.isLoaded = true;
@@ -58,17 +58,17 @@ export class DriverRanking {
   }
 
   render() {
-    const driver = this.listLength ? this.driver.slice(0, this.listLength) : this.driver;
+    const drivers = this.listLength ? this.drivers.slice(0, this.listLength) : this.drivers;
 
     return (
       <Host>
         <ion-list>
-          {driver.map(DriverStanding => 
+          {drivers.map(driverStanding => 
             <ion-item>
               <ion-label>
-                {DriverStanding.position} - {DriverStanding.Driver.givenName} {DriverStanding.Driver.familyName}
+                {driverStanding.position} - {driverStanding.Driver.givenName} {driverStanding.Driver.familyName}
                 </ion-label>
-              <ion-note slot="end" color="primary">{DriverStanding.points}</ion-note>
+              <ion-note slot="end" color="primary">{driverStanding.points}</ion-note>
             </ion-item>
           )}
         </ion-list>
