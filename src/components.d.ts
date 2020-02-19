@@ -12,6 +12,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface AppHome {}
   interface AppRoot {}
+  interface NextRace {}
 }
 
 declare global {
@@ -28,19 +29,28 @@ declare global {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
   };
+
+  interface HTMLNextRaceElement extends Components.NextRace, HTMLStencilElement {}
+  var HTMLNextRaceElement: {
+    prototype: HTMLNextRaceElement;
+    new (): HTMLNextRaceElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-root': HTMLAppRootElement;
+    'next-race': HTMLNextRaceElement;
   }
 }
 
 declare namespace LocalJSX {
   interface AppHome {}
   interface AppRoot {}
+  interface NextRace {}
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-root': AppRoot;
+    'next-race': NextRace;
   }
 }
 
@@ -52,6 +62,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
     }
   }
 }
