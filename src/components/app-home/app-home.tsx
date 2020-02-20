@@ -18,11 +18,18 @@ export class AppHome {
         <h2 class="home-title">Next Race</h2>
         <next-race></next-race>
 
-        <h2 class="home-title ion-padding-top">Driver Ranking</h2>
-        <driver-ranking list-length="3"></driver-ranking>
-
-        <h2 class="home-title ion-padding-top">Constructor Ranking</h2>
-        <constructor-ranking list-length="3"></constructor-ranking>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <h2 class="ion-padding-top">Driver Ranking</h2>
+              <driver-ranking></driver-ranking>
+            </ion-col>
+            <ion-col>
+              <h2 class="ion-padding-top">Constructor Ranking</h2>
+              <constructor-ranking></constructor-ranking>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-content>
     ];
   }

@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, State } from '@stencil/core';
+import { Component, Host, h, State } from '@stencil/core';
 
 interface ConstructorStanding {
   position?:     string;
@@ -23,8 +23,6 @@ interface Constructor {
 })
 export class ConstructorRanking {
 
-  @Prop() listLength: number;
-
   @State() error = null;
 
   @State() isLoaded = false;
@@ -47,12 +45,10 @@ export class ConstructorRanking {
   }
 
   render() {
-    const constructors = this.listLength ? this.constructors.slice(0, this.listLength) : this.constructors;
-
     return (
       <Host>
         <ion-list>
-          {constructors.map(constructorStanding => 
+          {this.constructors.map(constructorStanding => 
             <ion-item>
               <ion-label>
                 {constructorStanding.position} - {constructorStanding.Constructor.name}
@@ -64,5 +60,4 @@ export class ConstructorRanking {
       </Host>
     );
   }
-
 }
