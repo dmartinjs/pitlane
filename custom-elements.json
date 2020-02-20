@@ -1,0 +1,40 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "app-home",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "name": "app-root",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "name": "constructor-ranking",
+      "description": "",
+      "attributes": [
+        {
+          "name": "list-length",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "driver-ranking",
+      "description": "",
+      "attributes": [
+        {
+          "name": "list-length",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "next-race",
+      "description": "",
+      "attributes": []
+    }
+  ]
+}
