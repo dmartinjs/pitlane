@@ -1,3 +1,3 @@
 # F1rst
 
-> App to find statistics about fromula 1
+> App to find statistics about formula 1
