@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, State, Listen } from '@stencil/core';
 
 @Component({
   tag: 'app-ranks',
@@ -6,21 +6,34 @@ import { Component, h } from '@stencil/core';
 })
 export class AppRanks {
 
+  @State() selectedSegment: string = 'drivers';
+
+  @Listen('ionChange')
+  handleChange(event: CustomEvent) {
+    this.selectedSegment = event.detail.value;
+  }
+
   render() {
     return [
       <ion-header>
         <ion-toolbar>
           <ion-title>Ranks</ion-title>
         </ion-toolbar>
+        <ion-toolbar>
+          <ion-segment value="drivers">
+            <ion-segment-button value="drivers">
+              <ion-label>Drivers</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="constructors">
+              <ion-label>Constructors</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
       </ion-header>,
 
       <ion-content>
-        <ion-header collapse="condense">
-          <ion-toolbar>
-            <ion-title size="large">Ranks</ion-title>
-          </ion-toolbar>
-        </ion-header>
-        <driver-rank></driver-rank>
+        {this.selectedSegment == "drivers" && <driver-rank></driver-rank> }
+        {this.selectedSegment == "constructors" && <constructor-rank></constructor-rank> }
       </ion-content>
     ];
   }
