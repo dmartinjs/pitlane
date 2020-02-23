@@ -71,9 +71,9 @@ export class RaceList {
               {[...Array(20)].map(() => 
                 <ion-item>
                   <ion-label>
-                    <h2><ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text></h2>
-                    <h3><ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text></h3>
-                    <p><ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text></p>
+                    <h2><ion-skeleton-text animated style={{ height: '17px', width: '25%' }}></ion-skeleton-text></h2>
+                    <h3><ion-skeleton-text animated style={{ height: '13px', width: '15%' }}></ion-skeleton-text></h3>
+                    <p><ion-skeleton-text animated style={{ height: '16px', width: '55%' }}></ion-skeleton-text></p>
                   </ion-label>
                 </ion-item>
               )}

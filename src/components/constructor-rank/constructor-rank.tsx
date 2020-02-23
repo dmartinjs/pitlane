@@ -47,16 +47,27 @@ export class ConstructorRank {
   render() {
     return (
       <Host>
-        <ion-list>
-          {this.constructors.map(constructor => 
-            <ion-item>
-              <ion-label>
-                {constructor.position} - {constructor.Constructor.name}
-                </ion-label>
-              <ion-note slot="end" color="primary">{constructor.points}</ion-note>
-            </ion-item>
-          )}
-        </ion-list>
+        { this.isLoaded
+          ? <ion-list>
+              {this.constructors.map(constructor => 
+                <ion-item>
+                  <ion-label>
+                    {constructor.position} - {constructor.Constructor.name}
+                    </ion-label>
+                  <ion-note slot="end" color="primary">{constructor.points}</ion-note>
+                </ion-item>
+              )}
+            </ion-list>
+          : <ion-list>
+              {[...Array(10)].map(() => 
+                <ion-item>
+                  <ion-label>
+                    <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
+                  </ion-label>
+                </ion-item>
+              )}
+            </ion-list>
+        }
       </Host>
     );
   }
