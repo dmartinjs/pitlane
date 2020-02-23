@@ -55,12 +55,28 @@ export class NextRace {
   render() {
     return (
       <Host>
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>{this.race.date}</ion-card-subtitle>
-            <ion-card-title>{this.race.raceName}</ion-card-title>
-          </ion-card-header>
-        </ion-card>
+        {this.isLoaded
+          ? <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>
+                  {this.race.date}
+                </ion-card-subtitle>
+                <ion-card-title>
+                  {this.race.raceName}
+                </ion-card-title>
+              </ion-card-header>
+            </ion-card>
+          : <ion-card>
+              <ion-card-header>
+                <ion-card-subtitle>
+                  <ion-skeleton-text animated style={{ height: '15px', width: '30%' }}></ion-skeleton-text>
+                </ion-card-subtitle>
+                <ion-card-title>
+                  <ion-skeleton-text animated style={{ height: '20px', width: '80%' }}></ion-skeleton-text>
+                </ion-card-title>
+              </ion-card-header>
+            </ion-card>
+        }
       </Host>
     );
   }

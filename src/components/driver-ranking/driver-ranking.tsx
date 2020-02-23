@@ -58,16 +58,27 @@ export class DriverRanking {
   render() {
     return (
       <Host>
-        <ion-list>
-          {this.drivers.map(driverStanding => 
-            <ion-item>
-              <ion-label>
-                {driverStanding.position} - {driverStanding.Driver.givenName} {driverStanding.Driver.familyName}
-                </ion-label>
-              <ion-note slot="end" color="primary">{driverStanding.points}</ion-note>
-            </ion-item>
-          )}
-        </ion-list>
+        { this.isLoaded
+          ? <ion-list>
+              {this.drivers.map(driverStanding => 
+                <ion-item>
+                  <ion-label>
+                    {driverStanding.position} - {driverStanding.Driver.givenName} {driverStanding.Driver.familyName}
+                  </ion-label>
+                  <ion-note slot="end">{driverStanding.points}</ion-note>
+                </ion-item>
+              )}
+            </ion-list>
+          : <ion-list>
+              {[...Array(20)].map(x => 
+                <ion-item>
+                  <ion-label>
+                    <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
+                  </ion-label>
+                </ion-item>
+              )}
+            </ion-list>
+        }
       </Host>
     );
   }
