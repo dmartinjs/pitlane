@@ -11,11 +11,11 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface AppHome {}
-  interface AppRanking {}
   interface AppRoot {}
+  interface AppStandings {}
   interface AppTabs {}
-  interface ConstructorRanking {}
-  interface DriverRanking {}
+  interface ConstructorStandings {}
+  interface DriverStandings {}
   interface NextRace {}
 }
 
@@ -28,16 +28,16 @@ declare global {
     new (): HTMLAppHomeElement;
   };
 
-  interface HTMLAppRankingElement extends Components.AppRanking, HTMLStencilElement {}
-  var HTMLAppRankingElement: {
-    prototype: HTMLAppRankingElement;
-    new (): HTMLAppRankingElement;
-  };
-
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
+  };
+
+  interface HTMLAppStandingsElement extends Components.AppStandings, HTMLStencilElement {}
+  var HTMLAppStandingsElement: {
+    prototype: HTMLAppStandingsElement;
+    new (): HTMLAppStandingsElement;
   };
 
   interface HTMLAppTabsElement extends Components.AppTabs, HTMLStencilElement {}
@@ -46,16 +46,16 @@ declare global {
     new (): HTMLAppTabsElement;
   };
 
-  interface HTMLConstructorRankingElement extends Components.ConstructorRanking, HTMLStencilElement {}
-  var HTMLConstructorRankingElement: {
-    prototype: HTMLConstructorRankingElement;
-    new (): HTMLConstructorRankingElement;
+  interface HTMLConstructorStandingsElement extends Components.ConstructorStandings, HTMLStencilElement {}
+  var HTMLConstructorStandingsElement: {
+    prototype: HTMLConstructorStandingsElement;
+    new (): HTMLConstructorStandingsElement;
   };
 
-  interface HTMLDriverRankingElement extends Components.DriverRanking, HTMLStencilElement {}
-  var HTMLDriverRankingElement: {
-    prototype: HTMLDriverRankingElement;
-    new (): HTMLDriverRankingElement;
+  interface HTMLDriverStandingsElement extends Components.DriverStandings, HTMLStencilElement {}
+  var HTMLDriverStandingsElement: {
+    prototype: HTMLDriverStandingsElement;
+    new (): HTMLDriverStandingsElement;
   };
 
   interface HTMLNextRaceElement extends Components.NextRace, HTMLStencilElement {}
@@ -65,31 +65,31 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
-    'app-ranking': HTMLAppRankingElement;
     'app-root': HTMLAppRootElement;
+    'app-standings': HTMLAppStandingsElement;
     'app-tabs': HTMLAppTabsElement;
-    'constructor-ranking': HTMLConstructorRankingElement;
-    'driver-ranking': HTMLDriverRankingElement;
+    'constructor-standings': HTMLConstructorStandingsElement;
+    'driver-standings': HTMLDriverStandingsElement;
     'next-race': HTMLNextRaceElement;
   }
 }
 
 declare namespace LocalJSX {
   interface AppHome {}
-  interface AppRanking {}
   interface AppRoot {}
+  interface AppStandings {}
   interface AppTabs {}
-  interface ConstructorRanking {}
-  interface DriverRanking {}
+  interface ConstructorStandings {}
+  interface DriverStandings {}
   interface NextRace {}
 
   interface IntrinsicElements {
     'app-home': AppHome;
-    'app-ranking': AppRanking;
     'app-root': AppRoot;
+    'app-standings': AppStandings;
     'app-tabs': AppTabs;
-    'constructor-ranking': ConstructorRanking;
-    'driver-ranking': DriverRanking;
+    'constructor-standings': ConstructorStandings;
+    'driver-standings': DriverStandings;
     'next-race': NextRace;
   }
 }
@@ -101,11 +101,11 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-      'app-ranking': LocalJSX.AppRanking & JSXBase.HTMLAttributes<HTMLAppRankingElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+      'app-standings': LocalJSX.AppStandings & JSXBase.HTMLAttributes<HTMLAppStandingsElement>;
       'app-tabs': LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
-      'constructor-ranking': LocalJSX.ConstructorRanking & JSXBase.HTMLAttributes<HTMLConstructorRankingElement>;
-      'driver-ranking': LocalJSX.DriverRanking & JSXBase.HTMLAttributes<HTMLDriverRankingElement>;
+      'constructor-standings': LocalJSX.ConstructorStandings & JSXBase.HTMLAttributes<HTMLConstructorStandingsElement>;
+      'driver-standings': LocalJSX.DriverStandings & JSXBase.HTMLAttributes<HTMLDriverStandingsElement>;
       'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
     }
   }

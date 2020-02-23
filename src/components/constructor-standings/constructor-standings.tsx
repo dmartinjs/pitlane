@@ -17,11 +17,11 @@ interface Constructor {
 
 
 @Component({
-  tag: 'constructor-ranking',
-  styleUrl: 'constructor-ranking.css',
+  tag: 'constructor-standings',
+  styleUrl: 'constructor-standings.css',
   shadow: true
 })
-export class ConstructorRanking {
+export class ConstructorStandings {
 
   @State() error = null;
 

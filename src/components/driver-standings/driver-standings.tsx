@@ -28,11 +28,11 @@ interface DriverClass {
 }
 
 @Component({
-  tag: 'driver-ranking',
-  styleUrl: 'driver-ranking.css',
+  tag: 'driver-standings',
+  styleUrl: 'driver-standings.css',
   shadow: true
 })
-export class DriverRanking {
+export class DriverStandings {
 
   @State() error = null;
 

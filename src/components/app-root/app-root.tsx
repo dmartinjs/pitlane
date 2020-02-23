@@ -14,8 +14,8 @@ export class AppRoot {
             <ion-route url="/" component="tab-home">
               <ion-route component="app-home"/>
             </ion-route>
-            <ion-route url="/ranking" component="tab-ranking">
-              <ion-route component="app-ranking"/>
+            <ion-route url="/standings" component="tab-standings">
+              <ion-route component="app-standings"/>
             </ion-route>
           </ion-route>
         </ion-router>

@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('driver-ranking', () => {
+describe('driver-standings', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<driver-ranking></driver-ranking>');
+    await page.setContent('<driver-standings></driver-standings>');
 
-    const element = await page.find('driver-ranking');
+    const element = await page.find('driver-standings');
     expect(element).toHaveClass('hydrated');
   });
 });

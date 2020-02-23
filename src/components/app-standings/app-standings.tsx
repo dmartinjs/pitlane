@@ -1,26 +1,26 @@
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'app-ranking',
-  styleUrl: 'app-ranking.css'
+  tag: 'app-standings',
+  styleUrl: 'app-standings.css'
 })
-export class AppRanking {
+export class AppStandings {
 
   render() {
     return [
       <ion-header>
         <ion-toolbar>
-          <ion-title>Ranking</ion-title>
+          <ion-title>Standings</ion-title>
         </ion-toolbar>
       </ion-header>,
 
       <ion-content>
         <ion-header collapse="condense">
           <ion-toolbar>
-            <ion-title size="large">Ranking</ion-title>
+            <ion-title size="large">Standings</ion-title>
           </ion-toolbar>
         </ion-header>
-        <driver-ranking></driver-ranking>
+        <driver-standings></driver-standings>
       </ion-content>
     ];
   }
