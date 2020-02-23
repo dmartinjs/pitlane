@@ -70,7 +70,7 @@ export class DriverRanking {
               )}
             </ion-list>
           : <ion-list>
-              {[...Array(20)].map(x => 
+              {[...Array(20)].map(() => 
                 <ion-item>
                   <ion-label>
                     <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
