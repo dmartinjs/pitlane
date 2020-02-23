@@ -17,8 +17,8 @@ export class AppRoot {
             <ion-route url="/races" component="tab-races">
               <ion-route component="app-races"/>
             </ion-route>
-            <ion-route url="/standings" component="tab-standings">
-              <ion-route component="app-standings"/>
+            <ion-route url="/ranks" component="tab-ranks">
+              <ion-route component="app-ranks"/>
             </ion-route>
           </ion-route>
         </ion-router>

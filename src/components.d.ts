@@ -12,11 +12,11 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 export namespace Components {
   interface AppHome {}
   interface AppRaces {}
+  interface AppRanks {}
   interface AppRoot {}
-  interface AppStandings {}
   interface AppTabs {}
-  interface ConstructorStandings {}
-  interface DriverStandings {}
+  interface ConstructorRank {}
+  interface DriverRank {}
   interface NextRace {}
   interface RaceList {}
 }
@@ -36,16 +36,16 @@ declare global {
     new (): HTMLAppRacesElement;
   };
 
+  interface HTMLAppRanksElement extends Components.AppRanks, HTMLStencilElement {}
+  var HTMLAppRanksElement: {
+    prototype: HTMLAppRanksElement;
+    new (): HTMLAppRanksElement;
+  };
+
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
   var HTMLAppRootElement: {
     prototype: HTMLAppRootElement;
     new (): HTMLAppRootElement;
-  };
-
-  interface HTMLAppStandingsElement extends Components.AppStandings, HTMLStencilElement {}
-  var HTMLAppStandingsElement: {
-    prototype: HTMLAppStandingsElement;
-    new (): HTMLAppStandingsElement;
   };
 
   interface HTMLAppTabsElement extends Components.AppTabs, HTMLStencilElement {}
@@ -54,16 +54,16 @@ declare global {
     new (): HTMLAppTabsElement;
   };
 
-  interface HTMLConstructorStandingsElement extends Components.ConstructorStandings, HTMLStencilElement {}
-  var HTMLConstructorStandingsElement: {
-    prototype: HTMLConstructorStandingsElement;
-    new (): HTMLConstructorStandingsElement;
+  interface HTMLConstructorRankElement extends Components.ConstructorRank, HTMLStencilElement {}
+  var HTMLConstructorRankElement: {
+    prototype: HTMLConstructorRankElement;
+    new (): HTMLConstructorRankElement;
   };
 
-  interface HTMLDriverStandingsElement extends Components.DriverStandings, HTMLStencilElement {}
-  var HTMLDriverStandingsElement: {
-    prototype: HTMLDriverStandingsElement;
-    new (): HTMLDriverStandingsElement;
+  interface HTMLDriverRankElement extends Components.DriverRank, HTMLStencilElement {}
+  var HTMLDriverRankElement: {
+    prototype: HTMLDriverRankElement;
+    new (): HTMLDriverRankElement;
   };
 
   interface HTMLNextRaceElement extends Components.NextRace, HTMLStencilElement {}
@@ -80,11 +80,11 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
     'app-races': HTMLAppRacesElement;
+    'app-ranks': HTMLAppRanksElement;
     'app-root': HTMLAppRootElement;
-    'app-standings': HTMLAppStandingsElement;
     'app-tabs': HTMLAppTabsElement;
-    'constructor-standings': HTMLConstructorStandingsElement;
-    'driver-standings': HTMLDriverStandingsElement;
+    'constructor-rank': HTMLConstructorRankElement;
+    'driver-rank': HTMLDriverRankElement;
     'next-race': HTMLNextRaceElement;
     'race-list': HTMLRaceListElement;
   }
@@ -93,22 +93,22 @@ declare global {
 declare namespace LocalJSX {
   interface AppHome {}
   interface AppRaces {}
+  interface AppRanks {}
   interface AppRoot {}
-  interface AppStandings {}
   interface AppTabs {}
-  interface ConstructorStandings {}
-  interface DriverStandings {}
+  interface ConstructorRank {}
+  interface DriverRank {}
   interface NextRace {}
   interface RaceList {}
 
   interface IntrinsicElements {
     'app-home': AppHome;
     'app-races': AppRaces;
+    'app-ranks': AppRanks;
     'app-root': AppRoot;
-    'app-standings': AppStandings;
     'app-tabs': AppTabs;
-    'constructor-standings': ConstructorStandings;
-    'driver-standings': DriverStandings;
+    'constructor-rank': ConstructorRank;
+    'driver-rank': DriverRank;
     'next-race': NextRace;
     'race-list': RaceList;
   }
@@ -122,11 +122,11 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
       'app-races': LocalJSX.AppRaces & JSXBase.HTMLAttributes<HTMLAppRacesElement>;
+      'app-ranks': LocalJSX.AppRanks & JSXBase.HTMLAttributes<HTMLAppRanksElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
-      'app-standings': LocalJSX.AppStandings & JSXBase.HTMLAttributes<HTMLAppStandingsElement>;
       'app-tabs': LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
-      'constructor-standings': LocalJSX.ConstructorStandings & JSXBase.HTMLAttributes<HTMLConstructorStandingsElement>;
-      'driver-standings': LocalJSX.DriverStandings & JSXBase.HTMLAttributes<HTMLDriverStandingsElement>;
+      'constructor-rank': LocalJSX.ConstructorRank & JSXBase.HTMLAttributes<HTMLConstructorRankElement>;
+      'driver-rank': LocalJSX.DriverRank & JSXBase.HTMLAttributes<HTMLDriverRankElement>;
       'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
       'race-list': LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
     }

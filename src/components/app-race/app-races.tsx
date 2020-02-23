@@ -10,14 +10,14 @@ export class AppRace {
     return [
       <ion-header>
         <ion-toolbar>
-          <ion-title>Race</ion-title>
+          <ion-title>Races</ion-title>
         </ion-toolbar>
       </ion-header>,
 
       <ion-content>
         <ion-header collapse="condense">
           <ion-toolbar>
-            <ion-title size="large">Race</ion-title>
+            <ion-title size="large">Races</ion-title>
           </ion-toolbar>
         </ion-header>
         <race-list></race-list>

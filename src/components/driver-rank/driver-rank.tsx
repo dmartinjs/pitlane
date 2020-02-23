@@ -28,11 +28,11 @@ interface DriverClass {
 }
 
 @Component({
-  tag: 'driver-standings',
-  styleUrl: 'driver-standings.css',
+  tag: 'driver-rank',
+  styleUrl: 'driver-rank.css',
   shadow: true
 })
-export class DriverStandings {
+export class DriverRank {
 
   @State() error = null;
 
@@ -60,12 +60,12 @@ export class DriverStandings {
       <Host>
         { this.isLoaded
           ? <ion-list>
-              {this.drivers.map(driverStanding => 
+              {this.drivers.map(driver => 
                 <ion-item>
                   <ion-label>
-                    {driverStanding.position} - {driverStanding.Driver.givenName} {driverStanding.Driver.familyName}
+                    {driver.position} - {driver.Driver.givenName} {driver.Driver.familyName}
                   </ion-label>
-                  <ion-note slot="end">{driverStanding.points}</ion-note>
+                  <ion-note slot="end">{driver.points}</ion-note>
                 </ion-item>
               )}
             </ion-list>

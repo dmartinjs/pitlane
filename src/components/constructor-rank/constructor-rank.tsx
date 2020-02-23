@@ -17,11 +17,11 @@ interface Constructor {
 
 
 @Component({
-  tag: 'constructor-standings',
-  styleUrl: 'constructor-standings.css',
+  tag: 'constructor-rank',
+  styleUrl: 'constructor-rank.css',
   shadow: true
 })
-export class ConstructorStandings {
+export class ConstructorRank {
 
   @State() error = null;
 
@@ -48,12 +48,12 @@ export class ConstructorStandings {
     return (
       <Host>
         <ion-list>
-          {this.constructors.map(constructorStanding => 
+          {this.constructors.map(constructor => 
             <ion-item>
               <ion-label>
-                {constructorStanding.position} - {constructorStanding.Constructor.name}
+                {constructor.position} - {constructor.Constructor.name}
                 </ion-label>
-              <ion-note slot="end" color="primary">{constructorStanding.points}</ion-note>
+              <ion-note slot="end" color="primary">{constructor.points}</ion-note>
             </ion-item>
           )}
         </ion-list>
