@@ -11,12 +11,14 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface AppHome {}
+  interface AppRaces {}
   interface AppRoot {}
   interface AppStandings {}
   interface AppTabs {}
   interface ConstructorStandings {}
   interface DriverStandings {}
   interface NextRace {}
+  interface RaceList {}
 }
 
 declare global {
@@ -26,6 +28,12 @@ declare global {
   var HTMLAppHomeElement: {
     prototype: HTMLAppHomeElement;
     new (): HTMLAppHomeElement;
+  };
+
+  interface HTMLAppRacesElement extends Components.AppRaces, HTMLStencilElement {}
+  var HTMLAppRacesElement: {
+    prototype: HTMLAppRacesElement;
+    new (): HTMLAppRacesElement;
   };
 
   interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {}
@@ -63,34 +71,46 @@ declare global {
     prototype: HTMLNextRaceElement;
     new (): HTMLNextRaceElement;
   };
+
+  interface HTMLRaceListElement extends Components.RaceList, HTMLStencilElement {}
+  var HTMLRaceListElement: {
+    prototype: HTMLRaceListElement;
+    new (): HTMLRaceListElement;
+  };
   interface HTMLElementTagNameMap {
     'app-home': HTMLAppHomeElement;
+    'app-races': HTMLAppRacesElement;
     'app-root': HTMLAppRootElement;
     'app-standings': HTMLAppStandingsElement;
     'app-tabs': HTMLAppTabsElement;
     'constructor-standings': HTMLConstructorStandingsElement;
     'driver-standings': HTMLDriverStandingsElement;
     'next-race': HTMLNextRaceElement;
+    'race-list': HTMLRaceListElement;
   }
 }
 
 declare namespace LocalJSX {
   interface AppHome {}
+  interface AppRaces {}
   interface AppRoot {}
   interface AppStandings {}
   interface AppTabs {}
   interface ConstructorStandings {}
   interface DriverStandings {}
   interface NextRace {}
+  interface RaceList {}
 
   interface IntrinsicElements {
     'app-home': AppHome;
+    'app-races': AppRaces;
     'app-root': AppRoot;
     'app-standings': AppStandings;
     'app-tabs': AppTabs;
     'constructor-standings': ConstructorStandings;
     'driver-standings': DriverStandings;
     'next-race': NextRace;
+    'race-list': RaceList;
   }
 }
 
@@ -101,12 +121,14 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'app-home': LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+      'app-races': LocalJSX.AppRaces & JSXBase.HTMLAttributes<HTMLAppRacesElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
       'app-standings': LocalJSX.AppStandings & JSXBase.HTMLAttributes<HTMLAppStandingsElement>;
       'app-tabs': LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
       'constructor-standings': LocalJSX.ConstructorStandings & JSXBase.HTMLAttributes<HTMLConstructorStandingsElement>;
       'driver-standings': LocalJSX.DriverStandings & JSXBase.HTMLAttributes<HTMLDriverStandingsElement>;
       'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
+      'race-list': LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
     }
   }
 }
