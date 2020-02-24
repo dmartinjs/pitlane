@@ -46,8 +46,7 @@ export class ConstructorRank {
 
   showDetail(constructorId) {
     const nav = document.querySelector('ion-nav');
-    const constructor = this.constructors.find(constructor => constructor.Constructor.constructorId === constructorId);
-    nav.push('constructor-detail', { constructor });
+    nav.push('constructor-detail', { constructorId });
   }
 
   render() {

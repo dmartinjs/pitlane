@@ -35,7 +35,7 @@ export class RaceDetail {
   @Prop() circuit;
 
   componentDidLoad() {
-    fetch(`http://ergast.com/api/f1/current/circuits/${this.circuit}.json`)
+    fetch(`https://ergast.com/api/f1/current/circuits/${this.circuit}.json`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -59,6 +59,7 @@ export class RaceDetail {
           <ion-title>{this.race.Circuits[0].Location.country}</ion-title>
         </ion-toolbar>
       </ion-header>,
+
       <ion-content class="ion-padding">
         <h1>{this.race.Circuits[0].Location.locality} {this.race.season}</h1>
         <p>{this.race.Circuits[0].circuitName}</p>

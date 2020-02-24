@@ -22,6 +22,7 @@ export class AppRoot {
             </ion-route>
           </ion-route>
           <ion-route url="/race/:circuit" component="race-detail"></ion-route>
+          <ion-route url="/constructor/:constructorId" component="constructor-detail"></ion-route>
         </ion-router>
         <ion-nav />
       </ion-app>

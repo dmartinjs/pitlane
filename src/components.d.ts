@@ -15,6 +15,9 @@ export namespace Components {
   interface AppRanks {}
   interface AppRoot {}
   interface AppTabs {}
+  interface ConstructorDetail {
+    'constructorId': string;
+  }
   interface ConstructorRank {}
   interface DriverRank {}
   interface NextRace {}
@@ -57,6 +60,12 @@ declare global {
     new (): HTMLAppTabsElement;
   };
 
+  interface HTMLConstructorDetailElement extends Components.ConstructorDetail, HTMLStencilElement {}
+  var HTMLConstructorDetailElement: {
+    prototype: HTMLConstructorDetailElement;
+    new (): HTMLConstructorDetailElement;
+  };
+
   interface HTMLConstructorRankElement extends Components.ConstructorRank, HTMLStencilElement {}
   var HTMLConstructorRankElement: {
     prototype: HTMLConstructorRankElement;
@@ -92,6 +101,7 @@ declare global {
     'app-ranks': HTMLAppRanksElement;
     'app-root': HTMLAppRootElement;
     'app-tabs': HTMLAppTabsElement;
+    'constructor-detail': HTMLConstructorDetailElement;
     'constructor-rank': HTMLConstructorRankElement;
     'driver-rank': HTMLDriverRankElement;
     'next-race': HTMLNextRaceElement;
@@ -106,6 +116,9 @@ declare namespace LocalJSX {
   interface AppRanks {}
   interface AppRoot {}
   interface AppTabs {}
+  interface ConstructorDetail {
+    'constructorId'?: string;
+  }
   interface ConstructorRank {}
   interface DriverRank {}
   interface NextRace {}
@@ -120,6 +133,7 @@ declare namespace LocalJSX {
     'app-ranks': AppRanks;
     'app-root': AppRoot;
     'app-tabs': AppTabs;
+    'constructor-detail': ConstructorDetail;
     'constructor-rank': ConstructorRank;
     'driver-rank': DriverRank;
     'next-race': NextRace;
@@ -139,6 +153,7 @@ declare module "@stencil/core" {
       'app-ranks': LocalJSX.AppRanks & JSXBase.HTMLAttributes<HTMLAppRanksElement>;
       'app-root': LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
       'app-tabs': LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
+      'constructor-detail': LocalJSX.ConstructorDetail & JSXBase.HTMLAttributes<HTMLConstructorDetailElement>;
       'constructor-rank': LocalJSX.ConstructorRank & JSXBase.HTMLAttributes<HTMLConstructorRankElement>;
       'driver-rank': LocalJSX.DriverRank & JSXBase.HTMLAttributes<HTMLDriverRankElement>;
       'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
