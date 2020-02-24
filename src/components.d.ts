@@ -18,6 +18,9 @@ export namespace Components {
   interface ConstructorRank {}
   interface DriverRank {}
   interface NextRace {}
+  interface RaceDetail {
+    'race': any;
+  }
   interface RaceList {}
 }
 
@@ -72,6 +75,12 @@ declare global {
     new (): HTMLNextRaceElement;
   };
 
+  interface HTMLRaceDetailElement extends Components.RaceDetail, HTMLStencilElement {}
+  var HTMLRaceDetailElement: {
+    prototype: HTMLRaceDetailElement;
+    new (): HTMLRaceDetailElement;
+  };
+
   interface HTMLRaceListElement extends Components.RaceList, HTMLStencilElement {}
   var HTMLRaceListElement: {
     prototype: HTMLRaceListElement;
@@ -86,6 +95,7 @@ declare global {
     'constructor-rank': HTMLConstructorRankElement;
     'driver-rank': HTMLDriverRankElement;
     'next-race': HTMLNextRaceElement;
+    'race-detail': HTMLRaceDetailElement;
     'race-list': HTMLRaceListElement;
   }
 }
@@ -99,6 +109,9 @@ declare namespace LocalJSX {
   interface ConstructorRank {}
   interface DriverRank {}
   interface NextRace {}
+  interface RaceDetail {
+    'race'?: any;
+  }
   interface RaceList {}
 
   interface IntrinsicElements {
@@ -110,6 +123,7 @@ declare namespace LocalJSX {
     'constructor-rank': ConstructorRank;
     'driver-rank': DriverRank;
     'next-race': NextRace;
+    'race-detail': RaceDetail;
     'race-list': RaceList;
   }
 }
@@ -128,6 +142,7 @@ declare module "@stencil/core" {
       'constructor-rank': LocalJSX.ConstructorRank & JSXBase.HTMLAttributes<HTMLConstructorRankElement>;
       'driver-rank': LocalJSX.DriverRank & JSXBase.HTMLAttributes<HTMLDriverRankElement>;
       'next-race': LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
+      'race-detail': LocalJSX.RaceDetail & JSXBase.HTMLAttributes<HTMLRaceDetailElement>;
       'race-list': LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
     }
   }

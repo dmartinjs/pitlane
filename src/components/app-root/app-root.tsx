@@ -21,6 +21,7 @@ export class AppRoot {
               <ion-route component="app-ranks"/>
             </ion-route>
           </ion-route>
+          <ion-route url="/race" component="race-detail"></ion-route>
         </ion-router>
         <ion-nav />
       </ion-app>

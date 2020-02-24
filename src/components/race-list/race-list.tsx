@@ -52,13 +52,19 @@ export class RaceList {
       )
   }
 
+  showDetail(circuitId) {
+    const nav = document.querySelector('ion-nav');
+    const race = this.races.find(race => race.Circuit.circuitId === circuitId);
+    nav.push('race-detail', { race });
+  }
+
   render() {
     return (
       <Host>
         { this.isLoaded
           ? <ion-list>
               {this.races.map(race =>
-                <ion-item>
+                <ion-item button onClick={() => this.showDetail(race.Circuit.circuitId)}>
                   <ion-label>
                     <h2>{race.date}</h2>
                     <h3>{race.Circuit.Location.country}</h3>
@@ -82,5 +88,4 @@ export class RaceList {
       </Host>
     );
   }
-
 }
