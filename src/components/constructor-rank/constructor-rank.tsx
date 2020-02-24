@@ -44,13 +44,19 @@ export class ConstructorRank {
       )
   }
 
+  showDetail(constructorId) {
+    const nav = document.querySelector('ion-nav');
+    const constructor = this.constructors.find(constructor => constructor.Constructor.constructorId === constructorId);
+    nav.push('constructor-detail', { constructor });
+  }
+
   render() {
     return (
       <Host>
         { this.isLoaded
           ? <ion-list>
               {this.constructors.map(constructor => 
-                <ion-item>
+                <ion-item onClick={() => this.showDetail(constructor.Constructor.constructorId)}>
                   <ion-label>
                     {constructor.position} - {constructor.Constructor.name}
                     </ion-label>

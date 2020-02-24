@@ -52,10 +52,9 @@ export class RaceList {
       )
   }
 
-  showDetail(circuitId) {
+  showDetail(circuit) {
     const nav = document.querySelector('ion-nav');
-    const race = this.races.find(race => race.Circuit.circuitId === circuitId);
-    nav.push('race-detail', { race });
+    nav.push('race-detail', { circuit });
   }
 
   render() {

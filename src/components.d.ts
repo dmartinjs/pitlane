@@ -19,7 +19,7 @@ export namespace Components {
   interface DriverRank {}
   interface NextRace {}
   interface RaceDetail {
-    'race': any;
+    'circuit': any;
   }
   interface RaceList {}
 }
@@ -110,7 +110,7 @@ declare namespace LocalJSX {
   interface DriverRank {}
   interface NextRace {}
   interface RaceDetail {
-    'race'?: any;
+    'circuit'?: any;
   }
   interface RaceList {}
 
