@@ -55,13 +55,18 @@ export class DriverRank {
       )
   }
 
+  showDetail(driverId) {
+    const nav = document.querySelector('ion-nav');
+    nav.push('driver-detail', { driverId });
+  }
+
   render() {
     return (
       <Host>
         { this.isLoaded
           ? <ion-list>
               {this.drivers.map(driver => 
-                <ion-item>
+                <ion-item button onClick={() => this.showDetail(driver.Driver.driverId)}>
                   <ion-label>
                     {driver.position} - {driver.Driver.givenName} {driver.Driver.familyName}
                   </ion-label>

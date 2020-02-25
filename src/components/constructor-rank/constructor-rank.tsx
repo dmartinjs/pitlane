@@ -55,7 +55,7 @@ export class ConstructorRank {
         { this.isLoaded
           ? <ion-list>
               {this.constructors.map(constructor => 
-                <ion-item onClick={() => this.showDetail(constructor.Constructor.constructorId)}>
+                <ion-item button onClick={() => this.showDetail(constructor.Constructor.constructorId)}>
                   <ion-label>
                     {constructor.position} - {constructor.Constructor.name}
                     </ion-label>
