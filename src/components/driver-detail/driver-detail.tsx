@@ -45,7 +45,7 @@ export class DriverDetail {
       <ion-header translucent>
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-back-button defaultHref="/races"></ion-back-button>
+            <ion-back-button defaultHref="/ranks"></ion-back-button>
           </ion-buttons>
           <ion-title></ion-title>
         </ion-toolbar>
