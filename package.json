@@ -19,13 +19,13 @@
     "build-storybook": "build-storybook -s www"
   },
   "dependencies": {
-    "@ionic/core": "^5.0.1"
+    "@ionic/core": "^5.0.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@stencil/core": "^1.8.9",
-    "@storybook/addon-docs": "^5.3.13",
-    "@storybook/web-components": "^5.3.13",
+    "@babel/core": "^7.8.6",
+    "@stencil/core": "^1.8.11",
+    "@storybook/addon-docs": "^5.3.14",
+    "@storybook/web-components": "^5.3.14",
     "@types/jest": "24.0.25",
     "@types/puppeteer": "1.20.3",
     "babel-loader": "^8.0.6",
