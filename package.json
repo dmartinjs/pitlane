@@ -19,6 +19,9 @@
     "build-storybook": "build-storybook -s www"
   },
   "dependencies": {
+    "@capacitor/android": "^1.5.0",
+    "@capacitor/cli": "^1.5.0",
+    "@capacitor/core": "^1.5.0",
     "@ionic/core": "^5.0.4"
   },
   "devDependencies": {

@@ -1,0 +1,8 @@
+{
+  "appId": "com.f1rst.app",
+  "appName": "f1rst",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
