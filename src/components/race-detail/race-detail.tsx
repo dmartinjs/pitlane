@@ -56,7 +56,6 @@ export class RaceDetail {
           <ion-buttons slot="start">
             <ion-back-button defaultHref="/races"></ion-back-button>
           </ion-buttons>
-          <ion-title>{this.race.Circuits[0].Location.country}</ion-title>
         </ion-toolbar>
       </ion-header>,
 

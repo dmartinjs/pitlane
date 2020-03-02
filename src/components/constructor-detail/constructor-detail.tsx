@@ -49,11 +49,11 @@ export class ConstructorDetail {
           <ion-buttons slot="start">
             <ion-back-button defaultHref="/ranks"></ion-back-button>
           </ion-buttons>
-          <ion-title>{this.construct.Constructors[0].name}</ion-title>
         </ion-toolbar>
       </ion-header>,
 
       <ion-content class="ion-padding">
+        <h1>{this.construct.Constructors[0].name}</h1>
       </ion-content>
     ];
   }
