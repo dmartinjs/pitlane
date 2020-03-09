@@ -7,32 +7,72 @@
       "attributes": []
     },
     {
+      "name": "app-races",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "name": "app-ranks",
+      "description": "",
+      "attributes": []
+    },
+    {
       "name": "app-root",
       "description": "",
       "attributes": []
     },
     {
-      "name": "constructor-ranking",
+      "name": "app-tabs",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "name": "constructor-detail",
       "description": "",
       "attributes": [
         {
-          "name": "list-length",
+          "name": "constructor-id",
           "description": ""
         }
       ]
     },
     {
-      "name": "driver-ranking",
+      "name": "constructor-rank",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "name": "driver-detail",
       "description": "",
       "attributes": [
         {
-          "name": "list-length",
+          "name": "driver-id",
           "description": ""
         }
       ]
+    },
+    {
+      "name": "driver-rank",
+      "description": "",
+      "attributes": []
     },
     {
       "name": "next-race",
+      "description": "",
+      "attributes": []
+    },
+    {
+      "name": "race-detail",
+      "description": "",
+      "attributes": [
+        {
+          "name": "circuit",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "race-list",
       "description": "",
       "attributes": []
     }
