@@ -56,13 +56,13 @@ export class NextRace {
     return (
       <Host>
         {this.isLoaded
-          ? <ion-card>
+          ? <ion-card href={`/race/${this.race.Circuit.circuitId}`}>
               <ion-card-header>
                 <ion-card-subtitle>
                   {this.race.date}
                 </ion-card-subtitle>
                 <ion-card-title>
-                  {this.race.raceName}
+                  {this.race.Circuit.Location.country} {this.race.season}
                 </ion-card-title>
               </ion-card-header>
             </ion-card>
