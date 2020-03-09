@@ -14,15 +14,15 @@ export class AppTabs {
 
         <ion-tab-bar slot="bottom">
           <ion-tab-button tab="tab-home">
-            <ion-icon ios="home" md="home-sharp" />
+            <ion-icon ios="home-outline" md="home-outline" />
             <ion-label>Home</ion-label>
           </ion-tab-button>
           <ion-tab-button tab="tab-races">
-            <ion-icon ios="flag" md="flag-sharp" />
+            <ion-icon ios="flag-outline" md="flag-outline" />
             <ion-label>Races</ion-label>
           </ion-tab-button>
           <ion-tab-button tab="tab-ranks">
-            <ion-icon ios="medal" md="medal-sharp" />
+            <ion-icon ios="trophy-outline" md="trophy-outline" />
             <ion-label>Ranks</ion-label>
           </ion-tab-button>
         </ion-tab-bar>
