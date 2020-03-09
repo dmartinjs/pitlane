@@ -32,10 +32,10 @@ export class RaceDetail {
 
   @State() race: CircuitTable = {};
 
-  @Prop() circuit;
+  @Prop() circuitId;
 
   componentDidLoad() {
-    fetch(`https://ergast.com/api/f1/current/circuits/${this.circuit}.json`)
+    fetch(`https://ergast.com/api/f1/current/circuits/${this.circuitId}.json`)
       .then(res => res.json())
       .then(
         (result) => {

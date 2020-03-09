@@ -29,7 +29,7 @@ export namespace Components {
     interface NextRace {
     }
     interface RaceDetail {
-        "circuit": any;
+        "circuitId": any;
     }
     interface RaceList {
     }
@@ -146,7 +146,7 @@ declare namespace LocalJSX {
     interface NextRace {
     }
     interface RaceDetail {
-        "circuit"?: any;
+        "circuitId"?: any;
     }
     interface RaceList {
     }

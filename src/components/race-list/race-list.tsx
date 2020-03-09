@@ -52,9 +52,9 @@ export class RaceList {
       )
   }
 
-  showDetail(circuit) {
+  showDetail(circuitId) {
     const nav = document.querySelector('ion-nav');
-    nav.push('race-detail', { circuit });
+    nav.push('race-detail', { circuitId });
   }
 
   render() {
