@@ -65,16 +65,22 @@ export class NextRace {
                   {this.race.Circuit.Location.country} {this.race.season}
                 </ion-card-title>
               </ion-card-header>
+              <ion-card-content>
+                {this.race.Circuit.circuitName}
+              </ion-card-content>
             </ion-card>
           : <ion-card>
               <ion-card-header>
                 <ion-card-subtitle>
-                  <ion-skeleton-text animated style={{ height: '15px', width: '30%' }}></ion-skeleton-text>
+                  <ion-skeleton-text animated style={{ height: '10px', width: '30%' }}></ion-skeleton-text>
                 </ion-card-subtitle>
                 <ion-card-title>
-                  <ion-skeleton-text animated style={{ height: '20px', width: '80%' }}></ion-skeleton-text>
+                  <ion-skeleton-text animated style={{ height: '26px', width: '50%' }}></ion-skeleton-text>
                 </ion-card-title>
               </ion-card-header>
+              <ion-card-content>
+                <ion-skeleton-text animated style={{ height: '10px', width: '60%' }}></ion-skeleton-text>
+              </ion-card-content>
             </ion-card>
         }
       </Host>
