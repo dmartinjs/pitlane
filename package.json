@@ -25,16 +25,16 @@
     "@ionic/core": "^5.0.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@stencil/core": "^1.10.1",
+    "@babel/core": "^7.9.0",
+    "@stencil/core": "^1.11.0",
     "@storybook/addon-docs": "^5.3.17",
     "@storybook/web-components": "^5.3.17",
     "@types/jest": "24.0.25",
     "@types/puppeteer": "1.20.3",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.1.0",
     "jest": "24.9.0",
     "jest-cli": "24.9.0",
-    "lit-html": "^1.1.2",
+    "lit-html": "^1.2.1",
     "puppeteer": "1.20.0"
   }
 }
