@@ -25,10 +25,10 @@ export class AppHome {
         <next-race></next-race>
 
         <h2 class="home-title">Driver Ranking</h2>
-        <driver-rank></driver-rank>
+        <driver-rank limit={3}></driver-rank>
 
         <h2 class="home-title">Constructor Ranking</h2>
-        <constructor-rank></constructor-rank>
+        <constructor-rank limit={3}></constructor-rank>
       </ion-content>
     ];
   }

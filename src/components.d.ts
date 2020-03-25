@@ -20,11 +20,13 @@ export namespace Components {
         "constructorId": string;
     }
     interface ConstructorRank {
+        "limit": number;
     }
     interface DriverDetail {
         "driverId": any;
     }
     interface DriverRank {
+        "limit": number;
     }
     interface NextRace {
     }
@@ -137,11 +139,13 @@ declare namespace LocalJSX {
         "constructorId"?: string;
     }
     interface ConstructorRank {
+        "limit"?: number;
     }
     interface DriverDetail {
         "driverId"?: any;
     }
     interface DriverRank {
+        "limit"?: number;
     }
     interface NextRace {
     }

@@ -1,10 +1,8 @@
-import { Component, Host, h, State } from '@stencil/core';
+import { Component, Host, h, State, Prop } from '@stencil/core';
 import { DriverStanding } from '../../models';
 
 @Component({
-  tag: 'driver-rank',
-  styleUrl: 'driver-rank.css',
-  shadow: true
+  tag: 'driver-rank'
 })
 export class DriverRank {
 
@@ -13,6 +11,8 @@ export class DriverRank {
   @State() isLoaded = false;
 
   @State() drivers: Array<DriverStanding> = [];
+
+  @Prop() limit: number;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/driverStandings.json')
@@ -35,11 +35,13 @@ export class DriverRank {
   }
 
   render() {
+    const drivers = this.limit ? this.drivers.slice(0, this.limit) : this.drivers;
+
     return (
       <Host>
         { this.isLoaded
-          ? <ion-list>
-              {this.drivers.map(driver => 
+          ? <ion-list class="ion-no-padding">
+              {drivers.map(driver => 
                 <ion-item button onClick={() => this.showDetail(driver.Driver.driverId)}>
                   <ion-label>
                     <h3>{driver.position} - {driver.Driver.givenName} {driver.Driver.familyName}</h3>
