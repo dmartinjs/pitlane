@@ -46,7 +46,7 @@ export class ConstructorRank {
                   <ion-label>
                     {constructor.position} - {constructor.Constructor.name}
                     </ion-label>
-                  <ion-note slot="end" color="primary">{constructor.points}</ion-note>
+                  <ion-note slot="end">{constructor.points}</ion-note>
                 </ion-item>
               )}
             </ion-list>
