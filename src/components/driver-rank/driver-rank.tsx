@@ -36,6 +36,7 @@ export class DriverRank {
 
   render() {
     const drivers = this.limit ? this.drivers.slice(0, this.limit) : this.drivers;
+    const driversLength = this.limit ? this.limit : 20;
 
     return (
       <Host>
@@ -52,7 +53,7 @@ export class DriverRank {
               )}
             </ion-list>
           : <ion-list>
-              {[...Array(20)].map(() => 
+              {[...Array(driversLength)].map(() => 
                 <ion-item>
                   <ion-label>
                     <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>

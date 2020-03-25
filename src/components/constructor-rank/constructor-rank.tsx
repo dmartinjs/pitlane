@@ -36,6 +36,7 @@ export class ConstructorRank {
 
   render() {
     const constructors = this.limit ? this.constructors.slice(0, this.limit) : this.constructors;
+    const constructorsLength = this.limit ? this.limit : 10;
 
     return (
       <Host>
@@ -51,7 +52,7 @@ export class ConstructorRank {
               )}
             </ion-list>
           : <ion-list>
-              {[...Array(10)].map(() => 
+              {[...Array(constructorsLength)].map(() => 
                 <ion-item>
                   <ion-label>
                     <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
