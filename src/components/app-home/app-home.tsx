@@ -14,13 +14,21 @@ export class AppHome {
         </ion-toolbar>
       </ion-header>,
 
-      <ion-content>
+      <ion-content class="ion-padding">
         <ion-header collapse="condense">
           <ion-toolbar>
             <ion-title size="large">F1rst</ion-title>
           </ion-toolbar>
         </ion-header>
+
+        <h2>Next Race</h2>
         <next-race></next-race>
+
+        <h2 class="home-title">Driver Ranking</h2>
+        <driver-rank></driver-rank>
+
+        <h2 class="home-title">Constructor Ranking</h2>
+        <constructor-rank></constructor-rank>
       </ion-content>
     ];
   }

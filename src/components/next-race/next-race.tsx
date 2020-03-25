@@ -2,9 +2,7 @@ import { Component, Host, h, State } from '@stencil/core';
 import { Race } from '../../models';
 
 @Component({
-  tag: 'next-race',
-  styleUrl: 'next-race.css',
-  shadow: true
+  tag: 'next-race'
 })
 export class NextRace {
 
@@ -33,7 +31,7 @@ export class NextRace {
     return (
       <Host>
         {this.isLoaded
-          ? <ion-card href={`/race/${this.race.Circuit.circuitId}`}>
+          ? <ion-card class="ion-no-margin" href={`/race/${this.race.Circuit.circuitId}`}>
               <ion-card-header>
                 <ion-card-subtitle>
                   {this.race.date}
