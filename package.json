@@ -22,7 +22,7 @@
     "@capacitor/android": "^1.5.1",
     "@capacitor/cli": "^1.5.1",
     "@capacitor/core": "^1.5.1",
-    "@ionic/core": "^5.0.5"
+    "@ionic/core": "^5.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
