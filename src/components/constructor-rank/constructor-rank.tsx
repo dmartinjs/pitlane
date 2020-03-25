@@ -1,20 +1,5 @@
 import { Component, Host, h, State } from '@stencil/core';
-
-interface ConstructorStanding {
-  position?:     string;
-  positionText?: string;
-  points?:       string;
-  wins?:         string;
-  Constructor?:  Constructor;
-}
-
-interface Constructor {
-  constructorId?: string;
-  url?:           string;
-  name?:          string;
-  nationality?:   string;
-}
-
+import { ConstructorStanding } from '../../models';
 
 @Component({
   tag: 'constructor-rank',

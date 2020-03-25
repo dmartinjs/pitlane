@@ -1,24 +1,5 @@
 import { Component, h, Prop, State } from '@stencil/core';
-
-export interface CircuitTable {
-  season?:    string;
-  circuitId?: string;
-  Circuits?:  Circuit[];
-}
-
-export interface Circuit {
-  circuitId?:   string;
-  url?:         string;
-  circuitName?: string;
-  Location?:    Location;
-}
-
-export interface Location {
-  lat?:      string;
-  long?:     string;
-  locality?: string;
-  country?:  string;
-}
+import { CircuitTable } from '../../models';
 
 @Component({
   tag: 'race-detail',

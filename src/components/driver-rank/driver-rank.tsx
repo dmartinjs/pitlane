@@ -1,31 +1,5 @@
 import { Component, Host, h, State } from '@stencil/core';
-
-interface DriverStanding {
-  position?:     string;
-  positionText?: string;
-  points?:       string;
-  wins?:         string;
-  Driver?:       DriverClass;
-  Constructors?: Constructor[];
-}
-
-interface Constructor {
-  constructorId?: string;
-  url?:           string;
-  name?:          string;
-  nationality?:   string;
-}
-
-interface DriverClass {
-  driverId?:        string;
-  permanentNumber?: string;
-  code?:            string;
-  url?:             string;
-  givenName?:       string;
-  familyName?:      string;
-  dateOfBirth?:     Date;
-  nationality?:     string;
-}
+import { DriverStanding } from '../../models';
 
 @Component({
   tag: 'driver-rank',

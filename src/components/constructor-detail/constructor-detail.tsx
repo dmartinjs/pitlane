@@ -1,17 +1,5 @@
 import { Component, h, State, Prop } from '@stencil/core';
-
-export interface ConstructorTable {
-  season?:        string;
-  constructorId?: string;
-  Constructors?:  Constructor[];
-}
-
-export interface Constructor {
-  constructorId?: string;
-  url?:           string;
-  name?:          string;
-  nationality?:   string;
-}
+import { Constructor } from '../../models';
 
 @Component({
   tag: 'constructor-detail',
@@ -23,7 +11,7 @@ export class ConstructorDetail {
 
   @State() isLoaded = false;
 
-  @State() construct: ConstructorTable = {};
+  @State() construct: Constructor = {};
 
   @Prop() constructorId: string;
 
@@ -33,7 +21,7 @@ export class ConstructorDetail {
       .then(
         (result) => {
           this.isLoaded = true;
-          this.construct = result.MRData.ConstructorTable;
+          this.construct = result.MRData.ConstructorTable.Constructors[0];
         },
         (error) => {
           this.isLoaded = true;
@@ -53,7 +41,7 @@ export class ConstructorDetail {
       </ion-header>,
 
       <ion-content class="ion-padding">
-        <h1>{this.construct.Constructors[0].name}</h1>
+        <h1>{this.construct.name}</h1>
       </ion-content>
     ];
   }

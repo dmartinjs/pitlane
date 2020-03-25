@@ -1,28 +1,5 @@
 import { Component, Host, h, State } from '@stencil/core';
-
-interface Race {
-  season?:   string;
-  round?:    string;
-  url?:      string;
-  raceName?: string;
-  Circuit?:  Circuit;
-  date?:     Date;
-  time?:     string;
-}
-
-interface Circuit {
-  circuitId?:   string;
-  url?:         string;
-  circuitName?: string;
-  Location?:    Location;
-}
-
-interface Location {
-  lat?:      string;
-  long?:     string;
-  locality?: string;
-  country?:  string;
-}
+import { Race } from '../../models';
 
 @Component({
   tag: 'race-list',

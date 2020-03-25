@@ -1,15 +1,5 @@
 import { Component, h, Prop, State } from '@stencil/core';
-
-interface Driver {
-  driverId?:        string;
-  permanentNumber?: string;
-  code?:            string;
-  url?:             string;
-  givenName?:       string;
-  familyName?:      string;
-  dateOfBirth?:     Date;
-  nationality?:     string;
-}
+import { Driver } from '../../models';
 
 @Component({
   tag: 'driver-detail',
