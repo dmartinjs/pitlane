@@ -39,7 +39,12 @@
     {
       "name": "constructor-rank",
       "description": "",
-      "attributes": []
+      "attributes": [
+        {
+          "name": "limit",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "driver-detail",
@@ -54,7 +59,12 @@
     {
       "name": "driver-rank",
       "description": "",
-      "attributes": []
+      "attributes": [
+        {
+          "name": "limit",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "next-race",
