@@ -2,8 +2,7 @@ import { Component, Host, h, State } from '@stencil/core';
 import { Race } from '../../models';
 
 @Component({
-  tag: 'race-list',
-  shadow: true
+  tag: 'race-list'
 })
 export class RaceList {
 
