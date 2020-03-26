@@ -3,7 +3,6 @@ import { Race } from '../../models';
 
 @Component({
   tag: 'race-list',
-  styleUrl: 'race-list.css',
   shadow: true
 })
 export class RaceList {

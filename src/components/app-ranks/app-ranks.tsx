@@ -1,8 +1,7 @@
 import { Component, h, State, Listen } from '@stencil/core';
 
 @Component({
-  tag: 'app-ranks',
-  styleUrl: 'app-ranks.css'
+  tag: 'app-ranks'
 })
 export class AppRanks {
 

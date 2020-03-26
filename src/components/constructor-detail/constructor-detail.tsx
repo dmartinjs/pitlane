@@ -2,8 +2,7 @@ import { Component, h, State, Prop } from '@stencil/core';
 import { Constructor } from '../../models';
 
 @Component({
-  tag: 'constructor-detail',
-  styleUrl: 'constructor-detail.css'
+  tag: 'constructor-detail'
 })
 export class ConstructorDetail {
 

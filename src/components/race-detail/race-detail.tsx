@@ -2,8 +2,7 @@ import { Component, h, Prop, State } from '@stencil/core';
 import { CircuitTable } from '../../models';
 
 @Component({
-  tag: 'race-detail',
-  styleUrl: 'race-detail.css'
+  tag: 'race-detail'
 })
 export class RaceDetail {
 

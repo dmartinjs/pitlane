@@ -1,8 +1,7 @@
 import { Component, h } from '@stencil/core';
 
 @Component({
-  tag: 'app-races',
-  styleUrl: 'app-races.css'
+  tag: 'app-races'
 })
 export class AppRace {
 

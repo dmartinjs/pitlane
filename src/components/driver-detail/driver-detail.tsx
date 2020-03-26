@@ -2,8 +2,7 @@ import { Component, h, Prop, State } from '@stencil/core';
 import { Driver } from '../../models';
 
 @Component({
-  tag: 'driver-detail',
-  styleUrl: 'driver-detail.css'
+  tag: 'driver-detail'
 })
 export class DriverDetail {
 
