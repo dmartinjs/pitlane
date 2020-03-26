@@ -21,7 +21,6 @@ export class AppHome {
           </ion-toolbar>
         </ion-header>
 
-        <h2>Next Race</h2>
         <next-race></next-race>
 
         <h2 class="home-title">Driver Ranking</h2>
