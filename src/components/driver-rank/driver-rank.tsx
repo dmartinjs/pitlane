@@ -41,7 +41,7 @@ export class DriverRank {
     return (
       <Host>
         { this.isLoaded
-          ? <ion-list class="ion-no-padding">
+          ? <ion-list>
               {drivers.map(driver => 
                 <ion-item button onClick={() => this.showDetail(driver.Driver.driverId)}>
                   <ion-label>

@@ -41,12 +41,13 @@ export class ConstructorRank {
     return (
       <Host>
         { this.isLoaded
-          ? <ion-list class="ion-no-padding">
+          ? <ion-list>
               {constructors.map(constructor => 
                 <ion-item button onClick={() => this.showDetail(constructor.Constructor.constructorId)}>
                   <ion-label>
-                    {constructor.position} - {constructor.Constructor.name}
-                    </ion-label>
+                    <h3>{constructor.position} - {constructor.Constructor.name}</h3>
+                    <p>{constructor.Constructor.nationality}</p>
+                  </ion-label>
                   <ion-note slot="end">{constructor.points}</ion-note>
                 </ion-item>
               )}
