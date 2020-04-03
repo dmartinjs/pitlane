@@ -19,16 +19,16 @@
     "build-storybook": "build-storybook -s www"
   },
   "dependencies": {
-    "@capacitor/android": "^1.5.1",
-    "@capacitor/cli": "^1.5.1",
-    "@capacitor/core": "^1.5.1",
-    "@ionic/core": "^5.0.6"
+    "@capacitor/android": "^1.5.2",
+    "@capacitor/cli": "^1.5.2",
+    "@capacitor/core": "^1.5.2",
+    "@ionic/core": "^5.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@stencil/core": "^1.11.2",
-    "@storybook/addon-docs": "^5.3.17",
-    "@storybook/web-components": "^5.3.17",
+    "@stencil/core": "^1.12.1",
+    "@storybook/addon-docs": "^5.3.18",
+    "@storybook/web-components": "^5.3.18",
     "@types/jest": "24.0.25",
     "@types/puppeteer": "1.20.3",
     "babel-loader": "^8.1.0",
