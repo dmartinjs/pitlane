@@ -23,9 +23,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@capacitor/android": "^2.0.0",
-    "@capacitor/cli": "^2.0.0",
-    "@capacitor/core": "^2.0.0",
+    "@capacitor/android": "^2.0.1",
+    "@capacitor/cli": "^2.0.1",
+    "@capacitor/core": "^2.0.1",
     "@stencil/core": "^1.12.3",
     "@storybook/addon-docs": "^5.3.18",
     "@storybook/web-components": "^5.3.18",
