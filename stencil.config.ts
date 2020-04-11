@@ -7,10 +7,6 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null
-    },
-    {
-      type: 'docs-vscode',
-      file: 'custom-elements.json'
     }
   ],
   globalScript: 'src/global/app.ts',
