@@ -53,7 +53,7 @@ h6 {
    */
 
   .ios {
-    --ion-background-color: #000000;
+    --ion-background-color: #1F1F27;
     --ion-background-color-rgb: 0,0,0;
 
     --ion-text-color: #ffffff;
@@ -92,7 +92,7 @@ h6 {
    */
 
   .md {
-    --ion-background-color: #121212;
+    --ion-background-color: #1F1F27;
     --ion-background-color-rgb: 18,18,18;
 
     --ion-text-color: #ffffff;
@@ -120,7 +120,12 @@ h6 {
     --ion-color-step-900: #e7e7e7;
     --ion-color-step-950: #f3f3f3;
 
-    --ion-item-background: #1A1B1E;
+    --ion-toolbar-background: #393940;
+    --ion-tab-bar-background: #393940;
+  }
+
+  .md ion-card {
+    --ion-item-background: #2C2C34;
   }
 }
 
