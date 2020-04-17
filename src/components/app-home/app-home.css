@@ -1,3 +1,7 @@
 .home-title {
   margin-top: 1.5rem;
 }
+
+.home ion-item {
+  --padding-start: 0;
+}

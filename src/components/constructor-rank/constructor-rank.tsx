@@ -44,6 +44,9 @@ export class ConstructorRank {
           ? <ion-list>
               {constructors.map(constructor => 
                 <ion-item button onClick={() => this.showDetail(constructor.Constructor.constructorId)}>
+                  <ion-avatar slot="start">
+                    <ion-img src={`./${constructor.Constructor.constructorId}.png`}/>
+                  </ion-avatar>
                   <ion-label>
                     <h3>{constructor.position} - {constructor.Constructor.name}</h3>
                     <p>{constructor.Constructor.nationality}</p>

@@ -44,6 +44,9 @@ export class DriverRank {
           ? <ion-list>
               {drivers.map(driver => 
                 <ion-item button onClick={() => this.showDetail(driver.Driver.driverId)}>
+                  <ion-avatar slot="start">
+                    <ion-img src={`./${driver.Driver.driverId}.png`}/>
+                  </ion-avatar>
                   <ion-label>
                     <h3>{driver.position} - {driver.Driver.givenName} {driver.Driver.familyName}</h3>
                     <p>{driver.Constructors[0].name}</p>

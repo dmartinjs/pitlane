@@ -14,7 +14,7 @@ export class AppHome {
         </ion-toolbar>
       </ion-header>,
 
-      <ion-content class="ion-padding">
+      <ion-content class="home ion-padding">
         <ion-header collapse="condense">
           <ion-toolbar>
             <ion-title size="large">F1rst</ion-title>
