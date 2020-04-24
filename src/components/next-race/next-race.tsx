@@ -31,7 +31,7 @@ export class NextRace {
     return (
       <Host>
         {this.isLoaded
-          ? <ion-card class="ion-no-margin" href={`/race/${this.race.Circuit.circuitId}`}>
+          ? <ion-card href={`/race/${this.race.Circuit.circuitId}`}>
               <ion-card-header>
                 <ion-card-subtitle>
                   {this.race.date}
