@@ -23,11 +23,11 @@
     "@capacitor/android": "^2.0.1",
     "@capacitor/cli": "^2.0.1",
     "@capacitor/core": "^2.0.1",
-    "@stencil/core": "^1.12.4",
+    "@stencil/core": "^1.12.6",
     "@types/jest": "^25.2.1",
     "@types/puppeteer": "^2.0.1",
-    "jest": "^25.3.0",
-    "jest-cli": "^25.3.0",
-    "puppeteer": "^3.0.0"
+    "jest": "^25.4.0",
+    "jest-cli": "^25.4.0",
+    "puppeteer": "^3.0.1"
   }
 }
