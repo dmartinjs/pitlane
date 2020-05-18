@@ -17,17 +17,17 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@ionic/core": "^5.0.7"
+    "@ionic/core": "^5.1.1"
   },
   "devDependencies": {
-    "@capacitor/android": "^2.0.1",
-    "@capacitor/cli": "^2.0.1",
-    "@capacitor/core": "^2.0.1",
-    "@stencil/core": "^1.12.6",
-    "@types/jest": "^25.2.1",
-    "@types/puppeteer": "^2.0.1",
-    "jest": "^25.4.0",
-    "jest-cli": "^25.4.0",
-    "puppeteer": "^3.0.1"
+    "@capacitor/android": "^2.1.0",
+    "@capacitor/cli": "^2.1.0",
+    "@capacitor/core": "^2.1.0",
+    "@stencil/core": "^1.13.0",
+    "@types/jest": "^25.2.2",
+    "@types/puppeteer": "^2.1.0",
+    "jest": "^25.5.4",
+    "jest-cli": "^25.5.4",
+    "puppeteer": "^3.1.0"
   }
 }
