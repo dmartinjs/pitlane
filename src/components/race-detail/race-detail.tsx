@@ -40,8 +40,8 @@ export class RaceDetail {
       </ion-header>,
 
       <ion-content class="ion-padding">
-        <h1>{this.race.Circuits[0].Location.locality} {this.race.season}</h1>
-        <p>{this.race.Circuits[0].circuitName}</p>
+        <h1>{this.race.Circuits && this.race.Circuits[0].Location.locality} {this.race.season}</h1>
+        <p>{this.race.Circuits && this.race.Circuits[0].circuitName}</p>
       </ion-content>
     ];
   }
