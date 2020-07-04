@@ -10,9 +10,9 @@ export class ConstructorRank {
 
   @State() isLoaded = false;
 
-  @State() constructors: Array<ConstructorStanding> = [];
+  @State() constructors?: Array<ConstructorStanding>;
 
-  @Prop() limit: number;
+  @Prop() limit?: number;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/constructorStandings.json')
@@ -29,20 +29,20 @@ export class ConstructorRank {
       )
   }
 
-  showDetail(constructorId) {
-    const nav = document.querySelector('ion-nav');
+  showDetail(constructorId: string) {
+    const nav = document.querySelector('ion-nav') as HTMLIonNavElement;
     nav.push('constructor-detail', { constructorId });
   }
 
   render() {
-    const constructors = this.limit ? this.constructors.slice(0, this.limit) : this.constructors;
+    const constructors = this.limit && this.constructors ? this.constructors.slice(0, this.limit) : this.constructors;
     const constructorsLength = this.limit ? this.limit : 10;
 
     return (
       <Host>
         { this.isLoaded
           ? <ion-list>
-              {constructors.map(constructor => 
+              {constructors && constructors.map(constructor => 
                 <ion-item button onClick={() => this.showDetail(constructor.Constructor.constructorId)}>
                   <ion-avatar slot="start">
                     <ion-img src={`./${constructor.Constructor.constructorId}.png`}/>

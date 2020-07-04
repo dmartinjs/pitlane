@@ -10,9 +10,9 @@ export class DriverRank {
 
   @State() isLoaded = false;
 
-  @State() drivers: Array<DriverStanding> = [];
+  @State() drivers?: Array<DriverStanding>;
 
-  @Prop() limit: number;
+  @Prop() limit?: number;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/driverStandings.json')
@@ -29,20 +29,20 @@ export class DriverRank {
       )
   }
 
-  showDetail(driverId) {
-    const nav = document.querySelector('ion-nav');
+  showDetail(driverId: string) {
+    const nav = document.querySelector('ion-nav') as HTMLIonNavElement;
     nav.push('driver-detail', { driverId });
   }
 
   render() {
-    const drivers = this.limit ? this.drivers.slice(0, this.limit) : this.drivers;
+    const drivers = this.limit && this.drivers ? this.drivers.slice(0, this.limit) : this.drivers;
     const driversLength = this.limit ? this.limit : 20;
 
     return (
       <Host>
         { this.isLoaded
           ? <ion-list>
-              {drivers.map(driver => 
+              {drivers && drivers.map(driver => 
                 <ion-item button onClick={() => this.showDetail(driver.Driver.driverId)}>
                   <ion-avatar slot="start">
                     <ion-img src={`./${driver.Driver.driverId}.png`}/>

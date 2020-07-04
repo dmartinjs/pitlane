@@ -10,9 +10,9 @@ export class ConstructorDetail {
 
   @State() isLoaded = false;
 
-  @State() construct: Constructor = {};
+  @State() constructorData?: Constructor;
 
-  @Prop() constructorId: string;
+  @Prop() constructorId?: string;
 
   componentDidLoad() {
     fetch(`https://ergast.com/api/f1/current/constructors/${this.constructorId}.json`)
@@ -20,7 +20,7 @@ export class ConstructorDetail {
       .then(
         (result) => {
           this.isLoaded = true;
-          this.construct = result.MRData.ConstructorTable.Constructors[0];
+          this.constructorData = result.MRData.ConstructorTable.Constructors[0];
         },
         (error) => {
           this.isLoaded = true;
@@ -40,7 +40,7 @@ export class ConstructorDetail {
       </ion-header>,
 
       <ion-content class="ion-padding">
-        <h1>{this.construct.name}</h1>
+        <h1>{this.constructorData && this.constructorData.name}</h1>
       </ion-content>
     ];
   }

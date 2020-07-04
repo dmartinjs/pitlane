@@ -10,7 +10,7 @@ export class RaceList {
 
   @State() isLoaded = false;
 
-  @State() races: Array<Race> = [];
+  @State() races?: Array<Race>;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current.json')
@@ -27,8 +27,8 @@ export class RaceList {
       )
   }
 
-  showDetail(circuitId) {
-    const nav = document.querySelector('ion-nav');
+  showDetail(circuitId: string) {
+    const nav = document.querySelector('ion-nav') as HTMLIonNavElement;
     nav.push('race-detail', { circuitId });
   }
 
@@ -37,7 +37,7 @@ export class RaceList {
       <Host>
         { this.isLoaded
           ? <ion-list>
-              {this.races.map(race =>
+              {this.races && this.races.map(race =>
                 <ion-item button onClick={() => this.showDetail(race.Circuit.circuitId)}>
                   <ion-label>
                     <h2>{race.date}</h2>

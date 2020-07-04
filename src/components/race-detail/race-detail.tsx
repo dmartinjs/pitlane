@@ -10,9 +10,9 @@ export class RaceDetail {
 
   @State() isLoaded = false;
 
-  @State() race: CircuitTable = {};
+  @State() race?: CircuitTable;
 
-  @Prop() circuitId;
+  @Prop() circuitId: string = '';
 
   componentDidLoad() {
     fetch(`https://ergast.com/api/f1/current/circuits/${this.circuitId}.json`)
@@ -40,8 +40,8 @@ export class RaceDetail {
       </ion-header>,
 
       <ion-content class="ion-padding">
-        <h1>{this.race.Circuits && this.race.Circuits[0].Location.locality} {this.race.season}</h1>
-        <p>{this.race.Circuits && this.race.Circuits[0].circuitName}</p>
+        <h1>{this.race && `${this.race.Circuits[0].Location.locality} ${this.race.season}`}</h1>
+        <p>{this.race && this.race.Circuits[0].circuitName}</p>
       </ion-content>
     ];
   }

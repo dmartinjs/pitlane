@@ -10,7 +10,7 @@ export class NextRace {
 
   @State() isLoaded = false;
 
-  @State() race: Race = {};
+  @State() race?: Race;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/next.json')
@@ -30,7 +30,7 @@ export class NextRace {
   render() {
     return (
       <Host>
-        {this.isLoaded
+        {this.isLoaded && this.race
           ? <ion-card href={`/race/${this.race.Circuit.circuitId}`}>
               <ion-card-header>
                 <ion-card-subtitle>

@@ -10,9 +10,9 @@ export class DriverDetail {
 
   @State() isLoaded = false;
 
-  @State() driver: Driver = {};
+  @State() driver?: Driver;
 
-  @Prop() driverId;
+  @Prop() driverId?: string;
 
   componentDidLoad() {
     fetch(`https://ergast.com/api/f1/drivers/${this.driverId}.json`)
@@ -40,7 +40,7 @@ export class DriverDetail {
       </ion-header>,
 
       <ion-content class="ion-padding">
-        <h1>{this.driver.givenName} {this.driver.familyName}</h1>
+        <h1>{this.driver && `${this.driver.givenName} ${this.driver.familyName}`}</h1>
       </ion-content>
     ];
   }

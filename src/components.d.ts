@@ -17,21 +17,21 @@ export namespace Components {
     interface AppTabs {
     }
     interface ConstructorDetail {
-        "constructorId": string;
+        "constructorId"?: string;
     }
     interface ConstructorRank {
-        "limit": number;
+        "limit"?: number;
     }
     interface DriverDetail {
-        "driverId": any;
+        "driverId"?: string;
     }
     interface DriverRank {
-        "limit": number;
+        "limit"?: number;
     }
     interface NextRace {
     }
     interface RaceDetail {
-        "circuitId": any;
+        "circuitId": string;
     }
     interface RaceList {
     }
@@ -142,7 +142,7 @@ declare namespace LocalJSX {
         "limit"?: number;
     }
     interface DriverDetail {
-        "driverId"?: any;
+        "driverId"?: string;
     }
     interface DriverRank {
         "limit"?: number;
@@ -150,7 +150,7 @@ declare namespace LocalJSX {
     interface NextRace {
     }
     interface RaceDetail {
-        "circuitId"?: any;
+        "circuitId"?: string;
     }
     interface RaceList {
     }
