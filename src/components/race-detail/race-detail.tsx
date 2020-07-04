@@ -1,8 +1,8 @@
-import { Component, h, Prop, State } from '@stencil/core';
+import { Component, h, Prop, State, Host } from '@stencil/core';
 import { CircuitTable } from '../../models';
 
 @Component({
-  tag: 'race-detail'
+  tag: 'race-detail',
 })
 export class RaceDetail {
 
@@ -12,7 +12,10 @@ export class RaceDetail {
 
   @State() race?: CircuitTable;
 
-  @Prop() circuitId: string = '';
+  /**
+   * Id of the circuit
+   */
+  @Prop() circuitId?: string;
 
   componentDidLoad() {
     fetch(`https://ergast.com/api/f1/current/circuits/${this.circuitId}.json`)
@@ -26,24 +29,26 @@ export class RaceDetail {
           this.isLoaded = true;
           this.error = error;
         }
-      )
+      );
   }
 
   render() {
-    return [
-      <ion-header>
-        <ion-toolbar>
-          <ion-buttons slot="start">
-            <ion-back-button defaultHref="/races"></ion-back-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>,
+    return (
+      <Host>
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-back-button defaultHref="/races"></ion-back-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>,
 
-      <ion-content class="ion-padding">
-        <h1>{this.race && `${this.race.Circuits[0].Location.locality} ${this.race.season}`}</h1>
-        <p>{this.race && this.race.Circuits[0].circuitName}</p>
-      </ion-content>
-    ];
+        <ion-content class="ion-padding">
+          <h1>{this.race && `${this.race.Circuits[0].Location.locality} ${this.race.season}`}</h1>
+          <p>{this.race && this.race.Circuits[0].circuitName}</p>
+        </ion-content>
+      </Host>
+    );
   }
 
 }

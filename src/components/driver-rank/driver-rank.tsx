@@ -2,7 +2,7 @@ import { Component, Host, h, State, Prop } from '@stencil/core';
 import { DriverStanding } from '../../models';
 
 @Component({
-  tag: 'driver-rank'
+  tag: 'driver-rank',
 })
 export class DriverRank {
 
@@ -12,7 +12,10 @@ export class DriverRank {
 
   @State() drivers?: Array<DriverStanding>;
 
-  @Prop() limit?: number;
+  /**
+   * Number of constructors displayed
+   */
+  @Prop() limit: number = 20;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/driverStandings.json')
@@ -26,24 +29,24 @@ export class DriverRank {
           this.isLoaded = true;
           this.error = error;
         }
-      )
+      );
   }
 
-  showDetail(driverId: string) {
+  private _handleClick(driverId: string) {
     const nav = document.querySelector('ion-nav') as HTMLIonNavElement;
     nav.push('driver-detail', { driverId });
   }
 
   render() {
-    const drivers = this.limit && this.drivers ? this.drivers.slice(0, this.limit) : this.drivers;
-    const driversLength = this.limit ? this.limit : 20;
+    const drivers = this.limit !== null && this.drivers ? this.drivers.slice(0, this.limit) : this.drivers;
 
     return (
       <Host>
-        { this.isLoaded
-          ? <ion-list>
-              {drivers && drivers.map(driver => 
-                <ion-item button onClick={() => this.showDetail(driver.Driver.driverId)}>
+        {this.isLoaded
+          ? (
+            <ion-list>
+              {drivers && drivers.map(driver =>
+                <ion-item button onClick={() => this._handleClick(driver.Driver.driverId)}>
                   <ion-avatar slot="start">
                     <ion-img src={`./${driver.Driver.driverId}.png`}/>
                   </ion-avatar>
@@ -54,9 +57,10 @@ export class DriverRank {
                   <ion-note slot="end">{driver.points}</ion-note>
                 </ion-item>
               )}
-            </ion-list>
-          : <ion-list>
-              {[...Array(driversLength)].map(() => 
+            </ion-list>)
+          : (
+            <ion-list>
+              {[...Array(this.limit)].map(() =>
                 <ion-item>
                   <ion-label>
                     <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
@@ -64,7 +68,7 @@ export class DriverRank {
                 </ion-item>
               )}
             </ion-list>
-        }
+          )}
       </Host>
     );
   }

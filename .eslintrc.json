@@ -1,0 +1,12 @@
+{
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "plugin:@stencil/strict"
+  ],
+  "rules": {
+    "@typescript-eslint/no-inferrable-types": ["off"],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"]
+  }
+}

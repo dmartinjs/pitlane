@@ -1,33 +1,35 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Host } from '@stencil/core';
 
 @Component({
-  tag: 'app-home'
+  tag: 'app-home',
 })
 export class AppHome {
 
   render() {
-    return [
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>F1rst</ion-title>
-        </ion-toolbar>
-      </ion-header>,
-
-      <ion-content class="home">
-        <ion-header collapse="condense">
+    return (
+      <Host>
+        <ion-header>
           <ion-toolbar>
-            <ion-title size="large">F1rst</ion-title>
+            <ion-title>F1rst</ion-title>
           </ion-toolbar>
-        </ion-header>
+        </ion-header>,
 
-        <next-race></next-race>
+        <ion-content class="home">
+          <ion-header collapse="condense">
+            <ion-toolbar>
+              <ion-title size="large">F1rst</ion-title>
+            </ion-toolbar>
+          </ion-header>
 
-        <h2 class="ion-margin-top ion-margin-start">Driver Ranking</h2>
-        <driver-rank limit={3}></driver-rank>
+          <next-race></next-race>
 
-        <h2 class="ion-margin-top ion-margin-start">Constructor Ranking</h2>
-        <constructor-rank limit={3}></constructor-rank>
-      </ion-content>
-    ];
+          <h2 class="ion-margin-top ion-margin-start">Driver Ranking</h2>
+          <driver-rank limit={3}></driver-rank>
+
+          <h2 class="ion-margin-top ion-margin-start">Constructor Ranking</h2>
+          <constructor-rank limit={3}></constructor-rank>
+        </ion-content>
+      </Host>
+    );
   }
 }

@@ -2,7 +2,7 @@ import { Component, Host, h, State } from '@stencil/core';
 import { Race } from '../../models';
 
 @Component({
-  tag: 'race-list'
+  tag: 'race-list',
 })
 export class RaceList {
 
@@ -24,10 +24,10 @@ export class RaceList {
           this.isLoaded = true;
           this.error = error;
         }
-      )
+      );
   }
 
-  showDetail(circuitId: string) {
+  private _handleClick(circuitId: string) {
     const nav = document.querySelector('ion-nav') as HTMLIonNavElement;
     nav.push('race-detail', { circuitId });
   }
@@ -35,10 +35,11 @@ export class RaceList {
   render() {
     return (
       <Host>
-        { this.isLoaded
-          ? <ion-list>
+        {this.isLoaded
+          ? (
+            <ion-list>
               {this.races && this.races.map(race =>
-                <ion-item button onClick={() => this.showDetail(race.Circuit.circuitId)}>
+                <ion-item button onClick={() => this._handleClick(race.Circuit.circuitId)}>
                   <ion-label>
                     <h2>{race.date}</h2>
                     <h3>{race.Circuit.Location.country}</h3>
@@ -46,9 +47,10 @@ export class RaceList {
                   </ion-label>
                 </ion-item>
               )}
-            </ion-list>
-          : <ion-list>
-              {[...Array(20)].map(() => 
+            </ion-list>)
+          : (
+            <ion-list>
+              {[...Array(20)].map(() =>
                 <ion-item>
                   <ion-label>
                     <h2><ion-skeleton-text animated style={{ height: '17px', width: '25%' }}></ion-skeleton-text></h2>
@@ -58,7 +60,7 @@ export class RaceList {
                 </ion-item>
               )}
             </ion-list>
-        }
+          )}
       </Host>
     );
   }

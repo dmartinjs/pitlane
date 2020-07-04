@@ -2,7 +2,7 @@ import { Component, Host, h, State } from '@stencil/core';
 import { Race } from '../../models';
 
 @Component({
-  tag: 'next-race'
+  tag: 'next-race',
 })
 export class NextRace {
 
@@ -24,14 +24,15 @@ export class NextRace {
           this.isLoaded = true;
           this.error = error;
         }
-      )
+      );
   }
 
   render() {
     return (
       <Host>
         {this.isLoaded && this.race
-          ? <ion-card href={`/race/${this.race.Circuit.circuitId}`}>
+          ? (
+            <ion-card href={`/race/${this.race.Circuit.circuitId}`}>
               <ion-card-header>
                 <ion-card-subtitle>
                   {this.race.date}
@@ -43,8 +44,9 @@ export class NextRace {
               <ion-card-content>
                 {this.race.Circuit.circuitName}
               </ion-card-content>
-            </ion-card>
-          : <ion-card>
+            </ion-card>)
+          : (
+            <ion-card>
               <ion-card-header>
                 <ion-card-subtitle>
                   <ion-skeleton-text animated style={{ height: '10px', width: '30%' }}></ion-skeleton-text>
@@ -57,7 +59,7 @@ export class NextRace {
                 <ion-skeleton-text animated style={{ height: '10px', width: '60%' }}></ion-skeleton-text>
               </ion-card-content>
             </ion-card>
-        }
+          )}
       </Host>
     );
   }

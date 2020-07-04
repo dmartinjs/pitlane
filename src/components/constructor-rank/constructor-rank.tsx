@@ -2,7 +2,7 @@ import { Component, Host, h, State, Prop } from '@stencil/core';
 import { ConstructorStanding } from '../../models';
 
 @Component({
-  tag: 'constructor-rank'
+  tag: 'constructor-rank',
 })
 export class ConstructorRank {
 
@@ -12,7 +12,10 @@ export class ConstructorRank {
 
   @State() constructors?: Array<ConstructorStanding>;
 
-  @Prop() limit?: number;
+  /**
+   * Number of constructors displayed
+   */
+  @Prop() limit: number = 10;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/constructorStandings.json')
@@ -26,24 +29,24 @@ export class ConstructorRank {
           this.isLoaded = true;
           this.error = error;
         }
-      )
+      );
   }
 
-  showDetail(constructorId: string) {
+  private _handleClick(constructorId: string) {
     const nav = document.querySelector('ion-nav') as HTMLIonNavElement;
     nav.push('constructor-detail', { constructorId });
   }
 
   render() {
-    const constructors = this.limit && this.constructors ? this.constructors.slice(0, this.limit) : this.constructors;
-    const constructorsLength = this.limit ? this.limit : 10;
+    const constructors = this.limit !== null && this.constructors ? this.constructors.slice(0, this.limit) : this.constructors;
 
     return (
       <Host>
-        { this.isLoaded
-          ? <ion-list>
-              {constructors && constructors.map(constructor => 
-                <ion-item button onClick={() => this.showDetail(constructor.Constructor.constructorId)}>
+        {this.isLoaded
+          ? (
+            <ion-list>
+              {constructors && constructors.map(constructor =>
+                <ion-item button onClick={() => this._handleClick(constructor.Constructor.constructorId)}>
                   <ion-avatar slot="start">
                     <ion-img src={`./${constructor.Constructor.constructorId}.png`}/>
                   </ion-avatar>
@@ -54,17 +57,17 @@ export class ConstructorRank {
                   <ion-note slot="end">{constructor.points}</ion-note>
                 </ion-item>
               )}
-            </ion-list>
-          : <ion-list>
-              {[...Array(constructorsLength)].map(() => 
+            </ion-list>)
+          : (
+            <ion-list>
+              {[...Array(this.limit)].map(() =>
                 <ion-item>
                   <ion-label>
                     <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
                   </ion-label>
                 </ion-item>
               )}
-            </ion-list>
-        }
+            </ion-list>)}
       </Host>
     );
   }
