@@ -47,14 +47,14 @@ export class ConstructorRank {
             <ion-list>
               {constructors && constructors.map(constructor =>
                 <ion-item button onClick={() => this._handleClick(constructor.Constructor.constructorId)}>
-                  <ion-avatar slot="start">
-                    <ion-img src={`./${constructor.Constructor.constructorId}.png`}/>
-                  </ion-avatar>
+                  <div slot="start">
+                    {constructor.position}
+                  </div>
                   <ion-label>
-                    <h3>{constructor.position} - {constructor.Constructor.name}</h3>
+                    <h3>{constructor.Constructor.name}</h3>
                     <p>{constructor.Constructor.nationality}</p>
                   </ion-label>
-                  <ion-note slot="end">{constructor.points}</ion-note>
+                  <ion-badge color="medium" slot="end">{constructor.points} PTS</ion-badge>
                 </ion-item>
               )}
             </ion-list>)
