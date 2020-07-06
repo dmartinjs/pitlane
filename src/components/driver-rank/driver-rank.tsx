@@ -51,7 +51,7 @@ export class DriverRank {
                     {driver.position}
                   </div>
                   <ion-label>
-                    <h3>{driver.Driver.givenName} {driver.Driver.familyName}</h3>
+                    <h3>{driver.Driver.givenName} <strong class="ion-text-uppercase">{driver.Driver.familyName}</strong></h3>
                     <p>{driver.Constructors[0].name}</p>
                   </ion-label>
                   <ion-badge color="medium" slot="end">{driver.points} PTS</ion-badge>
