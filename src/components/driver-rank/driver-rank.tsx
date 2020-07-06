@@ -47,14 +47,14 @@ export class DriverRank {
             <ion-list>
               {drivers && drivers.map(driver =>
                 <ion-item button onClick={() => this._handleClick(driver.Driver.driverId)}>
-                  <ion-avatar slot="start">
-                    <ion-img src={`./${driver.Driver.driverId}.png`}/>
-                  </ion-avatar>
+                  <div slot="start" class="ion-align-items-center">
+                    {driver.position}
+                  </div>
                   <ion-label>
-                    <h3>{driver.position} - {driver.Driver.givenName} {driver.Driver.familyName}</h3>
+                    <h3>{driver.Driver.givenName} {driver.Driver.familyName}</h3>
                     <p>{driver.Constructors[0].name}</p>
                   </ion-label>
-                  <ion-note slot="end">{driver.points}</ion-note>
+                  <ion-badge color="medium" slot="end">{driver.points} PTS</ion-badge>
                 </ion-item>
               )}
             </ion-list>)
