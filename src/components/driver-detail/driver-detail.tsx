@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host } from '@stencil/core';
-import { StandingsLists } from '../../models';
+import { DriverStandingsLists } from '../../models';
 
 @Component({
   tag: 'driver-detail',
@@ -10,7 +10,7 @@ export class DriverDetail {
 
   @State() isLoaded = false;
 
-  @State() driver?: StandingsLists;
+  @State() driver?: DriverStandingsLists;
 
   /**
    * Id of the driver

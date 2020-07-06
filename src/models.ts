@@ -80,8 +80,14 @@ export interface Location {
 
 // Standing
 
-export interface StandingsLists {
+export interface DriverStandingsLists {
   season:          string;
   round:           string;
   DriverStandings: DriverStanding[];
+}
+
+export interface ConstructorStandingsLists {
+  season:          string;
+  round:           string;
+  ConstructorStandings: ConstructorStanding[];
 }

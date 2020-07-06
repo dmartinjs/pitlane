@@ -1,5 +1,5 @@
 import { Component, h, State, Prop, Host } from '@stencil/core';
-import { Constructor } from '../../models';
+import { ConstructorStandingsLists } from '../../models';
 
 @Component({
   tag: 'constructor-detail',
@@ -10,7 +10,7 @@ export class ConstructorDetail {
 
   @State() isLoaded = false;
 
-  @State() constructorData?: Constructor;
+  @State() constructorData?: ConstructorStandingsLists;
 
   /**
    * Id of the constructor
@@ -18,12 +18,12 @@ export class ConstructorDetail {
   @Prop() constructorId?: string;
 
   componentDidLoad() {
-    fetch(`https://ergast.com/api/f1/current/constructors/${this.constructorId}.json`)
+    fetch(`https://ergast.com/api/f1/current/constructors/${this.constructorId}/constructorStandings.json`)
       .then(res => res.json())
       .then(
         (result) => {
           this.isLoaded = true;
-          this.constructorData = result.MRData.ConstructorTable.Constructors[0];
+          this.constructorData = result.MRData.StandingsTable.StandingsLists[0];
         },
         (error) => {
           this.isLoaded = true;
@@ -43,9 +43,41 @@ export class ConstructorDetail {
           </ion-toolbar>
         </ion-header>,
 
-        <ion-content class="ion-padding">
-          <h1>{this.constructorData && this.constructorData.name}</h1>
-        </ion-content>
+        {this.isLoaded && this.constructorData
+          ? (
+            <ion-content class="ion-padding">
+              <h1><strong class="ion-text-uppercase">{this.constructorData.ConstructorStandings[0].Constructor.name}</strong></h1>
+
+              <h2><strong>{this.constructorData.season}</strong> Season</h2>
+              <ion-grid class="ion-no-padding ion-margin-bottom">
+                <ion-row>
+                  <ion-col>
+                    <p class="ion-no-margin ion-padding-bottom">POSITION</p>
+                    <h3>{this.constructorData.ConstructorStandings[0].position}</h3>
+                  </ion-col>
+                  <ion-col>
+                    <p class="ion-no-margin ion-padding-bottom">POINTS</p>
+                    <h3>{this.constructorData.ConstructorStandings[0].points}</h3>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col>
+                    <p class="ion-no-margin ion-padding-bottom">RACES</p>
+                    <h3>{this.constructorData.round}</h3>
+                  </ion-col>
+                  <ion-col>
+                    <p class="ion-no-margin ion-padding-bottom">WINS</p>
+                    <h3>{this.constructorData.ConstructorStandings[0].wins}</h3>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-content>
+          )
+          : (
+            <ion-content class="ion-padding">
+              <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
+            </ion-content>
+          )}
       </Host>
     );
   }
