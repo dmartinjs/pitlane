@@ -77,3 +77,11 @@ export interface Location {
   locality: string;
   country:  string;
 }
+
+// Standing
+
+export interface StandingsLists {
+  season:          string;
+  round:           string;
+  DriverStandings: DriverStanding[];
+}
