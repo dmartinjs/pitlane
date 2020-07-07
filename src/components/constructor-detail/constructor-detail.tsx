@@ -41,7 +41,7 @@ export class ConstructorDetail {
               <ion-back-button defaultHref="/ranks"></ion-back-button>
             </ion-buttons>
           </ion-toolbar>
-        </ion-header>,
+        </ion-header>
 
         {this.isLoaded && this.constructorData
           ? (

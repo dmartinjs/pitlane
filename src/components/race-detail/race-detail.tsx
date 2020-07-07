@@ -41,7 +41,7 @@ export class RaceDetail {
               <ion-back-button defaultHref="/races"></ion-back-button>
             </ion-buttons>
           </ion-toolbar>
-        </ion-header>,
+        </ion-header>
 
         <ion-content class="ion-padding">
           <h1>{this.race && `${this.race.Circuits[0].Location.locality} ${this.race.season}`}</h1>

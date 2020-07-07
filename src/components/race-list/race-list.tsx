@@ -40,9 +40,15 @@ export class RaceList {
             <ion-list>
               {this.races && this.races.filter(race => new Date(race.date) > new Date()).map(race =>
                 <ion-item button onClick={() => this._handleClick(race.Circuit.circuitId)}>
+                  <div slot="start" class="ion-text-center">
+                    {new Date(race.date).getDate()}<br/>
+                    <ion-badge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</ion-badge>
+                  </div>
                   <ion-label>
-                    <h2>{race.date}</h2>
-                    <h3>{race.Circuit.Location.country}</h3>
+                    <ion-text color="primary">
+                      <p class="ion-text-uppercase">ROUND {race.round}</p>
+                    </ion-text>
+                    <h2><strong>{race.Circuit.Location.country}</strong></h2>
                     <p>{race.Circuit.circuitName}</p>
                   </ion-label>
                 </ion-item>

@@ -12,7 +12,7 @@ export class AppRace {
           <ion-toolbar>
             <ion-title>Races</ion-title>
           </ion-toolbar>
-        </ion-header>,
+        </ion-header>
 
         <ion-content>
           <ion-header collapse="condense">

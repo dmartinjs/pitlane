@@ -29,7 +29,7 @@ export class AppRanks {
               </ion-segment-button>
             </ion-segment>
           </ion-toolbar>
-        </ion-header>,
+        </ion-header>
 
         <ion-content>
           {this.selectedSegment == "drivers" && <driver-rank></driver-rank>}

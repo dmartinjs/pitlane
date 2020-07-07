@@ -12,7 +12,7 @@ export class AppHome {
           <ion-toolbar>
             <ion-title>F1rst</ion-title>
           </ion-toolbar>
-        </ion-header>,
+        </ion-header>
 
         <ion-content class="home">
           <ion-header collapse="condense">
