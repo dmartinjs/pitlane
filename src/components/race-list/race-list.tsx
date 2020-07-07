@@ -33,12 +33,14 @@ export class RaceList {
   }
 
   render() {
+    const dateNow = new Date();
+
     return (
       <Host>
         {this.isLoaded
           ? (
             <ion-list>
-              {this.races && this.races.map(race =>
+              {this.races && this.races.filter(race => new Date(race.date) > dateNow).map(race =>
                 <ion-item button onClick={() => this._handleClick(race.Circuit.circuitId)}>
                   <ion-label>
                     <h2>{race.date}</h2>
