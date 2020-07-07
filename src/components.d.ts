@@ -50,6 +50,8 @@ export namespace Components {
     }
     interface RaceList {
     }
+    interface RaceResults {
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -124,6 +126,12 @@ declare global {
         prototype: HTMLRaceListElement;
         new (): HTMLRaceListElement;
     };
+    interface HTMLRaceResultsElement extends Components.RaceResults, HTMLStencilElement {
+    }
+    var HTMLRaceResultsElement: {
+        prototype: HTMLRaceResultsElement;
+        new (): HTMLRaceResultsElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-races": HTMLAppRacesElement;
@@ -137,6 +145,7 @@ declare global {
         "next-race": HTMLNextRaceElement;
         "race-detail": HTMLRaceDetailElement;
         "race-list": HTMLRaceListElement;
+        "race-results": HTMLRaceResultsElement;
     }
 }
 declare namespace LocalJSX {
@@ -184,6 +193,8 @@ declare namespace LocalJSX {
     }
     interface RaceList {
     }
+    interface RaceResults {
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-races": AppRaces;
@@ -197,6 +208,7 @@ declare namespace LocalJSX {
         "next-race": NextRace;
         "race-detail": RaceDetail;
         "race-list": RaceList;
+        "race-results": RaceResults;
     }
 }
 export { LocalJSX as JSX };
@@ -215,6 +227,7 @@ declare module "@stencil/core" {
             "next-race": LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
             "race-detail": LocalJSX.RaceDetail & JSXBase.HTMLAttributes<HTMLRaceDetailElement>;
             "race-list": LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
+            "race-results": LocalJSX.RaceResults & JSXBase.HTMLAttributes<HTMLRaceResultsElement>;
         }
     }
 }
