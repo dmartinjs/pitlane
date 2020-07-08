@@ -1,8 +1,9 @@
-import { Component, h, Prop, State, Host } from '@stencil/core';
+import { Component, h, Prop, State, Host, getAssetPath } from '@stencil/core';
 import { CircuitTable } from '../../models';
 
 @Component({
   tag: 'race-detail',
+  assetsDirs: ['circuits'],
 })
 export class RaceDetail {
 
@@ -43,10 +44,19 @@ export class RaceDetail {
           </ion-toolbar>
         </ion-header>
 
-        <ion-content class="ion-padding">
-          <h1>{this.race && `${this.race.Circuits[0].Location.locality} ${this.race.season}`}</h1>
-          <p>{this.race && this.race.Circuits[0].circuitName}</p>
-        </ion-content>
+        {this.isLoaded && this.race
+          ? (
+            <ion-content class="ion-padding">
+              <h1><strong>{this.race.Circuits[0].Location.country}</strong> {this.race.season}</h1>
+              <p>{this.race.Circuits[0].circuitName}</p>
+              <ion-img src={getAssetPath(`./circuits/${this.race.Circuits[0].circuitId}.svg`)} alt={this.race.Circuits[0].circuitName}></ion-img>
+            </ion-content>
+          )
+          : (
+            <ion-content class="ion-padding">
+              <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
+            </ion-content>
+          )}
       </Host>
     );
   }
