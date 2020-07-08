@@ -38,7 +38,7 @@ export class AppRace {
             </ion-toolbar>
           </ion-header>
           {this.selectedSegment == "upcoming" && <race-list></race-list>}
-          {this.selectedSegment == "past" && <race-results></race-results>}
+          {this.selectedSegment == "past" && <race-list past></race-list>}
         </ion-content>
       </Host>
     );

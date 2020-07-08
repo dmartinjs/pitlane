@@ -1,4 +1,4 @@
-import { Component, Host, h, State } from '@stencil/core';
+import { Component, Host, h, State, Prop } from '@stencil/core';
 import { Race } from '../../models';
 
 @Component({
@@ -11,6 +11,11 @@ export class RaceList {
   @State() isLoaded = false;
 
   @State() races?: Array<Race>;
+
+  /**
+   * set to `true` if you want to displaya list of past races
+   */
+  @Prop() past: boolean = false;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current.json')
@@ -33,12 +38,14 @@ export class RaceList {
   }
 
   render() {
+    const races = this.past ? this.races && this.races.filter(race => new Date(race.date) < new Date()) : this.races && this.races.filter(race => new Date(race.date) > new Date());
+
     return (
       <Host>
         {this.isLoaded
           ? (
             <ion-list>
-              {this.races && this.races.filter(race => new Date(race.date) > new Date()).map(race =>
+              {races && races.map(race =>
                 <ion-item button onClick={() => this._handleClick(race.Circuit.circuitId)}>
                   <div slot="start" class="ion-text-center">
                     {new Date(race.date).getDate()}<br/>

@@ -49,6 +49,10 @@ export namespace Components {
         "circuitId"?: string;
     }
     interface RaceList {
+        /**
+          * set to `true` if you want to displaya list of past races
+         */
+        "past": boolean;
     }
     interface RaceResults {
     }
@@ -192,6 +196,10 @@ declare namespace LocalJSX {
         "circuitId"?: string;
     }
     interface RaceList {
+        /**
+          * set to `true` if you want to displaya list of past races
+         */
+        "past"?: boolean;
     }
     interface RaceResults {
     }
