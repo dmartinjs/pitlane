@@ -17,7 +17,7 @@ export class AppRanks {
       <Host>
         <ion-header>
           <ion-toolbar>
-            <ion-title>Ranks</ion-title>
+            <ion-title>Standings</ion-title>
           </ion-toolbar>
           <ion-toolbar>
             <ion-segment value="drivers">
@@ -32,6 +32,11 @@ export class AppRanks {
         </ion-header>
 
         <ion-content>
+          <ion-header collapse="condense">
+            <ion-toolbar>
+              <ion-title size="large">Standings</ion-title>
+            </ion-toolbar>
+          </ion-header>
           {this.selectedSegment == "drivers" && <driver-rank></driver-rank>}
           {this.selectedSegment == "constructors" && <constructor-rank></constructor-rank>}
         </ion-content>
