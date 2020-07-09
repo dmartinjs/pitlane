@@ -12,7 +12,7 @@ export class RaceDetail {
    */
   @Prop() circuitId?: string;
 
-  @State() selectedSegment: string = 'drivers';
+  @State() selectedSegment: string = 'race';
 
   @State() error = null;
 
@@ -51,7 +51,7 @@ export class RaceDetail {
             <ion-title>{this.race && this.race.Circuits[0].Location.country} {this.race && this.race.season}</ion-title>
           </ion-toolbar>
           <ion-toolbar>
-            <ion-segment value="qualifying">
+            <ion-segment value="race">
               <ion-segment-button value="qualifying">
                 <ion-label>Qualifying</ion-label>
               </ion-segment-button>

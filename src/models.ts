@@ -103,3 +103,42 @@ export interface QualifyingResult {
   Q2?:         string;
   Q3?:         string;
 }
+
+export interface Result {
+  number:       string;
+  position:     string;
+  positionText: string;
+  points:       string;
+  Driver:       Driver;
+  Constructor:  Constructor;
+  grid:         string;
+  laps:         string;
+  status:       string;
+  Time?:        ResultTime;
+  FastestLap:   FastestLap;
+}
+
+export interface FastestLap {
+  rank:         string;
+  lap:          string;
+  Time:         FastestLapTime;
+  AverageSpeed: AverageSpeed;
+}
+
+export interface AverageSpeed {
+  units: Units;
+  speed: string;
+}
+
+export enum Units {
+  Kph = "kph",
+}
+
+export interface FastestLapTime {
+  time: string;
+}
+
+export interface ResultTime {
+  millis: string;
+  time:   string;
+}

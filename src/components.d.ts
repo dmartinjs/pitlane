@@ -60,6 +60,12 @@ export namespace Components {
          */
         "past": boolean;
     }
+    interface RaceResults {
+        /**
+          * Id of the circuit
+         */
+        "circuitId"?: string;
+    }
 }
 declare global {
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
@@ -140,6 +146,12 @@ declare global {
         prototype: HTMLRaceListElement;
         new (): HTMLRaceListElement;
     };
+    interface HTMLRaceResultsElement extends Components.RaceResults, HTMLStencilElement {
+    }
+    var HTMLRaceResultsElement: {
+        prototype: HTMLRaceResultsElement;
+        new (): HTMLRaceResultsElement;
+    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-races": HTMLAppRacesElement;
@@ -154,6 +166,7 @@ declare global {
         "qualifying-results": HTMLQualifyingResultsElement;
         "race-detail": HTMLRaceDetailElement;
         "race-list": HTMLRaceListElement;
+        "race-results": HTMLRaceResultsElement;
     }
 }
 declare namespace LocalJSX {
@@ -211,6 +224,12 @@ declare namespace LocalJSX {
          */
         "past"?: boolean;
     }
+    interface RaceResults {
+        /**
+          * Id of the circuit
+         */
+        "circuitId"?: string;
+    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-races": AppRaces;
@@ -225,6 +244,7 @@ declare namespace LocalJSX {
         "qualifying-results": QualifyingResults;
         "race-detail": RaceDetail;
         "race-list": RaceList;
+        "race-results": RaceResults;
     }
 }
 export { LocalJSX as JSX };
@@ -244,6 +264,7 @@ declare module "@stencil/core" {
             "qualifying-results": LocalJSX.QualifyingResults & JSXBase.HTMLAttributes<HTMLQualifyingResultsElement>;
             "race-detail": LocalJSX.RaceDetail & JSXBase.HTMLAttributes<HTMLRaceDetailElement>;
             "race-list": LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
+            "race-results": LocalJSX.RaceResults & JSXBase.HTMLAttributes<HTMLRaceResultsElement>;
         }
     }
 }
