@@ -42,6 +42,12 @@ export namespace Components {
     }
     interface NextRace {
     }
+    interface QualifyingResults {
+        /**
+          * Id of the circuit
+         */
+        "circuitId"?: string;
+    }
     interface RaceDetail {
         /**
           * Id of the circuit
@@ -53,8 +59,6 @@ export namespace Components {
           * set to `true` if you want to displaya list of past races
          */
         "past": boolean;
-    }
-    interface RaceResults {
     }
 }
 declare global {
@@ -118,6 +122,12 @@ declare global {
         prototype: HTMLNextRaceElement;
         new (): HTMLNextRaceElement;
     };
+    interface HTMLQualifyingResultsElement extends Components.QualifyingResults, HTMLStencilElement {
+    }
+    var HTMLQualifyingResultsElement: {
+        prototype: HTMLQualifyingResultsElement;
+        new (): HTMLQualifyingResultsElement;
+    };
     interface HTMLRaceDetailElement extends Components.RaceDetail, HTMLStencilElement {
     }
     var HTMLRaceDetailElement: {
@@ -130,12 +140,6 @@ declare global {
         prototype: HTMLRaceListElement;
         new (): HTMLRaceListElement;
     };
-    interface HTMLRaceResultsElement extends Components.RaceResults, HTMLStencilElement {
-    }
-    var HTMLRaceResultsElement: {
-        prototype: HTMLRaceResultsElement;
-        new (): HTMLRaceResultsElement;
-    };
     interface HTMLElementTagNameMap {
         "app-home": HTMLAppHomeElement;
         "app-races": HTMLAppRacesElement;
@@ -147,9 +151,9 @@ declare global {
         "driver-detail": HTMLDriverDetailElement;
         "driver-rank": HTMLDriverRankElement;
         "next-race": HTMLNextRaceElement;
+        "qualifying-results": HTMLQualifyingResultsElement;
         "race-detail": HTMLRaceDetailElement;
         "race-list": HTMLRaceListElement;
-        "race-results": HTMLRaceResultsElement;
     }
 }
 declare namespace LocalJSX {
@@ -189,6 +193,12 @@ declare namespace LocalJSX {
     }
     interface NextRace {
     }
+    interface QualifyingResults {
+        /**
+          * Id of the circuit
+         */
+        "circuitId"?: string;
+    }
     interface RaceDetail {
         /**
           * Id of the circuit
@@ -201,8 +211,6 @@ declare namespace LocalJSX {
          */
         "past"?: boolean;
     }
-    interface RaceResults {
-    }
     interface IntrinsicElements {
         "app-home": AppHome;
         "app-races": AppRaces;
@@ -214,9 +222,9 @@ declare namespace LocalJSX {
         "driver-detail": DriverDetail;
         "driver-rank": DriverRank;
         "next-race": NextRace;
+        "qualifying-results": QualifyingResults;
         "race-detail": RaceDetail;
         "race-list": RaceList;
-        "race-results": RaceResults;
     }
 }
 export { LocalJSX as JSX };
@@ -233,9 +241,9 @@ declare module "@stencil/core" {
             "driver-detail": LocalJSX.DriverDetail & JSXBase.HTMLAttributes<HTMLDriverDetailElement>;
             "driver-rank": LocalJSX.DriverRank & JSXBase.HTMLAttributes<HTMLDriverRankElement>;
             "next-race": LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
+            "qualifying-results": LocalJSX.QualifyingResults & JSXBase.HTMLAttributes<HTMLQualifyingResultsElement>;
             "race-detail": LocalJSX.RaceDetail & JSXBase.HTMLAttributes<HTMLRaceDetailElement>;
             "race-list": LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
-            "race-results": LocalJSX.RaceResults & JSXBase.HTMLAttributes<HTMLRaceResultsElement>;
         }
     }
 }

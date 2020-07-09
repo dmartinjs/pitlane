@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Host, getAssetPath } from '@stencil/core';
+import { Component, h, Prop, State, Host, Listen } from '@stencil/core';
 import { CircuitTable } from '../../models';
 
 @Component({
@@ -7,16 +7,23 @@ import { CircuitTable } from '../../models';
 })
 export class RaceDetail {
 
+  /**
+   * Id of the circuit
+   */
+  @Prop() circuitId?: string;
+
+  @State() selectedSegment: string = 'drivers';
+
   @State() error = null;
 
   @State() isLoaded = false;
 
   @State() race?: CircuitTable;
 
-  /**
-   * Id of the circuit
-   */
-  @Prop() circuitId?: string;
+  @Listen('ionChange')
+  handleChange(event: CustomEvent) {
+    this.selectedSegment = event.detail.value;
+  }
 
   componentDidLoad() {
     fetch(`https://ergast.com/api/f1/current/circuits/${this.circuitId}.json`)
@@ -41,22 +48,29 @@ export class RaceDetail {
             <ion-buttons slot="start">
               <ion-back-button defaultHref="/races"></ion-back-button>
             </ion-buttons>
+            <ion-title>{this.race && this.race.Circuits[0].Location.country} {this.race && this.race.season}</ion-title>
+          </ion-toolbar>
+          <ion-toolbar>
+            <ion-segment value="qualifying">
+              <ion-segment-button value="qualifying">
+                <ion-label>Qualifying</ion-label>
+              </ion-segment-button>
+              <ion-segment-button value="race">
+                <ion-label>Race</ion-label>
+              </ion-segment-button>
+            </ion-segment>
           </ion-toolbar>
         </ion-header>
 
-        {this.isLoaded && this.race
-          ? (
-            <ion-content class="ion-padding">
-              <h1><strong>{this.race.Circuits[0].Location.country}</strong> {this.race.season}</h1>
-              <p>{this.race.Circuits[0].circuitName}</p>
-              <ion-img src={getAssetPath(`./circuits/${this.race.Circuits[0].circuitId}.svg`)} alt={this.race.Circuits[0].circuitName}></ion-img>
-            </ion-content>
-          )
-          : (
-            <ion-content class="ion-padding">
-              <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
-            </ion-content>
-          )}
+        <ion-content>
+          <ion-header collapse="condense">
+            <ion-toolbar>
+              <ion-title size="large">{this.race && this.race.Circuits[0].Location.country} {this.race && this.race.season}</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          {this.selectedSegment == "qualifying" && <qualifying-results circuitId={this.circuitId}></qualifying-results>}
+          {this.selectedSegment == "race" && <race-results circuitId={this.circuitId}></race-results>}
+        </ion-content>
       </Host>
     );
   }
