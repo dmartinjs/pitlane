@@ -59,14 +59,14 @@ export class QualifyingResults {
                   <ion-col>
                     <strong class="ion-text-uppercase">{result.Driver.code}</strong>
                   </ion-col>
-                  <ion-col>
+                  <ion-col class="ion-text-center">
                     <ion-badge color="medium">{result.Q1}</ion-badge>
                   </ion-col>
-                  <ion-col>
-                    <ion-badge color="medium">{result.Q2}</ion-badge>
+                  <ion-col class="ion-text-center">
+                    {result.Q2 !== undefined ? <ion-badge color="medium">{result.Q2}</ion-badge> : '--'}
                   </ion-col>
-                  <ion-col>
-                    <ion-badge color="medium">{result.Q3}</ion-badge>
+                  <ion-col class="ion-text-center">
+                    {result.Q3 !== undefined ? <ion-badge color="medium">{result.Q3}</ion-badge> : '--'}
                   </ion-col>
                 </ion-row>
               )}
