@@ -8,6 +8,16 @@ import { CircuitTable } from '../../models';
 export class RaceDetail {
 
   /**
+   * Year of the season
+   */
+  @Prop() season?: string;
+
+  /**
+   * Number of the round
+   */
+  @Prop() round?: string;
+
+  /**
    * Id of the circuit
    */
   @Prop() circuitId?: string;
@@ -68,8 +78,8 @@ export class RaceDetail {
               <ion-title size="large">{this.race && this.race.Circuits[0].Location.country} {this.race && this.race.season}</ion-title>
             </ion-toolbar>
           </ion-header>
-          {this.selectedSegment == "qualifying" && <qualifying-results circuitId={this.circuitId}></qualifying-results>}
-          {this.selectedSegment == "race" && <race-results circuitId={this.circuitId}></race-results>}
+          {this.selectedSegment == "qualifying" && <qualifying-results season={this.season} round={this.round}></qualifying-results>}
+          {this.selectedSegment == "race" && <race-results season={this.season} round={this.round}></race-results>}
         </ion-content>
       </Host>
     );

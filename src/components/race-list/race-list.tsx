@@ -32,9 +32,9 @@ export class RaceList {
       );
   }
 
-  private _handleClick(circuitId: string) {
+  private _handleClick(season: string, round: string, circuitId: string) {
     const nav = document.querySelector('ion-nav') as HTMLIonNavElement;
-    nav.push('race-detail', { circuitId });
+    nav.push('race-detail', { season, round,  circuitId });
   }
 
   render() {
@@ -46,7 +46,7 @@ export class RaceList {
           ? (
             <ion-list>
               {races && races.map(race =>
-                <ion-item button onClick={() => this._handleClick(race.Circuit.circuitId)}>
+                <ion-item button onClick={() => this._handleClick(race.season, race.round, race.Circuit.circuitId)}>
                   <div slot="start" class="ion-text-center">
                     {new Date(race.date).getDate()}<br/>
                     <ion-badge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</ion-badge>

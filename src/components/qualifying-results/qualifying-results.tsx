@@ -7,9 +7,14 @@ import { QualifyingResult } from '../../models';
 export class QualifyingResults {
 
   /**
-   * Id of the circuit
+   * Year of the season
    */
-  @Prop() circuitId?: string;
+  @Prop() season?: string;
+
+  /**
+   * Number of the round
+   */
+  @Prop() round?: string;
 
   @State() error = null;
 
@@ -18,7 +23,7 @@ export class QualifyingResults {
   @State() results?: Array<QualifyingResult>;
 
   componentDidLoad() {
-    fetch(`https://ergast.com/api/f1/current/circuits/${this.circuitId}/qualifying.json`)
+    fetch(`https://ergast.com/api/f1/${this.season}/${this.round}/qualifying.json`)
       .then(res => res.json())
       .then(
         (result) => {

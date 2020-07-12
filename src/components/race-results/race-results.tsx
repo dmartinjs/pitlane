@@ -7,9 +7,14 @@ import { Result } from '../../models';
 export class RaceResults {
 
   /**
-   * Id of the circuit
+   * Year of the season
    */
-  @Prop() circuitId?: string;
+  @Prop() season?: string;
+
+  /**
+   * Number of the round
+   */
+  @Prop() round?: string;
 
   @State() error = null;
 
@@ -18,7 +23,7 @@ export class RaceResults {
   @State() results?: Array<Result>;
 
   componentDidLoad() {
-    fetch(`https://ergast.com/api/f1/current/circuits/${this.circuitId}/results.json`)
+    fetch(`https://ergast.com/api/f1/${this.season}/${this.round}/results.json`)
       .then(res => res.json())
       .then(
         (result) => {

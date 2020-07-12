@@ -44,15 +44,27 @@ export namespace Components {
     }
     interface QualifyingResults {
         /**
-          * Id of the circuit
+          * Number of the round
          */
-        "circuitId"?: string;
+        "round"?: string;
+        /**
+          * Year of the season
+         */
+        "season"?: string;
     }
     interface RaceDetail {
         /**
           * Id of the circuit
          */
         "circuitId"?: string;
+        /**
+          * Number of the round
+         */
+        "round"?: string;
+        /**
+          * Year of the season
+         */
+        "season"?: string;
     }
     interface RaceList {
         /**
@@ -62,9 +74,13 @@ export namespace Components {
     }
     interface RaceResults {
         /**
-          * Id of the circuit
+          * Number of the round
          */
-        "circuitId"?: string;
+        "round"?: string;
+        /**
+          * Year of the season
+         */
+        "season"?: string;
     }
 }
 declare global {
@@ -208,15 +224,27 @@ declare namespace LocalJSX {
     }
     interface QualifyingResults {
         /**
-          * Id of the circuit
+          * Number of the round
          */
-        "circuitId"?: string;
+        "round"?: string;
+        /**
+          * Year of the season
+         */
+        "season"?: string;
     }
     interface RaceDetail {
         /**
           * Id of the circuit
          */
         "circuitId"?: string;
+        /**
+          * Number of the round
+         */
+        "round"?: string;
+        /**
+          * Year of the season
+         */
+        "season"?: string;
     }
     interface RaceList {
         /**
@@ -226,9 +254,13 @@ declare namespace LocalJSX {
     }
     interface RaceResults {
         /**
-          * Id of the circuit
+          * Number of the round
          */
-        "circuitId"?: string;
+        "round"?: string;
+        /**
+          * Year of the season
+         */
+        "season"?: string;
     }
     interface IntrinsicElements {
         "app-home": AppHome;
