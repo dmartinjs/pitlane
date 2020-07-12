@@ -1,3 +1,3 @@
-# F1rst
+# F1
 
-> App to find statistics about formula 1
+> Open source Formula 1 app

@@ -1,8 +1,8 @@
 {
-  "name": "f1rst",
+  "name": "f1",
   "private": true,
   "version": "0.0.1",
-  "description": "f1rst",
+  "description": "f1",
   "license": "MIT",
   "files": [
     "dist/"

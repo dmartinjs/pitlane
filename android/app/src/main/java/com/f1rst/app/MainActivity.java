@@ -1,4 +1,4 @@
-package com.f1rst.app;
+package com.f1.app;
 
 import android.os.Bundle;
 

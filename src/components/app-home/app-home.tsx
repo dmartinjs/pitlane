@@ -10,14 +10,14 @@ export class AppHome {
       <Host>
         <ion-header>
           <ion-toolbar>
-            <ion-title>F1rst</ion-title>
+            <ion-title>f1</ion-title>
           </ion-toolbar>
         </ion-header>
 
         <ion-content class="home">
           <ion-header collapse="condense">
             <ion-toolbar>
-              <ion-title size="large">F1rst</ion-title>
+              <ion-title size="large">f1</ion-title>
             </ion-toolbar>
           </ion-header>
 
