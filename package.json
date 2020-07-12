@@ -18,18 +18,18 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@ionic/core": "^5.2.2"
+    "@ionic/core": "^5.2.3"
   },
   "devDependencies": {
-    "@capacitor/android": "^2.2.0",
-    "@capacitor/cli": "^2.2.0",
-    "@capacitor/core": "^2.2.0",
-    "@stencil/core": "^1.14.0",
+    "@capacitor/android": "^2.2.1",
+    "@capacitor/cli": "^2.2.1",
+    "@capacitor/core": "^2.2.1",
+    "@stencil/core": "^1.16.2",
     "@stencil/eslint-plugin": "^0.3.1",
-    "@types/jest": "^26.0.3",
-    "@types/puppeteer": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.5.0",
-    "@typescript-eslint/parser": "^3.5.0",
+    "@types/jest": "^26.0.4",
+    "@types/puppeteer": "^3.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.6.0",
+    "@typescript-eslint/parser": "^3.6.0",
     "eslint": "^7.4.0",
     "eslint-plugin-react": "^7.20.3",
     "jest": "^26.1.0",
