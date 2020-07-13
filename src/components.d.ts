@@ -54,8 +54,6 @@ export namespace Components {
          */
         "limit": number;
     }
-    interface NextRace {
-    }
     interface QualifyingResults {
         /**
           * Number of the round
@@ -85,6 +83,8 @@ export namespace Components {
           * set to `true` if you want to displaya list of past races
          */
         "past": boolean;
+    }
+    interface RaceNext {
     }
     interface RaceResults {
         /**
@@ -158,12 +158,6 @@ declare global {
         prototype: HTMLDriverRankElement;
         new (): HTMLDriverRankElement;
     };
-    interface HTMLNextRaceElement extends Components.NextRace, HTMLStencilElement {
-    }
-    var HTMLNextRaceElement: {
-        prototype: HTMLNextRaceElement;
-        new (): HTMLNextRaceElement;
-    };
     interface HTMLQualifyingResultsElement extends Components.QualifyingResults, HTMLStencilElement {
     }
     var HTMLQualifyingResultsElement: {
@@ -182,6 +176,12 @@ declare global {
         prototype: HTMLRaceListElement;
         new (): HTMLRaceListElement;
     };
+    interface HTMLRaceNextElement extends Components.RaceNext, HTMLStencilElement {
+    }
+    var HTMLRaceNextElement: {
+        prototype: HTMLRaceNextElement;
+        new (): HTMLRaceNextElement;
+    };
     interface HTMLRaceResultsElement extends Components.RaceResults, HTMLStencilElement {
     }
     var HTMLRaceResultsElement: {
@@ -199,10 +199,10 @@ declare global {
         "constructor-rank": HTMLConstructorRankElement;
         "driver-detail": HTMLDriverDetailElement;
         "driver-rank": HTMLDriverRankElement;
-        "next-race": HTMLNextRaceElement;
         "qualifying-results": HTMLQualifyingResultsElement;
         "race-detail": HTMLRaceDetailElement;
         "race-list": HTMLRaceListElement;
+        "race-next": HTMLRaceNextElement;
         "race-results": HTMLRaceResultsElement;
     }
 }
@@ -255,8 +255,6 @@ declare namespace LocalJSX {
          */
         "limit"?: number;
     }
-    interface NextRace {
-    }
     interface QualifyingResults {
         /**
           * Number of the round
@@ -287,6 +285,8 @@ declare namespace LocalJSX {
          */
         "past"?: boolean;
     }
+    interface RaceNext {
+    }
     interface RaceResults {
         /**
           * Number of the round
@@ -308,10 +308,10 @@ declare namespace LocalJSX {
         "constructor-rank": ConstructorRank;
         "driver-detail": DriverDetail;
         "driver-rank": DriverRank;
-        "next-race": NextRace;
         "qualifying-results": QualifyingResults;
         "race-detail": RaceDetail;
         "race-list": RaceList;
+        "race-next": RaceNext;
         "race-results": RaceResults;
     }
 }
@@ -329,10 +329,10 @@ declare module "@stencil/core" {
             "constructor-rank": LocalJSX.ConstructorRank & JSXBase.HTMLAttributes<HTMLConstructorRankElement>;
             "driver-detail": LocalJSX.DriverDetail & JSXBase.HTMLAttributes<HTMLDriverDetailElement>;
             "driver-rank": LocalJSX.DriverRank & JSXBase.HTMLAttributes<HTMLDriverRankElement>;
-            "next-race": LocalJSX.NextRace & JSXBase.HTMLAttributes<HTMLNextRaceElement>;
             "qualifying-results": LocalJSX.QualifyingResults & JSXBase.HTMLAttributes<HTMLQualifyingResultsElement>;
             "race-detail": LocalJSX.RaceDetail & JSXBase.HTMLAttributes<HTMLRaceDetailElement>;
             "race-list": LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
+            "race-next": LocalJSX.RaceNext & JSXBase.HTMLAttributes<HTMLRaceNextElement>;
             "race-results": LocalJSX.RaceResults & JSXBase.HTMLAttributes<HTMLRaceResultsElement>;
         }
     }

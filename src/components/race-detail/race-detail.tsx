@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Host, Listen } from '@stencil/core';
+import { Component, h, Prop, State, Host } from '@stencil/core';
 import { CircuitTable } from '../../models';
 
 @Component({

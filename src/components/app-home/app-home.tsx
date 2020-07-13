@@ -21,7 +21,7 @@ export class AppHome {
             </ion-toolbar>
           </ion-header>
 
-          <next-race></next-race>
+          <race-next></race-next>
 
           <h2 class="ion-margin-top ion-margin-start">Driver Ranking</h2>
           <driver-rank limit={3}></driver-rank>
