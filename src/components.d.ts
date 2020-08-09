@@ -12,20 +12,6 @@ export namespace Components {
     }
     interface AppRanks {
     }
-    interface AppResults {
-        /**
-          * Id of the circuit
-         */
-        "circuitId"?: string;
-        /**
-          * Number of the round
-         */
-        "round"?: string;
-        /**
-          * Year of the season
-         */
-        "season"?: string;
-    }
     interface AppRoot {
     }
     interface AppTabs {
@@ -65,10 +51,6 @@ export namespace Components {
         "season"?: string;
     }
     interface RaceDetail {
-        /**
-          * Id of the circuit
-         */
-        "circuitId"?: string;
         /**
           * Number of the round
          */
@@ -115,12 +97,6 @@ declare global {
     var HTMLAppRanksElement: {
         prototype: HTMLAppRanksElement;
         new (): HTMLAppRanksElement;
-    };
-    interface HTMLAppResultsElement extends Components.AppResults, HTMLStencilElement {
-    }
-    var HTMLAppResultsElement: {
-        prototype: HTMLAppResultsElement;
-        new (): HTMLAppResultsElement;
     };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
@@ -192,7 +168,6 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-races": HTMLAppRacesElement;
         "app-ranks": HTMLAppRanksElement;
-        "app-results": HTMLAppResultsElement;
         "app-root": HTMLAppRootElement;
         "app-tabs": HTMLAppTabsElement;
         "constructor-detail": HTMLConstructorDetailElement;
@@ -212,20 +187,6 @@ declare namespace LocalJSX {
     interface AppRaces {
     }
     interface AppRanks {
-    }
-    interface AppResults {
-        /**
-          * Id of the circuit
-         */
-        "circuitId"?: string;
-        /**
-          * Number of the round
-         */
-        "round"?: string;
-        /**
-          * Year of the season
-         */
-        "season"?: string;
     }
     interface AppRoot {
     }
@@ -267,10 +228,6 @@ declare namespace LocalJSX {
     }
     interface RaceDetail {
         /**
-          * Id of the circuit
-         */
-        "circuitId"?: string;
-        /**
           * Number of the round
          */
         "round"?: string;
@@ -301,7 +258,6 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-races": AppRaces;
         "app-ranks": AppRanks;
-        "app-results": AppResults;
         "app-root": AppRoot;
         "app-tabs": AppTabs;
         "constructor-detail": ConstructorDetail;
@@ -322,7 +278,6 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-races": LocalJSX.AppRaces & JSXBase.HTMLAttributes<HTMLAppRacesElement>;
             "app-ranks": LocalJSX.AppRanks & JSXBase.HTMLAttributes<HTMLAppRanksElement>;
-            "app-results": LocalJSX.AppResults & JSXBase.HTMLAttributes<HTMLAppResultsElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "app-tabs": LocalJSX.AppTabs & JSXBase.HTMLAttributes<HTMLAppTabsElement>;
             "constructor-detail": LocalJSX.ConstructorDetail & JSXBase.HTMLAttributes<HTMLConstructorDetailElement>;

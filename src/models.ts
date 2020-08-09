@@ -104,6 +104,17 @@ export interface QualifyingResult {
   Q3?:         string;
 }
 
+export interface RaceResult {
+  season:   string;
+  round:    string;
+  url:      string;
+  raceName: string;
+  Circuit:  Circuit;
+  date:     Date;
+  time:     string;
+  Results:  Result[];
+}
+
 export interface Result {
   number:       string;
   position:     string;

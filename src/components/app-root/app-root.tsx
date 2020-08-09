@@ -20,7 +20,7 @@ export class AppRoot {
               <ion-route component="app-ranks"/>
             </ion-route>
           </ion-route>
-          <ion-route url="/race/:circuitId" component="race-detail"></ion-route>
+          <ion-route url="/race/:season/:round" component="race-detail"></ion-route>
           <ion-route url="/driver/:driverId" component="driver-detail"></ion-route>
           <ion-route url="/constructor/:constructorId" component="constructor-detail"></ion-route>
         </ion-router>
