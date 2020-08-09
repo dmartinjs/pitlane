@@ -2,9 +2,9 @@ import { Component, Host, h, State } from '@stencil/core';
 import { Race } from '../../models';
 
 @Component({
-  tag: 'race-next',
+  tag: 'race-preview',
 })
-export class RaceNext {
+export class RacePreview {
 
   @State() error = null;
 
@@ -63,4 +63,5 @@ export class RaceNext {
       </Host>
     );
   }
+
 }

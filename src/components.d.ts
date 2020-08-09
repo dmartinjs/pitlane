@@ -23,10 +23,6 @@ export namespace Components {
         "constructorId"?: string;
     }
     interface ConstructorRank {
-        /**
-          * Number of constructors displayed
-         */
-        "limit": number;
     }
     interface DriverDetail {
         /**
@@ -35,10 +31,6 @@ export namespace Components {
         "driverId"?: string;
     }
     interface DriverRank {
-        /**
-          * Number of constructors displayed
-         */
-        "limit": number;
     }
     interface QualifyingResults {
         /**
@@ -66,7 +58,7 @@ export namespace Components {
          */
         "past": boolean;
     }
-    interface RaceNext {
+    interface RacePreview {
     }
     interface RaceResults {
         /**
@@ -152,11 +144,11 @@ declare global {
         prototype: HTMLRaceListElement;
         new (): HTMLRaceListElement;
     };
-    interface HTMLRaceNextElement extends Components.RaceNext, HTMLStencilElement {
+    interface HTMLRacePreviewElement extends Components.RacePreview, HTMLStencilElement {
     }
-    var HTMLRaceNextElement: {
-        prototype: HTMLRaceNextElement;
-        new (): HTMLRaceNextElement;
+    var HTMLRacePreviewElement: {
+        prototype: HTMLRacePreviewElement;
+        new (): HTMLRacePreviewElement;
     };
     interface HTMLRaceResultsElement extends Components.RaceResults, HTMLStencilElement {
     }
@@ -177,7 +169,7 @@ declare global {
         "qualifying-results": HTMLQualifyingResultsElement;
         "race-detail": HTMLRaceDetailElement;
         "race-list": HTMLRaceListElement;
-        "race-next": HTMLRaceNextElement;
+        "race-preview": HTMLRacePreviewElement;
         "race-results": HTMLRaceResultsElement;
     }
 }
@@ -199,10 +191,6 @@ declare namespace LocalJSX {
         "constructorId"?: string;
     }
     interface ConstructorRank {
-        /**
-          * Number of constructors displayed
-         */
-        "limit"?: number;
     }
     interface DriverDetail {
         /**
@@ -211,10 +199,6 @@ declare namespace LocalJSX {
         "driverId"?: string;
     }
     interface DriverRank {
-        /**
-          * Number of constructors displayed
-         */
-        "limit"?: number;
     }
     interface QualifyingResults {
         /**
@@ -242,7 +226,7 @@ declare namespace LocalJSX {
          */
         "past"?: boolean;
     }
-    interface RaceNext {
+    interface RacePreview {
     }
     interface RaceResults {
         /**
@@ -267,7 +251,7 @@ declare namespace LocalJSX {
         "qualifying-results": QualifyingResults;
         "race-detail": RaceDetail;
         "race-list": RaceList;
-        "race-next": RaceNext;
+        "race-preview": RacePreview;
         "race-results": RaceResults;
     }
 }
@@ -287,7 +271,7 @@ declare module "@stencil/core" {
             "qualifying-results": LocalJSX.QualifyingResults & JSXBase.HTMLAttributes<HTMLQualifyingResultsElement>;
             "race-detail": LocalJSX.RaceDetail & JSXBase.HTMLAttributes<HTMLRaceDetailElement>;
             "race-list": LocalJSX.RaceList & JSXBase.HTMLAttributes<HTMLRaceListElement>;
-            "race-next": LocalJSX.RaceNext & JSXBase.HTMLAttributes<HTMLRaceNextElement>;
+            "race-preview": LocalJSX.RacePreview & JSXBase.HTMLAttributes<HTMLRacePreviewElement>;
             "race-results": LocalJSX.RaceResults & JSXBase.HTMLAttributes<HTMLRaceResultsElement>;
         }
     }

@@ -20,14 +20,7 @@ export class AppHome {
               <ion-title size="large">f1</ion-title>
             </ion-toolbar>
           </ion-header>
-
-          <race-next></race-next>
-
-          <h2 class="ion-margin-top ion-margin-start">Driver Ranking</h2>
-          <driver-rank limit={3}></driver-rank>
-
-          <h2 class="ion-margin-top ion-margin-start">Constructor Ranking</h2>
-          <constructor-rank limit={3}></constructor-rank>
+          <race-preview></race-preview>
         </ion-content>
       </Host>
     );

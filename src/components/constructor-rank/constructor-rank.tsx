@@ -1,4 +1,4 @@
-import { Component, Host, h, State, Prop } from '@stencil/core';
+import { Component, Host, h, State } from '@stencil/core';
 import { ConstructorStanding } from '../../models';
 
 @Component({
@@ -11,11 +11,6 @@ export class ConstructorRank {
   @State() isLoaded = false;
 
   @State() constructors?: Array<ConstructorStanding>;
-
-  /**
-   * Number of constructors displayed
-   */
-  @Prop() limit: number = 10;
 
   componentDidLoad() {
     fetch('https://ergast.com/api/f1/current/constructorStandings.json')
@@ -38,7 +33,7 @@ export class ConstructorRank {
   }
 
   render() {
-    const constructors = this.limit !== null && this.constructors ? this.constructors.slice(0, this.limit) : this.constructors;
+    const { constructors } = this;
 
     return (
       <Host>
@@ -60,7 +55,7 @@ export class ConstructorRank {
             </ion-list>)
           : (
             <ion-list>
-              {[...Array(this.limit)].map(() =>
+              {[...Array(10)].map(() =>
                 <ion-item>
                   <ion-label>
                     <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
