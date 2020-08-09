@@ -56,7 +56,7 @@ export class RaceList {
                       <p class="ion-text-uppercase">ROUND {race.round}</p>
                     </ion-text>
                     <h2><strong>{race.Circuit.Location.country}</strong></h2>
-                    <p>{race.Circuit.circuitName}</p>
+                    <p>{race.raceName}</p>
                   </ion-label>
                 </ion-item>
               )}
