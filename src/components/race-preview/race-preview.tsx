@@ -28,6 +28,8 @@ export class RacePreview {
   }
 
   render() {
+    const raceDate = this.race && new Intl.DateTimeFormat('en-GB', {day: "numeric", month: "short"}).format(new Date(this.race.date));
+
     return (
       <Host>
         {this.isLoaded && this.race
@@ -35,7 +37,7 @@ export class RacePreview {
             <ion-card href={`/race/${this.race.season}/${this.race.round}`}>
               <ion-card-header>
                 <ion-card-subtitle>
-                  {this.race.date}
+                  {raceDate}
                 </ion-card-subtitle>
                 <ion-card-title>
                   {this.race.Circuit.Location.country} {this.race.season}
