@@ -32,7 +32,7 @@ export class RacePreview {
       <Host>
         {this.isLoaded && this.race
           ? (
-            <ion-card href={`/race/${this.race.Circuit.circuitId}`}>
+            <ion-card href={`/race/${this.race.season}/${this.race.round}`}>
               <ion-card-header>
                 <ion-card-subtitle>
                   {this.race.date}
