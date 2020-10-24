@@ -23,7 +23,8 @@
     <link rel="preconnect" href="https://ergast.com/">
     <link rel="preload" as="font" href="/assets/fonts/Oxanium-Regular.woff2" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" as="font" href="/assets/fonts/Oxanium-Bold.woff2" type="font/woff2" crossorigin="anonymous">
-    <link href="/build/app.css" rel="stylesheet">
+    <link rel="preload" href="/build/app.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/build/app.css"></noscript>
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
     <link rel="manifest" href="/manifest.json">
   </head>
