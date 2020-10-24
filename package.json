@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "stencil build",
-    "start": "stencil build --dev --watch --serve",
+    "start": "stencil build --watch --serve",
     "test": "stencil test --spec --e2e",
     "test:unit": "stencil test --spec --watch",
     "test:e2e": "stencil test --e2e --watch",
@@ -18,22 +18,22 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@ionic/core": "^5.3.5"
+    "@ionic/core": "^5.4.1"
   },
   "devDependencies": {
     "@capacitor/android": "^2.4.2",
     "@capacitor/cli": "^2.4.2",
     "@capacitor/core": "^2.4.2",
-    "@stencil/core": "^2.0.3",
+    "@stencil/core": "^2.1.1",
     "@stencil/eslint-plugin": "^0.3.1",
-    "@types/jest": "^26.0.14",
+    "@types/jest": "^26.0.15",
     "@types/puppeteer": "^3.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.4.0",
-    "@typescript-eslint/parser": "^4.4.0",
-    "eslint": "^7.11.0",
-    "eslint-plugin-react": "^7.21.4",
-    "jest": "^26.5.2",
-    "jest-cli": "^26.5.2",
-    "puppeteer": "^5.3.1"
+    "@typescript-eslint/eslint-plugin": "^4.5.0",
+    "@typescript-eslint/parser": "^4.5.0",
+    "eslint": "^7.12.0",
+    "eslint-plugin-react": "^7.21.5",
+    "jest": "^26.6.1",
+    "jest-cli": "^26.6.1",
+    "puppeteer": "^5.4.0"
   }
 }
