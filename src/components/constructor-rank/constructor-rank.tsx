@@ -58,7 +58,7 @@ export class ConstructorRank {
               {[...Array(10)].map(() =>
                 <ion-item>
                   <ion-label>
-                    <ion-skeleton-text animated style={{ height: '16px', width: '100%' }}></ion-skeleton-text>
+                    <ion-skeleton-text animated style={{ height: '36px', width: '100%' }}></ion-skeleton-text>
                   </ion-label>
                 </ion-item>
               )}

@@ -197,6 +197,9 @@ h6 {
 }
 
 .ion-text-uppercase {
-  /* stylelint-disable-next-line declaration-no-important */
   text-transform: uppercase !important;
+}
+
+.text-primary {
+  color: var(--ion-color-primary) !important;
 }

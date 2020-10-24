@@ -52,9 +52,7 @@ export class RaceList {
                     <ion-badge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</ion-badge>
                   </div>
                   <ion-label>
-                    <ion-text color="primary">
-                      <p class="ion-text-uppercase">ROUND {race.round}</p>
-                    </ion-text>
+                    <p class="ion-text-uppercase text-primary">ROUND {race.round}</p>
                     <h2><strong>{race.Circuit.Location.country}</strong></h2>
                     <p>{race.raceName}</p>
                   </ion-label>
@@ -63,12 +61,12 @@ export class RaceList {
             </ion-list>)
           : (
             <ion-list>
-              {[...Array(20)].map(() =>
+              {[...Array(6)].map(() =>
                 <ion-item>
-                  <ion-label>
-                    <h2><ion-skeleton-text animated style={{ height: '17px', width: '25%' }}></ion-skeleton-text></h2>
-                    <h3><ion-skeleton-text animated style={{ height: '13px', width: '15%' }}></ion-skeleton-text></h3>
-                    <p><ion-skeleton-text animated style={{ height: '16px', width: '55%' }}></ion-skeleton-text></p>
+                  <ion-label style={{ marginLeft: '66px'}}>
+                    <h2><ion-skeleton-text animated style={{ height: '11px', width: '25%' }}></ion-skeleton-text></h2>
+                    <h3><ion-skeleton-text animated style={{ height: '11px', width: '15%' }}></ion-skeleton-text></h3>
+                    <p><ion-skeleton-text animated style={{ height: '11px', width: '55%' }}></ion-skeleton-text></p>
                   </ion-label>
                 </ion-item>
               )}
