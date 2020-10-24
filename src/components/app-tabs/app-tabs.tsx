@@ -14,15 +14,15 @@ export class AppTabs {
           <ion-tab tab="tab-ranks" component="app-ranks"/>
 
           <ion-tab-bar slot="bottom">
-            <ion-tab-button tab="tab-home">
+            <ion-tab-button tab="tab-home" href="/">
               <ion-icon name="newspaper-outline" />
               <ion-label>News</ion-label>
             </ion-tab-button>
-            <ion-tab-button tab="tab-ranks">
+            <ion-tab-button tab="tab-ranks" href="/ranks">
               <ion-icon name="podium-outline" />
               <ion-label>Standings</ion-label>
             </ion-tab-button>
-            <ion-tab-button tab="tab-races">
+            <ion-tab-button tab="tab-races" href="/races">
               <ion-icon name="flag-outline" />
               <ion-label>Races</ion-label>
             </ion-tab-button>
