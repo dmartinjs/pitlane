@@ -1,5 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import RacePreview from '../components/RacePreview';
 
 const News: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const News: React.FC = () => {
             <IonTitle size="large">Formula 1</IonTitle>
           </IonToolbar>
         </IonHeader>
+        <RacePreview/>
       </IonContent>
     </IonPage>
   );
