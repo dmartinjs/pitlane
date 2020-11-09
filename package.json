@@ -21,9 +21,11 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
+    "source-map-explorer": "^2.5.0",
     "typescript": "^4.0.5"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "cra-preact start",
     "build": "cra-preact build",
     "test": "cra-preact test",
