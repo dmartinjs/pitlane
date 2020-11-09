@@ -1,39 +1,51 @@
 {
-  "name": "f1",
-  "private": true,
+  "name": "formula1",
   "version": "0.0.1",
-  "description": "f1",
-  "license": "MIT",
-  "files": [
-    "dist/"
-  ],
-  "scripts": {
-    "build": "stencil build",
-    "start": "stencil build --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test:unit": "stencil test --spec --watch",
-    "test:e2e": "stencil test --e2e --watch",
-    "test.watch": "stencil test --spec --e2e --watch",
-    "lint": "eslint src/**/*{.ts,.tsx}",
-    "generate": "stencil generate"
-  },
+  "private": true,
   "dependencies": {
-    "@ionic/core": "^5.4.3"
+    "@capacitor/core": "2.4.2",
+    "@ionic/react": "^5.0.7",
+    "@ionic/react-router": "^5.0.7",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/user-event": "^8.0.3",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^12.12.24",
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-router": "^5.1.4",
+    "@types/react-router-dom": "^5.1.3",
+    "ionicons": "^5.0.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.0",
+    "typescript": "3.8.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@capacitor/android": "^2.4.2",
-    "@capacitor/cli": "^2.4.2",
-    "@capacitor/core": "^2.4.2",
-    "@stencil/core": "^2.3.0",
-    "@stencil/eslint-plugin": "^0.3.1",
-    "@types/jest": "^26.0.15",
-    "@types/puppeteer": "^3.0.5",
-    "@typescript-eslint/eslint-plugin": "^4.6.1",
-    "@typescript-eslint/parser": "^4.6.1",
-    "eslint": "^7.12.1",
-    "eslint-plugin-react": "^7.21.5",
-    "jest": "^26.6.3",
-    "jest-cli": "^26.6.3",
-    "puppeteer": "^5.4.1"
-  }
+    "@capacitor/cli": "2.4.2"
+  },
+  "description": "An Ionic project"
 }

@@ -1,8 +1,0 @@
-{
-  "appId": "com.f1.app",
-  "appName": "f1",
-  "bundledWebRuntime": false,
-  "npmClient": "npm",
-  "webDir": "www",
-  "cordova": {}
-}

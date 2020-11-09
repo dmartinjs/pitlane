@@ -1,8 +1,13 @@
 {
   "appId": "com.f1.app",
-  "appName": "f1",
+  "appName": "formula1",
   "bundledWebRuntime": false,
   "npmClient": "npm",
-  "webDir": "www",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
   "cordova": {}
 }

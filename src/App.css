@@ -1,0 +1,23 @@
+/* FLEXBOX */
+
+.d-flex {
+  display: flex;
+}
+
+.ion-align-items-center {
+  align-items: center !important;
+}
+
+/* TEXT */
+
+.ion-text-center {
+  text-align: center !important;
+}
+
+.ion-text-uppercase {
+  text-transform: uppercase !important;
+}
+
+.text-primary {
+  color: var(--ion-color-primary) !important;
+}
