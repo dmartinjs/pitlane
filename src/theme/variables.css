@@ -3,6 +3,9 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+  /** font **/
+  --ion-font-family: 'Oxanium', cursive;
+
   /** primary **/
   --ion-color-primary: #FF0000;
   --ion-color-primary-rgb: 255, 0, 0;
