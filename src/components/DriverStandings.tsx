@@ -14,11 +14,14 @@ const DriverStandings: React.FC = () => {
   if (drivers === null) {
     return (
       <IonList>
-        {[...Array(20)].map(() =>
+        {[...Array(8)].map(() =>
           <IonItem>
+            <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
-              <IonSkeletonText animated style={{ height: '36px', width: '100%' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '60%' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '40%' }}/>
             </IonLabel>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
           </IonItem>
         )}
       </IonList>

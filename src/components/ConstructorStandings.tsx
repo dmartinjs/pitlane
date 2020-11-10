@@ -14,11 +14,14 @@ const ConstructorStandings: React.FC = () => {
   if (constructors === null) {
     return (
       <IonList>
-        {[...Array(10)].map(() =>
+        {[...Array(8)].map(() =>
           <IonItem>
+            <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
-              <IonSkeletonText animated style={{ height: '36px', width: '100%' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '40%' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '30%' }}/>
             </IonLabel>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
           </IonItem>
         )}
       </IonList>
