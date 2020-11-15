@@ -26,9 +26,9 @@
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "cra-preact start",
-    "build": "cra-preact build",
-    "test": "cra-preact test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,8 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.4.2",
-    "cra-preact": "^0.4.0"
+    "@capacitor/cli": "2.4.2"
   },
   "description": "An Ionic project"
 }
