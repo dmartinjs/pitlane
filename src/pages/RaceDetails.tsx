@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonItem, IonButtons, IonBackButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { Race } from '../models';
 
@@ -9,10 +9,7 @@ interface RaceDetailsProps extends RouteComponentProps<{
 }> {}
 
 const Races: React.FC<RaceDetailsProps> = ({match}) => {
-  const [selectedSegment, SetSelectedSegment] = useState<string>('circuit');
   const [race, setRace] = useState<Race | null>(null);
-
-  const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/${match.params.season}/${match.params.round}.json`)
@@ -27,39 +24,22 @@ const Races: React.FC<RaceDetailsProps> = ({match}) => {
             <IonButtons slot="start">
               <IonBackButton defaultHref="/races"></IonBackButton>
             </IonButtons>
-            <IonTitle>{race && race.Circuit.Location.country} {race && race.season}</IonTitle>
-          </IonToolbar>
-          <IonToolbar>
-            <IonSegment onIonChange={onChange} value={selectedSegment}>
-              <IonSegmentButton value="circuit">
-                <IonLabel>Circuit</IonLabel>
-              </IonSegmentButton>
-              <IonSegmentButton value="qualifying">
-                <IonLabel>Qualifying</IonLabel>
-              </IonSegmentButton>
-              <IonSegmentButton value="race">
-                <IonLabel>Race</IonLabel>
-              </IonSegmentButton>
-            </IonSegment>
+            <IonTitle>{race && race.Circuit.Location.country}</IonTitle>
           </IonToolbar>
         </IonHeader>
 
-        <IonContent>
+        <IonContent className="ion-padding">
           <IonHeader collapse="condense">
             <IonToolbar>
               <IonTitle size="large">{race && race.Circuit.Location.country} {race && race.season}</IonTitle>
             </IonToolbar>
           </IonHeader>
-          {selectedSegment === "circuit" && race && (
-            <IonItem>
-              <IonLabel>
-                <h2><strong>{race.Circuit.Location.country}</strong> {race.season}</h2>
-                <h3>{race.Circuit.circuitName}</h3>
-              </IonLabel>
-            </IonItem>
+          {race && (
+            <>
+              <h3><strong className="ion-text-uppercase">{race.Circuit.Location.country}</strong> {race.season}</h3>
+              <p className="ion-no-margin">{race.Circuit.circuitName}</p>
+            </>
           )}
-          {selectedSegment === "qualifying" && ''}
-          {selectedSegment === "race" && ''}
         </IonContent>
     </IonPage>
   );
