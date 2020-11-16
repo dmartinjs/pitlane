@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
+import { useHistory } from 'react-router';
 import { Race } from '../models';
 
 const RaceList: React.FC<{past?: boolean}> = ({past}) => {
+  let history = useHistory();
   const [races, setRaces] = useState<[Race] | null>(null);
 
   useEffect(() => {
@@ -12,6 +14,10 @@ const RaceList: React.FC<{past?: boolean}> = ({past}) => {
   }, []);
 
   const racesFiltered = past ? races && races.filter(race => new Date(race.date) < new Date()) : races && races.filter(race => new Date(race.date) > new Date());
+
+  const _handleClick = (season: string, round: string) => {
+    history.push(`/race/${season}/${round}`);
+  }
 
   if (races === null) {
     return (
@@ -34,7 +40,7 @@ const RaceList: React.FC<{past?: boolean}> = ({past}) => {
   return (
     <IonList>
       {racesFiltered && racesFiltered.map(race =>
-        <IonItem button>
+        <IonItem button onClick={() => _handleClick(race.season, race.round)}>
         <div slot="start" className="ion-text-center">
           {new Date(race.date).getDate()}<br/>
           <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
