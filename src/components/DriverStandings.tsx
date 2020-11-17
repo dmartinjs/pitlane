@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
+import { useHistory } from 'react-router';
 import { DriverStanding } from '../models';
 
 const DriverStandings: React.FC = () => {
+  let history = useHistory();
   const [drivers, setDrivers] = useState<[DriverStanding] | null>(null);
 
   useEffect(() => {
@@ -11,11 +13,15 @@ const DriverStandings: React.FC = () => {
       .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
   }, []);
 
+  const _handleClick = (driverId: string) => {
+    history.push(`/driver/${driverId}`);
+  }
+
   if (drivers === null) {
     return (
       <IonList>
-        {[...Array(8)].map(() =>
-          <IonItem>
+        {[...Array(8)].map((index) =>
+          <IonItem key={index}>
             <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '60%' }}/>
@@ -30,7 +36,7 @@ const DriverStandings: React.FC = () => {
   return (
     <IonList>
       {drivers.map(driver =>
-        <IonItem button>
+        <IonItem button onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
           <div slot="start" className="on-align-items-center">
             {driver.position}
           </div>
