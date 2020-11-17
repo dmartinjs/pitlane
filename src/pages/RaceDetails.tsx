@@ -8,7 +8,7 @@ interface RaceDetailsProps extends RouteComponentProps<{
   round: string
 }> {}
 
-const Races: React.FC<RaceDetailsProps> = ({match}) => {
+const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
   const [race, setRace] = useState<Race | null>(null);
 
   useEffect(() => {
@@ -45,4 +45,4 @@ const Races: React.FC<RaceDetailsProps> = ({match}) => {
   );
 };
 
-export default Races;
+export default RaceDetails;
