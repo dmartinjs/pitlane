@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel } from '@ionic/react';
 import DriverStandings from '../components/DriverStandings';
 import ConstructorStandings from '../components/ConstructorStandings';
+import RaceList from '../components/RaceList';
 
 const Standings: React.FC = () => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('drivers');
@@ -22,6 +23,9 @@ const Standings: React.FC = () => {
             <IonSegmentButton value="constructors">
               <IonLabel>Constructors</IonLabel>
             </IonSegmentButton>
+            <IonSegmentButton value="results">
+              <IonLabel>Results</IonLabel>
+            </IonSegmentButton>
           </IonSegment>
         </IonToolbar>
       </IonHeader>
@@ -33,6 +37,7 @@ const Standings: React.FC = () => {
         </IonHeader>
         {selectedSegment === "drivers" && <DriverStandings/>}
         {selectedSegment === "constructors" && <ConstructorStandings/>}
+        {selectedSegment === "results" && <RaceList past results/>}
       </IonContent>
     </IonPage>
   );

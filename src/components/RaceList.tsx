@@ -3,7 +3,7 @@ import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/re
 import { useHistory } from 'react-router';
 import { Race } from '../models';
 
-const RaceList: React.FC<{past?: boolean}> = ({past}) => {
+const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}) => {
   let history = useHistory();
   const [races, setRaces] = useState<[Race] | null>(null);
 
@@ -16,7 +16,11 @@ const RaceList: React.FC<{past?: boolean}> = ({past}) => {
   const racesFiltered = past ? races && races.filter(race => new Date(race.date) < new Date()).reverse() : races && races.filter(race => new Date(race.date) > new Date());
 
   const _handleClick = (season: string, round: string) => {
-    history.push(`/race/${season}/${round}`);
+    if(results) {
+      history.push(`/results/${season}/${round}`);
+    } else {
+      history.push(`/race/${season}/${round}`);
+    }
   }
 
   if (races === null) {
