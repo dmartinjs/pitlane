@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
+import { useHistory } from 'react-router';
 import { ConstructorStanding } from '../models';
 
 const ConstructorStandings: React.FC = () => {
+  let history = useHistory();
   const [constructors, setConstructors] = useState<[ConstructorStanding] | null>(null);
 
   useEffect(() => {
@@ -11,11 +13,15 @@ const ConstructorStandings: React.FC = () => {
       .then(result => setConstructors(result.MRData.StandingsTable.StandingsLists[0].ConstructorStandings));
   }, []);
 
+  const _handleClick = (constructorId: string) => {
+    history.push(`/constructor/${constructorId}`);
+  }
+
   if (constructors === null) {
     return (
       <IonList>
-        {[...Array(8)].map(() =>
-          <IonItem>
+        {[...Array(8)].map((index) =>
+          <IonItem key={index}>
             <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '40%' }}/>
@@ -30,7 +36,7 @@ const ConstructorStandings: React.FC = () => {
   return (
     <IonList>
       {constructors.map(constructor =>
-        <IonItem button>
+        <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
         <div slot="start">
           {constructor.position}
         </div>

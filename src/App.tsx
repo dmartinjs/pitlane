@@ -16,6 +16,7 @@ import Standings from './pages/Standings';
 import Races from './pages/Races';
 import RaceDetails from './pages/RaceDetails';
 import DriverDetails from './pages/DriverDetails';
+import ConstructorDetails from './pages/ConstructorDetails';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,6 +45,7 @@ const App: React.FC = () => (
           <Route path="/races" component={Races} exact={true} />
           <Route path="/race/:season/:round" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
+          <Route path="/constructor/:constructorId" component={ConstructorDetails} />
           <Route path="/" render={() => <Redirect to="/news" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
