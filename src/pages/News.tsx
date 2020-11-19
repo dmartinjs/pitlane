@@ -7,13 +7,13 @@ const News: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Formula 1</IonTitle>
+          <IonTitle>News</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
         <IonHeader collapse="condense">
           <IonToolbar>
-            <IonTitle size="large">Formula 1</IonTitle>
+            <IonTitle size="large">News</IonTitle>
           </IonToolbar>
         </IonHeader>
         <RacePreview/>
