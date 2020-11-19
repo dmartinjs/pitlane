@@ -1,47 +1,49 @@
-import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton } from '@ionic/react';
+import React, { useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
-import { Race } from '../models';
+import Schedule from '../components/Schedule';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string, 
-  round: string
+  round: string,
+  country: string
 }> {}
 
 const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
-  const [race, setRace] = useState<Race | null>(null);
+  const [selectedSegment, SetSelectedSegment] = useState<string>('schedule');
 
-  useEffect(() => {
-    fetch(`https://ergast.com/api/f1/${match.params.season}/${match.params.round}.json`)
-      .then(res => res.json())
-      .then(result => setRace(result.MRData.RaceTable.Races[0]));
-  }, [match.params.season, match.params.round]);
+  const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
 
   return (
     <IonPage>
-      <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonBackButton defaultHref="/races"></IonBackButton>
-            </IonButtons>
-            <IonTitle>{race && race.Circuit.Location.country}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-
-        <IonContent className="ion-padding">
-          <IonHeader collapse="condense">
-            <IonToolbar>
-              <IonTitle size="large">{race && race.Circuit.Location.country} {race && race.season}</IonTitle>
-            </IonToolbar>
-          </IonHeader>
-          {race && (
-            <>
-              <h3><strong className="ion-text-uppercase">{race.Circuit.Location.country}</strong> {race.season}</h3>
-              <p className="ion-no-margin">{race.Circuit.circuitName}</p>
-            </>
-          )}
-        </IonContent>
-    </IonPage>
+    <IonHeader>
+      <IonToolbar>
+        <IonButtons slot="start">
+          <IonBackButton defaultHref="/races"></IonBackButton>
+        </IonButtons>
+        <IonTitle>{match.params.country} {match.params.season}</IonTitle>
+      </IonToolbar>
+      <IonToolbar>
+        <IonSegment onIonChange={onChange} value={selectedSegment}>
+          <IonSegmentButton value="schedule">
+            <IonLabel>Schedule</IonLabel>
+          </IonSegmentButton>
+          <IonSegmentButton value="circuit">
+            <IonLabel>Circuit</IonLabel>
+          </IonSegmentButton>
+        </IonSegment>
+      </IonToolbar>
+    </IonHeader>
+    <IonContent fullscreen>
+      <IonHeader collapse="condense">
+        <IonToolbar>
+          <IonTitle size="large">{match.params.country} {match.params.season}</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      {selectedSegment === "schedule" && <Schedule season={match.params.season} round={match.params.round}/>}
+      {selectedSegment === "circuit" && ''}
+    </IonContent>
+  </IonPage>
   );
 };
 

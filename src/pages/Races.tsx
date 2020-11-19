@@ -31,7 +31,7 @@ const Races: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         {selectedSegment === "upcoming" && <RaceList/>}
-        {selectedSegment === "past" && <RaceList past />}
+        {selectedSegment === "past" && <RaceList past/>}
       </IonContent>
     </IonPage>
   );

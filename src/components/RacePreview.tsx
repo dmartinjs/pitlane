@@ -31,7 +31,7 @@ const RacePreview: React.FC = () => {
     );
   }
   return (
-    <IonCard href={`/race/${race.season}/${race.round}`}>
+    <IonCard href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}`}>
       <IonCardHeader>
         <IonCardSubtitle>
           {raceDate}

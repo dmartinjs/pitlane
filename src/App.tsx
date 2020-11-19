@@ -44,7 +44,7 @@ const App: React.FC = () => (
           <Route path="/news" component={News} exact={true} />
           <Route path="/standings" component={Standings} exact={true} />
           <Route path="/races" component={Races} exact={true} />
-          <Route path="/race/:season/:round" component={RaceDetails} />
+          <Route path="/race/:season/:round/:country" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />
           <Route path="/results/:season/:round" component={Results} />
