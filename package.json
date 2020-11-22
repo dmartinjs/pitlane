@@ -50,5 +50,6 @@
   "devDependencies": {
     "@capacitor/cli": "2.4.2"
   },
-  "description": "Open source Formula 1 app"
+  "description": "Open source Formula 1 app",
+  "proxy": "https://f1calendar.com"
 }

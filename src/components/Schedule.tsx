@@ -25,7 +25,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
   const [raceSchedule, setraceSchedule] = useState<[Race] | null>(null);
 
   useEffect(() => {
-    fetch(`/schedule/${season}.json`)
+    fetch(`/api/year/${season}`)
       .then(res => res.json())
       .then(result => setraceSchedule(result.races));
   }, [season]);
