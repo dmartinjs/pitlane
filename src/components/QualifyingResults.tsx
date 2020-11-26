@@ -49,13 +49,13 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
           <IonCol>
             <strong className="ion-text-uppercase">{result.Driver.code}</strong>
           </IonCol>
-          <IonCol class="ion-text-center">
+          <IonCol>
             <IonBadge color="medium">{result.Q1}</IonBadge>
           </IonCol>
-          <IonCol class="ion-text-center">
+          <IonCol>
             {result.Q2 !== undefined ? <IonBadge color="medium">{result.Q2}</IonBadge> : '--'}
           </IonCol>
-          <IonCol class="ion-text-center">
+          <IonCol>
             {result.Q3 !== undefined ? <IonBadge color="medium">{result.Q3}</IonBadge> : '--'}
           </IonCol>
         </IonRow>
