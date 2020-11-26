@@ -24,12 +24,7 @@ const Races: React.FC = () => {
           </IonSegment>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Races</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <IonContent>
         {selectedSegment === "upcoming" && <RaceList/>}
         {selectedSegment === "past" && <RaceList past/>}
       </IonContent>

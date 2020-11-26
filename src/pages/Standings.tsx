@@ -29,12 +29,7 @@ const Standings: React.FC = () => {
           </IonSegment>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Standings</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <IonContent>
         {selectedSegment === "drivers" && <DriverStandings/>}
         {selectedSegment === "constructors" && <ConstructorStandings/>}
         {selectedSegment === "results" && <RaceList past results/>}

@@ -34,12 +34,7 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
           </IonSegment>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Results</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <IonContent>
         {selectedSegment === "qualifying" && <QualifyingResults season={match.params.season} round={match.params.round}/>}
         {selectedSegment === "race" && <RaceResults season={match.params.season} round={match.params.round}/>}
       </IonContent>

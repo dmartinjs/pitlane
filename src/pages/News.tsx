@@ -10,12 +10,7 @@ const News: React.FC = () => {
           <IonTitle>News</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">News</IonTitle>
-          </IonToolbar>
-        </IonHeader>
+      <IonContent>
         <RacePreview/>
       </IonContent>
     </IonPage>

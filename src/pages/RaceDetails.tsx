@@ -34,12 +34,7 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
         </IonSegment>
       </IonToolbar>
     </IonHeader>
-    <IonContent fullscreen>
-      <IonHeader collapse="condense">
-        <IonToolbar>
-          <IonTitle size="large">{match.params.country} {match.params.season}</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+    <IonContent>
       {selectedSegment === "schedule" && <Schedule season={match.params.season} round={match.params.round}/>}
       {selectedSegment === "circuit" && ''}
     </IonContent>
