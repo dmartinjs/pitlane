@@ -26,15 +26,15 @@ const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}
   if (races === null) {
     return (
       <IonList>
-        {[...Array(6)].map(() =>
+        {[...Array(8)].map(() =>
           <IonItem>
             <div slot="start" style={{ width: '32px'}}>
               &nbsp;
             </div>
             <IonLabel>
-              <h2><IonSkeletonText animated style={{ height: '11px', width: '25%' }}/></h2>
-              <h3><IonSkeletonText animated style={{ height: '11px', width: '15%' }}/></h3>
-              <p><IonSkeletonText animated style={{ height: '11px', width: '55%' }}/></p>
+              <h2><IonSkeletonText animated style={{ height: '11px', width: '70px' }}/></h2>
+              <h3><IonSkeletonText animated style={{ height: '11px', width: '55px' }}/></h3>
+              <p><IonSkeletonText animated style={{ height: '11px', width: '120px' }}/></p>
             </IonLabel>
           </IonItem>
         )}

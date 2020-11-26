@@ -18,14 +18,14 @@ const RacePreview: React.FC = () => {
       <IonCard>
         <IonCardHeader>
           <IonCardSubtitle>
-            <IonSkeletonText animated style={{ height: '10px', width: '30%' }}/>
+            <IonSkeletonText animated style={{ height: '10px', width: '90px' }}/>
           </IonCardSubtitle>
           <IonCardTitle>
-            <IonSkeletonText animated style={{ height: '26px', width: '50%' }}/>
+            <IonSkeletonText animated style={{ height: '26px', width: '150px' }}/>
           </IonCardTitle>
         </IonCardHeader>
         <IonCardContent>
-          <IonSkeletonText animated style={{ height: '10px', width: '60%' }}/>
+          <IonSkeletonText animated style={{ height: '10px', width: '180px' }}/>
         </IonCardContent>
       </IonCard>
     );

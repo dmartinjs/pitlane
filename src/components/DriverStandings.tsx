@@ -20,12 +20,12 @@ const DriverStandings: React.FC = () => {
   if (drivers === null) {
     return (
       <IonList>
-        {[...Array(8)].map((index) =>
+        {[...Array(20)].map((index) =>
           <IonItem key={index}>
             <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
-              <IonSkeletonText animated style={{ height: '16px', width: '60%' }}/>
-              <IonSkeletonText animated style={{ height: '16px', width: '40%' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
             </IonLabel>
             <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
           </IonItem>

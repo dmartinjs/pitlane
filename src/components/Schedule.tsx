@@ -33,14 +33,15 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
   if (raceSchedule === null) {
     return (
       <IonList>
+        <IonListHeader>&nbsp;</IonListHeader>
         {[...Array(5)].map(() =>
           <IonItem>
             <div slot="start" style={{ width: '32px'}}>
               &nbsp;
             </div>
             <IonLabel>
-              <h2><IonSkeletonText animated style={{ height: '11px', width: '25%' }}/></h2>
-              <p><IonSkeletonText animated style={{ height: '11px', width: '55%' }}/></p>
+              <h2><IonSkeletonText animated style={{ height: '11px', width: '80px' }}/></h2>
+              <p><IonSkeletonText animated style={{ height: '11px', width: '30px' }}/></p>
             </IonLabel>
           </IonItem>
         )}

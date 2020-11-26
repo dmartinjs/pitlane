@@ -25,12 +25,12 @@ const ConstructorStandings: React.FC = () => {
   if (constructors === null || drivers === null) {
     return (
       <IonList>
-        {[...Array(8)].map((index) =>
+        {[...Array(10)].map((index) =>
           <IonItem key={index}>
             <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
-              <IonSkeletonText animated style={{ height: '16px', width: '40%' }}/>
-              <IonSkeletonText animated style={{ height: '16px', width: '60%' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
+              <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
             </IonLabel>
             <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
           </IonItem>
