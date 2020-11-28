@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
-import { trophy, flag, podium, gift, speedometer, pin } from 'ionicons/icons';
+import { trophy, flag, podium, gift, speedometer } from 'ionicons/icons';
 
 interface DriverDetailsProps extends RouteComponentProps<{
   driverId: string,
@@ -79,7 +79,9 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
             <IonList>
               <IonListHeader>Personal informations</IonListHeader>
               <IonItem>
-                <IonIcon slot="start" icon={pin}></IonIcon>
+                <IonAvatar slot="start">
+                  <img src={`/assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality} />
+                </IonAvatar>
                 <IonLabel>
                   <p>Country</p>
                   <h3>{driver.DriverStandings[0].Driver.nationality}</h3>
