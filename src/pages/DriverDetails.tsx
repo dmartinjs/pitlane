@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
 import { trophy, flag, podium, gift, speedometer, pin } from 'ionicons/icons';
@@ -67,6 +67,9 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
             <IonList>
               <IonListHeader>Team</IonListHeader>
               <IonItem className="ion-margin-bottom" button detail href={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
+                <IonAvatar slot="start">
+                  <img src={`/assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`} alt={driver.DriverStandings[0].Constructors[0].name}/>
+                </IonAvatar>
                 <IonLabel>
                   {driver.DriverStandings[0].Constructors[0].name}
                 </IonLabel>
