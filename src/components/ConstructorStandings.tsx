@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonBadge, IonAvatar, IonSkeletonText } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { ConstructorStanding, DriverStanding } from '../models';
 
@@ -42,11 +42,11 @@ const ConstructorStandings: React.FC = () => {
     <IonList>
       {constructors.map(constructor =>
         <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
-        <div slot="start">
-          {constructor.position}
-        </div>
+        <IonAvatar slot="start">
+          <img src={`/assets/img/constructors/${constructor.Constructor.constructorId}.svg`} alt={constructor.Constructor.name}/>
+        </IonAvatar>
         <IonLabel>
-          <h3><strong className="ion-text-uppercase">{constructor.Constructor.name}</strong></h3>
+          <h3><strong className="ion-text-uppercase">{constructor.position} - {constructor.Constructor.name}</strong></h3>
           <p>
           {drivers && drivers
             .filter(driver => driver.Constructors[0].constructorId === constructor.Constructor.constructorId)
