@@ -27,7 +27,9 @@ const ConstructorStandings: React.FC = () => {
       <IonList>
         {[...Array(10)].map((index) =>
           <IonItem key={index}>
-            <div slot="start">&nbsp;&nbsp;</div>
+            <IonAvatar slot="start">
+              &nbsp;
+            </IonAvatar>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
