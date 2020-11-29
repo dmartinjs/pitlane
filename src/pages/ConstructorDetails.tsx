@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../models';
 import { trophy, flag, podium, speedometer, pin } from 'ionicons/icons';
@@ -85,7 +85,9 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
             <IonList>
               <IonListHeader>Informations</IonListHeader>
               <IonItem>
-                <IonIcon slot="start" icon={pin}></IonIcon>
+                <IonAvatar slot="start">
+                  <img src={`/assets/img/flags/${constructor.ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor.ConstructorStandings[0].Constructor.nationality} />
+                </IonAvatar>
                 <IonLabel>
                   <p>Country</p>
                   <h3>{constructor.ConstructorStandings[0].Constructor.nationality}</h3>
