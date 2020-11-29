@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSkeletonText } from '@ionic/react';
+import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSkeletonText, IonItem, IonAvatar, IonLabel, IonBadge } from '@ionic/react';
 import { Race } from '../models';
 
 const RacePreview: React.FC = () => {
@@ -11,38 +11,38 @@ const RacePreview: React.FC = () => {
       .then(result => setRace(result.MRData.RaceTable.Races[0]));
   }, []);
 
-  const raceDate = race && new Intl.DateTimeFormat('en-GB', {day: "numeric", month: "short"}).format(new Date(race.date));
-
   if (race === null) {
     return (
       <IonCard>
-        <IonCardHeader>
-          <IonCardSubtitle>
-            <IonSkeletonText animated style={{ height: '10px', width: '90px' }}/>
-          </IonCardSubtitle>
-          <IonCardTitle>
-            <IonSkeletonText animated style={{ height: '26px', width: '150px' }}/>
-          </IonCardTitle>
-        </IonCardHeader>
-        <IonCardContent>
-          <IonSkeletonText animated style={{ height: '10px', width: '180px' }}/>
-        </IonCardContent>
+        <IonItem>
+          <IonAvatar slot="start">
+            &nbsp;
+          </IonAvatar>
+          <IonLabel>
+            <h2><IonSkeletonText animated style={{ height: '11px', width: '70px' }}/></h2>
+            <h3><IonSkeletonText animated style={{ height: '11px', width: '55px' }}/></h3>
+            <p><IonSkeletonText animated style={{ height: '11px', width: '120px' }}/></p>
+          </IonLabel>
+        </IonItem>
       </IonCard>
     );
   }
   return (
     <IonCard href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}`}>
-      <IonCardHeader>
-        <IonCardSubtitle>
-          {raceDate}
-        </IonCardSubtitle>
-        <IonCardTitle>
-          {race.Circuit.Location.country} {race.season}
-        </IonCardTitle>
-      </IonCardHeader>
-      <IonCardContent>
-        {race.Circuit.circuitName}
-      </IonCardContent>
+      <IonItem button>
+        <IonAvatar slot="start">
+          <img src={`/assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
+        </IonAvatar>
+        <IonLabel>
+          <p className="ion-text-uppercase text-primary">ROUND {race.round}</p>
+          <h2><strong>{race.Circuit.Location.country}</strong></h2>
+          <p>{race.raceName}</p>
+        </IonLabel>
+        <div slot="end" className="ion-text-center">
+          {new Date(race.date).getDate()}<br/>
+          <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
+        </div>
+      </IonItem>
     </IonCard>
   );
 };
