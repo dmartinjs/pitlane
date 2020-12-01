@@ -54,7 +54,7 @@ const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}
             <p>{race.raceName}</p>
           </IonLabel>
           <div slot="end" className="ion-text-center">
-            {new Date(race.date).getDate()}<br/>
+            <strong>{new Date(race.date).getDate()}</strong><br/>
             <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
           </div>
         </IonItem>
