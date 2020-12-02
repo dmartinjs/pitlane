@@ -6,11 +6,12 @@ import QualifyingResults from '../components/QualifyingResults';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string,
-  round: string
+  round: string,
+  session: string
 }> {}
 
 const Results: React.FC<RaceDetailsProps> = ({match}) => {
-  const [selectedSegment, SetSelectedSegment] = useState<string>('race');
+  const [selectedSegment, SetSelectedSegment] = useState<string>(match.params.session);
 
   const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
 

@@ -33,9 +33,9 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       .then(result => setraceSchedule(result.races));
   }, [season]);
 
-  const _handleClick = (season: string, round: string, date: Date) => {
+  const _handleClick = (season: string, round: string, session: string, date: Date) => {
     if(new Date(date) < new Date()) {
-      history.push(`/results/${season}/${round}`);
+      history.push(`/results/${season}/${round}/${session}`);
     }
   }
 
@@ -63,7 +63,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       <IonListHeader>Race Weekend</IonListHeader>
       {raceSchedule && raceSchedule.filter(race => race.round === parseInt(round)).map(race =>
         <>
-          <IonItem button onClick={() => _handleClick(season, round, race.sessions.race)}>
+          <IonItem button onClick={() => _handleClick(season, round, 'race', race.sessions.race)}>
             <IonIcon slot="start" icon={flagOutline}/>
             <IonLabel>
               <h2><strong>Race</strong></h2>
@@ -71,7 +71,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             </IonLabel>
             <IonBadge color="medium" slot="end">{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(race.sessions.race))}</IonBadge>
           </IonItem>
-          <IonItem button onClick={() => _handleClick(season, round, race.sessions.qualifying)}>
+          <IonItem button onClick={() => _handleClick(season, round, 'qualifying', race.sessions.qualifying)}>
             <IonIcon slot="start" icon={stopwatchOutline}/>
             <IonLabel>
               <h2><strong>Qualifying</strong></h2>

@@ -49,7 +49,7 @@ const App: React.FC = () => (
           <Route path="/race/:season/:round/:country" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />
-          <Route path="/results/:season/:round" component={Results} />
+          <Route path="/results/:season/:round/:session" component={Results} />
           <Route path="/" render={() => <Redirect to="/news" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">

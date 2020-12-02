@@ -17,7 +17,7 @@ const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}
 
   const _handleClick = (season: string, round: string, country: string) => {
     if(results) {
-      history.push(`/results/${season}/${round}`);
+      history.push(`/results/${season}/${round}/race`);
     } else {
       history.push(`/race/${season}/${round}/${country}`);
     }
