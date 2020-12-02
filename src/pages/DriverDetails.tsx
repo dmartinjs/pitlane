@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
-import { trophy, flag, podium, gift, speedometer } from 'ionicons/icons';
+import { trophyOutline, flagOutline, podiumOutline, giftOutline, speedometerOutline } from 'ionicons/icons';
 
 interface DriverDetailsProps extends RouteComponentProps<{
   driverId: string,
@@ -35,28 +35,28 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
             <IonList>
               <IonListHeader>{driver.season} Season</IonListHeader>
               <IonItem>
-                <IonIcon slot="start" icon={podium}></IonIcon>
+                <IonIcon slot="start" icon={podiumOutline}/>
                 <IonLabel>
                   <h2>POSITION</h2>
                   <p>{driver.DriverStandings[0].position}</p>
                 </IonLabel>
               </IonItem>
               <IonItem>
-                <IonIcon slot="start" icon={speedometer}></IonIcon>
+                <IonIcon slot="start" icon={speedometerOutline}/>
                 <IonLabel>
                   <h2>POINTS</h2>
                   <p>{driver.DriverStandings[0].points}</p>
                 </IonLabel>
               </IonItem>
               <IonItem>
-                <IonIcon slot="start" icon={flag}></IonIcon>
+                <IonIcon slot="start" icon={flagOutline}/>
                 <IonLabel>
                   <h2>RACES</h2>
                   <p>{driver.round}</p>
                 </IonLabel>
               </IonItem>
               <IonItem>
-                <IonIcon slot="start" icon={trophy}></IonIcon>
+                <IonIcon slot="start" icon={trophyOutline}/>
                 <IonLabel>
                   <h2>WINS</h2>
                   <p>{driver.DriverStandings[0].wins}</p>
@@ -88,7 +88,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 </IonLabel>
               </IonItem>
               <IonItem>
-                <IonIcon slot="start" icon={gift}></IonIcon>
+                <IonIcon slot="start" icon={giftOutline}/>
                 <IonLabel>
                   <p>Date of birth</p>
                   <h3>{birthday}</h3>

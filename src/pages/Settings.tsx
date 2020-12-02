@@ -16,7 +16,7 @@ const Settings: React.FC = () => {
       </IonHeader>
       <IonContent>
         <IonItem>
-          <IonIcon slot="start" icon={moonOutline} />
+          <IonIcon slot="start" icon={moonOutline}/>
           <IonLabel>Toggle Dark Theme</IonLabel>
           <IonToggle slot="end" name="theme" checked/>
         </IonItem>

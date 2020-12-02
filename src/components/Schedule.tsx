@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonIcon } from '@ionic/react';
-import { flag, stopwatch, square } from 'ionicons/icons';
+import { flagOutline, stopwatchOutline, squareOutline } from 'ionicons/icons';
 
 export interface Race {
   name:      string;
@@ -56,7 +56,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       {raceSchedule && raceSchedule.filter(race => race.round === parseInt(round)).map(race =>
         <>
           <IonItem>
-            <IonIcon slot="start" icon={flag}></IonIcon>
+            <IonIcon slot="start" icon={flagOutline}/>
             <IonLabel>
               <h2><strong>Race</strong></h2>
               <p>{new Intl.DateTimeFormat('en-GB', {day: "numeric", month: "long"}).format(new Date(race.sessions.race))}</p>
@@ -64,7 +64,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonBadge color="medium" slot="end">{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(race.sessions.race))}</IonBadge>
           </IonItem>
           <IonItem>
-            <IonIcon slot="start" icon={stopwatch}></IonIcon>
+            <IonIcon slot="start" icon={stopwatchOutline}/>
             <IonLabel>
               <h2><strong>Qualifying</strong></h2>
               <p>{new Intl.DateTimeFormat('en-GB', {day: "numeric", month: "long"}).format(new Date(race.sessions.qualifying))}</p>
@@ -72,7 +72,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonBadge color="medium" slot="end">{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(race.sessions.qualifying))}</IonBadge>
           </IonItem>
           <IonItem>
-            <IonIcon slot="start" icon={square}>3</IonIcon>
+            <IonIcon slot="start" icon={squareOutline}/>
             <IonLabel>
               <h2><strong>Practice 3</strong></h2>
               <p>{new Intl.DateTimeFormat('en-GB', {day: "numeric", month: "long"}).format(new Date(race.sessions.fp3))}</p>
@@ -80,7 +80,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonBadge color="medium" slot="end">{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(race.sessions.fp3))}</IonBadge>
           </IonItem>
           <IonItem>
-            <IonIcon slot="start" icon={square}>2</IonIcon>
+            <IonIcon slot="start" icon={squareOutline}/>
             <IonLabel>
               <h2><strong>Practice 2</strong></h2>
               <p>{new Intl.DateTimeFormat('en-GB', {day: "numeric", month: "long"}).format(new Date(race.sessions.fp2))}</p>
@@ -88,7 +88,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonBadge color="medium" slot="end">{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(race.sessions.fp2))}</IonBadge>
           </IonItem>
           <IonItem>
-            <IonIcon slot="start" icon={square}>1</IonIcon>
+            <IonIcon slot="start" icon={squareOutline}/>
             <IonLabel>
               <h2><strong>Practice 1</strong></h2>
               <p>{new Intl.DateTimeFormat('en-GB', {day: "numeric", month: "long"}).format(new Date(race.sessions.fp1))}</p>

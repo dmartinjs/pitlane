@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../models';
-import { trophy, flag, podium, speedometer } from 'ionicons/icons';
+import { trophyOutline, flagOutline, podiumOutline, speedometerOutline } from 'ionicons/icons';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
@@ -38,28 +38,28 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
             <IonList>
               <IonListHeader>{constructor.season} Season</IonListHeader>
               <IonItem>
-                <IonIcon slot="start" icon={podium}></IonIcon>
+                <IonIcon slot="start" icon={podiumOutline}/>
                 <IonLabel>
                   <h2>POSITION</h2>
                   <p>{constructor.ConstructorStandings[0].position}</p>
                 </IonLabel>
               </IonItem>
               <IonItem>
-                <IonIcon slot="start" icon={speedometer}></IonIcon>
+                <IonIcon slot="start" icon={speedometerOutline}/>
                 <IonLabel>
                   <h2>POINTS</h2>
                   <p>{constructor.ConstructorStandings[0].points}</p>
                 </IonLabel>
               </IonItem>
               <IonItem>
-                <IonIcon slot="start" icon={flag}></IonIcon>
+                <IonIcon slot="start" icon={flagOutline}/>
                 <IonLabel>
                   <h2>RACES</h2>
                   <p>{constructor.round}</p>
                 </IonLabel>
               </IonItem>
               <IonItem>
-                <IonIcon slot="start" icon={trophy}></IonIcon>
+                <IonIcon slot="start" icon={trophyOutline}/>
                 <IonLabel>
                   <h2>WINS</h2>
                   <p>{constructor.ConstructorStandings[0].wins}</p>
