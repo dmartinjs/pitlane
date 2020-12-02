@@ -14,6 +14,7 @@ import { newspaperOutline, podiumOutline, flagOutline } from 'ionicons/icons';
 import News from './pages/News';
 import Standings from './pages/Standings';
 import Races from './pages/Races';
+import Settings from './pages/Settings';
 import RaceDetails from './pages/RaceDetails';
 import DriverDetails from './pages/DriverDetails';
 import ConstructorDetails from './pages/ConstructorDetails';
@@ -44,6 +45,7 @@ const App: React.FC = () => (
           <Route path="/news" component={News} exact={true} />
           <Route path="/standings" component={Standings} exact={true} />
           <Route path="/races" component={Races} exact={true} />
+          <Route path="/settings" component={Settings} exact={true} />
           <Route path="/race/:season/:round/:country" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />

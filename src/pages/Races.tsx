@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonButton, IonIcon } from '@ionic/react';
+import { settingsSharp } from 'ionicons/icons';
 import RaceList from '../components/RaceList';
 
 const Races: React.FC = () => {
@@ -12,6 +13,11 @@ const Races: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Races</IonTitle>
+          <IonButtons slot="end">
+            <IonButton href="/settings">
+              <IonIcon slot="icon-only" icon={settingsSharp} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
         <IonToolbar>
           <IonSegment onIonChange={onChange} value={selectedSegment}>

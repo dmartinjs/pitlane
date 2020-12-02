@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonButton, IonIcon } from '@ionic/react';
+import { settingsSharp } from 'ionicons/icons';
 import DriverStandings from '../components/DriverStandings';
 import ConstructorStandings from '../components/ConstructorStandings';
 import RaceList from '../components/RaceList';
@@ -14,6 +15,11 @@ const Standings: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonTitle>Standings</IonTitle>
+          <IonButtons slot="end">
+            <IonButton href="/settings">
+              <IonIcon slot="icon-only" icon={settingsSharp} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
         <IonToolbar>
           <IonSegment onIonChange={onChange} value={selectedSegment}>
