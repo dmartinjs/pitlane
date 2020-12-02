@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSkeletonText, IonItem, IonAvatar, IonLabel, IonBadge } from '@ionic/react';
+import { IonCard, IonSkeletonText, IonItem, IonAvatar, IonLabel, IonBadge } from '@ionic/react';
 import { Race } from '../models';
 
 const RacePreview: React.FC = () => {

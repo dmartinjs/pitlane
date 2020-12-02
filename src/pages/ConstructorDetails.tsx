@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../models';
-import { trophy, flag, podium, speedometer, pin } from 'ionicons/icons';
+import { trophy, flag, podium, speedometer } from 'ionicons/icons';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
