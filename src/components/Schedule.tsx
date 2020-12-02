@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonIcon } from '@ionic/react';
 import { flagOutline, stopwatchOutline, squareOutline } from 'ionicons/icons';
+import { useHistory } from 'react-router';
 
 export interface Race {
   name:      string;
@@ -23,6 +24,7 @@ export interface Sessions {
 }
 
 const Schedule: React.FC<{season: string, round: string}> = ({season, round}) => {
+  let history = useHistory();
   const [raceSchedule, setraceSchedule] = useState<[Race] | null>(null);
 
   useEffect(() => {
@@ -30,6 +32,12 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       .then(res => res.json())
       .then(result => setraceSchedule(result.races));
   }, [season]);
+
+  const _handleClick = (season: string, round: string, date: Date) => {
+    if(new Date(date) < new Date()) {
+      history.push(`/results/${season}/${round}`);
+    }
+  }
 
   if (raceSchedule === null) {
     return (
@@ -55,7 +63,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       <IonListHeader>Race Weekend</IonListHeader>
       {raceSchedule && raceSchedule.filter(race => race.round === parseInt(round)).map(race =>
         <>
-          <IonItem>
+          <IonItem button onClick={() => _handleClick(season, round, race.sessions.race)}>
             <IonIcon slot="start" icon={flagOutline}/>
             <IonLabel>
               <h2><strong>Race</strong></h2>
@@ -63,7 +71,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             </IonLabel>
             <IonBadge color="medium" slot="end">{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(race.sessions.race))}</IonBadge>
           </IonItem>
-          <IonItem>
+          <IonItem button onClick={() => _handleClick(season, round, race.sessions.qualifying)}>
             <IonIcon slot="start" icon={stopwatchOutline}/>
             <IonLabel>
               <h2><strong>Qualifying</strong></h2>
