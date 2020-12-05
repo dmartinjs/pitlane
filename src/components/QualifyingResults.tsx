@@ -42,7 +42,7 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
         </IonCol>
       </IonRow>
       {results && results.map(result =>
-        <IonRow>
+        <IonRow key={result.position}>
           <IonCol size="2">
             <strong>{result.position}</strong>
           </IonCol>
