@@ -26,8 +26,8 @@ const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}
   if (races === null) {
     return (
       <IonList>
-        {[...Array(8)].map(() =>
-          <IonItem>
+        {[...Array(8)].map((item, index) =>
+          <IonItem key={index}>
             <IonAvatar slot="start">
               &nbsp;
             </IonAvatar>
@@ -44,7 +44,7 @@ const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}
   return (
     <IonList>
       {racesFiltered && racesFiltered.map(race =>
-        <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country)}>
+        <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country)} key={race.round}>
           <IonAvatar slot="start">
             <img src={`/assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
           </IonAvatar>

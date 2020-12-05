@@ -14,8 +14,8 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
   if (results === null) {
     return (
       <IonGrid>
-        {[...Array(20)].map(() =>
-          <IonRow>
+        {[...Array(20)].map((item, index) =>
+          <IonRow key={index}>
             <IonCol>
               <IonSkeletonText animated style={{ height: '16px', width: '100%' }}/>
             </IonCol>
@@ -39,7 +39,7 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
         </IonCol>
       </IonRow>
       {results && results.map(result =>
-        <IonRow>
+        <IonRow key={result.position}>
           <IonCol size="2">
             <strong>{result.position}</strong>
           </IonCol>

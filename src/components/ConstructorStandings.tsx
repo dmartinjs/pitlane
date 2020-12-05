@@ -25,7 +25,7 @@ const ConstructorStandings: React.FC = () => {
   if (constructors === null || drivers === null) {
     return (
       <IonList>
-        {[...Array(10)].map((index) =>
+        {[...Array(10)].map((item, index) =>
           <IonItem key={index}>
             <IonAvatar slot="start">
               &nbsp;

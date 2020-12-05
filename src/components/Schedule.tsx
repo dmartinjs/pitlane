@@ -43,8 +43,8 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
     return (
       <IonList>
         <IonListHeader>&nbsp;</IonListHeader>
-        {[...Array(5)].map(() =>
-          <IonItem>
+        {[...Array(5)].map((item, index) =>
+          <IonItem key={index}>
             <div slot="start" style={{ width: '24px'}}>
               &nbsp;
             </div>
@@ -62,7 +62,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
     <IonList>
       <IonListHeader>Race Weekend</IonListHeader>
       {raceSchedule && raceSchedule.filter(race => race.round === parseInt(round)).map(race =>
-        <>
+        <React.Fragment key={race.round}>
           <IonItem button onClick={() => _handleClick(season, round, 'race', race.sessions.race)}>
             <IonIcon slot="start" icon={flagOutline}/>
             <IonLabel>
@@ -103,7 +103,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             </IonLabel>
             <IonBadge color="medium" slot="end">{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(race.sessions.fp1))}</IonBadge>
           </IonItem>
-        </>
+        </React.Fragment>
       )}
     </IonList>
   );

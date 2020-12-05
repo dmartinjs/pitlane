@@ -20,7 +20,7 @@ const DriverStandings: React.FC = () => {
   if (drivers === null) {
     return (
       <IonList>
-        {[...Array(20)].map((index) =>
+        {[...Array(20)].map((item, index) =>
           <IonItem key={index}>
             <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
