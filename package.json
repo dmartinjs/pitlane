@@ -1,8 +1,9 @@
 {
   "name": "formula1",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^2.4.4",
     "@capacitor/core": "^2.4.4",
     "@ionic/react": "^5.5.1",
     "@ionic/react-router": "^5.5.1",
