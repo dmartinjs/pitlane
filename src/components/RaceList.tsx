@@ -13,7 +13,7 @@ const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}
       .then(result => setRaces(result.MRData.RaceTable.Races));
   }, []);
 
-  const racesFiltered = past ? races && races.filter(race => new Date(race.date) < new Date()).reverse() : races && races.filter(race => new Date(race.date) > new Date());
+  const racesFiltered = past ? races && races.filter(race => new Date(race.date) < new Date()).reverse() : races;
 
   const _handleClick = (season: string, round: string, country: string) => {
     if(results) {
