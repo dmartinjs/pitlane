@@ -68,7 +68,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
               <IonListHeader>Team</IonListHeader>
               <IonItem className="ion-margin-bottom" button detail href={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
                 <IonAvatar slot="start">
-                  <img src={`/assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`} alt={driver.DriverStandings[0].Constructors[0].name}/>
+                  <img src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`} alt={driver.DriverStandings[0].Constructors[0].name}/>
                 </IonAvatar>
                 <IonLabel>
                   {driver.DriverStandings[0].Constructors[0].name}
@@ -80,7 +80,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
               <IonListHeader>Personal informations</IonListHeader>
               <IonItem>
                 <IonAvatar slot="start">
-                  <img src={`/assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality} />
+                  <img src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality} />
                 </IonAvatar>
                 <IonLabel>
                   <p>Country</p>

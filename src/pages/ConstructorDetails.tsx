@@ -86,7 +86,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
               <IonListHeader>Informations</IonListHeader>
               <IonItem>
                 <IonAvatar slot="start">
-                  <img src={`/assets/img/flags/${constructor.ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor.ConstructorStandings[0].Constructor.nationality} />
+                  <img src={`assets/img/flags/${constructor.ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor.ConstructorStandings[0].Constructor.nationality} />
                 </IonAvatar>
                 <IonLabel>
                   <p>Country</p>

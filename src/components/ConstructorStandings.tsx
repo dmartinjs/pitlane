@@ -45,7 +45,7 @@ const ConstructorStandings: React.FC = () => {
       {constructors.map(constructor =>
         <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
         <IonAvatar slot="start">
-          <img src={`/assets/img/constructors/${constructor.Constructor.constructorId}.svg`} alt={constructor.Constructor.name}/>
+          <img src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`} alt={constructor.Constructor.name}/>
         </IonAvatar>
         <IonLabel>
           <h3><strong className="ion-text-uppercase">{constructor.position} - {constructor.Constructor.name}</strong></h3>

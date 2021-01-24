@@ -41,7 +41,7 @@ const RacePreview: React.FC = () => {
     <IonCard href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}`}>
       <IonItem button>
         <IonAvatar slot="start">
-          <img src={`/assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
+          <img src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
         </IonAvatar>
         <IonLabel>
           <p className="ion-text-uppercase text-primary">ROUND {race.round}</p>
