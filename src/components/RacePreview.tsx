@@ -6,17 +6,19 @@ const RacePreview: React.FC = () => {
   const [race, setRace] = useState<Race | null>(null);
 
   useEffect(() => {
-    fetch('https://ergast.com/api/f1/current/next.json')
-      .then(res => res.json())
-      .then(result => {
-        if(result.length > 0) {
-          setRace(result.MRData.RaceTable.Races[0]);
-        } else {
-          fetch('https://ergast.com/api/f1/current/last.json')
-            .then(res => res.json())
-            .then(result => setRace(result.MRData.RaceTable.Races[0]));
-        }
-      });
+    if (race === null) {
+      fetch('https://ergast.com/api/f1/current/next.json')
+        .then(res => res.json())
+        .then(result => {
+          if(result.length > 0) {
+            setRace(result.MRData.RaceTable.Races[0]);
+          } else {
+            fetch('https://ergast.com/api/f1/current/last.json')
+              .then(res => res.json())
+              .then(result => setRace(result.MRData.RaceTable.Races[0]));
+          }
+        });
+    }
   }, [race]);
 
   if (race === null) {
