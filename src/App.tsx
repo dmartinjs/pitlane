@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
@@ -37,7 +37,23 @@ import './theme/variables.css';
 /* Global styles */
 import './App.css';
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+
+  useEffect(() => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    // Listen for changes to the prefers-color-scheme media query
+    prefersDark.addListener((e) => checkToggle(e.matches));
+
+    // Called by the media query to check/uncheck the toggle
+    function checkToggle(shouldCheck: boolean) {
+      document.body.classList.toggle('dark', shouldCheck);
+    }
+
+    checkToggle(prefersDark.matches);
+  }, [])
+
+  return (
   <IonApp>
     <IonReactRouter>
       <IonTabs>
@@ -69,6 +85,7 @@ const App: React.FC = () => (
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+  );
+};
 
 export default App;
