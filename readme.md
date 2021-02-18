@@ -1,8 +1,8 @@
-<div style="text-align:center;">
+<div align="center">
   <img src="public/assets/icon/icon192.png"/>
 </div>
-<h1 style="text-align:center;">Formula 1</h1>
-<p style="text-align:center;">App to find statistics about formula 1</p>
+<h1 align="center">Formula 1</h1>
+<p align="center">App to find statistics about formula 1</p>
 
 ## :package: Install
 
