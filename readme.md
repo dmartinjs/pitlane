@@ -4,6 +4,9 @@
 <h1 align="center">Formula 1</h1>
 <p align="center">App to find statistics about formula 1</p>
 
+## :sparkles: Demo
+<img src="illustrations/demo.gif"/>
+
 ## :package: Install
 
 ```bash
