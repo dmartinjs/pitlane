@@ -32,4 +32,4 @@ npm install
 ​
 Copyright © 2021 [dmartinjs](https://github.com/dmartinjs).
 
-Distributed under [MIT](License) license.
+Distributed under [MIT](/LICENSE) license.
