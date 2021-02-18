@@ -21,6 +21,13 @@ npm install
   npm run start
 ```
 
+## :technologist: Built with
+
+- [React](https://reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Ionic](https://ionicframework.com/)
+- [Capacitor](https://capacitorjs.com/)
+
 ## :page_with_curl: License
 ​
 Copyright © 2021 [dmartinjs](https://github.com/dmartinjs).
