@@ -2,6 +2,7 @@
   "name": "formula1",
   "version": "1.0.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@capacitor/android": "^2.4.6",
     "@capacitor/core": "^2.4.6",
@@ -51,6 +52,6 @@
   "devDependencies": {
     "@capacitor/cli": "^2.4.6"
   },
-  "description": "Open source Formula 1 app",
+  "description": "App to find statistics about formula 1",
   "proxy": "https://f1calendar.com"
 }
