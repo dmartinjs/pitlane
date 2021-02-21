@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import Schedule from '../components/Schedule';
+import Circuit from '../components/Circuit';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string, 
   round: string,
-  country: string
+  country: string,
+  circuit: string
 }> {}
 
 const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
@@ -36,7 +38,7 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
     </IonHeader>
     <IonContent>
       {selectedSegment === "schedule" && <Schedule season={match.params.season} round={match.params.round}/>}
-      {selectedSegment === "circuit" && ''}
+      {selectedSegment === "circuit" && <Circuit season={match.params.season} round={match.params.round} circuit={match.params.circuit}/>}
     </IonContent>
   </IonPage>
   );

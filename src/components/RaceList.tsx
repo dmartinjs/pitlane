@@ -21,11 +21,11 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
 
   const racesFiltered = results ? races && races.filter(race => new Date(race.date) < new Date()).reverse() : races;
 
-  const _handleClick = (season: string, round: string, country: string) => {
+  const _handleClick = (season: string, round: string, country: string, circuit: string) => {
     if(results) {
       history.push(`/results/${season}/${round}/race`);
     } else {
-      history.push(`/race/${season}/${round}/${country}`);
+      history.push(`/race/${season}/${round}/${country}/${circuit}`);
     }
   }
 
@@ -50,7 +50,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
   return (
     <IonList lines="full">
       {racesFiltered && racesFiltered.map(race =>
-        <IonItem button detail onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country)} key={race.round}>
+        <IonItem button detail onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country, race.Circuit.circuitName)} key={race.round}>
           <div slot="start" className="ion-text-center">
             <strong>{new Date(race.date).getDate()}</strong><br/>
             <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
