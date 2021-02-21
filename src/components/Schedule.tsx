@@ -40,18 +40,17 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
 
   if (raceSchedule === null) {
     return (
-      <IonList>
+      <IonList lines="full">
         <IonListHeader>&nbsp;</IonListHeader>
         {[...Array(5)].map((item, index) =>
           <IonItem key={index}>
-            <div slot="start" style={{ width: '24px'}}>
-              &nbsp;
+            <div slot="start">
+              &nbsp;&nbsp;
             </div>
             <IonLabel>
               <h2><IonSkeletonText animated style={{ height: '11px', width: '40px' }}/></h2>
               <p><IonSkeletonText animated style={{ height: '11px', width: '100px' }}/></p>
             </IonLabel>
-            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '42px' }}/>
           </IonItem>
         )}
       </IonList>
