@@ -52,7 +52,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
       {racesFiltered && racesFiltered.map(race =>
         <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country)} key={race.round}>
           <IonAvatar slot="start">
-            <img src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
+            <img src={`assets/img/flags/${race.Circuit.Location.country.replace(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
           </IonAvatar>
           <IonLabel>
             <p className="ion-text-uppercase text-primary">ROUND {race.round}</p>
