@@ -38,7 +38,7 @@ const Standings: React.FC = () => {
       <IonContent>
         {selectedSegment === "drivers" && <DriverStandings/>}
         {selectedSegment === "constructors" && <ConstructorStandings/>}
-        {selectedSegment === "results" && <RaceList past results/>}
+        {selectedSegment === "results" && <RaceList results/>}
       </IonContent>
     </IonPage>
   );

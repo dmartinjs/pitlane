@@ -3,17 +3,23 @@ import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonAvatar } from
 import { useHistory } from 'react-router';
 import { Race } from '../models';
 
-const RaceList: React.FC<{past?: boolean, results?: boolean}> = ({past, results}) => {
+const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, season}) => {
   let history = useHistory();
   const [races, setRaces] = useState<[Race] | null>(null);
 
   useEffect(() => {
-    fetch('https://ergast.com/api/f1/current.json')
-      .then(res => res.json())
-      .then(result => setRaces(result.MRData.RaceTable.Races));
-  }, []);
+    if(season) {
+      fetch(`https://ergast.com/api/f1/${season}.json`)
+        .then(res => res.json())
+        .then(result => setRaces(result.MRData.RaceTable.Races));
+    } else {
+      fetch('https://ergast.com/api/f1/current.json')
+        .then(res => res.json())
+        .then(result => setRaces(result.MRData.RaceTable.Races));
+    }
+  }, [season]);
 
-  const racesFiltered = past ? races && races.filter(race => new Date(race.date) < new Date()).reverse() : races;
+  const racesFiltered = results ? races && races.filter(race => new Date(race.date) < new Date()).reverse() : races;
 
   const _handleClick = (season: string, round: string, country: string) => {
     if(results) {

@@ -4,6 +4,11 @@ import { settingsOutline } from 'ionicons/icons';
 import RaceList from '../components/RaceList';
 
 const Races: React.FC = () => {
+
+  const getYear = () => {
+    return new Date().getFullYear();
+  }
+
   return (
     <IonPage>
       <IonHeader>
@@ -17,7 +22,7 @@ const Races: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <RaceList/>
+        <RaceList season={getYear()}/>
       </IonContent>
     </IonPage>
   );
