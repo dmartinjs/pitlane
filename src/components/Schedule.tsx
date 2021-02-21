@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonIcon } from '@ionic/react';
-import { flagOutline, stopwatchOutline, squareOutline } from 'ionicons/icons';
+import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
 import { useHistory } from 'react-router';
 
 export interface Race {
