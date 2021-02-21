@@ -78,3 +78,7 @@
 .text-primary {
   color: var(--ion-color-primary) !important;
 }
+
+.font-weight-bold {
+  font-weight: 700 !important;
+}

@@ -39,7 +39,7 @@ const RacePreview: React.FC = () => {
         </IonAvatar>
         <IonLabel>
           <p className="ion-text-uppercase text-primary">ROUND {race.round}</p>
-          <h2><strong>{race.Circuit.Location.country}</strong></h2>
+          <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
           <p>{race.raceName}</p>
         </IonLabel>
         <div slot="end" className="ion-text-center">

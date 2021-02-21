@@ -68,7 +68,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
               <IonBadge color="medium">{new Date(raceSchedule.sessions.fp1).toLocaleString('default', { month: 'short' })}</IonBadge>
             </div>
             <IonLabel>
-              <h2><strong>Practice 1</strong></h2>
+              <h2 className="font-weight-bold">Practice 1</h2>
               <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.fp1))}</p>
             </IonLabel>
           </IonItem>
@@ -78,7 +78,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
               <IonBadge color="medium">{new Date(raceSchedule.sessions.fp2).toLocaleString('default', { month: 'short' })}</IonBadge>
             </div>
             <IonLabel>
-              <h2><strong>Practice 2</strong></h2>
+              <h2 className="font-weight-bold">Practice 2</h2>
               <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.fp2))}</p>
             </IonLabel>
           </IonItem>
@@ -88,7 +88,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
               <IonBadge color="medium">{new Date(raceSchedule.sessions.fp3).toLocaleString('default', { month: 'short' })}</IonBadge>
             </div>
             <IonLabel>
-              <h2><strong>Practice 3</strong></h2>
+              <h2 className="font-weight-bold">Practice 3</h2>
               <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.fp3))}</p>
             </IonLabel>
           </IonItem>
@@ -98,7 +98,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
               <IonBadge color="medium">{new Date(raceSchedule.sessions.qualifying).toLocaleString('default', { month: 'short' })}</IonBadge>
             </div>
             <IonLabel>
-              <h2><strong>Qualifying</strong></h2>
+              <h2 className="font-weight-bold">Qualifying</h2>
               <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.qualifying))}</p>
             </IonLabel>
           </IonItem>
@@ -108,7 +108,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
               <IonBadge color="medium">{new Date(raceSchedule.sessions.gp).toLocaleString('default', { month: 'short' })}</IonBadge>
             </div>
             <IonLabel>
-              <h2><strong>Race</strong></h2>
+              <h2 className="font-weight-bold">Race</h2>
               <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.gp))}</p>
             </IonLabel>
           </IonItem>

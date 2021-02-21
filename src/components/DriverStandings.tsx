@@ -37,7 +37,7 @@ const DriverStandings: React.FC = () => {
     <IonList>
       {drivers.map(driver =>
         <IonItem button onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
-          <div slot="start" className="on-align-items-center">
+          <div slot="start" className="font-weight-bold">
             {driver.position}
           </div>
           <IonLabel>

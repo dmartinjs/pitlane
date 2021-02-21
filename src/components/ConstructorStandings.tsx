@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonItem, IonLabel, IonBadge, IonAvatar, IonSkeletonText } from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { ConstructorStanding, DriverStanding } from '../models';
 
@@ -27,9 +27,7 @@ const ConstructorStandings: React.FC = () => {
       <IonList>
         {[...Array(10)].map((item, index) =>
           <IonItem key={index}>
-            <IonAvatar slot="start">
-              &nbsp;
-            </IonAvatar>
+            <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
@@ -41,14 +39,14 @@ const ConstructorStandings: React.FC = () => {
     );
   }
   return (
-    <IonList>
+    <IonList lines="full">
       {constructors.map(constructor =>
         <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
-        <IonAvatar slot="start">
-          <img src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`} alt={constructor.Constructor.name}/>
-        </IonAvatar>
+        <div slot="start" className="font-weight-bold">
+          {constructor.position}
+        </div>
         <IonLabel>
-          <h3><strong className="ion-text-uppercase">{constructor.position} - {constructor.Constructor.name}</strong></h3>
+          <h3 className="font-weight-bold ion-text-uppercase">{constructor.Constructor.name}</h3>
           <p>
           {drivers && drivers
             .filter(driver => driver.Constructors[0].constructorId === constructor.Constructor.constructorId)

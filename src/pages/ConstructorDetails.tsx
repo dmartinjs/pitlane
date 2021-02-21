@@ -76,7 +76,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                   </span>
                   <IonLabel>
                     <h2>{driver.givenName}</h2>
-                    <h3><strong className="ion-text-uppercase">{driver.familyName}</strong></h3>
+                    <h3 className="font-weight-bold ion-text-uppercase">{driver.familyName}</h3>
                   </IonLabel>
                 </IonItem>
               )}
