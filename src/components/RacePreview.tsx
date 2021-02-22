@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonCard, IonSkeletonText, IonItem, IonAvatar, IonLabel, IonBadge } from '@ionic/react';
+import { IonSkeletonText, IonItem, IonLabel, IonBadge, IonList, IonListHeader } from '@ionic/react';
 import { Race } from '../models';
 
 const RacePreview: React.FC = () => {
@@ -17,37 +17,36 @@ const RacePreview: React.FC = () => {
 
   if (race === null) {
     return (
-      <IonCard>
-        <IonItem>
-          <IonAvatar slot="start">
+      <IonList lines="none">
+        <IonListHeader>&nbsp;</IonListHeader>
+        <IonItem detail>
+          <div slot="start">
             &nbsp;
-          </IonAvatar>
+          </div>
           <IonLabel>
             <h2><IonSkeletonText animated style={{ height: '11px', width: '70px' }}/></h2>
             <h3><IonSkeletonText animated style={{ height: '11px', width: '55px' }}/></h3>
             <p><IonSkeletonText animated style={{ height: '11px', width: '120px' }}/></p>
           </IonLabel>
         </IonItem>
-      </IonCard>
+      </IonList>
     );
   }
   return (
-    <IonCard href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}`}>
-      <IonItem button>
-        <IonAvatar slot="start">
-          <img src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
-        </IonAvatar>
+    <IonList lines="none">
+      <IonListHeader>Next race</IonListHeader>
+      <IonItem button detail href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}/${race.Circuit.circuitName}`}>
+        <div slot="start" className="ion-text-center">
+          {new Date(race.date).getDate()}<br/>
+          <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
+        </div>
         <IonLabel>
           <p className="ion-text-uppercase text-primary">ROUND {race.round}</p>
           <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
           <p>{race.raceName}</p>
         </IonLabel>
-        <div slot="end" className="ion-text-center">
-          {new Date(race.date).getDate()}<br/>
-          <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
-        </div>
       </IonItem>
-    </IonCard>
+    </IonList>
   );
 };
 
