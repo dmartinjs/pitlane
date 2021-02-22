@@ -149,3 +149,20 @@ body.dark {
 
   --ion-card-background: #2C2C34;
 }
+
+/* SEGMENT */
+
+ion-segment-button {
+  --color-checked: var(--ion-color-dark);
+  --indicator-color: var(--ion-color-primary);
+}
+
+/* TAB */
+
+ion-tab-button {
+  --color-selected: var(--ion-color-dark);
+}
+
+ion-tab-button.tab-selected ion-icon {
+  color: var(--ion-color-primary);
+}
