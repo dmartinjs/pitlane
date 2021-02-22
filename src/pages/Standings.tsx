@@ -27,10 +27,10 @@ const Standings: React.FC = () => {
               <IonLabel>Drivers</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="constructors">
-              <IonLabel>Constructors</IonLabel>
+              <IonLabel>Teams</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="results">
-              <IonLabel>Results</IonLabel>
+              <IonLabel>Races</IonLabel>
             </IonSegmentButton>
           </IonSegment>
         </IonToolbar>
