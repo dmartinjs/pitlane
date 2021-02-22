@@ -166,3 +166,19 @@ ion-tab-button {
 ion-tab-button.tab-selected ion-icon {
   color: var(--ion-color-primary);
 }
+
+/* LIST */
+
+ion-list-header {
+  font-weight: 700;
+}
+
+ion-list-header::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: var(--ion-color-primary);
+  top: 45px;
+  position: absolute;
+  width: 32px;
+}
