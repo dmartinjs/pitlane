@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon } from '@ionic/react';
-import { settingsOutline } from 'ionicons/icons';
+import { optionsOutline } from 'ionicons/icons';
 import RaceList from '../components/RaceList';
 
 const Races: React.FC = () => {
@@ -16,7 +16,7 @@ const Races: React.FC = () => {
           <IonTitle>Races</IonTitle>
           <IonButtons slot="end">
             <IonButton href="/settings">
-              <IonIcon slot="icon-only" icon={settingsOutline}/>
+              <IonIcon slot="icon-only" icon={optionsOutline}/>
             </IonButton>
           </IonButtons>
         </IonToolbar>

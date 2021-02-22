@@ -1,7 +1,8 @@
 import React from 'react';
 import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { settingsOutline } from 'ionicons/icons';
+import { optionsOutline } from 'ionicons/icons';
 import RacePreview from '../components/RacePreview';
+import NewsFeed from '../components/NewsFeed';
 
 const News: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const News: React.FC = () => {
           <IonTitle>News</IonTitle>
           <IonButtons slot="end">
             <IonButton href="/settings">
-              <IonIcon slot="icon-only" icon={settingsOutline}/>
+              <IonIcon slot="icon-only" icon={optionsOutline}/>
             </IonButton>
           </IonButtons>
         </IonToolbar>
