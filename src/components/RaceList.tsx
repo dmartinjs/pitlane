@@ -34,9 +34,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
       <IonList>
         {[...Array(8)].map((item, index) =>
           <IonItem key={index}>
-            <div slot="start">
-              &nbsp;
-            </div>
+            <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
               <h2><IonSkeletonText animated style={{ height: '11px', width: '70px' }}/></h2>
               <h3><IonSkeletonText animated style={{ height: '11px', width: '55px' }}/></h3>
@@ -50,7 +48,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
   return (
     <IonList lines="full">
       {racesFiltered && racesFiltered.map(race =>
-        <IonItem button detail onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country, race.Circuit.circuitName)} key={race.round}>
+        <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country, race.Circuit.circuitName)} key={race.round}>
           <div slot="start" className="ion-text-center">
             <strong>{new Date(race.date).getDate()}</strong><br/>
             <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>

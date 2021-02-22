@@ -26,13 +26,13 @@ const ConstructorStandings: React.FC = () => {
     return (
       <IonList>
         {[...Array(10)].map((item, index) =>
-          <IonItem detail key={index}>
-            <div slot="start">&nbsp;&nbsp;</div>
+          <IonItem key={index}>
+            <div className="ion-margin-end">&nbsp;&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
             </IonLabel>
-            <IonSkeletonText slot="end" className="ion-margin-end" animated style={{ height: '16px', width: '58px' }}/>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
           </IonItem>
         )}
       </IonList>
@@ -41,9 +41,9 @@ const ConstructorStandings: React.FC = () => {
   return (
     <IonList lines="full">
       {constructors.map(constructor =>
-        <IonItem button detail onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
-        <div slot="start" className="font-weight-bold">
-          {constructor.position}
+        <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
+        <div className="font-weight-bold ion-margin-end">
+          {constructor.position}.
         </div>
         <IonLabel>
           <h3 className="font-weight-bold ion-text-uppercase">{constructor.Constructor.name}</h3>
@@ -58,7 +58,7 @@ const ConstructorStandings: React.FC = () => {
           }
           </p>
         </IonLabel>
-        <IonBadge slot="end" color="medium" className="ion-margin-end">{constructor.points} PTS</IonBadge>
+        <IonBadge slot="end" color="medium">{constructor.points} PTS</IonBadge>
       </IonItem>
       )}
     </IonList>

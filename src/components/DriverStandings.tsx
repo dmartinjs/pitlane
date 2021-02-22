@@ -21,13 +21,13 @@ const DriverStandings: React.FC = () => {
     return (
       <IonList>
         {[...Array(20)].map((item, index) =>
-          <IonItem detail key={index}>
-            <div slot="start">&nbsp;&nbsp;</div>
+          <IonItem key={index}>
+            <div className="ion-margin-end">&nbsp;&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
             </IonLabel>
-            <IonSkeletonText slot="end" className="ion-margin-end" animated style={{ height: '16px', width: '58px' }}/>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
           </IonItem>
         )}
       </IonList>
@@ -36,15 +36,15 @@ const DriverStandings: React.FC = () => {
   return (
     <IonList>
       {drivers.map(driver =>
-        <IonItem button detail onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
-          <div slot="start" className="font-weight-bold">
-            {driver.position}
+        <IonItem button onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
+          <div className="font-weight-bold ion-margin-end">
+            {driver.position}.
           </div>
           <IonLabel>
             <h3>{driver.Driver.givenName} <strong className="ion-text-uppercase">{driver.Driver.familyName}</strong></h3>
             <p>{driver.Constructors[0].name}</p>
           </IonLabel>
-          <IonBadge slot="end" color="medium" className="ion-margin-end">{driver.points} PTS</IonBadge>
+          <IonBadge slot="end" color="medium">{driver.points} PTS</IonBadge>
         </IonItem>
       )}
     </IonList>
