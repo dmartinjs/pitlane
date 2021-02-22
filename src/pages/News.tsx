@@ -19,6 +19,8 @@ const News: React.FC = () => {
       </IonHeader>
       <IonContent>
         <RacePreview/>
+
+        <NewsFeed/>
       </IonContent>
     </IonPage>
   );
