@@ -44,7 +44,7 @@ const DriverStandings: React.FC = () => {
             <h3>{driver.Driver.givenName} <strong className="ion-text-uppercase">{driver.Driver.familyName}</strong></h3>
             <p>{driver.Constructors[0].name}</p>
           </IonLabel>
-          <IonBadge slot="end" color="medium">{driver.points} PTS</IonBadge>
+          <IonBadge slot="end" color="light">{driver.points} PTS</IonBadge>
         </IonItem>
       )}
     </IonList>

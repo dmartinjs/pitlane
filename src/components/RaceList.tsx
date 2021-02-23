@@ -51,7 +51,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
         <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country, race.Circuit.circuitName)} key={race.round}>
           <div slot="start" className="ion-text-center">
             <strong>{new Date(race.date).getDate()}</strong><br/>
-            <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
+            <IonBadge color="light">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
           </div>
           <IonLabel>
             <p className="ion-text-uppercase text-primary">ROUND {race.round}</p>
