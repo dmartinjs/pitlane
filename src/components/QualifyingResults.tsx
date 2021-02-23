@@ -43,7 +43,7 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
           <div className="quali-title">Q3</div>
         </div>
       </IonItem>
-      {results && results.map((result, index) =>
+      {results && results.map(result =>
         <IonItem key={result.position}>
           <div slot="start" className="font-weight-bold">
             {result.position}.
