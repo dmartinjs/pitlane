@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonBadge, IonCol, IonGrid, IonRow, IonSkeletonText } from '@ionic/react';
+import { IonBadge, IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
 import { Result } from '../models';
 
 const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round}) => {
@@ -13,48 +13,50 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
 
   if (results === null) {
     return (
-      <IonGrid>
+      <IonList lines="full">
         {[...Array(20)].map((item, index) =>
-          <IonRow key={index}>
-            <IonCol>
-              <IonSkeletonText animated style={{ height: '16px', width: '100%' }}/>
-            </IonCol>
-          </IonRow>
+          <IonItem key={index}>
+            <div className="ion-margin-end">&nbsp;&nbsp;</div>
+            <IonLabel>
+              <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
+            </IonLabel>
+            <IonSkeletonText animated style={{ height: '16px', width: '58px' }}/>
+          </IonItem>
         )}
-      </IonGrid>
+      </IonList>
     );
   }
   return (
-    <IonGrid>
-      <IonRow>
-        <IonCol size="2">POS</IonCol>
-        <IonCol>
-          DRIVER
-        </IonCol>
-        <IonCol class="ion-text-center">
-          TIME/RET
-        </IonCol>
-        <IonCol class="ion-text-center">
-          PTS
-        </IonCol>
-      </IonRow>
+    <IonList lines="full">
+      <IonItem>
+        <div className="ion-margin-end">
+          Pos
+        </div>
+        <IonLabel>
+          Driver
+        </IonLabel>
+        <div>
+          Time / Ret
+        </div>
+        <div slot="end">
+          Pts
+        </div>
+      </IonItem>
       {results && results.map(result =>
-        <IonRow key={result.position}>
-          <IonCol size="2">
-            <strong>{result.position}</strong>
-          </IonCol>
-          <IonCol>
-            <strong className="ion-text-uppercase">{result.Driver.code}</strong>
-          </IonCol>
-          <IonCol class="ion-text-center">
-            <IonBadge color="medium">{result.Time ? result.Time.time : (result.status === '+1 Lap' ? result.status : 'DNF')}</IonBadge>
-          </IonCol>
-          <IonCol class="ion-text-center">
-            <strong>{result.points}</strong>
-          </IonCol>
-        </IonRow>
+        <IonItem key={result.position}>
+          <div slot="start" className="font-weight-bold">
+            {result.position}.
+          </div>
+          <IonLabel>
+            <h3>{result.Driver.givenName} <strong className="ion-text-uppercase">{result.Driver.familyName}</strong></h3>
+          </IonLabel>
+          <IonBadge color="light">{result.Time ? result.Time.time : (result.status === '+1 Lap' ? result.status : 'DNF')}</IonBadge>
+          <div slot="end">
+            {result.points}
+          </div>
+        </IonItem>
       )}
-    </IonGrid>
+    </IonList>
   );
 };
 
