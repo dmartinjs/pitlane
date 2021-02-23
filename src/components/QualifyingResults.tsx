@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonBadge, IonCol, IonGrid, IonRow, IonSkeletonText } from '@ionic/react';
+import { IonBadge, IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
 import { QualifyingResult } from '../models';
 
 const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season, round}) => {
@@ -13,54 +13,52 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
 
   if (results === null) {
     return (
-      <IonGrid>
+      <IonList lines="full">
         {[...Array(20)].map((item, index) =>
-          <IonRow key={index}>
-            <IonCol>
-              <IonSkeletonText animated style={{ height: '16px', width: '100%' }}/>
-            </IonCol>
-          </IonRow>
+          <IonItem key={index}>
+            <div className="ion-margin-end">&nbsp;&nbsp;</div>
+            <IonLabel>
+              <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
+            </IonLabel>
+            <IonSkeletonText animated style={{ height: '16px', width: '58px' }}/>
+            <IonSkeletonText animated style={{ height: '16px', width: '58px' }}/>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
+          </IonItem>
         )}
-      </IonGrid>
+      </IonList>
     );
   }
   return (
-    <IonGrid>
-      <IonRow>
-        <IonCol size="2">POS</IonCol>
-        <IonCol>
-          DRIVER
-        </IonCol>
-        <IonCol>
-          Q1
-        </IonCol>
-        <IonCol>
-          Q2
-        </IonCol>
-        <IonCol>
-          Q3
-        </IonCol>
-      </IonRow>
-      {results && results.map(result =>
-        <IonRow key={result.position}>
-          <IonCol size="2">
-            <strong>{result.position}</strong>
-          </IonCol>
-          <IonCol>
-            <strong className="ion-text-uppercase">{result.Driver.code}</strong>
-          </IonCol>
-          <IonCol>
-            <IonBadge color="medium">{result.Q1}</IonBadge>
-          </IonCol>
-          <IonCol>
-            {result.Q2 !== undefined ? <IonBadge color="medium">{result.Q2}</IonBadge> : '--'}
-          </IonCol>
-          <IonCol>
-            {result.Q3 !== undefined ? <IonBadge color="medium">{result.Q3}</IonBadge> : '--'}
-          </IonCol>
-        </IonRow>
+    <IonList lines="full">
+      <IonItem>
+        <div className="ion-margin-end">
+          Pos
+        </div>
+        <IonLabel>
+          Driver
+        </IonLabel>
+        <div slot="end" className="quali-results d-flex">
+          <div className="quali-title ion-margin-end">Q1</div>
+          <div className="quali-title ion-margin-end">Q2</div>
+          <div className="quali-title">Q3</div>
+        </div>
+      </IonItem>
+      {results && results.map((result, index) =>
+        <IonItem key={result.position}>
+          <div slot="start" className="font-weight-bold">
+            {result.position}.
+          </div>
+          <IonLabel>
+            <h3 className="font-weight-bold">{result.Driver.code}</h3>
+          </IonLabel>
+          <div slot="end" className="quali-results">
+            <IonBadge color="light" className="ion-margin-end">{result.Q1}</IonBadge>
+            {result.Q2 !== undefined ? <IonBadge color="light" className="ion-margin-end">{result.Q2}</IonBadge> : ''}
+            {result.Q3 !== undefined ? <IonBadge color="light">{result.Q3}</IonBadge> : ''}
+          </div>
+        </IonItem>
       )}
-    </IonGrid>
+    </IonList>
   );
 };
 

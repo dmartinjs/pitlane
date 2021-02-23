@@ -61,10 +61,6 @@
   display: flex;
 }
 
-.ion-align-items-center {
-  align-items: center !important;
-}
-
 /* TEXT */
 
 .ion-text-center {
@@ -81,4 +77,13 @@
 
 .font-weight-bold {
   font-weight: 700 !important;
+}
+
+/* QUALI */
+.quali-title {
+  min-width: 3.75rem;
+}
+
+.quali-results {
+  min-width: 13.25rem;
 }
