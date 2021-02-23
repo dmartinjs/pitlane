@@ -58,7 +58,7 @@ const ConstructorStandings: React.FC = () => {
           }
           </p>
         </IonLabel>
-        <IonBadge slot="end" color="light">{constructor.points} PTS</IonBadge>
+        <IonBadge slot="end" color="medium">{constructor.points} PTS</IonBadge>
       </IonItem>
       )}
     </IonList>

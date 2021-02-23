@@ -37,7 +37,7 @@ const RacePreview: React.FC = () => {
       <IonItem button detail href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}/${race.Circuit.circuitName}`}>
         <div slot="start" className="ion-text-center">
           {new Date(race.date).getDate()}<br/>
-          <IonBadge color="light">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
+          <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
         </div>
         <IonLabel>
           <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
