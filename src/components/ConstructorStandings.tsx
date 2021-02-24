@@ -24,7 +24,7 @@ const ConstructorStandings: React.FC = () => {
 
   if (constructors === null || drivers === null) {
     return (
-      <IonList>
+      <IonList lines="full">
         {[...Array(10)].map((item, index) =>
           <IonItem key={index}>
             <div>&nbsp;&nbsp;</div>

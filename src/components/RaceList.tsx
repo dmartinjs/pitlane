@@ -31,7 +31,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
 
   if (races === null) {
     return (
-      <IonList>
+      <IonList lines="full">
         {[...Array(8)].map((item, index) =>
           <IonItem key={index}>
             <div slot="start">&nbsp;&nbsp;</div>

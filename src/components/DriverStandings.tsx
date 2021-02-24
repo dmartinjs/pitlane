@@ -19,7 +19,7 @@ const DriverStandings: React.FC = () => {
 
   if (drivers === null) {
     return (
-      <IonList>
+      <IonList lines="full">
         {[...Array(20)].map((item, index) =>
           <IonItem key={index}>
             <div>&nbsp;&nbsp;</div>
@@ -37,7 +37,7 @@ const DriverStandings: React.FC = () => {
     );
   }
   return (
-    <IonList>
+    <IonList lines="full">
       {drivers.map(driver =>
         <IonItem button onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
           <div className="font-weight-bold">
