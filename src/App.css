@@ -105,8 +105,8 @@
 .circuit-country-thumbnail {
   --ion-margin: 1.375rem;
 
-  width: 3rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 1.75rem;
 }
 
 .circuit-country-thumbnail img {
