@@ -113,7 +113,7 @@ body.dark {
  */
 
 .md body.dark {
-  --ion-background-color: #1F1F27;
+  --ion-background-color: #2C2C34;
   --ion-background-color-rgb: 31, 31, 39;
 
   --ion-text-color: #ffffff;
@@ -145,9 +145,6 @@ body.dark {
 
   --ion-tab-bar-background: #393940;
 
-  --ion-item-background: #2C2C34;
-
-  --ion-card-background: #2C2C34;
 }
 
 /* SEGMENT */
