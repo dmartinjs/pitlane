@@ -39,7 +39,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
               <h2><IonSkeletonText animated style={{ height: '11px', width: '70px' }}/></h2>
               <p><IonSkeletonText animated style={{ height: '11px', width: '120px' }}/></p>
             </IonLabel>
-            <IonSkeletonText slot="end"className="ion-margin-end"  animated style={{ height: '16px', width: '30px' }}/>
+            <IonSkeletonText slot="end"  animated style={{ height: '16px', width: '30px' }}/>
           </IonItem>
         )}
       </IonList>
@@ -57,7 +57,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
             <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
             <p>{race.raceName}</p>
           </IonLabel>
-          <IonThumbnail slot="end" className="country-thumbnail ion-margin-end">
+          <IonThumbnail slot="end" className="country-thumbnail">
             <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replace(' ', '_')}.svg`} alt={race.Circuit.Location.country} />
           </IonThumbnail>
         </IonItem>
