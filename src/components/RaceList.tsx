@@ -58,7 +58,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
             <p>{race.raceName}</p>
           </IonLabel>
           <IonThumbnail slot="end" className="country-thumbnail ion-margin-end">
-            <IonImg src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country} />
+            <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replace(' ', '_')}.svg`} alt={race.Circuit.Location.country} />
           </IonThumbnail>
         </IonItem>
       )}
