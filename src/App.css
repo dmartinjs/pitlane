@@ -79,6 +79,14 @@
   font-weight: 700 !important;
 }
 
+/* Standings */
+.constructor-logo {
+  --ion-margin: 1.5rem;
+
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 /* QUALI */
 .quali-title {
   min-width: 3.75rem;

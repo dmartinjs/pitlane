@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonAvatar, IonImg } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { ConstructorStanding, DriverStanding } from '../models';
 
@@ -27,7 +27,10 @@ const ConstructorStandings: React.FC = () => {
       <IonList>
         {[...Array(10)].map((item, index) =>
           <IonItem key={index}>
-            <div className="ion-margin-end">&nbsp;&nbsp;</div>
+            <div>&nbsp;&nbsp;</div>
+            <IonAvatar className="ion-margin-start ion-margin-end">
+              &nbsp;
+            </IonAvatar>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
@@ -42,9 +45,12 @@ const ConstructorStandings: React.FC = () => {
     <IonList lines="full">
       {constructors.map(constructor =>
         <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
-        <div className="font-weight-bold ion-margin-end">
+        <div className="font-weight-bold">
           {constructor.position}.
         </div>
+        <IonAvatar className="constructor-logo ion-margin-start ion-margin-end">
+            <IonImg src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`} alt={constructor.Constructor.name} />
+          </IonAvatar>
         <IonLabel>
           <h3 className="font-weight-bold ion-text-uppercase">{constructor.Constructor.name}</h3>
           <p>
