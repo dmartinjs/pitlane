@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail, IonImg } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { Race } from '../models';
 
@@ -37,9 +37,9 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
             <div slot="start">&nbsp;&nbsp;</div>
             <IonLabel>
               <h2><IonSkeletonText animated style={{ height: '11px', width: '70px' }}/></h2>
-              <h3><IonSkeletonText animated style={{ height: '11px', width: '55px' }}/></h3>
               <p><IonSkeletonText animated style={{ height: '11px', width: '120px' }}/></p>
             </IonLabel>
+            <IonSkeletonText slot="end"className="ion-margin-end"  animated style={{ height: '16px', width: '30px' }}/>
           </IonItem>
         )}
       </IonList>
@@ -54,10 +54,12 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
             <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
           </div>
           <IonLabel>
-            <p className="ion-text-uppercase text-primary">ROUND {race.round}</p>
             <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
             <p>{race.raceName}</p>
           </IonLabel>
+          <IonThumbnail slot="end" className="country-thumbnail ion-margin-end">
+            <IonImg src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country} />
+          </IonThumbnail>
         </IonItem>
       )}
     </IonList>

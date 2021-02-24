@@ -87,6 +87,17 @@
   height: 1.5rem;
 }
 
+.country-thumbnail {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: 1.5rem;
+  height: 1rem;
+}
+
+.country-thumbnail ion-img {
+  border-radius: 0.25rem;
+}
+
 /* QUALI */
 .quali-title {
   min-width: 3.75rem;
