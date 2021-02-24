@@ -40,7 +40,7 @@ const DriverStandings: React.FC = () => {
     <IonList lines="full">
       {drivers.map(driver =>
         <IonItem button onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
-          <div className="font-weight-bold">
+          <div className="standings-position font-weight-bold">
             {driver.position}.
           </div>
           <IonAvatar className="constructor-logo ion-margin-start ion-margin-end">

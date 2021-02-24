@@ -16,7 +16,7 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
       <IonList lines="full">
         {[...Array(20)].map((item, index) =>
           <IonItem key={index}>
-            <div className="ion-margin-end">&nbsp;&nbsp;</div>
+            <div className="quali-position ion-margin-end"></div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
             </IonLabel>
@@ -31,8 +31,8 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
   return (
     <IonList lines="full">
       <IonItem>
-        <div className="ion-margin-end">
-          Pos
+        <div className="quali-position ion-margin-end">
+          P
         </div>
         <IonLabel>
           Driver
@@ -45,11 +45,11 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
       </IonItem>
       {results && results.map(result =>
         <IonItem key={result.position}>
-          <div slot="start" className="font-weight-bold">
+          <div className="quali-position ion-margin-end font-weight-bold">
             {result.position}.
           </div>
           <IonLabel>
-            <h3 className="font-weight-bold">{result.Driver.code}</h3>
+            <h3 className="font-weight-bold ion-text-uppercase">{result.Driver.familyName}</h3>
           </IonLabel>
           <div slot="end" className="quali-results">
             <IonBadge color="medium" className="ion-margin-end">{result.Q1}</IonBadge>
