@@ -102,6 +102,17 @@
   border-radius: 0.25rem;
 }
 
+.circuit-country-thumbnail {
+  --ion-margin: 1.375rem;
+
+  width: 3rem;
+  height: 2rem;
+}
+
+.circuit-country-thumbnail img {
+  border-radius: 0.25rem;
+}
+
 .standings-position,
 .quali-position,
 .race-position {

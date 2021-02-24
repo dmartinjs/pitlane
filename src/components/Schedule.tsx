@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
+import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail } from '@ionic/react';
 import { useHistory } from 'react-router';
+import { Race } from '../models';
 
-export interface Race {
+export interface RaceSession {
   name:      string;
   location:  string;
   latitude:  number;
@@ -24,12 +25,19 @@ export interface Sessions {
 
 const Schedule: React.FC<{season: string, round: string}> = ({season, round}) => {
   let history = useHistory();
-  const [raceSchedule, setraceSchedule] = useState<Race | null>(null);
+  const [race, setRace] = useState<Race | null>(null);
+  const [raceSchedule, setraceSchedule] = useState<RaceSession | null>(null);
 
   useEffect(() => {
     fetch(`/api/year/${season}`)
       .then(res => res.json())
       .then(result => setraceSchedule(result.races[parseInt(round) - 1]));
+    
+    fetch(`https://ergast.com/api/f1/${season}/${round}.json`)
+      .then(res => res.json())
+      .then(result => {
+        setRace(result.MRData.RaceTable.Races[0]);
+      });
   }, [round, season]);
 
   const _handleClick = (season: string, round: string, session: string, date: Date) => {
@@ -58,6 +66,17 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
   }
   return (
     <IonList lines="full">
+      {race &&
+        <IonItem lines="none">
+          <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
+            <img src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
+          </IonThumbnail>
+          <IonLabel>
+            <h2><strong>{race.Circuit.Location.country}</strong> {season}</h2>
+            <p>{race.raceName}</p>
+          </IonLabel>
+        </IonItem>
+      }
       <IonListHeader>Race Weekend</IonListHeader>
       {raceSchedule &&
         <React.Fragment>
