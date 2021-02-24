@@ -98,6 +98,10 @@
   border-radius: 0.25rem;
 }
 
+.standings-points {
+  min-width: 2.625rem;
+}
+
 /* QUALI */
 .quali-title {
   min-width: 3.75rem;

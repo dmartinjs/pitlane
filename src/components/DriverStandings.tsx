@@ -30,7 +30,7 @@ const DriverStandings: React.FC = () => {
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
             </IonLabel>
-            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '42px' }}/>
           </IonItem>
         )}
       </IonList>
@@ -50,7 +50,7 @@ const DriverStandings: React.FC = () => {
             <h3>{driver.Driver.givenName} <strong className="ion-text-uppercase">{driver.Driver.familyName}</strong></h3>
             <p>{driver.Constructors[0].name}</p>
           </IonLabel>
-          <IonBadge slot="end" color="medium">{driver.points} PTS</IonBadge>
+          <IonBadge className="standings-points" slot="end" color="medium">{driver.points}</IonBadge>
         </IonItem>
       )}
     </IonList>

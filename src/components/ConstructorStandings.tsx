@@ -35,7 +35,7 @@ const ConstructorStandings: React.FC = () => {
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
             </IonLabel>
-            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '58px' }}/>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '42px' }}/>
           </IonItem>
         )}
       </IonList>
@@ -64,7 +64,7 @@ const ConstructorStandings: React.FC = () => {
           }
           </p>
         </IonLabel>
-        <IonBadge slot="end" color="medium">{constructor.points} PTS</IonBadge>
+        <IonBadge className="standings-points" slot="end" color="medium">{constructor.points}</IonBadge>
       </IonItem>
       )}
     </IonList>
