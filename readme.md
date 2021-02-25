@@ -5,7 +5,7 @@
 <p align="center">App to find statistics about formula 1</p>
 
 ## :sparkles: Demo
-<img src="illustrations/demo.gif"/>
+<img src="illustrations/standings-races-results.png"/>
 
 ## :package: Install
 
