@@ -3,6 +3,13 @@
 </div>
 <h1 align="center">Formula 1</h1>
 <p align="center">App to find statistics about formula 1</p>
+<div align="center">
+
+![GitHub package.json version](https://img.shields.io/github/package-json/v/dmartinjs/formula1)
+![GitHub last commit](https://img.shields.io/github/last-commit/dmartinjs/formula1)
+![GitHub](https://img.shields.io/github/license/dmartinjs/formula1)
+
+</div>
 
 ## :sparkles: Demo
 <img src="illustrations/standings-races-results.png"/>
@@ -32,4 +39,4 @@ npm install
 ​
 Copyright © 2021 [dmartinjs](https://github.com/dmartinjs).
 
-Distributed under [MIT](/LICENSE) license.
+Distributed under [AGPL-3.0](/LICENSE) license.
