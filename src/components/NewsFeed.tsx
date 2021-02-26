@@ -1,20 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonItem, IonThumbnail, IonLabel, IonList, IonListHeader } from '@ionic/react';
 
+export interface Item {
+  title:      string;
+  link:  string;
+  enclosure: {
+    link: string
+  }  
+}
+
 const NewsFeed: React.FC = () => {
-  
+  const [feed, setFeed] = useState< [Item] | null>(null);
+
+  useEffect(() => {
+    fetch('https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.motorsport.com%2Frss%2Ff1%2Fnews%2F')
+      .then(res => res.json())
+      .then(result => {
+        console.log(result.items)
+        setFeed(result.items)
+      });
+  }, []);
 
   return (
     <IonList lines="inset">
       <IonListHeader>Latest News</IonListHeader>
-      <IonItem button detail href="https://www.motorsport.com/f1/news/ricciardo-f1-seat-fit-woes-behind-me-at-mclaren/5450206/">
-        <IonThumbnail slot="start">
-          <img src="https://cdn-1.motorsport.com/images/amp/YEQA4vPY/s6/daniel-ricciardo-mclaren-1.jpg" alt=""/>
-        </IonThumbnail>
-        <IonLabel className="ion-text-wrap ion-margin-end">
-          Ricciardo at "the limit" for McLaren F1 cockpit 
-        </IonLabel>
-      </IonItem>
+      {feed && feed.map((item: any, index: any) =>
+        <IonItem key={index} button href={item.link.replace(/utm_[^&]+&?/g, '')} target="_blank">
+          <IonThumbnail slot="start">
+            <img src={item.enclosure.link} alt={item.title}/>
+          </IonThumbnail>
+          <IonLabel className="ion-text-wrap ion-margin-end">
+            {item.title}
+          </IonLabel>
+        </IonItem>
+      )}
     </IonList>
   );
 };
