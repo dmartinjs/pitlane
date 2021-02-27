@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList } from '@ionic/react';
+import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonImg, IonIcon } from '@ionic/react';
 import { Race } from '../models';
 
 const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({season, round, circuit}) => {
@@ -29,17 +29,18 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
     );
   }
   return (
-    <IonList>
-      <IonItem lines="none">
+    <React.Fragment>
+      <IonItem lines="none" className="ion-margin-top">
         <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
           <img src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
         </IonThumbnail>
         <IonLabel>
-          <h2>{race.Circuit.circuitName}</h2>
+          <h2 className="font-weight-bold">{race.Circuit.circuitName}</h2>
           <p>{race.Circuit.Location.country}</p>
         </IonLabel>
       </IonItem>
-    </IonList>
+      <IonIcon className="track ion-padding" src={`assets/img/tracks/${race.Circuit.circuitName.replaceAll(' ', '_').replace('ü', 'u').replace('ó', 'o').replace('í', 'i').replace('é', 'e')}.svg`}/>
+    </React.Fragment>
   );
 };
 

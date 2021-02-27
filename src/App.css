@@ -143,3 +143,17 @@
 .quali-results {
   min-width: 13.25rem;
 }
+
+/* RACE PREVIEW */
+.track-icon {
+  font-size: 2.5rem;
+}
+
+/* TRACK */
+.track {
+  display: block;
+  font-size: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #28292f;
+}

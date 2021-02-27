@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonSkeletonText, IonItem, IonLabel, IonBadge, IonList, IonListHeader } from '@ionic/react';
+import { IonSkeletonText, IonItem, IonLabel, IonBadge, IonList, IonListHeader, IonIcon } from '@ionic/react';
 import { Race } from '../models';
 
 const RacePreview: React.FC = () => {
@@ -19,7 +19,7 @@ const RacePreview: React.FC = () => {
     return (
       <IonList lines="inset">
         <IonListHeader>&nbsp;</IonListHeader>
-        <IonItem detail>
+        <IonItem>
           <div slot="start">
             &nbsp;
           </div>
@@ -34,7 +34,7 @@ const RacePreview: React.FC = () => {
   return (
     <IonList lines="inset">
       <IonListHeader>Next race</IonListHeader>
-      <IonItem button detail href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}/${race.Circuit.circuitName}`}>
+      <IonItem button href={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}/${race.Circuit.circuitName}`}>
         <div slot="start" className="ion-text-center">
           {new Date(race.date).getDate()}<br/>
           <IonBadge color="medium">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
@@ -43,6 +43,7 @@ const RacePreview: React.FC = () => {
           <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
           <p>{race.raceName}</p>
         </IonLabel>
+        <IonIcon slot="end" className="track-icon" src={`assets/img/tracks/${race.Circuit.circuitName.replaceAll(' ', '_').replace('ü', 'u').replace('ó', 'o').replace('í', 'i').replace('é', 'e')}.svg`} />
       </IonItem>
     </IonList>
   );
