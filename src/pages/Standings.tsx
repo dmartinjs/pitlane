@@ -17,7 +17,7 @@ const Standings: React.FC = () => {
           <IonTitle>Standings</IonTitle>
           <IonButtons slot="end">
             <IonButton href="/settings">
-              <IonIcon slot="icon-only" icon={optionsOutline}/>
+              <IonIcon slot="icon-only" icon={optionsOutline} ariaLabel="settings"/>
             </IonButton>
           </IonButtons>
         </IonToolbar>
