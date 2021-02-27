@@ -1,4 +1,4 @@
-package com.f1.app;
+package net.pitlane.app;
 
 import android.os.Bundle;
 

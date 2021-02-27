@@ -1,6 +1,6 @@
 {
-  "name": "f1",
-  "short_name": "f1",
+  "name": "pitlane",
+  "short_name": "pitlane",
   "start_url": ".",
   "display": "standalone",
   "icons": [{

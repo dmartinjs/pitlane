@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">formula1</string>
-    <string name="title_activity_main">formula1</string>
-    <string name="package_name">com.f1.app</string>
-    <string name="custom_url_scheme">com.f1.app</string>
+    <string name="app_name">pitlane</string>
+    <string name="title_activity_main">pitlane</string>
+    <string name="package_name">net.pitlane.app</string>
+    <string name="custom_url_scheme">net.pitlane.app</string>
 </resources>

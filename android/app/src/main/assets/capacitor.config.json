@@ -1,6 +1,6 @@
 {
-  "appId": "com.f1.app",
-  "appName": "formula1",
+  "appId": "net.pitlane.app",
+  "appName": "pitlane",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",

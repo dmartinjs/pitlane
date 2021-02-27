@@ -1,13 +1,13 @@
 <div align="center">
   <img src="public/assets/icon/icon192.png"/>
 </div>
-<h1 align="center">Formula 1</h1>
+<h1 align="center">Pitlane</h1>
 <p align="center">App to find statistics about formula 1</p>
 <div align="center">
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/dmartinjs/formula1)
-![GitHub last commit](https://img.shields.io/github/last-commit/dmartinjs/formula1)
-![GitHub](https://img.shields.io/github/license/dmartinjs/formula1)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/dmartinjs/pitlane)
+![GitHub last commit](https://img.shields.io/github/last-commit/dmartinjs/pitlane)
+![GitHub](https://img.shields.io/github/license/dmartinjs/pitlane)
 
 </div>
 
@@ -17,8 +17,8 @@
 ## :package: Install
 
 ```bash
-git clone https://github.com/dmartinjs/formula1.git
-cd formula1
+git clone https://github.com/dmartinjs/pitlane.git
+cd pitlane
 npm install
 ```
 
