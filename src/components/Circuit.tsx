@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonImg, IonIcon } from '@ionic/react';
+import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon } from '@ionic/react';
 import { Race } from '../models';
 
 const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({season, round, circuit}) => {
