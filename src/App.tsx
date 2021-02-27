@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { newspaperOutline, podiumOutline, flagOutline } from 'ionicons/icons';
-import News from './pages/News';
+import Latest from './pages/Latest';
 import Standings from './pages/Standings';
 import Races from './pages/Races';
 import Settings from './pages/Settings';
@@ -58,7 +58,7 @@ const App: React.FC = () => {
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/news" component={News} exact={true} />
+          <Route path="/latest" component={Latest} exact={true} />
           <Route path="/standings" component={Standings} exact={true} />
           <Route path="/races" component={Races} exact={true} />
           <Route path="/settings" component={Settings} exact={true} />
@@ -66,12 +66,12 @@ const App: React.FC = () => {
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />
           <Route path="/results/:season/:round/:session" component={Results} />
-          <Route path="/" render={() => <Redirect to="/news" />} exact={true} />
+          <Route path="/" render={() => <Redirect to="/latest" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="news" href="/news">
+          <IonTabButton tab="latest" href="/latest">
             <IonIcon icon={newspaperOutline}/>
-            <IonLabel>News</IonLabel>
+            <IonLabel>Latest</IonLabel>
           </IonTabButton>
           <IonTabButton tab="standings" href="/standings">
             <IonIcon icon={podiumOutline}/>

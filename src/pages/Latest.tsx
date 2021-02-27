@@ -2,14 +2,14 @@ import React from 'react';
 import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
 import RacePreview from '../components/RacePreview';
-import NewsFeed from '../components/NewsFeed';
+import News from '../components/News';
 
-const News: React.FC = () => {
+const Latest: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>News</IonTitle>
+          <IonTitle>Pitlane</IonTitle>
           <IonButtons slot="end">
             <IonButton href="/settings">
               <IonIcon slot="icon-only" icon={optionsOutline}/>
@@ -20,10 +20,10 @@ const News: React.FC = () => {
       <IonContent>
         <RacePreview/>
 
-        <NewsFeed/>
+        <News/>
       </IonContent>
     </IonPage>
   );
 };
 
-export default News;
+export default Latest;
