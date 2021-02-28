@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/assets/icon/icon192.png"/>
+  <img src="public/assets/icon/android-chrome-192x192.png"/>
 </div>
 <h1 align="center">Pitlane</h1>
 <p align="center">App to find statistics about formula 1</p>
