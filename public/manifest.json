@@ -1,14 +1,16 @@
 {
-  "name": "pitlane",
-  "short_name": "pitlane",
-  "start_url": ".",
+  "name": "Pitlane",
+  "short_name": "Pitlane",
+  "start_url": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "icons": [{
-    "src": "assets/icon/icon192.png",
+    "src": "assets/icon/android-chrome-192x192.png",
     "sizes": "192x192",
-    "type": "image/png"
+    "type": "image/png",
+    "purpose": "any maskable"
   },{
-    "src": "assets/icon/icon512.png",
+    "src": "assets/icon/android-chrome-512x512.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
