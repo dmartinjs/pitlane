@@ -159,3 +159,11 @@
   height: 216px;
   color: var(--ion-color-dark);
 }
+
+/* APP ICON */
+.app-icon {
+  width: 256px;
+  height: 256px;
+  margin-left: auto;
+  margin-right: auto;
+}

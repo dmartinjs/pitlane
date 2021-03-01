@@ -19,6 +19,7 @@ import RaceDetails from './pages/RaceDetails';
 import DriverDetails from './pages/DriverDetails';
 import ConstructorDetails from './pages/ConstructorDetails';
 import Results from './pages/Results';
+import About from './pages/About';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -62,6 +63,7 @@ const App: React.FC = () => {
           <Route path="/standings" component={Standings} exact={true} />
           <Route path="/races" component={Races} exact={true} />
           <Route path="/settings" component={Settings} exact={true} />
+          <Route path="/about" component={About} exact={true} />
           <Route path="/race/:season/:round/:country/:circuit" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />

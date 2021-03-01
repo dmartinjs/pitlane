@@ -1,6 +1,6 @@
 import React from 'react';
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
-import { moonOutline } from 'ionicons/icons';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
+import { moonOutline, alertCircleOutline } from 'ionicons/icons';
 
 const Settings: React.FC = () => {
 
@@ -23,6 +23,14 @@ const Settings: React.FC = () => {
           <IonLabel>Toggle Dark Theme</IonLabel>
           <IonToggle slot="end" name="darkMode" onIonChange={toggleDarkModeHandler} />
         </IonItem>
+
+        <IonList>
+          <IonListHeader>Project</IonListHeader>
+          <IonItem button href="/about">
+            <IonIcon slot="start" icon={alertCircleOutline}/>
+            <IonLabel>About</IonLabel>
+          </IonItem>
+        </IonList>
       </IonContent>
     </IonPage>
   );
