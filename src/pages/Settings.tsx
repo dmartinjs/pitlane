@@ -1,6 +1,6 @@
 import React from 'react';
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
-import { moonOutline, alertCircleOutline } from 'ionicons/icons';
+import { moonOutline, alertCircleOutline, bugOutline } from 'ionicons/icons';
 
 const Settings: React.FC = () => {
 
@@ -26,6 +26,10 @@ const Settings: React.FC = () => {
 
         <IonList>
           <IonListHeader>Project</IonListHeader>
+          <IonItem button href="https://github.com/dmartinjs/pitlane/issues" target="_blank" rel="noopener">
+            <IonIcon slot="start" icon={bugOutline}/>
+            <IonLabel>Report a bug</IonLabel>
+          </IonItem>
           <IonItem button href="/about">
             <IonIcon slot="start" icon={alertCircleOutline}/>
             <IonLabel>About</IonLabel>

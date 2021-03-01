@@ -24,14 +24,14 @@ const About: React.FC = () => {
               <p>1.0.0</p>
             </IonLabel>
           </IonItem>
-          <IonItem button href="https://github.com/dmartinjs" target="_blank">
+          <IonItem button href="https://github.com/dmartinjs" target="_blank" rel="noopener">
             <IonIcon slot="start" icon={person} />
             <IonLabel>
             <h2>Maintainer</h2>
             <p>dmartinjs</p>
             </IonLabel>
           </IonItem>
-          <IonItem button href="https://github.com/dmartinjs/pitlane" target="_blank">
+          <IonItem button href="https://github.com/dmartinjs/pitlane" target="_blank" rel="noopener">
             <IonIcon slot="start" icon={logoGithub} />
             <IonLabel>
               <h2>Source code</h2>
