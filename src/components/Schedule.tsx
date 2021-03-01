@@ -69,7 +69,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       {race &&
           <IonItem lines="none" className="ion-margin-top">
             <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
-              <img src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
+              <img src={`assets/img/flags/${race.Circuit.Location.country.replaceAll(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
             </IonThumbnail>
             <IonLabel>
               <h2><strong>{race.Circuit.Location.country}</strong> {season}</h2>
