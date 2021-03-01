@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon } from '@ionic/react';
+import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon, IonCard, IonCardContent } from '@ionic/react';
 import { Race } from '../models';
 
 const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({season, round, circuit}) => {
@@ -39,7 +39,11 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
           <p>{race.Circuit.Location.country}</p>
         </IonLabel>
       </IonItem>
-      <IonIcon className="track ion-padding" src={`assets/img/tracks/${race.Circuit.circuitName.replaceAll(' ', '_').replace('ü', 'u').replace('ó', 'o').replace('í', 'i').replace('é', 'e')}.svg`}/>
+      <IonCard className="track-card">
+        <IonCardContent>
+          <IonIcon className="track ion-padding" src={`assets/img/tracks/${race.Circuit.circuitName.replaceAll(' ', '_').replace('ü', 'u').replace('ó', 'o').replace('í', 'i').replace('é', 'e')}.svg`}/>
+        </IonCardContent>
+      </IonCard>
     </React.Fragment>
   );
 };

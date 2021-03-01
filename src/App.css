@@ -149,10 +149,13 @@
 }
 
 /* TRACK */
+
+.track-card {
+  --background: var(--ion-color-medium);
+}
+
 .track {
-  display: block;
-  font-size: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  background: #28292f;
+  width: 90%;
+  height: 216px;
+  color: var(--ion-color-dark);
 }
