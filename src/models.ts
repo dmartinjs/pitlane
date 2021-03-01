@@ -153,3 +153,10 @@ export interface ResultTime {
   millis: string;
   time:   string;
 }
+
+// Seasons
+
+export interface Season {
+  season: string;
+  url:    string;
+}

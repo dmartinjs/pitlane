@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonListHeader, IonIcon, IonThumbnail } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
-import { trophyOutline, flagOutline, podiumOutline, giftOutline, speedometerOutline } from 'ionicons/icons';
+import Seasons from '../components/Seasons';
 
 interface DriverDetailsProps extends RouteComponentProps<{
   driverId: string,
@@ -17,7 +17,6 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
       .then(result => setDriver(result.MRData.StandingsTable.StandingsLists[0]));
   }, [match.params.driverId]);
 
-  const birthday = driver && new Intl.DateTimeFormat('en-GB').format(new Date(driver.DriverStandings[0].Driver.dateOfBirth));
 
   return (
     <IonPage>
@@ -26,73 +25,23 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
             <IonButtons slot="start">
               <IonBackButton defaultHref="/standings"></IonBackButton>
             </IonButtons>
-            <IonTitle>{driver && driver.DriverStandings[0].Driver.givenName} {driver && driver.DriverStandings[0].Driver.familyName}</IonTitle>
           </IonToolbar>
         </IonHeader>
 
         {driver && (
           <IonContent>
-            <IonList>
-              <IonListHeader>{driver.season} Season</IonListHeader>
-              <IonItem>
-                <IonIcon slot="start" icon={podiumOutline}/>
+            <IonList lines="full">
+              <IonItem className="ion-margin-top">
+                <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
+                  <img src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
+                </IonThumbnail>
                 <IonLabel>
-                  <h2>POSITION</h2>
-                  <p>{driver.DriverStandings[0].position}</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonIcon slot="start" icon={speedometerOutline}/>
-                <IonLabel>
-                  <h2>POINTS</h2>
-                  <p>{driver.DriverStandings[0].points}</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonIcon slot="start" icon={flagOutline}/>
-                <IonLabel>
-                  <h2>RACES</h2>
-                  <p>{driver.round}</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonIcon slot="start" icon={trophyOutline}/>
-                <IonLabel>
-                  <h2>WINS</h2>
-                  <p>{driver.DriverStandings[0].wins}</p>
+                  <h2 className="font-weight-bold">{driver.DriverStandings[0].Driver.givenName}</h2>
+                  <p>{driver.DriverStandings[0].Driver.familyName}</p>
                 </IonLabel>
               </IonItem>
             </IonList>
-
-            <IonList>
-              <IonListHeader>Team</IonListHeader>
-              <IonItem className="ion-margin-bottom" button detail href={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
-              <IonIcon lazy size="large" className="constructor-logo ion-margin-end" src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
-                <IonLabel>
-                  {driver.DriverStandings[0].Constructors[0].name}
-                </IonLabel>
-              </IonItem>
-            </IonList>
-
-            <IonList>
-              <IonListHeader>Personal informations</IonListHeader>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <img src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality} />
-                </IonAvatar>
-                <IonLabel>
-                  <p>Country</p>
-                  <h3>{driver.DriverStandings[0].Driver.nationality}</h3>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonIcon slot="start" icon={giftOutline}/>
-                <IonLabel>
-                  <p>Date of birth</p>
-                  <h3>{birthday}</h3>
-                </IonLabel>
-              </IonItem>
-            </IonList>
+            <Seasons driverId={match.params.driverId} />
           </IonContent>
         )}
     </IonPage>

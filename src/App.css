@@ -167,3 +167,17 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+/* DRIVER RESULTS */
+
+.driver-race {
+  min-width: 7rem;
+}
+
+.driver-date {
+  min-width: 3rem;
+}
+
+.driver-position {
+  min-width: 2rem;
+}
