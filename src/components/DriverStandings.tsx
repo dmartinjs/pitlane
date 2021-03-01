@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonAvatar, IonImg } from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonIcon } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { DriverStanding } from '../models';
 
@@ -23,9 +23,9 @@ const DriverStandings: React.FC = () => {
         {[...Array(20)].map((item, index) =>
           <IonItem key={index}>
             <div>&nbsp;&nbsp;</div>
-            <IonAvatar className="ion-margin-start ion-margin-end">
+            <div className="ion-margin-start ion-margin-end">
               &nbsp;
-            </IonAvatar>
+            </div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
@@ -43,9 +43,7 @@ const DriverStandings: React.FC = () => {
           <div className="standings-position font-weight-bold">
             {driver.position}.
           </div>
-          <IonAvatar className="constructor-logo ion-margin-start ion-margin-end">
-            <IonImg src={`assets/img/constructors/${driver.Constructors[0].constructorId}.svg`} alt={driver.Constructors[0].name} />
-          </IonAvatar>
+          <IonIcon lazy className="constructor-logo ion-margin-start ion-margin-end" src={`assets/img/constructors/${driver.Constructors[0].constructorId}.svg`}/>
           <IonLabel>
             <h3>{driver.Driver.givenName} <strong className="ion-text-uppercase">{driver.Driver.familyName}</strong></h3>
             <p>{driver.Constructors[0].name}</p>

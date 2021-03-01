@@ -86,9 +86,8 @@
 /* Standings */
 .constructor-logo {
   --ion-margin: 1.5rem;
-
-  width: 1.5rem;
-  height: 1.5rem;
+  
+  color: var(--ion-color-dark);
 }
 
 .country-thumbnail {

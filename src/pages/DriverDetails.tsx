@@ -67,9 +67,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
             <IonList>
               <IonListHeader>Team</IonListHeader>
               <IonItem className="ion-margin-bottom" button detail href={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
-                <IonAvatar slot="start">
-                  <img src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`} alt={driver.DriverStandings[0].Constructors[0].name}/>
-                </IonAvatar>
+              <IonIcon lazy size="large" className="constructor-logo ion-margin-end" src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
                 <IonLabel>
                   {driver.DriverStandings[0].Constructors[0].name}
                 </IonLabel>
