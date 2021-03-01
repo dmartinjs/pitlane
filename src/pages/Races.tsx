@@ -15,7 +15,7 @@ const Races: React.FC = () => {
         <IonToolbar>
           <IonTitle>Racing</IonTitle>
           <IonButtons slot="end">
-            <IonButton href="/settings">
+            <IonButton routerLink="/settings">
               <IonIcon slot="icon-only" icon={optionsOutline} ariaLabel="settings"/>
             </IonButton>
           </IonButtons>

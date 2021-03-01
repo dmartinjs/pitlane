@@ -11,7 +11,7 @@ const Latest: React.FC = () => {
         <IonToolbar>
           <IonTitle>Pitlane</IonTitle>
           <IonButtons slot="end">
-            <IonButton href="/settings">
+            <IonButton routerLink="/settings">
               <IonIcon slot="icon-only" icon={optionsOutline} ariaLabel="settings"/>
             </IonButton>
           </IonButtons>

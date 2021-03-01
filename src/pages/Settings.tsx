@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonTitle, IonToggle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonListHeader, IonPage, IonToggle, IonToolbar } from '@ionic/react';
 import { moonOutline, alertCircleOutline, bugOutline } from 'ionicons/icons';
 
 const Settings: React.FC = () => {
@@ -11,18 +11,20 @@ const Settings: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-            <IonButtons slot="start">
-              <IonBackButton defaultHref="/"></IonBackButton>
-            </IonButtons>
-          <IonTitle>Settings</IonTitle>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/"></IonBackButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonItem>
-          <IonIcon slot="start" icon={moonOutline}/>
-          <IonLabel>Toggle Dark Theme</IonLabel>
-          <IonToggle slot="end" name="darkMode" onIonChange={toggleDarkModeHandler} />
-        </IonItem>
+        <IonList>
+          <IonListHeader>Settings</IonListHeader>
+          <IonItem>
+            <IonIcon slot="start" icon={moonOutline}/>
+            <IonLabel>Toggle Dark Theme</IonLabel>
+            <IonToggle slot="end" name="darkMode" checked={document.body.classList.contains('dark') ? true : false } onIonChange={toggleDarkModeHandler} />
+          </IonItem>
+        </IonList>
 
         <IonList>
           <IonListHeader>Project</IonListHeader>

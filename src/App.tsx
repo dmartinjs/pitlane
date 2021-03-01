@@ -14,11 +14,11 @@ import { newspaperOutline, podiumOutline, flagOutline } from 'ionicons/icons';
 import Latest from './pages/Latest';
 import Standings from './pages/Standings';
 import Races from './pages/Races';
-import Settings from './pages/Settings';
 import RaceDetails from './pages/RaceDetails';
 import DriverDetails from './pages/DriverDetails';
 import ConstructorDetails from './pages/ConstructorDetails';
 import Results from './pages/Results';
+import Settings from './pages/Settings';
 import About from './pages/About';
 
 /* Core CSS required for Ionic components to work properly */
@@ -59,11 +59,11 @@ const App: React.FC = () => {
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/latest" component={Latest} exact={true} />
-          <Route path="/standings" component={Standings} exact={true} />
-          <Route path="/races" component={Races} exact={true} />
-          <Route path="/settings" component={Settings} exact={true} />
-          <Route path="/about" component={About} exact={true} />
+          <Route path="/latest" component={Latest} />
+          <Route path="/standings" component={Standings} />
+          <Route path="/races" component={Races} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/about" component={About} />
           <Route path="/race/:season/:round/:country/:circuit" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />

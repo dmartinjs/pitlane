@@ -16,7 +16,7 @@ const Standings: React.FC = () => {
         <IonToolbar>
           <IonTitle>Standings</IonTitle>
           <IonButtons slot="end">
-            <IonButton href="/settings">
+            <IonButton routerLink="/settings">
               <IonIcon slot="icon-only" icon={optionsOutline} ariaLabel="settings"/>
             </IonButton>
           </IonButtons>
