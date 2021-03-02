@@ -32,7 +32,7 @@ const Settings: React.FC = () => {
             <IonIcon slot="start" icon={bugOutline}/>
             <IonLabel>Report a bug</IonLabel>
           </IonItem>
-          <IonItem button href="/about">
+          <IonItem button routerLink="/about">
             <IonIcon slot="start" icon={alertCircleOutline}/>
             <IonLabel>About</IonLabel>
           </IonItem>

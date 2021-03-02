@@ -70,7 +70,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
             <IonList>
               <IonListHeader>Drivers</IonListHeader>
               {drivers && drivers.map(driver =>
-                <IonItem className="ion-margin-bottom" button detail href={`/driver/${driver.driverId}`} key={driver.driverId}>
+                <IonItem className="ion-margin-bottom" button detail routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>
                   <span slot="start">
                     {driver.permanentNumber}
                   </span>
