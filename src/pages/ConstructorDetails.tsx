@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../models';
 
@@ -27,6 +27,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
           <IonToolbar>
             <IonButtons slot="start">
               <IonBackButton defaultHref="/standings"></IonBackButton>
+              <IonTitle>Constructor</IonTitle>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
