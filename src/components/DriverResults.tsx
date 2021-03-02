@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
-import { RaceResult } from '../models';
+import { RaceResult, DriverStanding } from '../models';
 
 const DriverResults: React.FC<{season?: string, driverId?: string}> = ({season, driverId}) => {
   const [results, setResults] = useState<[RaceResult] | null>(null);
+  const [driver, setDriver] = useState<DriverStanding | null>(null);
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/${season}/drivers/${driverId}/results.json`)
       .then(res => res.json())
       .then(result => setResults(result.MRData.RaceTable.Races));
+    
+    fetch(`https://ergast.com/api/f1/${season}/drivers/${driverId}/driverStandings.json`)
+      .then(res => res.json())
+      .then(result => setDriver(result.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]));
   }, [season, driverId]);
 
   if (results === null) {
@@ -58,6 +63,20 @@ const DriverResults: React.FC<{season?: string, driverId?: string}> = ({season, 
           </div>
         </IonItem>
       )}
+      <IonItem className="driver-standings">
+        <div className="driver-race ion-margin-end font-weight-bold">
+          Standings
+        </div>
+        <IonLabel className="driver-date">
+          -
+        </IonLabel>
+        <div className="driver-position ion-margin-end font-weight-bold">
+          {driver?.position}
+        </div>
+        <div slot="end" className="race-points">
+          {driver?.points}
+        </div>
+      </IonItem>
     </IonList>
   );
 };

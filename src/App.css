@@ -185,6 +185,10 @@
   overflow-y: auto;
 }
 
+.driver-standings {
+  --background: var(--ion-color-medium);
+}
+
 .driver-race {
   min-width: 7rem;
 }
