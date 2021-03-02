@@ -39,6 +39,9 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   <h2 className="font-weight-bold">{driver.DriverStandings[0].Driver.givenName}</h2>
                   <p>{driver.DriverStandings[0].Driver.familyName}</p>
                 </IonLabel>
+                <div slot="end" className="font-weight-bold">
+                  {driver.DriverStandings[0].Driver.permanentNumber}
+                </div>
               </IonItem>
             </IonList>
             <Seasons driverId={match.params.driverId} />
