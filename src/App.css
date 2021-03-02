@@ -175,7 +175,7 @@
 }
 
 .driver-results-list {
-  max-height: calc(100vh - 309px);
+  max-height: calc(100vh - 310px);
   overflow-y: auto;
 }
 

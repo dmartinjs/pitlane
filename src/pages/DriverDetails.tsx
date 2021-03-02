@@ -43,12 +43,15 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   {driver.DriverStandings[0].Driver.permanentNumber}
                 </div>
               </IonItem>
-              <IonItem button detail routerLink={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
-              <IonIcon lazy slot="start" size="large" src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
+              <IonItem button routerLink={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
+                <IonIcon lazy slot="start" size="large" src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
                 <IonLabel>
                   <p>Team</p>
                   <h2>{driver.DriverStandings[0].Constructors[0].name}</h2>
                 </IonLabel>
+                <div slot="end">
+                  {driver.DriverStandings[0].Constructors[0].nationality}
+                </div>
               </IonItem>
             </IonList>
             <Seasons driverId={match.params.driverId} />
