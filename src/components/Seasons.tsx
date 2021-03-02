@@ -17,7 +17,7 @@ const Seasons: React.FC<{driverId?: string}> = ({driverId}) => {
 
   return (
     <>
-      <IonSegment onIonChange={onChange} value={selectedSegment} scrollable>
+      <IonSegment className="seasons-segment" onIonChange={onChange} value={selectedSegment} scrollable>
         {seasons?.map((season, index) =>
           <IonSegmentButton key={season.season} value={season.season}>
             <IonLabel>{season.season}</IonLabel>

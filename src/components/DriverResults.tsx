@@ -27,7 +27,7 @@ const DriverResults: React.FC<{season?: string, driverId?: string}> = ({season, 
     );
   }
   return (
-    <IonList lines="full">
+    <IonList lines="full" className="driver-results-list">
       <IonItem>
         <div className="driver-race ion-margin-end">
           Race

@@ -170,6 +170,15 @@
 
 /* DRIVER RESULTS */
 
+.seasons-segment {
+  border-bottom: 1px solid var(--ion-border-color);
+}
+
+.driver-results-list {
+  max-height: calc(100vh - 309px);
+  overflow-y: auto;
+}
+
 .driver-race {
   min-width: 7rem;
 }
