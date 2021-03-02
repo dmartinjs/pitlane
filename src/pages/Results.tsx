@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonBackButton } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
+import { Race } from '../models';
 import RaceResults from '../components/RaceResults';
 import QualifyingResults from '../components/QualifyingResults';
 
@@ -12,6 +13,15 @@ interface RaceDetailsProps extends RouteComponentProps<{
 
 const Results: React.FC<RaceDetailsProps> = ({match}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>(match.params.session);
+  const [race, setRace] = useState<Race | null>(null);
+
+  useEffect(() => {
+    fetch(`https://ergast.com/api/f1/${match.params.season}/${match.params.round}.json`)
+      .then(res => res.json())
+      .then(result => {
+        setRace(result.MRData.RaceTable.Races[0]);
+      });
+  }, [race, match.params.season, match.params.round]);
 
   const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
 
@@ -22,7 +32,7 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
         <IonButtons slot="start">
             <IonBackButton defaultHref="/standings"></IonBackButton>
           </IonButtons>
-          <IonTitle>Results</IonTitle>
+          <IonTitle>{race?.Circuit.Location.country} {race?.season}</IonTitle>
         </IonToolbar>
         <IonToolbar>
           <IonSegment onIonChange={onChange} value={selectedSegment}>
