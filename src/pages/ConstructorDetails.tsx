@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonTitle, IonList, IonListHeader, IonIcon, IonAvatar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../models';
-import { trophyOutline, flagOutline, podiumOutline, speedometerOutline } from 'ionicons/icons';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
@@ -29,70 +28,36 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
             <IonButtons slot="start">
               <IonBackButton defaultHref="/standings"></IonBackButton>
             </IonButtons>
-            <IonTitle>{constructor && constructor.ConstructorStandings[0].Constructor.name}</IonTitle>
           </IonToolbar>
         </IonHeader>
 
         {constructor && (
           <IonContent>
-            <IonList>
-              <IonListHeader>{constructor.season} Season</IonListHeader>
+            <IonList lines="full">
               <IonItem>
-                <IonIcon slot="start" icon={podiumOutline}/>
+                <IonIcon lazy slot="start" size="large" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
                 <IonLabel>
-                  <h2>POSITION</h2>
-                  <p>{constructor.ConstructorStandings[0].position}</p>
+                  <p>Team</p>
+                  <h2>{constructor.ConstructorStandings[0].Constructor.name}</h2>
                 </IonLabel>
+                <div slot="end">
+                  {constructor.ConstructorStandings[0].Constructor.nationality}
+                </div>
               </IonItem>
-              <IonItem>
-                <IonIcon slot="start" icon={speedometerOutline}/>
-                <IonLabel>
-                  <h2>POINTS</h2>
-                  <p>{constructor.ConstructorStandings[0].points}</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonIcon slot="start" icon={flagOutline}/>
-                <IonLabel>
-                  <h2>RACES</h2>
-                  <p>{constructor.round}</p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonIcon slot="start" icon={trophyOutline}/>
-                <IonLabel>
-                  <h2>WINS</h2>
-                  <p>{constructor.ConstructorStandings[0].wins}</p>
-                </IonLabel>
-              </IonItem>
-            </IonList>
-
-            <IonList>
-              <IonListHeader>Drivers</IonListHeader>
               {drivers && drivers.map(driver =>
-                <IonItem className="ion-margin-bottom" button detail routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>
-                  <span slot="start">
+                <IonItem button routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>
+                  <div slot="start" className="driver-number font-weight-bold">
                     {driver.permanentNumber}
-                  </span>
+                  </div>
                   <IonLabel>
-                    <h2>{driver.givenName}</h2>
-                    <h3 className="font-weight-bold ion-text-uppercase">{driver.familyName}</h3>
+                    <p>{driver.givenName}</p>
+                    <h2>{driver.familyName}</h2>
                   </IonLabel>
+                  <IonThumbnail slot="end" className="country-thumbnail">
+                    <img src={`assets/img/flags/${driver.nationality}.svg`} alt={driver.nationality}/>
+                  </IonThumbnail>
                 </IonItem>
               )}
-            </IonList>
-
-            <IonList>
-              <IonListHeader>Informations</IonListHeader>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <img src={`assets/img/flags/${constructor.ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor.ConstructorStandings[0].Constructor.nationality} />
-                </IonAvatar>
-                <IonLabel>
-                  <p>Country</p>
-                  <h3>{constructor.ConstructorStandings[0].Constructor.nationality}</h3>
-                </IonLabel>
-              </IonItem>
             </IonList>
           </IonContent>
         )}

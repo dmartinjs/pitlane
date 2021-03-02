@@ -196,3 +196,7 @@
 .driver-position {
   min-width: 2rem;
 }
+
+.driver-number {
+  min-width: 1.875rem;
+}
