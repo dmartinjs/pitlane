@@ -36,8 +36,8 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   <img src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
                 </IonThumbnail>
                 <IonLabel>
-                  <h2 className="font-weight-bold">{driver.DriverStandings[0].Driver.givenName}</h2>
-                  <p>{driver.DriverStandings[0].Driver.familyName}</p>
+                  <p>{driver.DriverStandings[0].Driver.givenName}</p>
+                  <h2>{driver.DriverStandings[0].Driver.familyName}</h2>
                 </IonLabel>
                 <div slot="end" className="font-weight-bold">
                   {driver.DriverStandings[0].Driver.permanentNumber}
