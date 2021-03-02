@@ -83,6 +83,12 @@
   font-weight: 700 !important;
 }
 
+.item-label-start {
+  min-width: 44px;
+  color: var(--ion-color-step-600, #666666);
+  font-size: 14px;
+}
+
 /* Standings */
 .constructor-logo {
   --ion-margin: 1.5rem;
