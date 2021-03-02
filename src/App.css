@@ -177,7 +177,7 @@
 /* DRIVER RESULTS */
 
 .seasons-segment {
-  border-bottom: 1px solid var(--ion-border-color);
+  --background: var(--ion-color-medium);
 }
 
 .driver-results-list {

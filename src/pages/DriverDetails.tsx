@@ -44,7 +44,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   {driver.DriverStandings[0].Driver.permanentNumber}
                 </div>
               </IonItem>
-              <IonItem button routerLink={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
+              <IonItem lines="none" button routerLink={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
                 <div className="item-label-start ion-margin-end">Team</div>
                 <IonLabel>
                   <h2>{driver.DriverStandings[0].Constructors[0].name}</h2>
