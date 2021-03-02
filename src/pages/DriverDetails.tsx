@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonTitle } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
 import Seasons from '../components/Seasons';
@@ -24,6 +24,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
           <IonToolbar>
             <IonButtons slot="start">
               <IonBackButton defaultHref="/standings"></IonBackButton>
+              <IonTitle>Driver</IonTitle>
             </IonButtons>
           </IonToolbar>
         </IonHeader>
