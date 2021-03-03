@@ -4,18 +4,18 @@
   "private": true,
   "license": "AGPL-3.0-only",
   "dependencies": {
-    "@capacitor/android": "^2.4.6",
-    "@capacitor/core": "^2.4.6",
+    "@capacitor/android": "^2.4.7",
+    "@capacitor/core": "^2.4.7",
     "@ionic/react": "^5.5.5",
     "@ionic/react-router": "^5.5.5",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.0",
+    "@testing-library/user-event": "^12.8.1",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.31",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
-    "@types/react-router": "^5.1.11",
+    "@types/react-router": "^5.1.12",
     "@types/react-router-dom": "^5.1.7",
     "ionicons": "^5.5.0",
     "react": "^17.0.1",
@@ -50,7 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "^2.4.6"
+    "@capacitor/cli": "^2.4.7"
   },
   "description": "App to find statistics about formula 1",
   "proxy": "https://f1calendar.com"
