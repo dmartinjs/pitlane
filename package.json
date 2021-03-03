@@ -1,5 +1,6 @@
 {
   "name": "pitlane",
+  "description": "Follow Formula 1 and access previous seasons",
   "version": "1.0.0",
   "private": true,
   "license": "AGPL-3.0-only",
@@ -52,6 +53,5 @@
   "devDependencies": {
     "@capacitor/cli": "^2.4.7"
   },
-  "description": "App to find statistics about formula 1",
   "proxy": "https://f1calendar.com"
 }

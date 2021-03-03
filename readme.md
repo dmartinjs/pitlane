@@ -1,8 +1,7 @@
 <div align="center">
-  <img src="public/assets/icon/android-chrome-192x192.png"/>
+  <img src="illustrations/pitlane.png"/>
 </div>
-<h1 align="center">Pitlane</h1>
-<p align="center">App to find statistics about formula 1</p>
+<p align="center">Follow Formula 1 and access previous seasons</p>
 <div align="center">
 
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/dmartinjs/pitlane)
