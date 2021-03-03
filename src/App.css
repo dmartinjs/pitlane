@@ -96,6 +96,10 @@
   color: var(--ion-color-dark);
 }
 
+.constructor {
+  color: var(--ion-color-dark);
+}
+
 .country-thumbnail {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;

@@ -37,7 +37,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
           <IonContent>
             <IonList lines="full">
               <IonItem>
-                <IonIcon lazy slot="start" size="large" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
+                <IonIcon lazy slot="start" size="large" className="constructor" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
                 <IonLabel>
                   <p>Team</p>
                   <h2>{constructor.ConstructorStandings[0].Constructor.name}</h2>
