@@ -10,7 +10,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { newspaperOutline, podiumOutline, flagOutline } from 'ionicons/icons';
+import { newspaperOutline, podiumOutline, calendarOutline } from 'ionicons/icons';
 import Latest from './pages/Latest';
 import Standings from './pages/Standings';
 import Races from './pages/Races';
@@ -80,8 +80,8 @@ const App: React.FC = () => {
             <IonLabel>Standings</IonLabel>
           </IonTabButton>
           <IonTabButton tab="races" href="/races">
-            <IonIcon icon={flagOutline}/>
-            <IonLabel>Racing</IonLabel>
+            <IonIcon icon={calendarOutline}/>
+            <IonLabel>Schedule</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
