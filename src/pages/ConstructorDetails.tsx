@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../models';
+import Seasons from '../components/Seasons';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
@@ -60,6 +61,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                 </IonItem>
               )}
             </IonList>
+            <Seasons constructorId={match.params.constructorId} />
           </IonContent>
         )}
     </IonPage>

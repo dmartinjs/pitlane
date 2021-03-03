@@ -204,3 +204,8 @@
 .driver-number {
   min-width: 1.875rem;
 }
+
+.constructor-results-list {
+  max-height: calc(100vh - 372px);
+  overflow-y: auto;
+}
