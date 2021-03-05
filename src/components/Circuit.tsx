@@ -6,6 +6,7 @@ import FirstGP from './FirstGP';
 
 const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({season, round, circuit}) => {
   const [race, setRace] = useState<Race | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/${season}/${round}.json`)
@@ -13,7 +14,14 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
       .then(result => {
         setRace(result.MRData.RaceTable.Races[0]);
       });
-  }, [round, season]);
+
+    fetch(`https://en.wikipedia.org/w/api.php?origin=*&format=xml&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${circuit}`)
+      .then(res => res.text())
+      .then(result => {
+        const xmlDoc = new DOMParser().parseFromString(result, "text/xml");
+        setDescription((xmlDoc.querySelector("extract") as HTMLElement).textContent);
+      });
+  }, [round, season, circuit]);
 
   if (race === null) {
     return (
@@ -48,6 +56,7 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
       </IonCard>
       <FirstGP circuitId={race.Circuit.circuitId} />
       <LapRecord circuitId={race.Circuit.circuitId} />
+      <p className="ion-padding">{description}</p>
     </React.Fragment>
   );
 };
