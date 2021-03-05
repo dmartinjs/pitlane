@@ -213,3 +213,11 @@
   max-height: calc(100vh - 372px);
   overflow-y: auto;
 }
+
+.fastest-lap {
+  --ion-item-background: #544a7f;
+}
+
+.fastest-lap ion-badge {
+  --ion-color-medium: #433b65;
+}

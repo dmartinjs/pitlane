@@ -43,7 +43,7 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
         </div>
       </IonItem>
       {results && results.map(result =>
-        <IonItem key={result.position}>
+        <IonItem key={result.position} className={result.FastestLap?.rank === '1' ? 'fastest-lap' : undefined}>
           <div className="race-position ion-margin-end font-weight-bold">
             {result.position}.
           </div>

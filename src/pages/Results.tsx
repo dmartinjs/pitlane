@@ -4,7 +4,6 @@ import { RouteComponentProps } from 'react-router';
 import { Race } from '../models';
 import RaceResults from '../components/RaceResults';
 import QualifyingResults from '../components/QualifyingResults';
-import FastestLaps from '../components/FastestLaps';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string,
@@ -37,22 +36,18 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
         </IonToolbar>
         <IonToolbar>
           <IonSegment onIonChange={onChange} value={selectedSegment} scrollable>
-            <IonSegmentButton value="race">
-              <IonLabel>Race</IonLabel>
-            </IonSegmentButton>
-            <IonSegmentButton value="fastest">
-              <IonLabel>Fastest Laps</IonLabel>
-            </IonSegmentButton>
             <IonSegmentButton value="qualifying">
               <IonLabel>Qualifying</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="race">
+              <IonLabel>Race</IonLabel>
             </IonSegmentButton>
           </IonSegment>
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {selectedSegment === "qualifying" && <QualifyingResults season={match.params.season} round={match.params.round}/>}
         {selectedSegment === "race" && <RaceResults season={match.params.season} round={match.params.round}/>}
-        {selectedSegment === "fastest" && <FastestLaps season={match.params.season} round={match.params.round}/>}
+        {selectedSegment === "qualifying" && <QualifyingResults season={match.params.season} round={match.params.round}/>}
       </IonContent>
     </IonPage>
   );
