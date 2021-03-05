@@ -15,7 +15,7 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-primary-tint: #ff1919;
 
   /** dark **/
-  --ion-color-dark: #222428;
+  --ion-color-dark: #28292f;
   --ion-color-dark-rgb: 34, 36, 40;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255, 255, 255;
@@ -59,7 +59,7 @@ body.dark {
   --ion-color-medium-shade: #2b2c30;
   --ion-color-medium-tint: #484a50;
 
-  --ion-color-light: #222428;
+  --ion-color-light: #28292f;
   --ion-color-light-rgb: 34,36,40;
   --ion-color-light-contrast: #ffffff;
   --ion-color-light-contrast-rgb: 255,255,255;

@@ -161,7 +161,7 @@
 /* TRACK */
 
 .track-card {
-  --background: var(--ion-color-medium);
+  --background: var(--ion-color-light);
 }
 
 .track {
