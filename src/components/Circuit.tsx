@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon, IonCard, IonCardContent } from '@ionic/react';
 import { Race } from '../models';
 import LapRecord from './LapRecord';
+import FirstGP from './FirstGP';
 
 const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({season, round, circuit}) => {
   const [race, setRace] = useState<Race | null>(null);
@@ -45,6 +46,7 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
           <IonIcon className="track ion-padding" src={`assets/img/tracks/${race.Circuit.circuitName.replaceAll(' ', '_').replace('ü', 'u').replace('ó', 'o').replace('í', 'i').replace('é', 'e')}.svg`}/>
         </IonCardContent>
       </IonCard>
+      <FirstGP circuitId={race.Circuit.circuitId} />
       <LapRecord circuitId={race.Circuit.circuitId} />
     </React.Fragment>
   );
