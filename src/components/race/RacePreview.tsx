@@ -36,7 +36,7 @@ const RacePreview: React.FC = () => {
       <IonListHeader>Next race</IonListHeader>
       <IonItem button routerLink={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}/${race.Circuit.circuitName}`}>
         <div slot="start" className="ion-text-center">
-          {new Date(race.date).getDate()}<br/>
+          <strong>{new Date(race.date).getDate()}</strong><br/>
           <IonBadge color="medium" mode="ios">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
         </div>
         <IonLabel>
