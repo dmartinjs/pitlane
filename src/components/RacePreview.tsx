@@ -17,7 +17,7 @@ const RacePreview: React.FC = () => {
 
   if (race === null) {
     return (
-      <IonList lines="inset">
+      <IonList lines="full">
         <IonListHeader>&nbsp;</IonListHeader>
         <IonItem>
           <div slot="start">
@@ -32,7 +32,7 @@ const RacePreview: React.FC = () => {
     );
   }
   return (
-    <IonList lines="inset">
+    <IonList lines="full">
       <IonListHeader>Next race</IonListHeader>
       <IonItem button routerLink={`/race/${race.season}/${race.round}/${race.Circuit.Location.country}/${race.Circuit.circuitName}`}>
         <div slot="start" className="ion-text-center">

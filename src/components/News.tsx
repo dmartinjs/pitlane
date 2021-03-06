@@ -21,7 +21,7 @@ const News: React.FC = () => {
   }, []);
 
   return (
-    <IonList lines="inset">
+    <IonList lines="full">
       <IonListHeader>Latest News</IonListHeader>
       {feed && feed.map((item: any, index: any) =>
         <IonItem key={index} button href={item.link.replace(/utm_[^&]+&?/g, '')} rel="noopener" target="_blank">
