@@ -11,7 +11,7 @@
 </div>
 
 ## :sparkles: Demo
-<img src="illustrations/standings-races-results.png"/>
+<img src="illustrations/latest-standings-schedule.png"/>
 
 ## :package: Install
 
