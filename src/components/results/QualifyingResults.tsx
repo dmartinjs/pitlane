@@ -49,7 +49,7 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
             {result.position}.
           </div>
           <IonLabel>
-            <h3 className="font-weight-bold ion-text-uppercase">{result.Driver.familyName}</h3>
+            <h3 className="font-weight-bold ion-text-uppercase">{result.Driver.code}</h3>
           </IonLabel>
           <div slot="end" className="quali-results">
             <IonBadge color="medium" mode="ios" className="ion-margin-end">{result.Q1}</IonBadge>
