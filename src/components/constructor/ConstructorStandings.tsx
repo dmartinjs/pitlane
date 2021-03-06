@@ -45,10 +45,10 @@ const ConstructorStandings: React.FC = () => {
     <IonList lines="full">
       {constructors.map(constructor =>
         <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
-        <div className="standings-position font-weight-bold">
+        <div className="standings-position font-weight-bold ion-margin-end">
           {constructor.position}.
         </div>
-        <IonIcon lazy className="constructor-logo ion-margin-start ion-margin-end" src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`}/>
+        <IonIcon lazy className="constructor-logo ion-margin-end" src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`}/>
         <IonLabel>
           <h3 className="font-weight-bold ion-text-uppercase">{constructor.Constructor.name}</h3>
           <p>
