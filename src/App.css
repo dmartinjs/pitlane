@@ -118,7 +118,7 @@
   height: 1.75rem;
 }
 
-.circuit-country-thumbnail img {
+.circuit-country-thumbnail ion-img {
   border-radius: 0.25rem;
 }
 

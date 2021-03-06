@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail } from '@ionic/react';
+import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail, IonImg } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { Race } from '../../models';
 
@@ -69,7 +69,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       {race &&
           <IonItem lines="none" className="ion-margin-top">
             <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
-              <img src={`assets/img/flags/${race.Circuit.Location.country.replaceAll(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
+              <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replaceAll(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
             </IonThumbnail>
             <IonLabel>
               <h2><strong>{race.Circuit.Location.country}</strong> {season}</h2>

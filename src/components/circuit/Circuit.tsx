@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon, IonCard, IonCardContent } from '@ionic/react';
+import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon, IonCard, IonCardContent, IonImg } from '@ionic/react';
 import { Race } from '../../models';
 import LapRecord from './LapRecord';
 import FirstGP from './FirstGP';
@@ -42,7 +42,7 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
     <React.Fragment>
       <IonItem lines="none" className="ion-margin-top">
         <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
-          <img src={`assets/img/flags/${race.Circuit.Location.country.replaceAll(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
+          <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replace(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
         </IonThumbnail>
         <IonLabel>
           <h2 className="font-weight-bold">{race.Circuit.circuitName}</h2>
