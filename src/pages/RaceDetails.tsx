@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel, IonTitle } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import Schedule from '../components/race/Schedule';
 import Circuit from '../components/circuit/Circuit';
@@ -22,6 +22,7 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
       <IonToolbar>
         <IonButtons slot="start">
           <IonBackButton defaultHref="/races"></IonBackButton>
+          <IonTitle>Race</IonTitle>
         </IonButtons>
       </IonToolbar>
       <IonToolbar>
