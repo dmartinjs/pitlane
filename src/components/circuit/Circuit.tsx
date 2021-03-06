@@ -51,7 +51,7 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
       </IonItem>
       <IonCard className="track-card">
         <IonCardContent>
-          <IonIcon className="track ion-padding" src={`assets/img/tracks/${race.Circuit.circuitName.replaceAll(' ', '_').replace('ü', 'u').replace('ó', 'o').replace('í', 'i').replace('é', 'e')}.svg`}/>
+          <IonIcon className="track ion-padding" src={`assets/img/tracks/${race.Circuit.circuitId}.svg`}/>
         </IonCardContent>
       </IonCard>
       <FirstGP circuitId={race.Circuit.circuitId} />

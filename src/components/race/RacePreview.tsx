@@ -43,7 +43,7 @@ const RacePreview: React.FC = () => {
           <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
           <p>{race.raceName}</p>
         </IonLabel>
-        <IonIcon slot="end" className="track-icon" src={`assets/img/tracks/${race.Circuit.circuitName.replaceAll(' ', '_').replace('ü', 'u').replace('ó', 'o').replace('í', 'i').replace('é', 'e')}.svg`} />
+        <IonIcon slot="end" className="track-icon" src={`assets/img/tracks/${race.Circuit.circuitId}.svg`} />
       </IonItem>
     </IonList>
   );
