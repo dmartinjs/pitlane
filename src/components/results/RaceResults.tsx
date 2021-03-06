@@ -51,7 +51,7 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
             <h3>{result.Driver.givenName} <strong className="ion-text-uppercase">{result.Driver.familyName}</strong></h3>
             <p>{result.Constructor.name}</p>
           </IonLabel>
-          <IonBadge color="medium" className="race-time">{result.Time ? result.Time.time : (result.status === '+1 Lap' ? result.status : 'DNF')}</IonBadge>
+          <IonBadge color="medium" mode="ios" className="race-time">{result.Time ? result.Time.time : (result.status === '+1 Lap' ? result.status : 'DNF')}</IonBadge>
           <div slot="end" className="race-points ion-text-right font-weight-bold">
             {result.points}
           </div>

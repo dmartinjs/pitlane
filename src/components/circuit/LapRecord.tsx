@@ -29,7 +29,7 @@ const LapRecord: React.FC<{circuitId?: string}> = ({circuitId}) => {
         <p>Lap Record</p>
         <h2>{result.Results[0].Driver.givenName} {result.Results[0].Driver.familyName} ({result.season})</h2>
       </IonLabel>
-      <IonBadge color="medium">{result.Results[0].FastestLap.Time.time}</IonBadge>
+      <IonBadge color="medium" mode="ios">{result.Results[0].FastestLap.Time.time}</IonBadge>
     </IonItem>
   );
 };

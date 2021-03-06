@@ -84,7 +84,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonItem>
               <div slot="start" className="ion-text-center">
                 <strong>{new Date(raceSchedule.sessions.fp1).getDate()}</strong><br/>
-                <IonBadge color="medium">{new Date(raceSchedule.sessions.fp1).toLocaleString('default', { month: 'short' })}</IonBadge>
+                <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.fp1).toLocaleString('default', { month: 'short' })}</IonBadge>
               </div>
               <IonLabel>
                 <h2 className="font-weight-bold">Practice 1</h2>
@@ -94,7 +94,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonItem>
               <div slot="start" className="ion-text-center">
                 <strong>{new Date(raceSchedule.sessions.fp2).getDate()}</strong><br/>
-                <IonBadge color="medium">{new Date(raceSchedule.sessions.fp2).toLocaleString('default', { month: 'short' })}</IonBadge>
+                <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.fp2).toLocaleString('default', { month: 'short' })}</IonBadge>
               </div>
               <IonLabel>
                 <h2 className="font-weight-bold">Practice 2</h2>
@@ -104,7 +104,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonItem>
               <div slot="start" className="ion-text-center">
                 <strong>{new Date(raceSchedule.sessions.fp3).getDate()}</strong><br/>
-                <IonBadge color="medium">{new Date(raceSchedule.sessions.fp3).toLocaleString('default', { month: 'short' })}</IonBadge>
+                <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.fp3).toLocaleString('default', { month: 'short' })}</IonBadge>
               </div>
               <IonLabel>
                 <h2 className="font-weight-bold">Practice 3</h2>
@@ -114,7 +114,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonItem button onClick={() => _handleClick(season, round, 'qualifying', raceSchedule.sessions.qualifying)}>
               <div slot="start" className="ion-text-center">
                 <strong>{new Date(raceSchedule.sessions.qualifying).getDate()}</strong><br/>
-                <IonBadge color="medium">{new Date(raceSchedule.sessions.qualifying).toLocaleString('default', { month: 'short' })}</IonBadge>
+                <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.qualifying).toLocaleString('default', { month: 'short' })}</IonBadge>
               </div>
               <IonLabel>
                 <h2 className="font-weight-bold">Qualifying</h2>
@@ -124,7 +124,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
             <IonItem button onClick={() => _handleClick(season, round, 'race', raceSchedule.sessions.gp)}>
               <div slot="start" className="ion-text-center">
                 <strong>{new Date(raceSchedule.sessions.gp).getDate()}</strong><br/>
-                <IonBadge color="medium">{new Date(raceSchedule.sessions.gp).toLocaleString('default', { month: 'short' })}</IonBadge>
+                <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.gp).toLocaleString('default', { month: 'short' })}</IonBadge>
               </div>
               <IonLabel>
                 <h2 className="font-weight-bold">Race</h2>

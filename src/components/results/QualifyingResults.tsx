@@ -52,9 +52,9 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
             <h3 className="font-weight-bold ion-text-uppercase">{result.Driver.familyName}</h3>
           </IonLabel>
           <div slot="end" className="quali-results">
-            <IonBadge color="medium" className="ion-margin-end">{result.Q1}</IonBadge>
-            {result.Q2 !== undefined ? <IonBadge color="medium" className="ion-margin-end">{result.Q2}</IonBadge> : ''}
-            {result.Q3 !== undefined ? <IonBadge color="medium">{result.Q3}</IonBadge> : ''}
+            <IonBadge color="medium" mode="ios" className="ion-margin-end">{result.Q1}</IonBadge>
+            {result.Q2 !== undefined ? <IonBadge color="medium" mode="ios" className="ion-margin-end">{result.Q2}</IonBadge> : ''}
+            {result.Q3 !== undefined ? <IonBadge color="medium" mode="ios">{result.Q3}</IonBadge> : ''}
           </div>
         </IonItem>
       )}

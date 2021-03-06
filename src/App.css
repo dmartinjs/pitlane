@@ -129,7 +129,7 @@
 }
 
 .race-date {
-  min-width: 2.5rem;
+  min-width: 3rem;
 }
 
 .race-time {
@@ -150,7 +150,7 @@
 }
 
 .quali-results {
-  min-width: 13.25rem;
+  min-width: 15rem;
 }
 
 /* RACE PREVIEW */
