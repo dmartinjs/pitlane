@@ -43,7 +43,7 @@ const ConstructorResults: React.FC<{season?: string, constructorId?: string}> = 
         <div className="driver-position ion-margin-end">
           Pos
         </div>
-        <div slot="end" className="race-points">
+        <div slot="end" className="race-points ion-text-right">
           Pts
         </div>
       </IonItem>
@@ -73,7 +73,7 @@ const ConstructorResults: React.FC<{season?: string, constructorId?: string}> = 
         <div className="driver-position ion-margin-end font-weight-bold">
           {constructor?.position}
         </div>
-        <div slot="end" className="race-points">
+        <div slot="end" className="race-points ion-text-right">
           {constructor?.points}
         </div>
       </IonItem>

@@ -43,7 +43,7 @@ const DriverResults: React.FC<{season?: string, driverId?: string}> = ({season, 
         <div className="driver-position ion-margin-end">
           Pos
         </div>
-        <div slot="end" className="race-points">
+        <div slot="end" className="race-points ion-text-right">
           Pts
         </div>
       </IonItem>
@@ -73,7 +73,7 @@ const DriverResults: React.FC<{season?: string, driverId?: string}> = ({season, 
         <div className="driver-position ion-margin-end font-weight-bold">
           {driver?.position}
         </div>
-        <div slot="end" className="race-points">
+        <div slot="end" className="race-points ion-text-right">
           {driver?.points}
         </div>
       </IonItem>

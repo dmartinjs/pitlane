@@ -35,10 +35,10 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
         <IonLabel>
           Driver
         </IonLabel>
-        <div>
+        <div className="race-time">
           Time / Ret
         </div>
-        <div slot="end">
+        <div slot="end" className="race-points">
           Pts
         </div>
       </IonItem>
