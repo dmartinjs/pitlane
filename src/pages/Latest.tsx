@@ -9,7 +9,7 @@ const Latest: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Pitlane</IonTitle>
+          <IonTitle>Latest</IonTitle>
           <IonButtons slot="end">
             <IonButton routerLink="/settings">
               <IonIcon slot="icon-only" icon={optionsOutline} ariaLabel="settings"/>
