@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {IonIcon, IonItem, IonLabel, IonSkeletonText } from '@ionic/react';
 import { todayOutline } from 'ionicons/icons';
-import { Race } from '../models';
+import { Race } from '../../models';
 
 const FirstGP: React.FC<{circuitId?: string}> = ({circuitId}) => {
   const [race, setRace] = useState<Race | null>(null);

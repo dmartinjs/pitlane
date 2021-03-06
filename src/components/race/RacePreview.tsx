@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IonSkeletonText, IonItem, IonLabel, IonBadge, IonList, IonListHeader, IonIcon } from '@ionic/react';
-import { Race } from '../models';
+import { Race } from '../../models';
 
 const RacePreview: React.FC = () => {
   const [race, setRace] = useState<Race | null>(null);

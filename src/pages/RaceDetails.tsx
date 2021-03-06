@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
-import Schedule from '../components/Schedule';
-import Circuit from '../components/Circuit';
+import Schedule from '../components/race/Schedule';
+import Circuit from '../components/circuit/Circuit';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string, 

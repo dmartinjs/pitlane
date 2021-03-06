@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IonBadge, IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
-import { Result } from '../models';
+import { Result } from '../../models';
 
 const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round}) => {
   const [results, setResults] = useState<[Result] | null>(null);

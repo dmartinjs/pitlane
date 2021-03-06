@@ -1,7 +1,7 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
-import RaceList from '../components/RaceList';
+import RaceList from '../components/race/RaceList';
 
 const Races: React.FC = () => {
 

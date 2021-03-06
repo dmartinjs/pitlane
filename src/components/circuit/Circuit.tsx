@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon, IonCard, IonCardContent } from '@ionic/react';
-import { Race } from '../models';
+import { Race } from '../../models';
 import LapRecord from './LapRecord';
 import FirstGP from './FirstGP';
 

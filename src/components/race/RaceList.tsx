@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail, IonImg } from '@ionic/react';
 import { useHistory } from 'react-router';
-import { Race } from '../models';
+import { Race } from '../../models';
 
 const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, season}) => {
   let history = useHistory();

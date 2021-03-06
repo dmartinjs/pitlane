@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonButton, IonIcon } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
-import DriverStandings from '../components/DriverStandings';
-import ConstructorStandings from '../components/ConstructorStandings';
-import RaceList from '../components/RaceList';
+import DriverStandings from '../components/driver/DriverStandings';
+import ConstructorStandings from '../components/constructor/ConstructorStandings';
+import RaceList from '../components/race/RaceList';
 
 const Standings: React.FC = () => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('drivers');

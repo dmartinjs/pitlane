@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {IonBadge, IonIcon, IonItem, IonLabel, IonSkeletonText } from '@ionic/react';
 import { stopwatchOutline } from 'ionicons/icons';
-import { RaceResult } from '../models';
+import { RaceResult } from '../../models';
 
 const LapRecord: React.FC<{circuitId?: string}> = ({circuitId}) => {
   const [result, setResult] = useState<RaceResult | null>(null);

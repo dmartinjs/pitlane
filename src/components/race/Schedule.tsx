@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail } from '@ionic/react';
 import { useHistory } from 'react-router';
-import { Race } from '../models';
+import { Race } from '../../models';
 
 export interface RaceSession {
   name:      string;

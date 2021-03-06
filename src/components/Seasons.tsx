@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { IonLabel, IonSegment, IonSegmentButton } from '@ionic/react';
 import { Season } from '../models';
-import DriverResults from './DriverResults';
-import ConstructorResults from './ConstructorResults';
+import DriverResults from './driver/DriverResults';
+import ConstructorResults from './constructor/ConstructorResults';
 
 const Seasons: React.FC<{driverId?: string, constructorId?: string}> = ({driverId, constructorId}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('2020');
