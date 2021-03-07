@@ -223,6 +223,11 @@
 }
 
 .fastest-lap .race-position {
+  background: #c365e4;
+  border-radius: 50%;
+}
+
+.dark .fastest-lap .race-position {
   background: #544a7f;
   border-radius: 50%;
 }
