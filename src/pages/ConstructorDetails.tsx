@@ -46,7 +46,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                   {constructor.ConstructorStandings[0].Constructor.nationality}
                 </div>
               </IonItem>
-              {drivers && drivers.map(driver =>
+              {drivers && drivers.slice(0, 2).map(driver =>
                 <IonItem button routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>
                   <div slot="start" className="driver-number font-weight-bold">
                     {driver.permanentNumber}
