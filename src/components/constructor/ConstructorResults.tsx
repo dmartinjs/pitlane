@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
 import { RaceResult, ConstructorStanding } from '../../models';
+import ConstructorResult from './ConstructorResult';
 
-const ConstructorResults: React.FC<{season?: string, constructorId?: string}> = ({season, constructorId}) => {
+const ConstructorResults: React.FC<{season: string, constructorId: string}> = ({season, constructorId}) => {
   const [results, setResults] = useState<[RaceResult] | null>(null);
   const [constructor, setConstructor] = useState<ConstructorStanding | null>(null);
 
@@ -48,20 +49,7 @@ const ConstructorResults: React.FC<{season?: string, constructorId?: string}> = 
         </div>
       </IonItem>
       {results && results.map(result =>
-        <IonItem key={result.raceName} button routerLink={`/results/${result.season}/${result.round}/race`}>
-          <div className="driver-race ion-margin-end font-weight-bold">
-            {result.Circuit.Location.country}
-          </div>
-          <IonLabel className="driver-date">
-            {new Date(result.date).toLocaleString('default', {day: 'numeric', month: 'numeric' })}
-          </IonLabel>
-          <div className="driver-position ion-margin-end font-weight-bold">
-            {result.Results[0].position}
-          </div>
-          <div slot="end" className="race-points ion-text-right">
-            {result.Results[0].points}
-          </div>
-        </IonItem>
+        <ConstructorResult season={season} round={result.round} constructorId={constructorId} country={result.Circuit.Location.country} date={result.date} key={result.raceName} />
       )}
       <IonItem className="driver-standings">
         <div className="driver-race ion-margin-end font-weight-bold">
