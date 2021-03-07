@@ -29,7 +29,7 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
   return (
     <IonList lines="full">
       <IonItem>
-        <div className="race-position ion-margin-end">
+        <div className="race-position ion-text-center ion-margin-end">
           P
         </div>
         <IonLabel>
@@ -44,7 +44,7 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
       </IonItem>
       {results && results.map(result =>
         <IonItem key={result.position} className={result.FastestLap?.rank === '1' ? 'fastest-lap' : undefined}>
-          <div className="race-position ion-margin-end font-weight-bold">
+          <div className="race-position ion-margin-end ion-text-center font-weight-bold">
             {result.position}.
           </div>
           <IonLabel>

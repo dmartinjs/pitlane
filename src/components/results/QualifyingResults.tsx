@@ -31,7 +31,7 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
   return (
     <IonList lines="full">
       <IonItem>
-        <div className="quali-position ion-margin-end">
+        <div className="quali-position ion-text-center ion-margin-end">
           P
         </div>
         <IonLabel>
@@ -45,7 +45,7 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
       </IonItem>
       {results && results.map(result =>
         <IonItem key={result.position}>
-          <div className="quali-position ion-margin-end font-weight-bold">
+          <div className="quali-position ion-margin-end ion-text-center font-weight-bold">
             {result.position}.
           </div>
           <IonLabel>

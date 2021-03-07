@@ -128,6 +128,14 @@
   min-width: 1.5rem;
 }
 
+.quali-position,
+.race-position {
+  min-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .race-date {
   min-width: 3rem;
 }
@@ -214,10 +222,7 @@
   overflow-y: auto;
 }
 
-.fastest-lap {
-  --ion-item-background: #544a7f;
-}
-
-.fastest-lap ion-badge {
-  --ion-color-medium: #433b65;
+.fastest-lap .race-position {
+  background: #544a7f;
+  border-radius: 50%;
 }
