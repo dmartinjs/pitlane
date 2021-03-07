@@ -40,7 +40,7 @@ const DriverStandings: React.FC = () => {
     <IonList lines="full">
       {drivers.map(driver =>
         <IonItem button onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
-          <div className="standings-position font-weight-bold ion-margin-end">
+          <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
             {driver.position}.
           </div>
           <IonIcon lazy className="constructor-logo ion-margin-end" src={`assets/img/constructors/${driver.Constructors[0].constructorId}.svg`}/>
