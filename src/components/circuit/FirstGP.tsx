@@ -27,7 +27,7 @@ const FirstGP: React.FC<{circuitId?: string}> = ({circuitId}) => {
       <IonIcon slot="start" icon={todayOutline} />
       <IonLabel>
         <p>First Grand Prix</p>
-        <h2>{race.season}</h2>
+        <h2 className="font-weight-bold">{race.season}</h2>
       </IonLabel>
     </IonItem>
   );

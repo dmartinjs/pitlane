@@ -40,7 +40,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                 <IonIcon lazy slot="start" size="large" className="constructor" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
                 <IonLabel>
                   <p>Team</p>
-                  <h2>{constructor.ConstructorStandings[0].Constructor.name}</h2>
+                  <h2 className="font-weight-bold">{constructor.ConstructorStandings[0].Constructor.name}</h2>
                 </IonLabel>
                 <div slot="end">
                   {constructor.ConstructorStandings[0].Constructor.nationality}
@@ -53,7 +53,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                   </div>
                   <IonLabel>
                     <p>{driver.givenName}</p>
-                    <h2>{driver.familyName}</h2>
+                    <h2 className="font-weight-bold">{driver.familyName}</h2>
                   </IonLabel>
                   <IonThumbnail slot="end" className="country-thumbnail">
                     <img src={`assets/img/flags/${driver.nationality}.svg`} alt={driver.nationality}/>

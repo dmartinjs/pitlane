@@ -27,7 +27,7 @@ const LapRecord: React.FC<{circuitId?: string}> = ({circuitId}) => {
       <IonIcon slot="start" icon={stopwatchOutline} />
       <IonLabel>
         <p>Lap Record</p>
-        <h2>{result.Results[0].Driver.givenName} {result.Results[0].Driver.familyName} ({result.season})</h2>
+        <h2 className="font-weight-bold">{result.Results[0].Driver.givenName} {result.Results[0].Driver.familyName} ({result.season})</h2>
       </IonLabel>
       <IonBadge color="medium" mode="ios">{result.Results[0].FastestLap.Time.time}</IonBadge>
     </IonItem>

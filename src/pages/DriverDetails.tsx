@@ -38,7 +38,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 </IonThumbnail>
                 <IonLabel>
                   <p>{driver.DriverStandings[0].Driver.givenName}</p>
-                  <h2>{driver.DriverStandings[0].Driver.familyName}</h2>
+                  <h2 className="font-weight-bold">{driver.DriverStandings[0].Driver.familyName}</h2>
                 </IonLabel>
                 <div slot="end" className="font-weight-bold">
                   {driver.DriverStandings[0].Driver.permanentNumber}
@@ -47,7 +47,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
               <IonItem lines="none" button routerLink={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
                 <div className="item-label-start ion-margin-end">Team</div>
                 <IonLabel>
-                  <h2>{driver.DriverStandings[0].Constructors[0].name}</h2>
+                  <h2 className="font-weight-bold">{driver.DriverStandings[0].Constructors[0].name}</h2>
                 </IonLabel>
                 <IonIcon lazy slot="end" size="large" className="constructor" src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
               </IonItem>
