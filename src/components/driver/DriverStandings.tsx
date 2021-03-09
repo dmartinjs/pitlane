@@ -22,16 +22,15 @@ const DriverStandings: React.FC = () => {
       <IonList lines="full">
         {[...Array(20)].map((item, index) =>
           <IonItem key={index}>
-            <div>&nbsp;&nbsp;</div>
-            <div className="standings-position ion-margin-end">
-              &nbsp;
+            <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
+              {index +1}.
             </div>
             <div className="standings-position ion-margin-end">&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
             </IonLabel>
-            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '42px' }}/>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '32px' }}/>
           </IonItem>
         )}
       </IonList>
