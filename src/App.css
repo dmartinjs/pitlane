@@ -231,3 +231,7 @@
   background: #5e4e96;
   border-radius: 50%;
 }
+
+.img {
+  background: var(--ion-color-medium);
+}

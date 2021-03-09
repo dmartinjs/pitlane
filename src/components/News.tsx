@@ -26,7 +26,7 @@ const News: React.FC = () => {
       {feed && feed.map((item: any, index: any) =>
         <IonItem key={index} button href={item.link.replace(/utm_[^&]+&?/g, '')} rel="noopener" target="_blank">
           <IonThumbnail slot="start">
-            <IonImg src={item.enclosure.link} alt={item.title}/>
+            <IonImg className="img" src={item.enclosure.link} alt={item.title}/>
           </IonThumbnail>
           <IonLabel className="ion-text-wrap ion-margin-end">
             {item.title}
