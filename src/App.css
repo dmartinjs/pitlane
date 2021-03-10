@@ -243,3 +243,11 @@
 .img {
   background: var(--ion-color-medium);
 }
+
+ion-grid {
+  --ion-grid-padding: 0;
+}
+
+ion-col {
+  --ion-grid-column-padding: 0;
+}

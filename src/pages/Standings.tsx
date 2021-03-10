@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonButton, IonIcon } from '@ionic/react';
+import React, { useRef, useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonButton, IonIcon, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
 import DriverStandings from '../components/driver/DriverStandings';
 import ConstructorStandings from '../components/constructor/ConstructorStandings';
@@ -8,7 +8,39 @@ import RaceList from '../components/race/RaceList';
 const Standings: React.FC = () => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('drivers');
 
-  const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
+  const slider = useRef<HTMLIonSlidesElement>(null);
+
+  const onSegmentChange = (event: CustomEvent) => {
+    SetSelectedSegment(event.detail.value);
+
+    switch(event.detail.value) {
+      case 'drivers':
+        slider.current!.slideTo(0);
+        break;
+      case 'constructors':
+        slider.current!.slideTo(1);
+        break;
+      case 'results':
+        slider.current!.slideTo(2);
+        break;
+    }
+  }
+
+  const onSlideChange = (event: any) => {
+    event.target.getActiveIndex().then((value: any) => {
+      switch(value) {
+        case 0:
+          SetSelectedSegment('drivers');
+          break;
+        case 1:
+          SetSelectedSegment('constructors');
+          break;
+        case 2:
+          SetSelectedSegment('results');
+          break;
+      }
+    })
+  }
 
   return (
     <IonPage>
@@ -22,7 +54,7 @@ const Standings: React.FC = () => {
           </IonButtons>
         </IonToolbar>
         <IonToolbar>
-          <IonSegment onIonChange={onChange} value={selectedSegment}>
+          <IonSegment onIonChange={onSegmentChange} value={selectedSegment}>
             <IonSegmentButton value="drivers">
               <IonLabel>Drivers</IonLabel>
             </IonSegmentButton>
@@ -36,9 +68,35 @@ const Standings: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {selectedSegment === "drivers" && <DriverStandings/>}
-        {selectedSegment === "constructors" && <ConstructorStandings/>}
-        {selectedSegment === "results" && <RaceList results/>}
+        <IonSlides onIonSlideDidChange={onSlideChange} ref={slider}>
+          <IonSlide id="drivers">
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <DriverStandings/>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+          <IonSlide id="constructors">
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <ConstructorStandings/>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+          <IonSlide id="results">
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <RaceList results/>
+                  </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+        </IonSlides>
       </IonContent>
     </IonPage>
   );
