@@ -52,7 +52,7 @@ const ConstructorStandings: React.FC = () => {
           <IonLabel>
             <h3 className="font-weight-bold ion-text-uppercase">{constructor.Constructor.name}</h3>
             <p>
-            {drivers && drivers
+            {drivers
               .filter(driver => driver.Constructors[0].constructorId === constructor.Constructor.constructorId)
               .slice(0, 2)
               .map<React.ReactNode>(driver => (

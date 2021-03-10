@@ -29,7 +29,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
     }
   }
 
-  if (races === null) {
+  if (racesFiltered === null) {
     return (
       <IonList lines="full">
         {[...Array(20)].map((item, index) =>
@@ -47,7 +47,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
   }
   return (
     <IonList lines="full">
-      {racesFiltered && racesFiltered.map(race =>
+      {racesFiltered.map(race =>
         <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country, race.Circuit.circuitName)} key={race.round}>
           <div slot="start" className="race-date ion-text-center">
             <strong>{new Date(race.date).getDate()}</strong><br/>

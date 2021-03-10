@@ -47,7 +47,7 @@ const DriverResults: React.FC<{season?: string, driverId?: string}> = ({season, 
           Pts
         </div>
       </IonItem>
-      {results && results.map(result =>
+      {results.map(result =>
         <IonItem key={result.raceName} button routerLink={`/results/${result.season}/${result.round}/race`}>
           <div className="driver-race ion-margin-end font-weight-bold">
             {result.Circuit.Location.country}

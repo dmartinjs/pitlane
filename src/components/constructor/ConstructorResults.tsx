@@ -48,7 +48,7 @@ const ConstructorResults: React.FC<{season: string, constructorId: string}> = ({
           Pts
         </div>
       </IonItem>
-      {results && results.map(result =>
+      {results.map(result =>
         <ConstructorResult season={season} round={result.round} constructorId={constructorId} country={result.Circuit.Location.country} date={result.date} key={result.raceName} />
       )}
       <IonItem className="driver-standings">
