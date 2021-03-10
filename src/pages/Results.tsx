@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonBackButton } from '@ionic/react';
+import React, { useEffect, useRef, useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonBackButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { Race } from '../models';
 import RaceResults from '../components/results/RaceResults';
@@ -23,7 +23,44 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
       });
   }, [race, match.params.season, match.params.round]);
 
-  const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
+  const slider = useRef<HTMLIonSlidesElement>(null);
+
+  const onSegmentChange = (event: CustomEvent) => {
+    SetSelectedSegment(event.detail.value);
+
+    switch(event.detail.value) {
+      case 'qualifying':
+        slider.current!.slideTo(0);
+        break;
+      case 'race':
+        slider.current!.slideTo(1);
+        break;
+    }
+  }
+
+  const onSlideLoad = () => {
+    switch(match.params.session) {
+      case 'qualifying':
+        slider.current!.slideTo(0);
+        break;
+      case 'race':
+        slider.current!.slideTo(1);
+        break;
+    }
+  }
+
+  const onSlideChange = (event: any) => {
+    event.target.getActiveIndex().then((value: any) => {
+      switch(value) {
+        case 0:
+          SetSelectedSegment('qualifying');
+          break;
+        case 1:
+          SetSelectedSegment('race');
+          break;
+      }
+    })
+  }
 
   return (
     <IonPage>
@@ -35,7 +72,7 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
           <IonTitle>{race?.Circuit.Location.country} {race?.season}</IonTitle>
         </IonToolbar>
         <IonToolbar>
-          <IonSegment onIonChange={onChange} value={selectedSegment} scrollable>
+          <IonSegment onIonChange={onSegmentChange} value={selectedSegment} scrollable>
             <IonSegmentButton value="qualifying">
               <IonLabel>Qualifying</IonLabel>
             </IonSegmentButton>
@@ -46,8 +83,26 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        {selectedSegment === "race" && <RaceResults season={match.params.season} round={match.params.round}/>}
-        {selectedSegment === "qualifying" && <QualifyingResults season={match.params.season} round={match.params.round}/>}
+        <IonSlides onIonSlideDidChange={onSlideChange} onIonSlidesDidLoad={onSlideLoad} ref={slider}>
+          <IonSlide>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <QualifyingResults season={match.params.season} round={match.params.round}/>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+          <IonSlide>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <RaceResults season={match.params.season} round={match.params.round}/>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+        </IonSlides>
       </IonContent>
     </IonPage>
   );
