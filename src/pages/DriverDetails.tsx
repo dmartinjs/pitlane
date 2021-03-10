@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonTitle } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonTitle, IonImg } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
 import Seasons from '../components/Seasons';
@@ -34,7 +34,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
             <IonList lines="full">
               <IonItem>
                 <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
-                  <img src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
+                  <IonImg src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
                 </IonThumbnail>
                 <IonLabel>
                   <p>{driver.DriverStandings[0].Driver.givenName}</p>

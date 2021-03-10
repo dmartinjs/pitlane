@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle, IonImg } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../models';
 import Seasons from '../components/Seasons';
@@ -56,7 +56,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                     <h2 className="font-weight-bold">{driver.familyName}</h2>
                   </IonLabel>
                   <IonThumbnail slot="end" className="country-thumbnail">
-                    <img src={`assets/img/flags/${driver.nationality}.svg`} alt={driver.nationality}/>
+                    <IonImg src={`assets/img/flags/${driver.nationality}.svg`} alt={driver.nationality}/>
                   </IonThumbnail>
                 </IonItem>
               )}
