@@ -30,7 +30,7 @@ const DriverStandings: React.FC = () => {
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
             </IonLabel>
-            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '32px' }}/>
+            <IonSkeletonText slot="end" animated style={{ height: '16px', width: '42px' }}/>
           </IonItem>
         )}
       </IonList>
