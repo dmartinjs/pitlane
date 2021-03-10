@@ -90,10 +90,18 @@
 }
 
 /* Standings */
-.constructor-logo {
+.constructor-logo,
+.constructor-logo-loader {
   --ion-margin: 1.5rem;
   
+  width: 1.5rem;
+  height: 1.5rem;
   color: var(--ion-color-dark);
+}
+
+.constructor-logo-loader {
+  border-radius: 1.5rem;
+  background: var(--ion-color-light);
 }
 
 .constructor {

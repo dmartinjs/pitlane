@@ -27,10 +27,10 @@ const ConstructorStandings: React.FC = () => {
       <IonList lines="full">
         {[...Array(10)].map((item, index) =>
           <IonItem key={index}>
-            <div>&nbsp;&nbsp;</div>
-            <div className="ion-margin-start ion-margin-end">
-              &nbsp;
+            <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
+              {index + 1}.
             </div>
+            <div className="constructor-logo-loader ion-margin-end">&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
@@ -45,25 +45,25 @@ const ConstructorStandings: React.FC = () => {
     <IonList lines="full">
       {constructors.map(constructor =>
         <IonItem button onClick={() => _handleClick(constructor.Constructor.constructorId)} key={constructor.Constructor.constructorId}>
-        <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
-          {constructor.position}.
-        </div>
-        <IonIcon lazy className="constructor-logo ion-margin-end" src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`}/>
-        <IonLabel>
-          <h3 className="font-weight-bold ion-text-uppercase">{constructor.Constructor.name}</h3>
-          <p>
-          {drivers && drivers
-            .filter(driver => driver.Constructors[0].constructorId === constructor.Constructor.constructorId)
-            .slice(0, 2)
-            .map<React.ReactNode>(driver => (
-              driver.Driver.familyName 
-            ))
-            .reduce((prev, curr) => [prev, ' / ', curr])
-          }
-          </p>
-        </IonLabel>
-        <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{constructor.points}</IonBadge>
-      </IonItem>
+          <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
+            {constructor.position}.
+          </div>
+          <IonIcon lazy className="constructor-logo ion-margin-end" src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`}/>
+          <IonLabel>
+            <h3 className="font-weight-bold ion-text-uppercase">{constructor.Constructor.name}</h3>
+            <p>
+            {drivers && drivers
+              .filter(driver => driver.Constructors[0].constructorId === constructor.Constructor.constructorId)
+              .slice(0, 2)
+              .map<React.ReactNode>(driver => (
+                driver.Driver.familyName 
+              ))
+              .reduce((prev, curr) => [prev, ' / ', curr])
+            }
+            </p>
+          </IonLabel>
+          <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{constructor.points}</IonBadge>
+        </IonItem>
       )}
     </IonList>
   );
