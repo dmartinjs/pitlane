@@ -39,7 +39,7 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
     );
   }
   return (
-    <React.Fragment>
+    <>
       <IonItem lines="none" className="ion-margin-top">
         <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
           <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replace(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
@@ -57,7 +57,7 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
       <FirstGP circuitId={race.Circuit.circuitId} />
       <LapRecord circuitId={race.Circuit.circuitId} />
       <p className="ion-padding">{description}</p>
-    </React.Fragment>
+    </>
   );
 };
 

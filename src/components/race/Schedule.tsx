@@ -65,7 +65,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
     );
   }
   return (
-    <React.Fragment>
+    <>
       <IonItem lines="none" className="ion-margin-top">
         <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
           <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replaceAll(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
@@ -128,7 +128,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
           </IonLabel>
         </IonItem>
       </IonList>
-    </React.Fragment>
+    </>
   );
 };
 
