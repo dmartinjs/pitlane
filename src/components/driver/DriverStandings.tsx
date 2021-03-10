@@ -23,9 +23,9 @@ const DriverStandings: React.FC = () => {
         {[...Array(20)].map((item, index) =>
           <IonItem key={index}>
             <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
-              {index +1}.
+              {index + 1}.
             </div>
-            <div className="standings-position ion-margin-end">&nbsp;</div>
+            <div className="constructor-logo-loader ion-margin-end">&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
