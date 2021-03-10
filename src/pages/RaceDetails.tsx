@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel, IonTitle } from '@ionic/react';
+import React, { useRef, useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel, IonTitle, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import Schedule from '../components/race/Schedule';
 import Circuit from '../components/circuit/Circuit';
@@ -14,7 +14,33 @@ interface RaceDetailsProps extends RouteComponentProps<{
 const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('schedule');
 
-  const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
+  const slider = useRef<HTMLIonSlidesElement>(null);
+
+  const onSegmentChange = (event: CustomEvent) => {
+    SetSelectedSegment(event.detail.value);
+
+    switch(event.detail.value) {
+      case 'schedule':
+        slider.current!.slideTo(0);
+        break;
+      case 'circuit':
+        slider.current!.slideTo(1);
+        break;
+    }
+  }
+
+  const onSlideChange = (event: any) => {
+    event.target.getActiveIndex().then((value: any) => {
+      switch(value) {
+        case 0:
+          SetSelectedSegment('schedule');
+          break;
+        case 1:
+          SetSelectedSegment('circuit');
+          break;
+      }
+    })
+  }
 
   return (
     <IonPage>
@@ -26,7 +52,7 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
         </IonButtons>
       </IonToolbar>
       <IonToolbar>
-        <IonSegment onIonChange={onChange} value={selectedSegment}>
+        <IonSegment onIonChange={onSegmentChange} value={selectedSegment}>
           <IonSegmentButton value="schedule">
             <IonLabel>Schedule</IonLabel>
           </IonSegmentButton>
@@ -37,8 +63,26 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
       </IonToolbar>
     </IonHeader>
     <IonContent>
-      {selectedSegment === "schedule" && <Schedule season={match.params.season} round={match.params.round}/>}
-      {selectedSegment === "circuit" && <Circuit season={match.params.season} round={match.params.round} circuit={match.params.circuit}/>}
+      <IonSlides onIonSlideDidChange={onSlideChange} ref={slider}>
+        <IonSlide>
+          <IonGrid>
+            <IonRow>
+              <IonCol>
+                <Schedule season={match.params.season} round={match.params.round}/>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+        </IonSlide>
+        <IonSlide>
+        <IonGrid>
+            <IonRow>
+              <IonCol>
+                <Circuit season={match.params.season} round={match.params.round} circuit={match.params.circuit}/>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+        </IonSlide>
+      </IonSlides>
     </IonContent>
   </IonPage>
   );
