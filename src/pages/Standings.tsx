@@ -4,16 +4,12 @@ import { optionsOutline } from 'ionicons/icons';
 import DriverStandings from '../components/driver/DriverStandings';
 import ConstructorStandings from '../components/constructor/ConstructorStandings';
 import RaceList from '../components/race/RaceList';
+import { slideOptions } from '../utils/SlideOptions';
 
 const Standings: React.FC = () => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('drivers');
 
   const slider = useRef<HTMLIonSlidesElement>(null);
-
-  const slideOptions = {
-    initialSlide: 0,
-    autoHeight: true
-  }
 
   const onSegmentChange = (event: CustomEvent) => {
     SetSelectedSegment(event.detail.value);

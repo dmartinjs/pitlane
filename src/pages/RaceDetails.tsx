@@ -3,6 +3,7 @@ import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, 
 import { RouteComponentProps } from 'react-router';
 import Schedule from '../components/race/Schedule';
 import Circuit from '../components/circuit/Circuit';
+import { slideOptions } from '../utils/SlideOptions';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string, 
@@ -15,11 +16,6 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('schedule');
 
   const slider = useRef<HTMLIonSlidesElement>(null);
-
-  const slideOptions = {
-    initialSlide: 0,
-    autoHeight: true
-  }
 
   const onSegmentChange = (event: CustomEvent) => {
     SetSelectedSegment(event.detail.value);
