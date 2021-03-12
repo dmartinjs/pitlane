@@ -5,6 +5,11 @@ import DriverStandings from '../components/driver/DriverStandings';
 import ConstructorStandings from '../components/constructor/ConstructorStandings';
 import RaceList from '../components/race/RaceList';
 
+const slideOptions = {
+  initialSlide: 0,
+  autoHeight: true
+}
+
 const Standings: React.FC = () => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('drivers');
 
@@ -68,7 +73,7 @@ const Standings: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonSlides onIonSlideDidChange={onSlideChange} ref={slider}>
+        <IonSlides onIonSlideDidChange={onSlideChange} ref={slider} options={slideOptions}>
           <IonSlide id="drivers">
             <IonGrid>
               <IonRow>
