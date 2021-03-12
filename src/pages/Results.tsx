@@ -11,10 +11,6 @@ interface RaceDetailsProps extends RouteComponentProps<{
   session: string
 }> {}
 
-const slideOptions = {
-  autoHeight: true
-}
-
 const Results: React.FC<RaceDetailsProps> = ({match}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>(match.params.session);
   const [race, setRace] = useState<Race | null>(null);
@@ -28,6 +24,10 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
   }, [race, match.params.season, match.params.round]);
 
   const slider = useRef<HTMLIonSlidesElement>(null);
+
+  const slideOptions = {
+    autoHeight: true
+  }
 
   const onSegmentChange = (event: CustomEvent) => {
     SetSelectedSegment(event.detail.value);
