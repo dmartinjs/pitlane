@@ -11,6 +11,10 @@ interface RaceDetailsProps extends RouteComponentProps<{
   session: string
 }> {}
 
+const slideOptions = {
+  autoHeight: true
+}
+
 const Results: React.FC<RaceDetailsProps> = ({match}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>(match.params.session);
   const [race, setRace] = useState<Race | null>(null);
@@ -83,7 +87,7 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonSlides onIonSlideDidChange={onSlideChange} onIonSlidesDidLoad={onSlideLoad} ref={slider}>
+        <IonSlides onIonSlideDidChange={onSlideChange} onIonSlidesDidLoad={onSlideLoad} ref={slider} options={slideOptions}>
           <IonSlide>
             <IonGrid>
               <IonRow>
