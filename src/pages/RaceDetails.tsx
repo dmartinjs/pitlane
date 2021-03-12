@@ -11,6 +11,11 @@ interface RaceDetailsProps extends RouteComponentProps<{
   circuit: string
 }> {}
 
+const slideOptions = {
+  initialSlide: 0,
+  autoHeight: true
+}
+
 const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('schedule');
 
@@ -63,7 +68,7 @@ const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
       </IonToolbar>
     </IonHeader>
     <IonContent>
-      <IonSlides onIonSlideDidChange={onSlideChange} ref={slider}>
+      <IonSlides onIonSlideDidChange={onSlideChange} ref={slider} options={slideOptions}>
         <IonSlide>
           <IonGrid>
             <IonRow>
