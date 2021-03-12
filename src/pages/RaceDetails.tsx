@@ -11,15 +11,15 @@ interface RaceDetailsProps extends RouteComponentProps<{
   circuit: string
 }> {}
 
-const slideOptions = {
-  initialSlide: 0,
-  autoHeight: true
-}
-
 const RaceDetails: React.FC<RaceDetailsProps> = ({match}) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>('schedule');
 
   const slider = useRef<HTMLIonSlidesElement>(null);
+
+  const slideOptions = {
+    initialSlide: 0,
+    autoHeight: true
+  }
 
   const onSegmentChange = (event: CustomEvent) => {
     SetSelectedSegment(event.detail.value);
