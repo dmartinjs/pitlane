@@ -9,7 +9,13 @@ const LapRecord: React.FC<{circuitId?: string}> = ({circuitId}) => {
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/circuits/${circuitId}/fastest/1/results.json`)
       .then(res => res.json())
-      .then(result => setResult(result.MRData.RaceTable.Races.pop()));
+      .then(result => {
+        if(result.MRData.RaceTable.Races.length > 0) {
+          return setResult(result.MRData.RaceTable.Races.reduce((prev: RaceResult, curr: RaceResult) => prev.Results[0].FastestLap.Time.time < curr.Results[0].FastestLap.Time.time ? prev : curr))
+        } else {
+          return null;
+        }
+      });
   }, [circuitId]);
 
   if (result === null) {
