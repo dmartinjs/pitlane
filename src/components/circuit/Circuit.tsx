@@ -56,7 +56,7 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
       </IonCard>
       <FirstGP circuitId={race.Circuit.circuitId} />
       <LapRecord circuitId={race.Circuit.circuitId} />
-      <p className="ion-padding">{description}</p>
+      <p className="ion-padding ion-text-left">{description}</p>
     </>
   );
 };

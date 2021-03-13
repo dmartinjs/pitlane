@@ -63,6 +63,10 @@
 
 /* TEXT */
 
+.ion-text-left {
+  text-align: left;
+}
+
 .ion-text-center {
   text-align: center !important;
 }
