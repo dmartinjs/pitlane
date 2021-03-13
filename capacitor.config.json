@@ -9,5 +9,7 @@
       "launchShowDuration": 0
     }
   },
-  "cordova": {}
+  "android": {
+    "backgroundColor": "#1F1F27"
+  }
 }
