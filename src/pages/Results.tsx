@@ -70,7 +70,7 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-        <IonButtons slot="start">
+          <IonButtons slot="start">
             <IonBackButton defaultHref="/standings"></IonBackButton>
           </IonButtons>
           <IonTitle>{race?.Circuit.Location.country} {race?.season}</IonTitle>

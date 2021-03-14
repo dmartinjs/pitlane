@@ -37,6 +37,7 @@ import './theme/variables.css';
 
 /* Global styles */
 import './App.css';
+import RaceData from './pages/RaceData';
 
 const App: React.FC = () => {
 
@@ -54,6 +55,7 @@ const App: React.FC = () => {
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />
           <Route path="/results/:season/:round/:session" component={Results} />
+          <Route path="/racedata/:season/:round/:driverId" component={RaceData} />
           <Route path="/" render={() => <Redirect to="/latest" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
