@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { slideOptions } from '../utils/SlideOptions';
+import Positions from '../components/race/data/Positons';
 
 interface RaceDataProps extends RouteComponentProps<{
   season: string,
@@ -66,7 +67,7 @@ const RaceData: React.FC<RaceDataProps> = ({match}) => {
             <IonGrid>
               <IonRow>
                 <IonCol>
-                  Positions
+                  <Positions season={match.params.season} round={match.params.round} driverId={match.params.driverId} />
                 </IonCol>
               </IonRow>
             </IonGrid>
