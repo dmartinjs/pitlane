@@ -13,10 +13,9 @@ const Positions: React.FC<{season: string, round: string, driverId: string}> = (
   }, [season, round]);
 
   const getData = (positions: [Lap]) => {
-    console.log(positions)
     const data = positions.map(item => {
       return {
-        lapnumber: item.number,
+        lap: item.number,
         [item.Timings[0].driverId]: item.Timings[0].position,
         [item.Timings[1].driverId]: item.Timings[1].position,
         [item.Timings[2].driverId]: item.Timings[2].position,
@@ -34,7 +33,6 @@ const Positions: React.FC<{season: string, round: string, driverId: string}> = (
         [item.Timings[14].driverId]: item.Timings[14].position,
       }
     });
-    console.log(data);
     return data;
   };
 
@@ -45,7 +43,7 @@ const Positions: React.FC<{season: string, round: string, driverId: string}> = (
   }
   return (
     <LineChart width={400} height={500} data={results}>
-      <XAxis dataKey="lapnumber" interval={8}/>
+      <XAxis dataKey="lap" interval={8}/>
       <YAxis domain={[0, 22]} orientation="right" reversed={true} hide={true} />
       <Line type="monotone" dataKey="hamilton" stroke="#00d2be" dot={false} strokeWidth={2} />
       <Line type="monotone" dataKey="bottas" stroke="#00d2be" dot={false} strokeWidth={2} />

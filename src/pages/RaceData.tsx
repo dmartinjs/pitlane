@@ -3,6 +3,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonBa
 import { RouteComponentProps } from 'react-router';
 import { slideOptions } from '../utils/SlideOptions';
 import Positions from '../components/race/data/Positons';
+import LapTimes from '../components/race/data/LapTimes';
 
 interface RaceDataProps extends RouteComponentProps<{
   season: string,
@@ -76,7 +77,7 @@ const RaceData: React.FC<RaceDataProps> = ({match}) => {
             <IonGrid>
               <IonRow>
                 <IonCol>
-                  Lap Times
+                  <LapTimes season={match.params.season} round={match.params.round} driverId={match.params.driverId} />
                 </IonCol>
               </IonRow>
             </IonGrid>
