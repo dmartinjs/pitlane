@@ -39,6 +39,10 @@ http://ionicframework.com/docs/theming/ */
   --ion-color-light-tint: #f5f6f9;
 
   --ion-border-color: #f4f5f8;
+
+  --ion-toolbar-background: #f5f6f9;
+
+  --ion-tab-bar-background: #f5f6f9;
 }
 
 /*
