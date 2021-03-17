@@ -53,7 +53,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                   </div>
                   <IonLabel>
                     <p>{driver.givenName}</p>
-                    <h2 className="font-weight-bold">{driver.familyName}</h2>
+                    <h2 className="font-weight-bold ion-text-uppercase">{driver.familyName}</h2>
                   </IonLabel>
                   <IonThumbnail slot="end" className="country-thumbnail">
                     <IonImg src={`assets/img/flags/${driver.nationality}.svg`} alt={driver.nationality}/>
