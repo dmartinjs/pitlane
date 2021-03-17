@@ -38,7 +38,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 </IonThumbnail>
                 <IonLabel>
                   <p>{driver.DriverStandings[0].Driver.givenName}</p>
-                  <h2 className="font-weight-bold">{driver.DriverStandings[0].Driver.familyName}</h2>
+                  <h2 className="font-weight-bold ion-text-uppercase">{driver.DriverStandings[0].Driver.familyName}</h2>
                 </IonLabel>
                 <div slot="end" className="font-weight-bold">
                   {driver.DriverStandings[0].Driver.permanentNumber}
