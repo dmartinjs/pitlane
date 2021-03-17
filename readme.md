@@ -11,7 +11,7 @@
 </div>
 
 ## :sparkles: Demo
-<img src="illustrations/latest-standings-schedule.png"/>
+<img src="illustrations/pitlane-formula1-app.png"/>
 
 ## :package: Install
 
