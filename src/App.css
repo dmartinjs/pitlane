@@ -201,6 +201,10 @@
 /* DRIVER RESULTS */
 
 .seasons-segment {
+  --background: var(--ion-color-light);
+}
+
+.dark .seasons-segment {
   --background: var(--ion-color-medium);
 }
 
@@ -210,6 +214,10 @@
 }
 
 .driver-standings {
+  --background: var(--ion-color-light);
+}
+
+.dark .driver-standings {
   --background: var(--ion-color-medium);
 }
 
