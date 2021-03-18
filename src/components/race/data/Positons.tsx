@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {  } from '@ionic/react';
 import { Lap } from '../../../models';
-import { Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
+import { CartesianGrid, Line, LineChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 const Positions: React.FC<{season: string, round: string, driverId: string}> = ({season, round, driverId}) => {
   const [results, setResults] = useState<any[] | null>(null);
@@ -13,25 +13,13 @@ const Positions: React.FC<{season: string, round: string, driverId: string}> = (
   }, [season, round]);
 
   const getData = (positions: [Lap]) => {
+    let lap: any;
+
     const data = positions.map(item => {
-      return {
-        lap: item.number,
-        [item.Timings[0].driverId]: item.Timings[0].position,
-        [item.Timings[1].driverId]: item.Timings[1].position,
-        [item.Timings[2].driverId]: item.Timings[2].position,
-        [item.Timings[3].driverId]: item.Timings[3].position,
-        [item.Timings[4].driverId]: item.Timings[4].position,
-        [item.Timings[5].driverId]: item.Timings[5].position,
-        [item.Timings[6].driverId]: item.Timings[6].position,
-        [item.Timings[7].driverId]: item.Timings[7].position,
-        [item.Timings[8].driverId]: item.Timings[8].position,
-        [item.Timings[9].driverId]: item.Timings[9].position,
-        [item.Timings[10].driverId]: item.Timings[10].position,
-        [item.Timings[11].driverId]: item.Timings[11].position,
-        [item.Timings[12].driverId]: item.Timings[12].position,
-        [item.Timings[13].driverId]: item.Timings[13].position,
-        [item.Timings[14].driverId]: item.Timings[14].position,
-      }
+      lap = {};
+      lap['lap'] = item.number;
+      item.Timings.forEach(item => lap[item.driverId] = item.position)
+      return lap;
     });
     return data;
   };
@@ -43,9 +31,10 @@ const Positions: React.FC<{season: string, round: string, driverId: string}> = (
   }
   return (
     <ResponsiveContainer height={400}>
-      <LineChart width={400} height={500} data={results}>
-        <XAxis dataKey="lap" interval={8}/>
-        <YAxis domain={[0, 22]} orientation="right" reversed={true} hide={true} />
+      <LineChart width={400} height={450} data={results}>
+        <CartesianGrid horizontal={false} stroke="var(--ion-border-color)"/>
+        <XAxis dataKey="lap" interval={8} tickLine={false}/>
+        <YAxis domain={[0, 20]} orientation="right" reversed={true} hide={true} />
         <Line type="monotone" dataKey="hamilton" stroke="#00D2BE" dot={false} strokeWidth={2} />
         <Line type="monotone" dataKey="bottas" stroke="#00D2BE" dot={false} strokeWidth={2} />
         <Line type="monotone" dataKey="max_verstappen" stroke="#1E41FF" dot={false} strokeWidth={2} />
