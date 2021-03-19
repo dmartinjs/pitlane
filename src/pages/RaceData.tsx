@@ -49,7 +49,7 @@ const RaceData: React.FC<RaceDataProps> = ({match}) => {
           <IonButtons slot="start">
             <IonBackButton defaultHref="/standings"></IonBackButton>
           </IonButtons>
-          <IonTitle>Race Data</IonTitle>
+          <IonTitle>Data</IonTitle>
         </IonToolbar>
         <IonToolbar>
           <IonSegment onIonChange={onSegmentChange} value={selectedSegment} scrollable>
