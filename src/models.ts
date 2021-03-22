@@ -56,6 +56,14 @@ export interface Race {
   time:     string;
 }
 
+export interface PitStop {
+  driverId: string;
+  lap:      string;
+  stop:     string;
+  time:     string;
+  duration: string;
+}
+
 // Circuit
 
 export interface CircuitTable {

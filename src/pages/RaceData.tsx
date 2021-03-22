@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { slideOptions } from '../utils/SlideOptions';
 import Positions from '../components/race/data/Positons';
 import LapTimes from '../components/race/data/LapTimes';
+import PitStops from '../components/race/data/PitStops';
 
 interface RaceDataProps extends RouteComponentProps<{
   season: string,
@@ -26,6 +27,9 @@ const RaceData: React.FC<RaceDataProps> = ({match}) => {
       case 'laptimes':
         slider.current!.slideTo(1);
         break;
+      case 'pitstops':
+        slider.current!.slideTo(2);
+        break;
     }
   }
 
@@ -37,6 +41,9 @@ const RaceData: React.FC<RaceDataProps> = ({match}) => {
           break;
         case 1:
           SetSelectedSegment('laptimes');
+          break;
+        case 2:
+          SetSelectedSegment('pitstops');
           break;
       }
     })
@@ -59,6 +66,9 @@ const RaceData: React.FC<RaceDataProps> = ({match}) => {
             <IonSegmentButton value="laptimes">
               <IonLabel>Lap Times</IonLabel>
             </IonSegmentButton>
+            <IonSegmentButton value="pitstops">
+              <IonLabel>Pit Stops</IonLabel>
+            </IonSegmentButton>
           </IonSegment>
         </IonToolbar>
       </IonHeader>
@@ -78,6 +88,15 @@ const RaceData: React.FC<RaceDataProps> = ({match}) => {
               <IonRow>
                 <IonCol>
                   <LapTimes season={match.params.season} round={match.params.round} driverId={match.params.driverId} />
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+          <IonSlide>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <PitStops season={match.params.season} round={match.params.round} driverId={match.params.driverId} />
                 </IonCol>
               </IonRow>
             </IonGrid>
