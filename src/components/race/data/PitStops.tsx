@@ -15,10 +15,11 @@ const PitStops: React.FC<{season: string, round: string, driverId: string}> = ({
   const getData = (pitstop: [PitStop]) => {
     const data = pitstop.map(item => {
       return {
-        number: item.stop,
+        number: parseInt(item.stop),
         time: Date.parse(`1970-01-01T00:00:${item.duration}Z`),
       }
     });
+    console.log(data)
     return data;
   };
 
@@ -30,10 +31,10 @@ const PitStops: React.FC<{season: string, round: string, driverId: string}> = ({
   return (
     <>
       <ResponsiveContainer height={400}>
-        <BarChart width={400} height={400} data={getData(results)} maxBarSize={64}>
-          <XAxis dataKey="number" tickLine={false}/>
-          <YAxis dataKey="time" hide={true} />
-          <Bar dataKey="time" fill="#e10600" radius={[8, 8, 0, 0]}/>
+        <BarChart data={getData(results)} maxBarSize={64} layout="vertical">
+          <XAxis dataKey="time" type="number" hide={true}/>
+          <YAxis dataKey="number" type="number" tickLine={false} axisLine={false} allowDecimals={false} allowDataOverflow={false} />
+          <Bar dataKey="time" fill="#e10600" radius={[0, 8, 8, 0]}/>
         </BarChart>
       </ResponsiveContainer>
       <IonList lines="full">
