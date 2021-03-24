@@ -19,7 +19,6 @@ const PitStops: React.FC<{season: string, round: string, driverId: string}> = ({
         time: Date.parse(`1970-01-01T00:00:${item.duration}Z`),
       }
     });
-    console.log(data)
     return data;
   };
 
