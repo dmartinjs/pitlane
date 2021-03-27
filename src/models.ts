@@ -55,6 +55,7 @@ export interface Race {
   date:     Date;
   time:     string;
   QualifyingResults: QualifyingResult[];
+  Results: Result[];
 }
 
 export interface PitStop {

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { IonBadge, IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
-import { Result } from '../../models';
+import { Race } from '../../models';
 
 const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round}) => {
-  const [results, setResults] = useState<[Result] | null>(null);
+  const [results, setResults] = useState<[Race] | null>(null);
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/${season}/${round}/results.json`)
       .then(res => res.json())
-      .then(result => setResults(result.MRData.RaceTable.Races[0].Results));
+      .then(result => setResults(result.MRData.RaceTable.Races));
   }, [season, round]);
 
   if (results === null) {
@@ -24,6 +24,13 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
           </IonItem>
         )}
       </IonList>
+    );
+  }
+  else if (results.length <= 0) {
+    return (
+      <p>
+        No race results yet
+      </p>
     );
   }
   return (
@@ -42,8 +49,8 @@ const RaceResults: React.FC<{season?: string, round?: string}> = ({season, round
           Pts
         </div>
       </IonItem>
-      {results.map(result =>
-        <IonItem key={result.position} button className={result.FastestLap?.rank === '1' ? 'fastest-lap' : undefined}>
+      {results[0].Results.map(result =>
+        <IonItem key={result.position} className={result.FastestLap?.rank === '1' ? 'fastest-lap' : undefined}>
           <div className="race-position ion-margin-end ion-text-center font-weight-bold">
             {result.position}.
           </div>
