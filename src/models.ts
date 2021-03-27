@@ -54,6 +54,7 @@ export interface Race {
   Circuit:  Circuit;
   date:     Date;
   time:     string;
+  QualifyingResults: QualifyingResult[];
 }
 
 export interface PitStop {

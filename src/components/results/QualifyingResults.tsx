@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { IonBadge, IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
-import { QualifyingResult } from '../../models';
+import { Race } from '../../models';
 
 const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season, round}) => {
-  const [results, setResults] = useState<[QualifyingResult] | null>(null);
+  const [results, setResults] = useState<[Race] | null>(null);
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/${season}/${round}/qualifying.json`)
       .then(res => res.json())
-      .then(result => setResults(result.MRData.RaceTable.Races[0].QualifyingResults));
+      .then(result => setResults(result.MRData.RaceTable.Races));
   }, [season, round]);
 
   if (results === null) {
@@ -28,6 +28,13 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
       </IonList>
     );
   }
+  else if (results.length <= 0) {
+    return (
+      <p>
+        No qualifying results yet
+      </p>
+    );
+  }
   return (
     <IonList lines="full">
       <IonItem>
@@ -43,7 +50,7 @@ const QualifyingResults: React.FC<{season?: string, round?: string}> = ({season,
           <div className="quali-title">Q3</div>
         </div>
       </IonItem>
-      {results.map(result =>
+      {results[0].QualifyingResults.map(result =>
         <IonItem key={result.position}>
           <div className="quali-position ion-margin-end ion-text-center font-weight-bold">
             {result.position}.
