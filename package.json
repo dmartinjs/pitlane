@@ -5,6 +5,7 @@
   "private": true,
   "license": "AGPL-3.0-only",
   "dependencies": {
+    "@capacitor-community/http": "^0.3.0",
     "@capacitor/android": "^2.4.7",
     "@capacitor/core": "^2.4.7",
     "@ionic/react": "^5.6.3",
@@ -53,6 +54,5 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^2.4.7"
-  },
-  "proxy": "https://f1calendar.com"
+  }
 }

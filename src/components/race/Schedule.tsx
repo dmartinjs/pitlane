@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { IonList, IonListHeader, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail, IonImg } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { Race } from '../../models';
+import '@capacitor-community/http';
+import { Plugins } from '@capacitor/core';
 
 export interface RaceSession {
   name:      string;
@@ -27,18 +29,25 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
   let history = useHistory();
   const [race, setRace] = useState<Race | null>(null);
   const [raceSchedule, setraceSchedule] = useState<RaceSession | null>(null);
+  const { Http } = Plugins;
 
   useEffect(() => {
-    fetch(`/api/year/${season}`)
-      .then(res => res.json())
-      .then(result => setraceSchedule(result.races[parseInt(round) - 1]));
-    
-    fetch(`https://ergast.com/api/f1/${season}/${round}.json`)
-      .then(res => res.json())
-      .then(result => {
-        setRace(result.MRData.RaceTable.Races[0]);
-      });
-  }, [round, season]);
+    Http.request({
+      method: 'GET',
+      url: `https://ergast.com/api/f1/${season}/${round}.json`,
+    })
+    .then(({ data }) => {
+      setRace(data.MRData.RaceTable.Races[0]);
+    })
+
+    Http.request({
+      method: 'GET',
+      url: `https://f1calendar.com/api/year/${season}`,
+    })
+    .then(({ data }) => {
+      setraceSchedule(data.races[parseInt(round) - 1]);
+    })
+  }, [round, season, Http]);
 
   const _handleClick = (season: string, round: string, session: string, date: Date) => {
     if(new Date(date) < new Date()) {
@@ -66,9 +75,9 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
   }
   return (
     <>
-      <IonItem lines="none" className="ion-margin-top">
+    <IonItem lines="none" className="ion-margin-top">
         <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
-          <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replaceAll(' ', '_')}.svg`} alt={race.Circuit.Location.country}/>
+          <IonImg src={`assets/img/flags/${race.Circuit.Location.country}.svg`} alt={race.Circuit.Location.country}/>
         </IonThumbnail>
         <IonLabel>
           <h2><strong>{race.Circuit.Location.country}</strong> {season}</h2>
