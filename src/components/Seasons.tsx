@@ -5,7 +5,7 @@ import DriverResults from './driver/DriverResults';
 import ConstructorResults from './constructor/ConstructorResults';
 
 const Seasons: React.FC<{driverId?: string, constructorId?: string}> = ({driverId, constructorId}) => {
-  const [selectedSegment, SetSelectedSegment] = useState<string>('2020');
+  const [selectedSegment, SetSelectedSegment] = useState<string>(`${new Date().getFullYear()}`);
   const [seasons, setSeasons] = useState<[Season] | null>(null);
 
   const onChange = (event: CustomEvent) => SetSelectedSegment(event.detail.value);
