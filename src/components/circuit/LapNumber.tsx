@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {IonIcon, IonItem, IonLabel, IonSkeletonText } from '@ionic/react';
-import { stopwatchOutline } from 'ionicons/icons';
+import { reloadOutline } from 'ionicons/icons';
 import { Result } from '../../models';
 
 const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
@@ -30,7 +30,7 @@ const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
   }
   return (
     <IonItem lines="full">
-      <IonIcon slot="start" icon={stopwatchOutline} />
+      <IonIcon slot="start" icon={reloadOutline} />
       <IonLabel>
         <p>Lap Number</p>
         <h2 className="font-weight-bold">{result.laps}</h2>
