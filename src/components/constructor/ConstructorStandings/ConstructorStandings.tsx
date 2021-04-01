@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonIcon } from '@ionic/react';
 import { useHistory } from 'react-router';
-import { ConstructorStanding, DriverStanding } from '../../models';
+import { ConstructorStanding, DriverStanding } from '../../../models';
 
 const ConstructorStandings: React.FC = () => {
   let history = useHistory();
