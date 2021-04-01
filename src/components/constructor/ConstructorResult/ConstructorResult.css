@@ -1,0 +1,15 @@
+.driver-race {
+  min-width: 7rem;
+}
+
+.driver-date {
+  min-width: 3rem;
+}
+
+.driver-position {
+  min-width: 2rem;
+}
+
+.race-points {
+  min-width: 1.75rem;
+}

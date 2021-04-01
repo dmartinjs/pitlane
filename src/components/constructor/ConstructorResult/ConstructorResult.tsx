@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IonItem, IonLabel, IonSkeletonText } from '@ionic/react';
-import { ConstructorStanding } from '../../models';
+import { ConstructorStanding } from '../../../models';
+import '../ConstructorResults.css';
 
 const ConstructorResult: React.FC<{season: string, round: string, constructorId?: string, country: string, date: Date}> = ({season, round, constructorId, country, date}) => {
   const [constructor, setConstructor] = useState<ConstructorStanding | null>(null);
