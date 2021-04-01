@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonButton, IonIcon, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
-import DriverStandings from '../components/driver/DriverStandings';
-import ConstructorStandings from '../components/constructor/ConstructorStandings';
+import DriverStandings from '../components/driver/DriverStandings/DriverStandings';
+import ConstructorStandings from '../components/constructor/ConstructorStandings/ConstructorStandings';
 import RaceList from '../components/race/RaceList';
 import { slideOptions } from '../utils/SlideOptions';
 
