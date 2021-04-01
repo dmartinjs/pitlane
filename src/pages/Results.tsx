@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonBackButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { Race } from '../models';
-import RaceResults from '../components/results/RaceResults';
+import RaceResults from '../components/results/RaceResults/RaceResults';
 import QualifyingResults from '../components/results/QualifyingResults';
 
 interface RaceDetailsProps extends RouteComponentProps<{

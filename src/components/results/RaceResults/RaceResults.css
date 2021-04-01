@@ -1,0 +1,9 @@
+.fastest-lap .race-position {
+  background: #c365e4;
+  border-radius: 50%;
+}
+
+.dark .fastest-lap .race-position {
+  background: #5e4e96;
+  border-radius: 50%;
+}
