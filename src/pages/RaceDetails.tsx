@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonSegment, IonSegmentButton, IonLabel, IonTitle, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import Schedule from '../components/race/Schedule';
-import Circuit from '../components/circuit/Circuit';
+import Circuit from '../components/circuit/Circuit/Circuit';
 import { slideOptions } from '../utils/SlideOptions';
 
 interface RaceDetailsProps extends RouteComponentProps<{

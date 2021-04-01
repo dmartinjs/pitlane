@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { IonSkeletonText, IonItem, IonLabel, IonThumbnail, IonList, IonIcon, IonCard, IonCardContent, IonImg } from '@ionic/react';
-import { Race } from '../../models';
-import LapRecord from './LapRecord';
-import FirstGP from './FirstGP';
-import LapNumber from './LapNumber';
+import { Race } from '../../../models';
+import LapRecord from '../LapRecord';
+import FirstGP from '../FirstGP';
+import LapNumber from '../LapNumber';
+import './Circuit.css';
 
 const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({season, round, circuit}) => {
   const [race, setRace] = useState<Race | null>(null);

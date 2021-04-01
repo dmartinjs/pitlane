@@ -147,10 +147,6 @@
 
 /* TRACK */
 
-.track-card {
-  --background: var(--ion-color-light);
-}
-
 .track {
   width: 90%;
   height: 216px;
