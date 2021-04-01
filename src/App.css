@@ -94,19 +94,6 @@
 }
 
 /* Standings */
-.constructor-logo,
-.constructor-logo-loader {
-  --ion-margin: 1.5rem;
-  
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--ion-color-dark);
-}
-
-.constructor-logo-loader {
-  border-radius: 1.5rem;
-  background: var(--ion-color-light);
-}
 
 .constructor {
   color: var(--ion-color-dark);
@@ -134,7 +121,6 @@
   border-radius: 0.25rem;
 }
 
-.standings-position,
 .quali-position,
 .race-position {
   min-width: 1.5rem;
@@ -158,10 +144,6 @@
 
 .race-points {
   min-width: 1.75rem;
-}
-
-.standings-points {
-  min-width: 2.625rem;
 }
 
 /* QUALI */
@@ -240,16 +222,6 @@
 .constructor-results-list {
   max-height: calc(100vh - 372px);
   overflow-y: auto;
-}
-
-.fastest-lap .race-position {
-  background: #c365e4;
-  border-radius: 50%;
-}
-
-.dark .fastest-lap .race-position {
-  background: #5e4e96;
-  border-radius: 50%;
 }
 
 .img {
