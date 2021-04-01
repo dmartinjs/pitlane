@@ -16,7 +16,7 @@ import Standings from './pages/Standings';
 import Races from './pages/Races';
 import RaceDetails from './pages/RaceDetails';
 import DriverDetails from './pages/DriverDetails';
-import ConstructorDetails from './pages/ConstructorDetails';
+import ConstructorDetails from './pages/ConstructorDetails/ConstructorDetails';
 import Results from './pages/Results';
 import Settings from './pages/Settings';
 import About from './pages/About';

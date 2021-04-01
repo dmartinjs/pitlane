@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle, IonImg } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
-import { ConstructorStandingsLists, Driver } from '../models';
-import Seasons from '../components/Seasons';
+import { ConstructorStandingsLists, Driver } from '../../models';
+import Seasons from '../../components/Seasons';
+import './ConstructorDetails.css';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,

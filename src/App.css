@@ -95,21 +95,6 @@
 
 /* Standings */
 
-.constructor {
-  color: var(--ion-color-dark);
-}
-
-.country-thumbnail {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  width: 1.5rem;
-  height: 1rem;
-}
-
-.country-thumbnail ion-img {
-  border-radius: 0.25rem;
-}
-
 .circuit-country-thumbnail {
   --ion-margin: 1.375rem;
 
@@ -213,10 +198,6 @@
 
 .driver-position {
   min-width: 2rem;
-}
-
-.driver-number {
-  min-width: 1.875rem;
 }
 
 .constructor-results-list {
