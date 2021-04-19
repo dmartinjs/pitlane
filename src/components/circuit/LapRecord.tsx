@@ -21,6 +21,7 @@ const LapRecord: React.FC<{circuitId?: string}> = ({circuitId}) => {
   if (result === null) {
     return (
       <IonItem lines="full">
+        <IonIcon slot="start" icon={stopwatchOutline} />
         <IonLabel>
           <p>Lap Record</p>
           <IonSkeletonText animated style={{ height: '11px', width: '70px' }}/>
