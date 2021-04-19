@@ -21,6 +21,7 @@ const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
   if (result === null) {
     return (
       <IonItem lines="full">
+        <IonIcon slot="start" icon={reloadOutline} />
         <IonLabel>
           <p>Lap Number</p>
           <IonSkeletonText animated style={{ height: '11px', width: '70px' }}/>
