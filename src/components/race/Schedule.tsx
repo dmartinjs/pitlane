@@ -36,7 +36,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       method: 'GET',
       url: `https://ergast.com/api/f1/${season}/${round}.json`,
     })
-    .then(({ data }) => {
+    .then(({ data }: any) => {
       setRace(data.MRData.RaceTable.Races[0]);
     })
 
@@ -44,7 +44,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       method: 'GET',
       url: `https://f1calendar.com/api/year/${season}`,
     })
-    .then(({ data }) => {
+    .then(({ data }: any) => {
       setraceSchedule(data.races[parseInt(round) - 1]);
     })
   }, [round, season, Http]);

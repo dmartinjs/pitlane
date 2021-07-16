@@ -5,29 +5,29 @@
   "private": true,
   "license": "AGPL-3.0-only",
   "dependencies": {
-    "@capacitor-community/http": "^0.3.0",
-    "@capacitor/android": "^2.4.7",
-    "@capacitor/core": "^2.4.7",
-    "@ionic/react": "^5.6.4",
-    "@ionic/react-router": "^5.6.4",
+    "@capacitor-community/http": "^1.1.0",
+    "@capacitor/android": "^3.1.1",
+    "@capacitor/core": "^3.1.1",
+    "@ionic/react": "^5.6.11",
+    "@ionic/react-router": "^5.6.11",
     "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.6",
+    "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.1.1",
-    "@types/jest": "^26.0.22",
-    "@types/node": "^14.14.37",
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-router": "^5.1.13",
-    "@types/react-router-dom": "^5.1.7",
-    "ionicons": "^5.5.1",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^16.3.2",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router": "^5.1.16",
+    "@types/react-router-dom": "^5.1.8",
+    "ionicons": "^5.5.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^4.0.3",
-    "recharts": "^2.0.9",
+    "recharts": "^2.0.10",
     "source-map-explorer": "^2.5.2",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.5"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
@@ -53,6 +53,6 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "^2.4.7"
+    "@capacitor/cli": "^3.1.1"
   }
 }
