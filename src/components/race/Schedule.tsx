@@ -21,6 +21,7 @@ export interface Sessions {
   fp1:        Date;
   fp2:        Date;
   fp3:        Date;
+  sprintQualifying: Date;
   qualifying: Date;
   gp:         Date;
 }
@@ -50,8 +51,30 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
   }, [round, season, Http]);
 
   const _handleClick = (season: string, round: string, session: string, date: Date) => {
-    if(new Date(date) < new Date()) {
-      history.push(`/results/${season}/${round}/${session}`);
+    if(new Date(date) < new Date() && (session === 'qualifying' || session === 'gp')) {
+      if(session === 'gp') {
+        return history.push(`/results/${season}/${round}/race`);
+      }
+      return history.push(`/results/${season}/${round}/${session}`);
+    }
+  }
+
+  const renderSessionName = (session: string) => {
+    switch(session) {
+      case 'fp1':
+        return 'Practice 1';
+      case 'fp2':
+        return 'Practice 2';
+      case 'fp3':
+        return 'Practice 3';
+      case 'qualifying':
+        return 'Qualifying';
+      case 'sprintQualifying':
+        return 'Sprint Qualifying';
+      case 'gp':
+        return 'Race';
+      default:
+        return 'foo';
     }
   }
 
@@ -86,56 +109,18 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
       </IonItem>
       <IonList lines="full">
         <IonListHeader>Race Weekend</IonListHeader>
-        <IonItem>
-          <div slot="start" className="ion-text-center">
-            <strong>{new Date(raceSchedule.sessions.fp1).getDate()}</strong><br/>
-            <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.fp1).toLocaleString('default', { month: 'short' })}</IonBadge>
-          </div>
-          <IonLabel>
-            <h2 className="font-weight-bold">Practice 1</h2>
-            <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.fp1))}</p>
-          </IonLabel>
-        </IonItem>
-        <IonItem>
-          <div slot="start" className="ion-text-center">
-            <strong>{new Date(raceSchedule.sessions.fp2).getDate()}</strong><br/>
-            <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.fp2).toLocaleString('default', { month: 'short' })}</IonBadge>
-          </div>
-          <IonLabel>
-            <h2 className="font-weight-bold">Practice 2</h2>
-            <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.fp2))}</p>
-          </IonLabel>
-        </IonItem>
-        <IonItem>
-          <div slot="start" className="ion-text-center">
-            <strong>{new Date(raceSchedule.sessions.fp3).getDate()}</strong><br/>
-            <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.fp3).toLocaleString('default', { month: 'short' })}</IonBadge>
-          </div>
-          <IonLabel>
-            <h2 className="font-weight-bold">Practice 3</h2>
-            <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.fp3))}</p>
-          </IonLabel>
-        </IonItem>
-        <IonItem button onClick={() => _handleClick(season, round, 'qualifying', raceSchedule.sessions.qualifying)}>
-          <div slot="start" className="ion-text-center">
-            <strong>{new Date(raceSchedule.sessions.qualifying).getDate()}</strong><br/>
-            <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.qualifying).toLocaleString('default', { month: 'short' })}</IonBadge>
-          </div>
-          <IonLabel>
-            <h2 className="font-weight-bold">Qualifying</h2>
-            <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.qualifying))}</p>
-          </IonLabel>
-        </IonItem>
-        <IonItem button onClick={() => _handleClick(season, round, 'race', raceSchedule.sessions.gp)}>
-          <div slot="start" className="ion-text-center">
-            <strong>{new Date(raceSchedule.sessions.gp).getDate()}</strong><br/>
-            <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions.gp).toLocaleString('default', { month: 'short' })}</IonBadge>
-          </div>
-          <IonLabel>
-            <h2 className="font-weight-bold">Race</h2>
-            <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions.gp))}</p>
-          </IonLabel>
-        </IonItem>
+        {Object.keys(raceSchedule.sessions).map(session =>
+          <IonItem button={(session === 'qualifying' || session === 'gp') && true} onClick={() => _handleClick(season, round, session, raceSchedule.sessions.qualifying)}>
+            <div slot="start" className="ion-text-center">
+              <strong>{new Date(raceSchedule.sessions[session as keyof Sessions]).getDate()}</strong><br/>
+              <IonBadge color="medium" mode="ios">{new Date(raceSchedule.sessions[session as keyof Sessions]).toLocaleString('default', { month: 'short' })}</IonBadge>
+            </div>
+            <IonLabel>
+              <h2 className="font-weight-bold">{renderSessionName(session)}</h2>
+              <p>{new Intl.DateTimeFormat('en-GB', {hour: "numeric", minute: "numeric"}).format(new Date(raceSchedule.sessions[session as keyof Sessions]))}</p>
+            </IonLabel>
+          </IonItem>
+        )}
       </IonList>
     </>
   );
