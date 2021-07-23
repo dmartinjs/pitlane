@@ -6,15 +6,15 @@
   "license": "AGPL-3.0-only",
   "dependencies": {
     "@capacitor-community/http": "^1.1.0",
-    "@capacitor/android": "^3.1.1",
-    "@capacitor/core": "^3.1.1",
-    "@ionic/react": "^5.6.11",
-    "@ionic/react-router": "^5.6.11",
+    "@capacitor/android": "^3.1.2",
+    "@capacitor/core": "^3.1.2",
+    "@ionic/react": "^5.6.12",
+    "@ionic/react-router": "^5.6.12",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.1.1",
+    "@testing-library/user-event": "^13.2.0",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.3.2",
+    "@types/node": "^16.4.1",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
     "@types/react-router": "^5.1.16",
@@ -53,6 +53,6 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "^3.1.1"
+    "@capacitor/cli": "^3.1.2"
   }
 }
