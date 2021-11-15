@@ -4,7 +4,7 @@ import { reloadOutline } from 'ionicons/icons';
 import { Result } from '../../models';
 
 const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
-  const [result, setResult] = useState<Result | null>(null);
+  const [result, setResult] = useState<Result | undefined | null>(null);
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/circuits/${circuitId}/results/1.json?limit=100`)
@@ -13,7 +13,7 @@ const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
         if(result.MRData.RaceTable.Races.length > 0) {
           setResult(result.MRData.RaceTable.Races.pop().Results[0])
         } else {
-          return null;
+          setResult(undefined)
         }
       })
   }, [circuitId]);
@@ -34,7 +34,7 @@ const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
       <IonIcon slot="start" icon={reloadOutline} />
       <IonLabel>
         <p>Lap Number</p>
-        <h2 className="font-weight-bold">{result.laps}</h2>
+        <h2 className="font-weight-bold">{result === undefined ? 'Not Available' : result.laps}</h2>
       </IonLabel>
     </IonItem>
   );
