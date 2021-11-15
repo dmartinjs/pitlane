@@ -4,16 +4,16 @@ import { stopwatchOutline } from 'ionicons/icons';
 import { RaceResult } from '../../models';
 
 const LapRecord: React.FC<{circuitId?: string}> = ({circuitId}) => {
-  const [result, setResult] = useState<RaceResult | null>(null);
+  const [result, setResult] = useState<RaceResult | undefined | null>(null);
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/circuits/${circuitId}/fastest/1/results.json`)
       .then(res => res.json())
       .then(result => {
         if(result.MRData.RaceTable.Races.length > 0) {
-          return setResult(result.MRData.RaceTable.Races.reduce((prev: RaceResult, curr: RaceResult) => prev.Results[0].FastestLap.Time.time < curr.Results[0].FastestLap.Time.time ? prev : curr))
+          setResult(result.MRData.RaceTable.Races.reduce((prev: RaceResult, curr: RaceResult) => prev.Results[0].FastestLap.Time.time < curr.Results[0].FastestLap.Time.time ? prev : curr))
         } else {
-          return null;
+          setResult(undefined)
         }
       });
   }, [circuitId]);
@@ -34,9 +34,9 @@ const LapRecord: React.FC<{circuitId?: string}> = ({circuitId}) => {
       <IonIcon slot="start" icon={stopwatchOutline} />
       <IonLabel>
         <p>Lap Record</p>
-        <h2 className="font-weight-bold">{result.Results[0].Driver.givenName} {result.Results[0].Driver.familyName} ({result.season})</h2>
+        <h2 className="font-weight-bold">{result === undefined ? 'Not Available' : `${result.Results[0].Driver.givenName} ${result.Results[0].Driver.familyName} (${result.season})`}</h2>
       </IonLabel>
-      <IonBadge color="medium" mode="ios">{result.Results[0].FastestLap.Time.time}</IonBadge>
+      {result !== undefined && <IonBadge color="medium" mode="ios">{result.Results[0].FastestLap.Time.time}</IonBadge>}
     </IonItem>
   );
 };
