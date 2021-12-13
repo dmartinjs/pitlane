@@ -31,6 +31,9 @@ const RacePreview: React.FC = () => {
       </IonList>
     );
   }
+  if(race === undefined) {
+    return null;
+  }
   return (
     <IonList lines="full">
       <IonListHeader>Next race</IonListHeader>
