@@ -24,7 +24,7 @@ npm install
 ## :rocket: Start project
 
 ```bash
-  npm run start
+npm run start
 ```
 
 ## :iphone: Build for mobile devices
