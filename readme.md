@@ -27,6 +27,23 @@ npm install
   npm run start
 ```
 
+## :iphone: Build for mobile devices
+
+### Android
+
+```bash
+// Build web assets and prepare the app
+npm run build
+
+// Copy web assets to native platforms
+npx cap copy
+
+// Open Android Studio
+npx cap open android
+```
+
+Then `Run 'app'` from [Android Studio](https://developer.android.com/studio) to visualise the app in a [virtual device](https://developer.android.com/studio/run/managing-avds) or to a real android device after [enabling USB debugging](https://developer.android.com/studio/debug/dev-options) in the **Developers options** panel in the Settings of you android device.
+
 ## :technologist: Built with
 
 - [React](https://reactjs.org/)
