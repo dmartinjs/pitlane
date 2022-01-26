@@ -32,13 +32,13 @@ npm install
 ### Android
 
 ```bash
-// Build web assets and prepare the app
+# build web assets and prepare the app
 npm run build
 
-// Copy web assets to native platforms
+# copy web assets to native platforms
 npx cap copy
 
-// Open Android Studio
+# open Android Studio
 npx cap open android
 ```
 
