@@ -16,7 +16,7 @@ const Races: React.FC = () => {
           <IonTitle>Schedule</IonTitle>
           <IonButtons slot="end">
             <IonButton routerLink="/settings">
-              <IonIcon slot="icon-only" icon={optionsOutline} ariaLabel="settings"/>
+              <IonIcon slot="icon-only" icon={optionsOutline} aria-label="settings"/>
             </IonButton>
           </IonButtons>
         </IonToolbar>
