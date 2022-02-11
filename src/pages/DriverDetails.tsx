@@ -33,16 +33,14 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
           <IonContent>
             <IonList lines="full">
               <IonItem>
-                <IonThumbnail slot="start" className="circuit-country-thumbnail ion-margin-end">
-                  <IonImg src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
-                </IonThumbnail>
+                <div slot="start" className={`driver-number ion-margin-end driver-${driver.DriverStandings[0].Constructors[0].constructorId}`}>{driver.DriverStandings[0].Driver.permanentNumber}</div>
                 <IonLabel>
                   <p>{driver.DriverStandings[0].Driver.givenName}</p>
                   <h2 className="font-weight-bold ion-text-uppercase">{driver.DriverStandings[0].Driver.familyName}</h2>
                 </IonLabel>
-                <div slot="end" className="font-weight-bold">
-                  {driver.DriverStandings[0].Driver.permanentNumber}
-                </div>
+                <IonThumbnail slot="end" className="country-thumbnail">
+                  <IonImg src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
+                </IonThumbnail>
               </IonItem>
               <IonItem lines="none" button routerLink={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
                 <div className="item-label-start ion-margin-end">Team</div>

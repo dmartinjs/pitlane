@@ -2,10 +2,6 @@
   color: var(--ion-color-dark);
 }
 
-.driver-number {
-  min-width: 1.875rem;
-}
-
 .country-thumbnail {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;

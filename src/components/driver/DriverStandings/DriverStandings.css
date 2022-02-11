@@ -2,20 +2,61 @@
   min-width: 1.5rem;
 }
 
-.constructor-logo,
-.constructor-logo-loader {
-  --ion-margin: 1.5rem;
-  
-  width: 1.5rem;
-  height: 1.5rem;
-  color: var(--ion-color-dark);
-}
-
-.constructor-logo-loader {
-  border-radius: 1.5rem;
-  background: var(--ion-color-light);
-}
-
 .standings-points {
   min-width: 2.625rem;
+}
+
+.driver-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.driver-mercedes {
+  color: #1f1f27;
+  background-color: #00d2be;
+}
+
+.driver-ferrari {
+  background-color: #dc0000;
+}
+
+.driver-red_bull {
+  background-color: #0600ef;
+}
+
+.driver-mclaren {
+  color: #1f1f27;
+  background-color: #FF9800;
+}
+
+.driver-alpine {
+  color: #1f1f27;
+  background-color: #0090ff;
+}
+
+.driver-alphatauri {
+  background-color: #2b4562;
+}
+
+.driver-aston_martin {
+  background-color: #006f62;
+}
+
+.driver-williams {
+  background-color: #005aff;
+}
+
+.driver-alfa {
+  background-color: #900000;
+}
+
+.driver-haas {
+  color: #1f1f27;
+  background-color: #ffffff;
 }
