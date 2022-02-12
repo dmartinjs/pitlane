@@ -1,15 +1,15 @@
 import React from 'react';
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
-import RacePreview from '../components/race/RacePreview';
-import News from '../components/News';
+import DriverStandings from '../components/driver/DriverStandings/DriverStandings';
 
-const Latest: React.FC = () => {
+const Drivers: React.FC = () => {
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Latest</IonTitle>
+          <IonTitle>Drivers</IonTitle>
           <IonButtons slot="end">
             <IonButton routerLink="/settings">
               <IonIcon slot="icon-only" icon={optionsOutline} aria-label="settings"/>
@@ -18,12 +18,10 @@ const Latest: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <RacePreview/>
-
-        <News/>
+        <DriverStandings/>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Latest;
+export default Drivers;

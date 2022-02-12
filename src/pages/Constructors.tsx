@@ -1,19 +1,14 @@
 import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
-import RaceList from '../components/race/RaceList';
+import ConstructorStandings from '../components/constructor/ConstructorStandings/ConstructorStandings';
 
-const Races: React.FC = () => {
-
-  const getYear = () => {
-    return new Date().getFullYear();
-  }
-
+const Constructors: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Races</IonTitle>
+          <IonTitle>Constructors</IonTitle>
           <IonButtons slot="end">
             <IonButton routerLink="/settings">
               <IonIcon slot="icon-only" icon={optionsOutline} aria-label="settings"/>
@@ -22,10 +17,10 @@ const Races: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <RaceList season={getYear()}/>
+        <ConstructorStandings/>
       </IonContent>
     </IonPage>
   );
 };
 
-export default Races;
+export default Constructors;
