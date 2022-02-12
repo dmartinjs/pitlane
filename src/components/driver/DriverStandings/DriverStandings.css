@@ -1,4 +1,5 @@
-.standings-position {
+.standings-position,
+.round-position {
   min-width: 1.5rem;
 }
 

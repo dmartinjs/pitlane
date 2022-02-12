@@ -49,7 +49,7 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
     <IonList lines="full">
       {racesFiltered.map(race =>
         <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country, race.Circuit.circuitName)} key={race.round}>
-          <div className="ion-text-center font-weight-bold ion-margin-end">
+          <div className="round-position ion-text-center font-weight-bold ion-margin-end">
             {race.round}.
           </div>
           <IonThumbnail className="country-thumbnail ion-margin-end">
