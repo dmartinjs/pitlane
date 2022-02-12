@@ -49,17 +49,20 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
     <IonList lines="full">
       {racesFiltered.map(race =>
         <IonItem button onClick={() => _handleClick(race.season, race.round, race.Circuit.Location.country, race.Circuit.circuitName)} key={race.round}>
-          <div slot="start" className="race-date ion-text-center">
-            <strong>{new Date(race.date).getDate()}</strong><br/>
-            <IonBadge color="medium" mode="ios">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
+          <div className="ion-text-center font-weight-bold ion-margin-end">
+            {race.round}.
           </div>
+          <IonThumbnail className="country-thumbnail ion-margin-end">
+            <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replace(' ', '_')}.svg`} alt={race.Circuit.Location.country} />
+          </IonThumbnail>
           <IonLabel>
             <h2 className="font-weight-bold">{race.Circuit.Location.country}</h2>
             <p>{race.raceName}</p>
           </IonLabel>
-          <IonThumbnail slot="end" className="country-thumbnail">
-            <IonImg src={`assets/img/flags/${race.Circuit.Location.country.replace(' ', '_')}.svg`} alt={race.Circuit.Location.country} />
-          </IonThumbnail>
+          <div slot="end" className="race-date ion-text-center">
+            <strong>{new Date(race.date).getDate()}</strong><br/>
+            <IonBadge color="medium" mode="ios">{new Date(race.date).toLocaleString('default', { month: 'short' })}</IonBadge>
+          </div>
         </IonItem>
       )}
     </IonList>
