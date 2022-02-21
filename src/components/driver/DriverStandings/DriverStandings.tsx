@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonIcon } from '@ionic/react';
+import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText } from '@ionic/react';
 import { useHistory } from 'react-router';
 import { DriverStanding } from '../../../models';
 import './DriverStandings.css';
