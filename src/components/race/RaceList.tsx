@@ -34,7 +34,10 @@ const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, seas
       <IonList lines="full">
         {[...Array(20)].map((item, index) =>
           <IonItem key={index}>
-            <div slot="start" className="race-date">&nbsp;</div>
+            <div className="round-position ion-text-center font-weight-bold ion-margin-end">
+              {index + 1}.
+            </div>
+            <div className="country-thumbnail ion-margin-end">&nbsp;</div>
             <IonLabel>
               <h2><IonSkeletonText animated style={{ height: '11px', width: '70px' }}/></h2>
               <p><IonSkeletonText animated style={{ height: '11px', width: '120px' }}/></p>
