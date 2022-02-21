@@ -26,7 +26,7 @@ const DriverStandings: React.FC = () => {
             <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
               {index + 1}.
             </div>
-            <div className="constructor-logo-loader ion-margin-end">&nbsp;</div>
+            <div className="driver-number ion-margin-end">&nbsp;</div>
             <IonLabel>
               <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
               <IonSkeletonText animated style={{ height: '16px', width: '80px' }}/>
