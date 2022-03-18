@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle, IonImg } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../../models';
-import Seasons from '../../components/Seasons';
 import './ConstructorDetails.css';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
@@ -38,15 +37,16 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
           <IonContent>
             <IonList lines="full">
               <IonItem>
-                <IonIcon lazy slot="start" size="large" className="constructor" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
+                <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
                 <IonLabel>
                   <p>Team</p>
                   <h2 className="font-weight-bold">{constructor.ConstructorStandings[0].Constructor.name}</h2>
                 </IonLabel>
-                <div slot="end">
-                  {constructor.ConstructorStandings[0].Constructor.nationality}
-                </div>
+                <IonThumbnail slot="end" className="country-thumbnail">
+                  <IonImg src={`assets/img/flags/${constructor.ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor.ConstructorStandings[0].Constructor.nationality}/>
+                </IonThumbnail>
               </IonItem>
+              <h3 className="ion-margin-start">Drivers</h3>
               {drivers && drivers.slice(0, 2).map(driver =>
                 <IonItem button routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>
                   <div slot="start" className={`driver-number driver-details-number ion-margin-end driver-${constructor.ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
@@ -60,7 +60,6 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                 </IonItem>
               )}
             </IonList>
-            <Seasons constructorId={match.params.constructorId} />
           </IonContent>
         )}
     </IonPage>
