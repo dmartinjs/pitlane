@@ -47,15 +47,25 @@ export interface DriverStanding {
 // Race
 
 export interface Race {
-  season:   string;
-  round:    string;
-  url:      string;
-  raceName: string;
-  Circuit:  Circuit;
-  date:     Date;
-  time:     string;
+  season:         string;
+  round:          string;
+  url:            string;
+  raceName:       string;
+  Circuit:        Circuit;
+  date:           Date;
+  time:           string;
   QualifyingResults: QualifyingResult[];
   Results: Result[];
+  FirstPractice:  Session;
+  SecondPractice: Session;
+  ThirdPractice?: Session;
+  Qualifying:     Session;
+  Sprint?:        Session;
+}
+
+export interface Session {
+  date: Date;
+  time: string;
 }
 
 export interface PitStop {
