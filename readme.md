@@ -53,6 +53,6 @@ Then `Run 'app'` from [Android Studio](https://developer.android.com/studio) to 
 
 ## :page_with_curl: License
 ​
-Copyright © 2021 [dmartinjs](https://github.com/dmartinjs).
+Copyright © 2023 [dmartinjs](https://github.com/dmartinjs).
 
 Distributed under [AGPL-3.0](/LICENSE) license.
