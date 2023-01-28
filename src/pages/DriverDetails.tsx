@@ -9,10 +9,13 @@ import { slideOptions } from '../utils/SlideOptions';
 
 interface DriverDetailsProps extends RouteComponentProps<{
   driverId: string,
+  driverGivenName: string,
+  driverFamilyName: string
 }> {}
 
 const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
   const [driver, setDriver] = useState<DriverStandingsLists | null>(null);
+  const [description, setDescription] = useState<string | null>(null);
   const [selectedSegment, SetSelectedSegment] = useState<string>('stats');
 
   const slider = useRef<HTMLIonSlidesElement>(null);
@@ -53,7 +56,14 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
     fetch(`https://ergast.com/api/f1/current/drivers/${match.params.driverId}/driverStandings.json`)
       .then(res => res.json())
       .then(result => setDriver(result.MRData.StandingsTable.StandingsLists[0]));
-  }, [match.params.driverId]);
+
+    fetch(`https://en.wikipedia.org/w/api.php?origin=*&format=xml&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${match.params.driverGivenName}_${match.params.driverFamilyName}`)
+      .then(res => res.text())
+      .then(result => {
+        const xmlDoc = new DOMParser().parseFromString(result, "text/xml");
+        setDescription((xmlDoc.querySelector("extract") as HTMLElement).textContent);
+      });
+  }, [match.params.driverId, match.params.driverGivenName, match.params.driverFamilyName]);
 
 
   return (
@@ -147,6 +157,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                           <h2 className="font-weight-bold">{new Intl.DateTimeFormat('en-GB').format(new Date(driver.DriverStandings[0].Driver.dateOfBirth))}</h2>
                         </IonLabel>
                       </IonItem>
+                      <p className="ion-padding ion-text-left">{description}</p>
                     </IonCol>
                   </IonRow>
                 </IonGrid>
