@@ -14,7 +14,7 @@ interface DriverDetailsProps extends RouteComponentProps<{
 }> {}
 
 const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
-  const [driver, setDriver] = useState<DriverStandingsLists | null>(null);
+  const [driver, setDriver] = useState<DriverStandingsLists[] | null>(null);
   const [description, setDescription] = useState<string | null>(null);
   const [selectedSegment, SetSelectedSegment] = useState<string>('stats');
 
@@ -53,9 +53,9 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
   }
 
   useEffect(() => {
-    fetch(`https://ergast.com/api/f1/current/drivers/${match.params.driverId}/driverStandings.json`)
+    fetch(`https://ergast.com/api/f1/drivers/${match.params.driverId}/driverStandings.json?limit=60`)
       .then(res => res.json())
-      .then(result => setDriver(result.MRData.StandingsTable.StandingsLists[0]));
+      .then(result => setDriver(result.MRData.StandingsTable.StandingsLists.reverse()));
 
     fetch(`https://en.wikipedia.org/w/api.php?origin=*&format=xml&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${match.params.driverGivenName}_${match.params.driverFamilyName}`)
       .then(res => res.text())
@@ -81,13 +81,13 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
           <IonContent>
             <IonList lines="full">
               <IonItem>
-                <div slot="start" className={`driver-number ion-margin-end driver-${driver.DriverStandings[0].Constructors[0].constructorId}`}>{driver.DriverStandings[0].Driver.permanentNumber}</div>
+                <div slot="start" className={`driver-number ion-margin-end driver-${driver[0].DriverStandings[0].Constructors[0].constructorId}`}>{driver[0].DriverStandings[0].Driver.permanentNumber}</div>
                 <IonLabel>
-                  <p>{driver.DriverStandings[0].Driver.givenName}</p>
-                  <h2 className="font-weight-bold ion-text-uppercase">{driver.DriverStandings[0].Driver.familyName}</h2>
+                  <p>{driver[0].DriverStandings[0].Driver.givenName}</p>
+                  <h2 className="font-weight-bold ion-text-uppercase">{driver[0].DriverStandings[0].Driver.familyName}</h2>
                 </IonLabel>
                 <IonThumbnail slot="end" className="country-thumbnail">
-                  <IonImg src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
+                  <IonImg src={`assets/img/flags/${driver[0].DriverStandings[0].Driver.nationality}.svg`} alt={driver[0].DriverStandings[0].Driver.nationality}/>
                 </IonThumbnail>
               </IonItem>
             </IonList>
@@ -107,8 +107,8 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 <IonGrid>
                   <IonRow>
                     <IonCol>
-                      <DriverSeasons driverId={driver.DriverStandings[0].Driver.driverId}/>
-                      <DriverRacesPodiums driverId={driver.DriverStandings[0].Driver.driverId}/>
+                      <DriverSeasons driverId={driver[0].DriverStandings[0].Driver.driverId}/>
+                      <DriverRacesPodiums driverId={driver[0].DriverStandings[0].Driver.driverId}/>
                     </IonCol>
                   </IonRow>
                 </IonGrid>
@@ -117,15 +117,18 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 <IonGrid>
                   <IonRow>
                     <IonCol>
-                      <IonItem lines="full" button routerLink={`/constructor/${driver.DriverStandings[0].Constructors[0].constructorId}`}>
-                        <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${driver.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
-                        <IonLabel>
-                          <h2 className="font-weight-bold">{driver.DriverStandings[0].Constructors[0].name}</h2>
-                        </IonLabel>
-                        <IonThumbnail slot="end" className="country-thumbnail">
-                          <IonImg src={`assets/img/flags/${driver.DriverStandings[0].Constructors[0].nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
-                        </IonThumbnail>
-                      </IonItem>
+                      {driver.map(season =>
+                        <IonItem lines="full" button routerLink={`/constructor/${season.DriverStandings[0].Constructors[0].constructorId}`}>
+                          <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${season.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
+                          <IonLabel>
+                            <p>{season.season}</p>
+                            <h2 className="font-weight-bold">{season.DriverStandings[0].Constructors[0].name}</h2>
+                          </IonLabel>
+                          <IonThumbnail slot="end" className="country-thumbnail">
+                            <IonImg src={`assets/img/flags/${season.DriverStandings[0].Constructors[0].nationality}.svg`} alt={season.DriverStandings[0].Driver.nationality}/>
+                          </IonThumbnail>
+                        </IonItem>
+                      )}
                     </IonCol>
                   </IonRow>
                 </IonGrid>
@@ -136,25 +139,25 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                     <IonCol>
                       <IonItem lines="full">
                         <IonThumbnail slot="start" className="country-thumbnail ion-margin-end">
-                          <IonImg src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
+                          <IonImg src={`assets/img/flags/${driver[0].DriverStandings[0].Driver.nationality}.svg`} alt={driver[0].DriverStandings[0].Driver.nationality}/>
                         </IonThumbnail>
                         <IonLabel>
                           <p>Nationality</p>
-                          <h2 className="font-weight-bold">{driver.DriverStandings[0].Driver.nationality}</h2>
+                          <h2 className="font-weight-bold">{driver[0].DriverStandings[0].Driver.nationality}</h2>
                         </IonLabel>
                       </IonItem>
                       <IonItem lines="full">
                         <IonIcon slot="start" className="ion-margin-end" icon={giftOutline}></IonIcon>
                         <IonLabel>
                           <p>Age</p>
-                          <h2 className="font-weight-bold">{new Date().getFullYear() - new Date(driver.DriverStandings[0].Driver.dateOfBirth).getFullYear()}</h2>
+                          <h2 className="font-weight-bold">{new Date().getFullYear() - new Date(driver[0].DriverStandings[0].Driver.dateOfBirth).getFullYear()}</h2>
                         </IonLabel>
                       </IonItem>
                       <IonItem lines="full">
                         <IonIcon slot="start" className="ion-margin-end" icon={todayOutline}></IonIcon>
                         <IonLabel>
                           <p>Date of birth</p>
-                          <h2 className="font-weight-bold">{new Intl.DateTimeFormat('en-GB').format(new Date(driver.DriverStandings[0].Driver.dateOfBirth))}</h2>
+                          <h2 className="font-weight-bold">{new Intl.DateTimeFormat('en-GB').format(new Date(driver[0].DriverStandings[0].Driver.dateOfBirth))}</h2>
                         </IonLabel>
                       </IonItem>
                       <p className="ion-padding ion-text-left">{description}</p>
