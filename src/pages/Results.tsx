@@ -21,7 +21,7 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
       .then(result => {
         setRace(result.MRData.RaceTable.Races[0]);
       });
-  }, [race, match.params.season, match.params.round]);
+  }, [match.params.season, match.params.round]);
 
   const slider = useRef<HTMLIonSlidesElement>(null);
 
