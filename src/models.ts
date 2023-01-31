@@ -61,6 +61,31 @@ export interface Race {
   ThirdPractice?: Session;
   Qualifying:     Session;
   Sprint?:        Session;
+  SprintResults?: SprintResult[];
+}
+
+export interface SprintResult {
+  number:       string;
+  position:     string;
+  positionText: string;
+  points:       string;
+  Driver:       Driver;
+  Constructor:  Constructor;
+  grid:         string;
+  laps:         string;
+  status:       Status;
+  Time?:        SprintResultTime;
+  FastestLap?:  FastestLap;
+}
+
+export interface SprintResultTime {
+  millis: string;
+  time:   string;
+}
+
+export enum Status {
+  Finished = "Finished",
+  Retired = "Retired",
 }
 
 export interface Session {

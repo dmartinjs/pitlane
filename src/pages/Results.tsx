@@ -4,6 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { Race } from '../models';
 import RaceResults from '../components/results/RaceResults/RaceResults';
 import QualifyingResults from '../components/results/QualifyingResults';
+import SprintResults from '../components/results/SprintResults';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string,
@@ -36,8 +37,11 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
       case 'qualifying':
         slider.current!.slideTo(0);
         break;
-      case 'race':
+      case 'sprint':
         slider.current!.slideTo(1);
+        break;
+      case 'race':
+        slider.current!.slideTo(2);
         break;
     }
   }
@@ -47,8 +51,11 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
       case 'qualifying':
         slider.current!.slideTo(0);
         break;
-      case 'race':
+      case 'sprint':
         slider.current!.slideTo(1);
+        break;
+      case 'race':
+        slider.current!.slideTo(2);
         break;
     }
   }
@@ -60,6 +67,9 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
           SetSelectedSegment('qualifying');
           break;
         case 1:
+          SetSelectedSegment('sprint');
+          break;
+        case 2:
           SetSelectedSegment('race');
           break;
       }
@@ -80,6 +90,9 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
             <IonSegmentButton value="qualifying">
               <IonLabel>Qualifying</IonLabel>
             </IonSegmentButton>
+            <IonSegmentButton value="sprint">
+              <IonLabel>Sprint</IonLabel>
+            </IonSegmentButton>
             <IonSegmentButton value="race">
               <IonLabel>Race</IonLabel>
             </IonSegmentButton>
@@ -93,6 +106,15 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
               <IonRow>
                 <IonCol>
                   <QualifyingResults season={match.params.season} round={match.params.round}/>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+          <IonSlide>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <SprintResults season={match.params.season} round={match.params.round}/>
                 </IonCol>
               </IonRow>
             </IonGrid>
