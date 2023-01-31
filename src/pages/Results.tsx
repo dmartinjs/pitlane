@@ -78,58 +78,66 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
 
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/standings"></IonBackButton>
-          </IonButtons>
-          <IonTitle>{race?.Circuit.Location.country} {race?.season}</IonTitle>
-        </IonToolbar>
-        <IonToolbar>
-          <IonSegment onIonChange={onSegmentChange} value={selectedSegment} scrollable>
-            <IonSegmentButton value="qualifying">
-              <IonLabel>Qualifying</IonLabel>
-            </IonSegmentButton>
-            <IonSegmentButton value="sprint">
-              <IonLabel>Sprint</IonLabel>
-            </IonSegmentButton>
-            <IonSegmentButton value="race">
-              <IonLabel>Race</IonLabel>
-            </IonSegmentButton>
-          </IonSegment>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonSlides onIonSlideDidChange={onSlideChange} onIonSlidesDidLoad={onSlideLoad} ref={slider} options={slideOptions}>
-          <IonSlide>
-            <IonGrid>
-              <IonRow>
-                <IonCol>
-                  <QualifyingResults season={match.params.season} round={match.params.round}/>
-                </IonCol>
-              </IonRow>
-            </IonGrid>
-          </IonSlide>
-          <IonSlide>
-            <IonGrid>
-              <IonRow>
-                <IonCol>
-                  <SprintResults season={match.params.season} round={match.params.round}/>
-                </IonCol>
-              </IonRow>
-            </IonGrid>
-          </IonSlide>
-          <IonSlide>
-            <IonGrid>
-              <IonRow>
-                <IonCol>
-                  <RaceResults season={match.params.season} round={match.params.round}/>
-                </IonCol>
-              </IonRow>
-            </IonGrid>
-          </IonSlide>
-        </IonSlides>
-      </IonContent>
+      {race &&
+        <>
+          <IonHeader>
+            <IonToolbar>
+              <IonButtons slot="start">
+                <IonBackButton defaultHref="/standings"></IonBackButton>
+              </IonButtons>
+              <IonTitle>{race.Circuit.Location.country} {race.season}</IonTitle>
+            </IonToolbar>
+            <IonToolbar>
+              <IonSegment onIonChange={onSegmentChange} value={selectedSegment} scrollable>
+                <IonSegmentButton value="qualifying">
+                  <IonLabel>Qualifying</IonLabel>
+                </IonSegmentButton>
+                {race.Sprint !== undefined &&
+                  <IonSegmentButton value="sprint">
+                    <IonLabel>Sprint</IonLabel>
+                  </IonSegmentButton>
+                }
+                <IonSegmentButton value="race">
+                  <IonLabel>Race</IonLabel>
+                </IonSegmentButton>
+              </IonSegment>
+            </IonToolbar>
+          </IonHeader>
+          <IonContent>
+            <IonSlides onIonSlideDidChange={onSlideChange} onIonSlidesDidLoad={onSlideLoad} ref={slider} options={slideOptions}>
+              <IonSlide>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                      <QualifyingResults season={match.params.season} round={match.params.round}/>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonSlide>
+              {race?.Sprint !== undefined && 
+                <IonSlide>
+                  <IonGrid>
+                    <IonRow>
+                      <IonCol>
+                        <SprintResults season={match.params.season} round={match.params.round}/>
+                      </IonCol>
+                    </IonRow>
+                  </IonGrid>
+                </IonSlide>
+              }
+              <IonSlide>
+                <IonGrid>
+                  <IonRow>
+                    <IonCol>
+                      <RaceResults season={match.params.season} round={match.params.round}/>
+                    </IonCol>
+                  </IonRow>
+                </IonGrid>
+              </IonSlide>
+            </IonSlides>
+          </IonContent>
+        </>
+      }
     </IonPage>
   );
 };
