@@ -13,8 +13,8 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
         .then(result => setRace(result.MRData.RaceTable.Races[0]));
   }, [round, season]);
 
-  const _handleClick = (season: string, round: string, session: string, date: Date) => {
-    if(new Date(date) < new Date() && (session === 'qualifying' || session === 'gp')) {
+  const _handleClick = (season: string, round: string, session: string, date?: Date) => {
+    if(date && new Date(date) < new Date()) {
       if(session === 'gp') {
         return history.push(`/results/${season}/${round}/race`);
       }
@@ -98,7 +98,7 @@ const Schedule: React.FC<{season: string, round: string}> = ({season, round}) =>
           </IonItem>
         }
         {race.Sprint && 
-          <IonItem>
+          <IonItem button onClick={() => _handleClick(season, round, 'sprint', race.Sprint?.date)}>
             <div slot="start" className="ion-text-center">
               <strong>{new Date(race.Sprint.date).getDate()}</strong><br/>
               <IonBadge color="medium" mode="ios">{new Date(race.Sprint.date).toLocaleString('default', { month: 'short' })}</IonBadge>
