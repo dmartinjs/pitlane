@@ -101,6 +101,10 @@
   white-space: pre-line !important;
 }
 
+.toolbar-item {
+  --background: transparent;
+}
+
 /* Standings */
 
 .circuit-country-thumbnail {

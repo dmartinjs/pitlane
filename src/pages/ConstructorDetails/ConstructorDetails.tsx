@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle, IonImg } from '@ionic/react';
+import React, { useEffect, useRef, useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonThumbnail, IonIcon, IonTitle, IonImg, IonSegment, IonSegmentButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../../models';
 import './ConstructorDetails.css';
+import { slideOptions } from '../../utils/SlideOptions';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
@@ -11,6 +12,41 @@ interface ConstructorDetailsProps extends RouteComponentProps<{
 const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
   const [constructor, setConstructor] = useState<ConstructorStandingsLists | null>(null);
   const [drivers, setDrivers] = useState<[Driver] | null>(null);
+  const [selectedSegment, SetSelectedSegment] = useState<string>('stats');
+
+  const slider = useRef<HTMLIonSlidesElement>(null);
+
+  const onSegmentChange = (event: CustomEvent) => {
+    SetSelectedSegment(event.detail.value);
+
+    switch(event.detail.value) {
+      case 'stats':
+        slider.current!.slideTo(0);
+        break;
+      case 'drivers':
+        slider.current!.slideTo(1);
+        break;
+      case 'bio':
+        slider.current!.slideTo(2);
+        break;
+    }
+  }
+
+  const onSlideChange = (event: any) => {
+    event.target.getActiveIndex().then((value: any) => {
+      switch(value) {
+        case 0:
+          SetSelectedSegment('stats');
+          break;
+        case 1:
+          SetSelectedSegment('drivers');
+          break;
+        case 2:
+          SetSelectedSegment('bio');
+          break;
+      }
+    })
+  }
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/current/constructors/${match.params.constructorId}/constructorStandings.json`)
@@ -25,43 +61,80 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
   return (
     <IonPage>
       <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonBackButton defaultHref="/standings"></IonBackButton>
-              <IonTitle>Constructor</IonTitle>
-            </IonButtons>
-          </IonToolbar>
-        </IonHeader>
-
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/standings"></IonBackButton>
+          </IonButtons>
+        </IonToolbar>
+        <IonToolbar>
         {constructor && (
-          <IonContent>
-            <IonList lines="full">
-              <IonItem>
-                <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
-                <IonLabel>
-                  <p>Team</p>
-                  <h2 className="font-weight-bold">{constructor.ConstructorStandings[0].Constructor.name}</h2>
-                </IonLabel>
-                <IonThumbnail slot="end" className="country-thumbnail">
-                  <IonImg src={`assets/img/flags/${constructor.ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor.ConstructorStandings[0].Constructor.nationality}/>
-                </IonThumbnail>
-              </IonItem>
-              <h3 className="ion-margin-start">Drivers</h3>
-              {drivers && drivers.slice(0, 2).map(driver =>
-                <IonItem button routerLink={`/driver/${driver.driverId}/${driver.givenName}/${driver.familyName}`} key={driver.driverId}>
-                  <div slot="start" className={`driver-number driver-details-number ion-margin-end driver-${constructor.ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
-                  <IonLabel>
-                    <p>{driver.givenName}</p>
-                    <h2 className="font-weight-bold ion-text-uppercase">{driver.familyName}</h2>
-                  </IonLabel>
-                  <IonThumbnail slot="end" className="country-thumbnail">
-                    <IonImg src={`assets/img/flags/${driver.nationality}.svg`} alt={driver.nationality}/>
-                  </IonThumbnail>
-                </IonItem>
-              )}
-            </IonList>
-          </IonContent>
+          <IonItem className='toolbar-item'>
+            <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${constructor.ConstructorStandings[0].Constructor.constructorId}.svg`}/>
+            <IonLabel>
+              <h2 className="font-weight-bold">{constructor.ConstructorStandings[0].Constructor.name}</h2>
+            </IonLabel>
+            <IonThumbnail slot="end" className="country-thumbnail">
+              <IonImg src={`assets/img/flags/${constructor.ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor.ConstructorStandings[0].Constructor.nationality}/>
+            </IonThumbnail>
+          </IonItem>
         )}
+        </IonToolbar>
+        <IonToolbar>
+          <IonSegment onIonChange={onSegmentChange} value={selectedSegment}>
+            <IonSegmentButton value="stats">
+              <IonLabel>Stats</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="drivers">
+              <IonLabel>Drivers</IonLabel>
+            </IonSegmentButton>
+            <IonSegmentButton value="bio">
+              <IonLabel>Bio</IonLabel>
+            </IonSegmentButton>
+          </IonSegment>
+        </IonToolbar>
+      </IonHeader>
+
+      <IonContent>
+        <IonSlides onIonSlideDidChange={onSlideChange} ref={slider} options={slideOptions}>
+          <IonSlide>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+          <IonSlide>
+            <IonGrid>
+              <IonRow>
+                  {drivers && constructor && drivers.slice(0, 2).map(driver =>
+                    <IonCol>
+                      <IonRow>
+                        <IonCol>
+                          <IonItem button lines='full' routerLink={`/driver/${driver.driverId}/${driver.givenName}/${driver.familyName}`} key={driver.driverId}>
+                            <div slot="start" className={`driver-number driver-details-number ion-margin-end driver-${constructor.ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
+                            <IonLabel>
+                              <p>{driver.givenName}</p>
+                              <h2 className="font-weight-bold ion-text-uppercase">{driver.familyName}</h2>
+                            </IonLabel>
+                          </IonItem>
+                        </IonCol>
+                      </IonRow>
+                    </IonCol>
+                  )}
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+          <IonSlide>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonSlide>
+        </IonSlides>
+      </IonContent>
     </IonPage>
   );
 };
