@@ -118,7 +118,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   <IonRow>
                     <IonCol>
                       {driver.map(season =>
-                        <IonItem lines="full" button routerLink={`/constructor/${season.DriverStandings[0].Constructors[0].constructorId}`}>
+                        <IonItem key={season.season} lines="full" button routerLink={`/constructor/${season.DriverStandings[0].Constructors[0].constructorId}`}>
                           <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${season.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
                           <IonLabel>
                             <p>{season.season}</p>
