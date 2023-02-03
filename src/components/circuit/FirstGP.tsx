@@ -15,6 +15,7 @@ const FirstGP: React.FC<{circuitId?: string}> = ({circuitId}) => {
   if (race === null) {
     return (
       <IonItem lines="full">
+        <IonIcon slot="start" className="ion-margin-end" icon={todayOutline} />
         <IonLabel>
           <p>&nbsp;</p>
           <IonSkeletonText animated style={{ height: '11px', width: '70px' }}/>
@@ -24,7 +25,7 @@ const FirstGP: React.FC<{circuitId?: string}> = ({circuitId}) => {
   }
   return (
     <IonItem lines="full">
-      <IonIcon slot="start" icon={todayOutline} />
+      <IonIcon slot="start" className="ion-margin-end" icon={todayOutline} />
       <IonLabel>
         <p>First Grand Prix</p>
         <h2 className="font-weight-bold">{race.season}</h2>

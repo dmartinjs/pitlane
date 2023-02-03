@@ -21,7 +21,7 @@ const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
   if (result === null) {
     return (
       <IonItem lines="full">
-        <IonIcon slot="start" icon={reloadOutline} />
+        <IonIcon slot="start" className="ion-margin-end" icon={reloadOutline} />
         <IonLabel>
           <p>Lap Number</p>
           <IonSkeletonText animated style={{ height: '11px', width: '70px' }}/>
@@ -31,7 +31,7 @@ const LapNumber: React.FC<{circuitId?: string}> = ({circuitId}) => {
   }
   return (
     <IonItem lines="full">
-      <IonIcon slot="start" icon={reloadOutline} />
+      <IonIcon slot="start" className="ion-margin-end" icon={reloadOutline} />
       <IonLabel>
         <p>Lap Number</p>
         <h2 className="font-weight-bold">{result === undefined ? 'Not Available' : result.laps}</h2>
