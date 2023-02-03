@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonTitle, IonImg, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
-import { giftOutline, todayOutline } from 'ionicons/icons';
+import { giftOutline, readerOutline, todayOutline } from 'ionicons/icons';
 import DriverSeasons from '../components/driver/DriverSeasons';
 import DriverRacesPodiums from '../components/driver/DriverAchievements';
 import { slideOptions } from '../utils/SlideOptions';
@@ -160,7 +160,13 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                           <h2 className="font-weight-bold">{new Intl.DateTimeFormat('en-GB').format(new Date(driver[0].DriverStandings[0].Driver.dateOfBirth))}</h2>
                         </IonLabel>
                       </IonItem>
-                      <p className="ion-padding ion-text-left">{description}</p>
+                      <IonItem>
+                        <IonIcon slot="start" className="ion-align-self-start ion-margin-end" icon={readerOutline}></IonIcon>
+                        <IonLabel className='preline'>
+                          <p>Biography</p>
+                          <h2>{description?.replaceAll('.', '.\n\n')}</h2>
+                        </IonLabel>
+                      </IonItem>
                     </IonCol>
                   </IonRow>
                 </IonGrid>

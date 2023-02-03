@@ -61,6 +61,10 @@
   display: flex;
 }
 
+.ion-align-self-start {
+  align-self: start;
+}
+
 /* TEXT */
 
 .ion-text-left {
@@ -91,6 +95,10 @@
   min-width: 44px;
   color: var(--ion-color-step-600, #666666);
   font-size: 14px;
+}
+
+.preline {
+  white-space: pre-line !important;
 }
 
 /* Standings */
