@@ -72,15 +72,11 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
           <IonToolbar>
             <IonButtons slot="start">
               <IonBackButton defaultHref="/standings"></IonBackButton>
-              <IonTitle>Driver</IonTitle>
             </IonButtons>
           </IonToolbar>
-        </IonHeader>
-
-        {driver && (
-          <IonContent>
-            <IonList lines="full">
-              <IonItem>
+          <IonToolbar>
+            {driver && (
+              <IonItem className='toolbar-item'>
                 <div slot="start" className={`driver-number ion-margin-end driver-${driver[0].DriverStandings[0].Constructors[0].constructorId}`}>{driver[0].DriverStandings[0].Driver.permanentNumber}</div>
                 <IonLabel>
                   <p>{driver[0].DriverStandings[0].Driver.givenName}</p>
@@ -90,7 +86,9 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   <IonImg src={`assets/img/flags/${driver[0].DriverStandings[0].Driver.nationality}.svg`} alt={driver[0].DriverStandings[0].Driver.nationality}/>
                 </IonThumbnail>
               </IonItem>
-            </IonList>
+            )}
+          </IonToolbar>
+          <IonToolbar>
             <IonSegment onIonChange={onSegmentChange} value={selectedSegment}>
               <IonSegmentButton value="stats">
                 <IonLabel>Stats</IonLabel>
@@ -102,6 +100,11 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 <IonLabel>Bio</IonLabel>
               </IonSegmentButton>
             </IonSegment>
+          </IonToolbar>
+        </IonHeader>
+
+        {driver && (
+          <IonContent>
             <IonSlides onIonSlideDidChange={onSlideChange} ref={slider} options={slideOptions}>
               <IonSlide>
                 <IonGrid>
