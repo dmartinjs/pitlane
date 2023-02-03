@@ -5,6 +5,7 @@ import LapRecord from '../LapRecord';
 import FirstGP from '../FirstGP';
 import LapNumber from '../LapNumber';
 import './Circuit.css';
+import { readerOutline } from 'ionicons/icons';
 
 const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({season, round, circuit}) => {
   const [race, setRace] = useState<Race | null>(null);
@@ -59,7 +60,13 @@ const Circuit: React.FC<{season: string, round: string, circuit: string}> = ({se
       <FirstGP circuitId={race.Circuit.circuitId} />
       <LapNumber circuitId={race.Circuit.circuitId} />
       <LapRecord circuitId={race.Circuit.circuitId} />
-      <p className="ion-padding ion-text-left">{description}</p>
+      <IonItem>
+        <IonIcon slot="start" className="ion-align-self-start ion-margin-end" icon={readerOutline}></IonIcon>
+        <IonLabel className='preline'>
+          <p>Description</p>
+          <h2>{description?.replaceAll('.', '.\n\n')}</h2>
+        </IonLabel>
+      </IonItem>
     </>
   );
 };
