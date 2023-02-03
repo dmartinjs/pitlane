@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonTitle, IonImg, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonTitle, IonImg, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonBadge } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
 import { giftOutline, readerOutline, todayOutline } from 'ionicons/icons';
@@ -120,18 +120,32 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 <IonGrid>
                   <IonRow>
                     <IonCol>
-                      {driver.map(season =>
-                        <IonItem key={season.season} lines="full" button routerLink={`/constructor/${season.DriverStandings[0].Constructors[0].constructorId}`}>
-                          <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${season.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
+                      <IonList lines="full">
+                        <IonItem>
                           <IonLabel>
-                            <p>{season.season}</p>
-                            <h2 className="font-weight-bold">{season.DriverStandings[0].Constructors[0].name}</h2>
+                            Team
                           </IonLabel>
-                          <IonThumbnail slot="end" className="country-thumbnail">
-                            <IonImg src={`assets/img/flags/${season.DriverStandings[0].Constructors[0].nationality}.svg`} alt={season.DriverStandings[0].Driver.nationality}/>
-                          </IonThumbnail>
+                          <div className="race-position">
+                            Position
+                          </div>
+                          <div slot="end" className="race-points">
+                            Pts
+                          </div>
                         </IonItem>
-                      )}
+                        {driver.map(season =>
+                          <IonItem key={season.season} lines="full" button routerLink={`/constructor/${season.DriverStandings[0].Constructors[0].constructorId}`}>
+                            <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${season.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
+                            <IonLabel>
+                              <p>{season.season}</p>
+                              <h2 className="font-weight-bold">{season.DriverStandings[0].Constructors[0].name}</h2>
+                            </IonLabel>
+                            <div className="race-position ion-margin-end font-weight-bold">
+                              {season.DriverStandings[0].position}
+                            </div>
+                            <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{season.DriverStandings[0].points}</IonBadge>
+                          </IonItem>
+                        )}
+                      </IonList>
                     </IonCol>
                   </IonRow>
                 </IonGrid>
