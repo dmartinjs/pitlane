@@ -14,8 +14,8 @@ const DriverStandings: React.FC = () => {
       .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
   }, []);
 
-  const _handleClick = (driverId: string, driverGivenName: string, driverFamilyName: string) => {
-    history.push(`/driver/${driverId}/${driverGivenName}/${driverFamilyName}`);
+  const _handleClick = (driverId: string) => {
+    history.push(`/driver/${driverId}`);
   }
 
   if (drivers === null) {
@@ -40,7 +40,7 @@ const DriverStandings: React.FC = () => {
   return (
     <IonList lines="full">
       {drivers.map(driver =>
-        <IonItem button onClick={() => _handleClick(driver.Driver.driverId, driver.Driver.givenName, driver.Driver.familyName)} key={driver.Driver.driverId}>
+        <IonItem button onClick={() => _handleClick(driver.Driver.driverId)} key={driver.Driver.driverId}>
           <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
             {driver.position}.
           </div>

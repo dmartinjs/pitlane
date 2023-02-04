@@ -128,7 +128,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({match}) => {
                   <IonCol>
                     <IonRow>
                       <IonCol>
-                        <IonItem button lines='full' routerLink={`/driver/${driver.driverId}/${driver.givenName}/${driver.familyName}`} key={driver.driverId}>
+                        <IonItem button lines='full' routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>
                           <div slot="start" className={`driver-number driver-details-number ion-margin-end driver-${constructor.ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
                           <IonLabel>
                             <p>{driver.givenName}</p>

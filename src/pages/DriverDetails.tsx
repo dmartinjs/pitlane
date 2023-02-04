@@ -9,8 +9,6 @@ import { slideOptions } from '../utils/SlideOptions';
 
 interface DriverDetailsProps extends RouteComponentProps<{
   driverId: string,
-  driverGivenName: string,
-  driverFamilyName: string
 }> {}
 
 const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
@@ -55,15 +53,17 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/drivers/${match.params.driverId}/driverStandings.json?limit=60`)
       .then(res => res.json())
-      .then(result => setDriver(result.MRData.StandingsTable.StandingsLists.reverse()));
-
-    fetch(`https://en.wikipedia.org/w/api.php?origin=*&format=xml&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${match.params.driverGivenName}_${match.params.driverFamilyName}`)
-      .then(res => res.text())
       .then(result => {
-        const xmlDoc = new DOMParser().parseFromString(result, "text/xml");
-        setDescription((xmlDoc.querySelector("extract") as HTMLElement).textContent);
+        fetch(`https://en.wikipedia.org/w/api.php?origin=*&format=xml&action=query&prop=extracts&exintro&explaintext&redirects=1&titles=${result.MRData.StandingsTable.StandingsLists[0].DriverStandings[0].Driver.url.split('/').pop()}`)
+          .then(res => res.text())
+          .then(result => {
+            const xmlDoc = new DOMParser().parseFromString(result, "text/xml");
+            setDescription((xmlDoc.querySelector("extract") as HTMLElement).textContent);
+          });
+
+        return setDriver(result.MRData.StandingsTable.StandingsLists.reverse())
       });
-  }, [match.params.driverId, match.params.driverGivenName, match.params.driverFamilyName]);
+  });
 
 
   return (
