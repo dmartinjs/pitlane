@@ -181,7 +181,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                         <IonIcon slot="start" className="ion-align-self-start ion-margin-end" icon={readerOutline}></IonIcon>
                         <IonLabel className='preline'>
                           <p>Biography</p>
-                          <h2>{description?.replaceAll('.', '.\n\n')}</h2>
+                          <h2>{description?.replaceAll('. ', '. \n\n')}</h2>
                         </IonLabel>
                       </IonItem>
                     </IonCol>
