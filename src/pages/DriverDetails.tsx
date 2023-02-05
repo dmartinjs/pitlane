@@ -112,6 +112,13 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                     <IonCol>
                       <DriverSeasons driverId={driver[0].DriverStandings[0].Driver.driverId}/>
                       <DriverRacesPodiums driverId={driver[0].DriverStandings[0].Driver.driverId}/>
+                      <IonItem button routerLink={`/constructor/${driver[0].DriverStandings[0].Constructors[0].constructorId}`}>
+                        <IonIcon lazy className="ion-margin-end" src={`assets/img/constructors/${driver[0].DriverStandings[0].Constructors[0].constructorId}.svg`}/>
+                        <IonLabel>
+                          <p>Team</p>
+                          <h2>{driver[0].DriverStandings[0].Constructors[0].name}</h2>
+                        </IonLabel>
+                      </IonItem>
                     </IonCol>
                   </IonRow>
                 </IonGrid>
