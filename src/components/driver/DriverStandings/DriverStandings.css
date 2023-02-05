@@ -40,7 +40,7 @@
 
 .driver-mclaren {
   color: #1f1f27;
-  background-color: #FF9800;
+  background-color: #ff9800;
 }
 
 .driver-alpine {
@@ -48,19 +48,38 @@
   background-color: #0090ff;
 }
 
+.driver-renault {
+  color: #1f1f27;
+  background-color: #fff500;
+}
+
 .driver-alphatauri {
   background-color: #2b4562;
+}
+
+.driver-toro_rosso {
+  background-color: #0032FF;
 }
 
 .driver-aston_martin {
   background-color: #006f62;
 }
 
+.driver-racing_point {
+  color: #1f1f27;
+  background-color: #f596c8;
+}
+
+.driver-force_india {
+  background-color: #ff5f0e;
+}
+
 .driver-williams {
   background-color: #005aff;
 }
 
-.driver-alfa {
+.driver-alfa,
+.driver-sauber {
   background-color: #900000;
 }
 
