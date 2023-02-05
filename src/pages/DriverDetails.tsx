@@ -63,7 +63,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
 
         return setDriver(result.MRData.StandingsTable.StandingsLists.reverse())
       });
-  });
+  }, [match.params.driverId]);
 
 
   return (
@@ -133,7 +133,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                           </div>
                         </IonItem>
                         {driver.map(season =>
-                          <IonItem key={season.season} lines="full" button routerLink={`/constructor/${season.DriverStandings[0].Constructors[0].constructorId}`}>
+                          <IonItem key={season.season} lines="full" button routerLink={`/driverresults/${season.season}/${season.DriverStandings[0].Driver.driverId}`}>
                             <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${season.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
                             <IonLabel>
                               <p>{season.season}</p>

@@ -1,83 +1,100 @@
 import React, { useEffect, useState } from 'react';
-import { IonItem, IonLabel, IonList, IonSkeletonText } from '@ionic/react';
+import { IonBackButton, IonBadge, IonButtons, IonContent, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonPage, IonThumbnail, IonToolbar } from '@ionic/react';
 import { RaceResult, DriverStanding } from '../../models';
+import { RouteComponentProps } from 'react-router';
+import { flagOutline } from 'ionicons/icons';
 
-const DriverResults: React.FC<{season?: string, driverId?: string}> = ({season, driverId}) => {
+interface DriverResultsProps extends RouteComponentProps<{
+  season: string,
+  driverId: string
+}> { }
+
+const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
   const [results, setResults] = useState<[RaceResult] | null>(null);
   const [driver, setDriver] = useState<DriverStanding | null>(null);
 
   useEffect(() => {
-    fetch(`https://ergast.com/api/f1/${season}/drivers/${driverId}/results.json`)
+    fetch(`https://ergast.com/api/f1/${match.params.season}/drivers/${match.params.driverId}/results.json`)
       .then(res => res.json())
       .then(result => setResults(result.MRData.RaceTable.Races));
-    
-    fetch(`https://ergast.com/api/f1/${season}/drivers/${driverId}/driverStandings.json`)
+
+    fetch(`https://ergast.com/api/f1/${match.params.season}/drivers/${match.params.driverId}/driverStandings.json`)
       .then(res => res.json())
       .then(result => setDriver(result.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]));
-  }, [season, driverId]);
+  }, [match.params.season, match.params.driverId]);
 
-  if (results === null) {
-    return (
-      <IonList lines="full">
-        {[...Array(20)].map((item, index) =>
-          <IonItem key={index}>
-            <div className="race-position ion-margin-end"></div>
-            <IonLabel>
-              <IonSkeletonText animated style={{ height: '16px', width: '120px' }}/>
-            </IonLabel>
-            <IonSkeletonText animated style={{ height: '16px', width: '58px' }}/>
-          </IonItem>
-        )}
-      </IonList>
-    );
-  }
+
   return (
-    <IonList lines="full" className="driver-results-list">
-      <IonItem>
-        <div className="driver-race ion-margin-end">
-          Race
-        </div>
-        <IonLabel className="driver-date">
-          Date
-        </IonLabel>
-        <div className="driver-position ion-margin-end">
-          Pos
-        </div>
-        <div slot="end" className="race-points ion-text-right">
-          Pts
-        </div>
-      </IonItem>
-      {results.map(result =>
-        <IonItem key={result.raceName} button routerLink={`/results/${result.season}/${result.round}/race`}>
-          <div className="driver-race ion-margin-end font-weight-bold">
-            {result.Circuit.Location.country}
-          </div>
-          <IonLabel className="driver-date">
-            {new Date(result.date).toLocaleString('default', {day: 'numeric', month: 'numeric' })}
-          </IonLabel>
-          <div className="driver-position ion-margin-end font-weight-bold">
-            {result.Results[0].position}
-          </div>
-          <div slot="end" className="race-points ion-text-right">
-            {result.Results[0].points}
-          </div>
-        </IonItem>
-      )}
-      <IonItem className="driver-standings">
-        <div className="driver-race ion-margin-end font-weight-bold">
-          Standings
-        </div>
-        <IonLabel className="driver-date">
-          -
-        </IonLabel>
-        <div className="driver-position ion-margin-end font-weight-bold">
-          {driver?.position}
-        </div>
-        <div slot="end" className="race-points ion-text-right">
-          {driver?.points}
-        </div>
-      </IonItem>
-    </IonList>
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref={`/driver/${match.params.driverId}`}></IonBackButton>
+          </IonButtons>
+        </IonToolbar>
+        <IonToolbar>
+          {driver && (
+            <IonItem className='toolbar-item'>
+              <div slot="start" className={`driver-number ion-margin-end driver-${driver.Constructors[0].constructorId}`}>{driver.Driver.permanentNumber}</div>
+              <IonLabel>
+                <p>{driver.Driver.givenName}</p>
+                <h2 className="font-weight-bold ion-text-uppercase">{driver.Driver.familyName}</h2>
+              </IonLabel>
+              <div slot="end">
+                {match.params.season}
+              </div>
+            </IonItem>
+          )}
+        </IonToolbar>
+        <IonToolbar>
+          <IonItem className="toolbar-item">
+            <IonLabel>
+              Race
+            </IonLabel>
+
+            <div className="driver-position ion-margin-end">
+              P
+            </div>
+            <div slot="end" className="race-points">
+              Pts
+            </div>
+          </IonItem>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonList lines="full">
+          {results && results.map(result =>
+            <IonItem key={result.raceName} button routerLink={`/results/${result.season}/${result.round}/race`}>
+              <div className="round-position ion-text-center font-weight-bold ion-margin-end">
+                {result.round}.
+              </div>
+              <IonThumbnail className="country-thumbnail ion-margin-end">
+                <IonImg src={`assets/img/flags/${result.Circuit.Location.country.replace(' ', '_')}.svg`} alt={result.Circuit.Location.country} />
+              </IonThumbnail>
+              <IonLabel>
+                <h2 className="font-weight-bold">{result.Circuit.Location.country}</h2>
+                <p>{new Date(result.date).toLocaleString('default', { day: 'numeric', month: 'numeric' })}</p>
+              </IonLabel>
+              <div className="driver-position ion-text-center ion-margin-end font-weight-bold">
+                {result.Results[0].position}
+              </div>
+              <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{result.Results[0].points}</IonBadge>
+            </IonItem>
+          )}
+          <IonItem>
+            <IonIcon slot="start" className="ion-margin-end" icon={flagOutline}/>
+            <IonLabel className="font-weight-bold">
+              <h2 className="font-weight-bold">Standings</h2>
+              <p>{match.params.season}</p>
+            </IonLabel>
+            <div className="driver-position ion-text-center ion-margin-end font-weight-bold">
+              {driver?.position}
+            </div>
+            <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{driver?.points}</IonBadge>
+          </IonItem>
+        </IonList>
+      </IonContent>
+    </IonPage>
   );
 };
 

@@ -183,11 +183,6 @@
   --background: var(--ion-color-medium);
 }
 
-.driver-results-list {
-  max-height: calc(100vh - 310px);
-  overflow-y: auto;
-}
-
 .driver-standings {
   --background: var(--ion-color-light);
 }

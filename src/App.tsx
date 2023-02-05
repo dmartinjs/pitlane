@@ -38,6 +38,7 @@ import './theme/variables.css';
 /* Global styles */
 import './App.css';
 import RaceData from './pages/RaceData';
+import DriverResults from './components/driver/DriverResults';
 
 const App: React.FC = () => {
 
@@ -53,6 +54,7 @@ const App: React.FC = () => {
           <Route path="/about" component={About} />
           <Route path="/race/:season/:round/:country/:circuit" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
+          <Route path="/driverresults/:season/:driverId" component={DriverResults} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />
           <Route path="/results/:season/:round/:session" component={Results} />
           <Route path="/racedata/:season/:round/:driverId" component={RaceData} />
