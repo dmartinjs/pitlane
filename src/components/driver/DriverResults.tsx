@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { IonBackButton, IonBadge, IonButtons, IonContent, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonPage, IonThumbnail, IonToolbar } from '@ionic/react';
 import { RaceResult, DriverStanding } from '../../models';
 import { RouteComponentProps } from 'react-router';
-import { flagOutline } from 'ionicons/icons';
 
 interface DriverResultsProps extends RouteComponentProps<{
   season: string,

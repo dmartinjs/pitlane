@@ -12,7 +12,6 @@ interface ConstructorDetailsProps extends RouteComponentProps<{
 
 const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
   const [constructor, setConstructor] = useState<[ConstructorStandingsLists] | null>(null);
-  const [season, setSeason] = useState<number | null>(null);
   const [description, setDescription] = useState<string | null>(null);
   const [selectedSegment, SetSelectedSegment] = useState<string>('stats');
 
@@ -117,7 +116,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
               <IonRow>
                 <IonCol>
                   {constructor && constructor.map(season => 
-                    <IonItem key={season.season} lines="full" button>
+                    <IonItem key={season.season} lines="full" button routerLink={`/constructor-results/${season.season}/${season.ConstructorStandings[0].Constructor.constructorId}`}>
                       <IonLabel>
                         <p>{season.season}</p>
                       </IonLabel>

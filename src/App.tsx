@@ -39,6 +39,7 @@ import './theme/variables.css';
 import './App.css';
 import RaceData from './pages/RaceData';
 import DriverResults from './components/driver/DriverResults';
+import ConstructorResults from './components/constructor/ConstructorResults';
 
 const App: React.FC = () => {
 
@@ -56,6 +57,7 @@ const App: React.FC = () => {
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/driverresults/:season/:driverId" component={DriverResults} />
           <Route path="/constructor/:constructorId" component={ConstructorDetails} />
+          <Route path="/constructor-results/:season/:constructorId" component={ConstructorResults} />
           <Route path="/results/:season/:round/:session" component={Results} />
           <Route path="/racedata/:season/:round/:driverId" component={RaceData} />
           <Route path="/" render={() => <Redirect to="/races" />} exact={true} />
