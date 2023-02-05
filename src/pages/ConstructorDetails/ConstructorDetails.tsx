@@ -4,7 +4,7 @@ import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, Driver } from '../../models';
 import './ConstructorDetails.css';
 import { slideOptions } from '../../utils/SlideOptions';
-import { readerOutline, todayOutline } from 'ionicons/icons';
+import { flagOutline, readerOutline, speedometerOutline, todayOutline, trophyOutline } from 'ionicons/icons';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
@@ -22,7 +22,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
     SetSelectedSegment(event.detail.value);
 
     switch (event.detail.value) {
-      case 'stats':
+      case 'overview':
         slider.current!.slideTo(0);
         break;
       case 'seasons':
@@ -38,7 +38,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
     event.target.getActiveIndex().then((value: any) => {
       switch (value) {
         case 0:
-          SetSelectedSegment('stats');
+          SetSelectedSegment('overview');
           break;
         case 1:
           SetSelectedSegment('seasons');
@@ -93,8 +93,8 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
         </IonToolbar>
         <IonToolbar>
           <IonSegment onIonChange={onSegmentChange} value={selectedSegment}>
-            <IonSegmentButton value="stats">
-              <IonLabel>Stats</IonLabel>
+            <IonSegmentButton value="overview">
+              <IonLabel>Overview</IonLabel>
             </IonSegmentButton>
             <IonSegmentButton value="seasons">
               <IonLabel>Seasons</IonLabel>
@@ -112,6 +112,51 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
             <IonGrid>
               <IonRow>
                 <IonCol>
+                  <IonList lines="inset">
+                    <IonListHeader>Since debut</IonListHeader>
+                    <IonGrid>
+                      <IonRow>
+                        <IonCol>
+                          <IonItem>
+                            <IonIcon slot="start" className="ion-margin-end" icon={trophyOutline} />
+                            <IonLabel>
+                              <p>Championships</p>
+                              <h2 className="font-weight-bold">{constructor && constructor.filter(season => season.ConstructorStandings[0].position === '1').length}</h2>
+                            </IonLabel>
+                          </IonItem>
+                        </IonCol>
+                        <IonCol>
+                          <IonItem>
+                            <IonIcon slot="start" className="ion-margin-end" icon={flagOutline} />
+                            <IonLabel>
+                              <p>race Wins</p>
+                              <h2 className="font-weight-bold">{constructor && constructor.reduce((sum, season) => sum + parseInt(season.ConstructorStandings[0].wins), 0)}</h2>
+                            </IonLabel>
+                          </IonItem>
+                        </IonCol>
+                      </IonRow>
+                      <IonRow>
+                        <IonCol>
+                          <IonItem>
+                            <IonIcon slot="start" className="ion-margin-end" icon={speedometerOutline} />
+                            <IonLabel>
+                              <p>Seasons</p>
+                              <h2 className="font-weight-bold">{constructor?.length}</h2>
+                            </IonLabel>
+                          </IonItem>
+                        </IonCol>
+                        <IonCol>
+                          <IonItem>
+                            <IonIcon slot="start" className="ion-margin-end" icon={todayOutline} />
+                            <IonLabel>
+                              <p>First Team Entry</p>
+                              <h2 className="font-weight-bold">{constructor && constructor[constructor.length - 1].season}</h2>
+                            </IonLabel>
+                          </IonItem>
+                        </IonCol>
+                      </IonRow>
+                    </IonGrid>
+                  </IonList>
                   <IonList>
                     <IonListHeader>
                       <IonLabel className="ion-text-left">Drivers</IonLabel>
