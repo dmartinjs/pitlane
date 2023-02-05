@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonImg, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonBadge } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonList, IonIcon, IonThumbnail, IonImg, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonSegment, IonSegmentButton, IonBadge, IonListHeader } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { DriverStandingsLists } from '../models';
 import { giftOutline, readerOutline, todayOutline } from 'ionicons/icons';
-import DriverSeasons from '../components/driver/DriverSeasons';
 import DriverRacesPodiums from '../components/driver/DriverAchievements';
 import { slideOptions } from '../utils/SlideOptions';
 
@@ -22,7 +21,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
     SetSelectedSegment(event.detail.value);
 
     switch(event.detail.value) {
-      case 'stats':
+      case 'overview':
         slider.current!.slideTo(0);
         break;
       case 'seasons':
@@ -38,7 +37,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
     event.target.getActiveIndex().then((value: any) => {
       switch(value) {
         case 0:
-          SetSelectedSegment('stats');
+          SetSelectedSegment('overview');
           break;
         case 1:
           SetSelectedSegment('seasons');
@@ -90,8 +89,8 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
           </IonToolbar>
           <IonToolbar>
             <IonSegment onIonChange={onSegmentChange} value={selectedSegment}>
-              <IonSegmentButton value="stats">
-                <IonLabel>Stats</IonLabel>
+              <IonSegmentButton value="overview">
+                <IonLabel>Overview</IonLabel>
               </IonSegmentButton>
               <IonSegmentButton value="seasons">
                 <IonLabel>Seasons</IonLabel>
@@ -110,15 +109,18 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 <IonGrid>
                   <IonRow>
                     <IonCol>
-                      <DriverSeasons driverId={driver[0].DriverStandings[0].Driver.driverId}/>
                       <DriverRacesPodiums driverId={driver[0].DriverStandings[0].Driver.driverId}/>
-                      <IonItem button routerLink={`/constructor/${driver[0].DriverStandings[0].Constructors[0].constructorId}`}>
-                        <IonIcon lazy className="ion-margin-end" src={`assets/img/constructors/${driver[0].DriverStandings[0].Constructors[0].constructorId}.svg`}/>
-                        <IonLabel>
-                          <p>Team</p>
-                          <h2>{driver[0].DriverStandings[0].Constructors[0].name}</h2>
-                        </IonLabel>
-                      </IonItem>
+                      <IonList>
+                        <IonListHeader>
+                          <IonLabel className="ion-text-left">Team</IonLabel>
+                        </IonListHeader>
+                        <IonItem button routerLink={`/constructor/${driver[0].DriverStandings[0].Constructors[0].constructorId}`}>
+                          <IonIcon lazy className="ion-margin-end" src={`assets/img/constructors/${driver[0].DriverStandings[0].Constructors[0].constructorId}.svg`}/>
+                          <IonLabel>
+                            {driver[0].DriverStandings[0].Constructors[0].name}
+                          </IonLabel>
+                        </IonItem>
+                      </IonList>
                     </IonCol>
                   </IonRow>
                 </IonGrid>
