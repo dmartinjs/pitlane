@@ -40,23 +40,21 @@ const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
                 <p>{driver.Driver.givenName}</p>
                 <h2 className="font-weight-bold ion-text-uppercase">{driver.Driver.familyName}</h2>
               </IonLabel>
-              <div slot="end">
-                {match.params.season}
-              </div>
+              <IonIcon lazy slot="end" size="large" className="constructor" src={`assets/img/constructors/${driver.Constructors[0].constructorId}.svg`}/>
             </IonItem>
           )}
         </IonToolbar>
         <IonToolbar>
           <IonItem className="toolbar-item">
             <IonLabel>
-              Race
+              {match.params.season} Races
             </IonLabel>
 
             <div className="driver-position ion-margin-end">
-              P
+              P{driver?.position}
             </div>
             <div slot="end" className="race-points">
-              Pts
+              {driver?.points} Pts
             </div>
           </IonItem>
         </IonToolbar>
@@ -81,17 +79,6 @@ const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
               <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{result.Results[0].points}</IonBadge>
             </IonItem>
           )}
-          <IonItem>
-            <IonIcon slot="start" className="ion-margin-end" icon={flagOutline}/>
-            <IonLabel className="font-weight-bold">
-              <h2 className="font-weight-bold">Standings</h2>
-              <p>{match.params.season}</p>
-            </IonLabel>
-            <div className="driver-position ion-text-center ion-margin-end font-weight-bold">
-              {driver?.position}
-            </div>
-            <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{driver?.points}</IonBadge>
-          </IonItem>
         </IonList>
       </IonContent>
     </IonPage>
