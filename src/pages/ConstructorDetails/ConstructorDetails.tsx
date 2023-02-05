@@ -14,7 +14,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
   const [constructor, setConstructor] = useState<[ConstructorStandingsLists] | null>(null);
   const [drivers, setDrivers] = useState<[Driver] | null>(null);
   const [description, setDescription] = useState<string | null>(null);
-  const [selectedSegment, SetSelectedSegment] = useState<string>('stats');
+  const [selectedSegment, SetSelectedSegment] = useState<string>('overview');
 
   const slider = useRef<HTMLIonSlidesElement>(null);
 

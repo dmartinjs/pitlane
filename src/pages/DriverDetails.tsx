@@ -13,7 +13,7 @@ interface DriverDetailsProps extends RouteComponentProps<{
 const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
   const [driver, setDriver] = useState<DriverStandingsLists[] | null>(null);
   const [description, setDescription] = useState<string | null>(null);
-  const [selectedSegment, SetSelectedSegment] = useState<string>('stats');
+  const [selectedSegment, SetSelectedSegment] = useState<string>('overview');
 
   const slider = useRef<HTMLIonSlidesElement>(null);
 
