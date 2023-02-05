@@ -25,7 +25,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
       case 'stats':
         slider.current!.slideTo(0);
         break;
-      case 'teams':
+      case 'seasons':
         slider.current!.slideTo(1);
         break;
       case 'bio':
@@ -41,7 +41,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
           SetSelectedSegment('stats');
           break;
         case 1:
-          SetSelectedSegment('teams');
+          SetSelectedSegment('seasons');
           break;
         case 2:
           SetSelectedSegment('bio');
@@ -93,8 +93,8 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
               <IonSegmentButton value="stats">
                 <IonLabel>Stats</IonLabel>
               </IonSegmentButton>
-              <IonSegmentButton value="teams">
-                <IonLabel>Teams</IonLabel>
+              <IonSegmentButton value="seasons">
+                <IonLabel>Seasons</IonLabel>
               </IonSegmentButton>
               <IonSegmentButton value="bio">
                 <IonLabel>Bio</IonLabel>
@@ -121,17 +121,6 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   <IonRow>
                     <IonCol>
                       <IonList lines="full">
-                        <IonItem>
-                          <IonLabel>
-                            Team
-                          </IonLabel>
-                          <div className="race-position">
-                            Position
-                          </div>
-                          <div slot="end" className="race-points">
-                            Pts
-                          </div>
-                        </IonItem>
                         {driver.map(season =>
                           <IonItem key={season.season} lines="full" button routerLink={`/driverresults/${season.season}/${season.DriverStandings[0].Driver.driverId}`}>
                             <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${season.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
@@ -140,7 +129,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                               <h2 className="font-weight-bold">{season.DriverStandings[0].Constructors[0].name}</h2>
                             </IonLabel>
                             <div className="race-position ion-margin-end font-weight-bold">
-                              {season.DriverStandings[0].position}
+                              P{season.DriverStandings[0].position}
                             </div>
                             <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{season.DriverStandings[0].points}</IonBadge>
                           </IonItem>
