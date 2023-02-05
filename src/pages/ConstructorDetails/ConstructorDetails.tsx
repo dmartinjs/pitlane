@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonThumbnail, IonIcon, IonImg, IonSegment, IonSegmentButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonBadge } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonThumbnail, IonIcon, IonImg, IonSegment, IonSegmentButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonBadge, IonList, IonListHeader } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
-import { ConstructorStandingsLists } from '../../models';
+import { ConstructorStandingsLists, Driver } from '../../models';
 import './ConstructorDetails.css';
 import { slideOptions } from '../../utils/SlideOptions';
 import { readerOutline, todayOutline } from 'ionicons/icons';
@@ -12,6 +12,7 @@ interface ConstructorDetailsProps extends RouteComponentProps<{
 
 const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
   const [constructor, setConstructor] = useState<[ConstructorStandingsLists] | null>(null);
+  const [drivers, setDrivers] = useState<[Driver] | null>(null);
   const [description, setDescription] = useState<string | null>(null);
   const [selectedSegment, SetSelectedSegment] = useState<string>('stats');
 
@@ -63,6 +64,10 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
 
         return setConstructor(result.MRData.StandingsTable.StandingsLists.reverse());
       });
+
+    fetch(`https://ergast.com/api/f1/current/constructors/${match.params.constructorId}/drivers.json`)
+      .then(res => res.json())
+      .then(result => setDrivers(result.MRData.DriverTable.Drivers));
   }, [match.params.constructorId]);
 
   return (
@@ -107,6 +112,20 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
             <IonGrid>
               <IonRow>
                 <IonCol>
+                  <IonList>
+                    <IonListHeader>
+                      <IonLabel className="ion-text-left">Drivers</IonLabel>
+                    </IonListHeader>
+                    {drivers && constructor && drivers.slice(0, 2).map(driver =>
+                      <IonItem button lines='full' routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>
+                        <div slot="start" className={`driver-number driver-details-number ion-margin-end driver-${constructor[0].ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
+                        <IonLabel>
+                          <p>{driver.givenName}</p>
+                          <h2 className="font-weight-bold ion-text-uppercase">{driver.familyName}</h2>
+                        </IonLabel>
+                      </IonItem>
+                    )}
+                  </IonList>
                 </IonCol>
               </IonRow>
             </IonGrid>
@@ -115,7 +134,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
             <IonGrid>
               <IonRow>
                 <IonCol>
-                  {constructor && constructor.map(season => 
+                  {constructor && constructor.map(season =>
                     <IonItem key={season.season} lines="full" button routerLink={`/constructor-results/${season.season}/${season.ConstructorStandings[0].Constructor.constructorId}`}>
                       <IonLabel>
                         <p>{season.season}</p>
@@ -149,7 +168,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                         <IonIcon slot="start" className="ion-align-self-start ion-margin-end" icon={todayOutline}></IonIcon>
                         <IonLabel className='preline'>
                           <p>First Team Entry</p>
-                          <h2>{constructor[constructor.length -1].season}</h2>
+                          <h2>{constructor[constructor.length - 1].season}</h2>
                         </IonLabel>
                       </IonItem>
                       <IonItem>
