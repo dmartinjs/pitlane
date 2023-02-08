@@ -182,10 +182,10 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                   {constructor && constructor.map(season =>
                     <IonItem key={season.season} lines="full" button routerLink={`/constructor-results/${season.season}/${season.ConstructorStandings[0].Constructor.constructorId}`}>
                       <IonLabel>
-                        <p>{season.season}</p>
+                        <p>{season.season} season</p>
                       </IonLabel>
                       <div className="race-position ion-margin-end font-weight-bold">
-                        {season.ConstructorStandings[0].position}
+                        P{season.ConstructorStandings[0].position}
                       </div>
                       <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{season.ConstructorStandings[0].points}</IonBadge>
                     </IonItem>
