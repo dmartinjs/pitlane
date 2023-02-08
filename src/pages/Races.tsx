@@ -2,12 +2,13 @@ import React from 'react';
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonIcon } from '@ionic/react';
 import { optionsOutline } from 'ionicons/icons';
 import RaceList from '../components/race/RaceList';
+import { RouteComponentProps } from 'react-router';
 
-const Races: React.FC = () => {
+interface RacesProps extends RouteComponentProps<{
+  season: string,
+}> {}
 
-  const getYear = () => {
-    return new Date().getFullYear();
-  }
+const Races: React.FC<RacesProps> = ({match}) => {
 
   return (
     <IonPage>
@@ -22,7 +23,7 @@ const Races: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <RaceList season={getYear()}/>
+        <RaceList season={parseInt(match.params.season)}/>
       </IonContent>
     </IonPage>
   );

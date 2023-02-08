@@ -4,23 +4,33 @@ import { useHistory } from 'react-router';
 import { ConstructorStanding, DriverStanding } from '../../../models';
 import './ConstructorStandings.css';
 
-const ConstructorStandings: React.FC = () => {
+const ConstructorStandings: React.FC<{season?: number}> = ({season}) => {
   let history = useHistory();
   const [constructors, setConstructors] = useState<[ConstructorStanding] | null>(null);
   const [drivers, setDrivers] = useState<[DriverStanding] | null>(null);
 
   useEffect(() => {
-    fetch('https://ergast.com/api/f1/current/driverStandings.json')
-      .then(res => res.json())
-      .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
+    if(season) {
+      fetch(`https://ergast.com/api/f1/${season}/driverStandings.json`)
+        .then(res => res.json())
+        .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
 
-    fetch('https://ergast.com/api/f1/current/constructorStandings.json')
-      .then(res => res.json())
-      .then(result => setConstructors(result.MRData.StandingsTable.StandingsLists[0].ConstructorStandings));
-  }, []);
+      fetch(`https://ergast.com/api/f1/${season}/constructorStandings.json`)
+        .then(res => res.json())
+        .then(result => setConstructors(result.MRData.StandingsTable.StandingsLists[0].ConstructorStandings));
+    } else {
+      fetch('https://ergast.com/api/f1/current/driverStandings.json')
+        .then(res => res.json())
+        .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
+  
+      fetch('https://ergast.com/api/f1/current/constructorStandings.json')
+        .then(res => res.json())
+        .then(result => setConstructors(result.MRData.StandingsTable.StandingsLists[0].ConstructorStandings));
+    }
+  }, [season]);
 
   const _handleClick = (constructorId: string) => {
-    history.push(`/constructor/${constructorId}`);
+    history.push(`/constructor/${constructorId}/${season}`);
   }
 
   if (constructors === null || drivers === null) {

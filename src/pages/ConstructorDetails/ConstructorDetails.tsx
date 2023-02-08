@@ -8,6 +8,7 @@ import { flagOutline, readerOutline, speedometerOutline, todayOutline, trophyOut
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
+  season: string
 }> { }
 
 const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
@@ -65,10 +66,10 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
         return setConstructor(result.MRData.StandingsTable.StandingsLists.reverse());
       });
 
-    fetch(`https://ergast.com/api/f1/current/constructors/${match.params.constructorId}/drivers.json`)
+    fetch(`https://ergast.com/api/f1/${match.params.season}/constructors/${match.params.constructorId}/drivers.json`)
       .then(res => res.json())
       .then(result => setDrivers(result.MRData.DriverTable.Drivers));
-  }, [match.params.constructorId]);
+  }, [match.params.constructorId, match.params.season]);
 
   return (
     <IonPage>
@@ -159,7 +160,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                   </IonList>
                   <IonList>
                     <IonListHeader>
-                      <IonLabel className="ion-text-left">Drivers</IonLabel>
+                      <IonLabel className="ion-text-left">{match.params.season} Drivers</IonLabel>
                     </IonListHeader>
                     {drivers && constructor && drivers.slice(0, 2).map(driver =>
                       <IonItem button lines='full' routerLink={`/driver/${driver.driverId}`} key={driver.driverId}>

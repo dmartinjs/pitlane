@@ -48,30 +48,30 @@ const App: React.FC = () => {
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/races" component={Races} />
-          <Route path="/drivers" component={Drivers} />
-          <Route path="/constructors" component={Constructors} />
+          <Route path="/races/:season" component={Races} />
+          <Route path="/drivers/:season" component={Drivers} />
+          <Route path="/constructors/:season" component={Constructors} />
           <Route path="/settings" component={Settings} />
           <Route path="/about" component={About} />
           <Route path="/race/:season/:round/:country/:circuit" component={RaceDetails} />
           <Route path="/driver/:driverId" component={DriverDetails} />
           <Route path="/driverresults/:season/:driverId" component={DriverResults} />
-          <Route path="/constructor/:constructorId" component={ConstructorDetails} />
+          <Route path="/constructor/:constructorId/:season" component={ConstructorDetails} />
           <Route path="/constructor-results/:season/:constructorId" component={ConstructorResults} />
           <Route path="/results/:season/:round/:session" component={Results} />
           <Route path="/racedata/:season/:round/:driverId" component={RaceData} />
           <Route path="/" render={() => <Redirect to="/races" />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="races" href="/races">
+          <IonTabButton tab="races" href={`/races/${new Date().getFullYear()}`}>
             <IonIcon icon={flagOutline}/>
             <IonLabel>Races</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="drivers" href="/drivers">
+          <IonTabButton tab="drivers" href={`/drivers/${new Date().getFullYear()}`}>
             <IonIcon icon={peopleOutline}/>
             <IonLabel>Drivers</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="constructors" href="/constructors">
+          <IonTabButton tab="constructors" href={`/constructors/${new Date().getFullYear()}`}>
             <IonIcon icon={speedometerOutline}/>
             <IonLabel>Constructors</IonLabel>
           </IonTabButton>

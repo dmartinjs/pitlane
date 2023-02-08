@@ -4,15 +4,21 @@ import { useHistory } from 'react-router';
 import { DriverStanding } from '../../../models';
 import './DriverStandings.css';
 
-const DriverStandings: React.FC = () => {
+const DriverStandings: React.FC<{season?: number}> = ({season}) => {
   let history = useHistory();
   const [drivers, setDrivers] = useState<[DriverStanding] | null>(null);
 
   useEffect(() => {
-    fetch('https://ergast.com/api/f1/current/driverStandings.json')
-      .then(res => res.json())
-      .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
-  }, []);
+    if(season) {
+      fetch(`https://ergast.com/api/f1/${season}/driverStandings.json`)
+        .then(res => res.json())
+        .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
+    } else {
+      fetch('https://ergast.com/api/f1/current/driverStandings.json')
+        .then(res => res.json())
+        .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
+    }
+  }, [season]);
 
   const _handleClick = (driverId: string) => {
     history.push(`/driver/${driverId}`);
