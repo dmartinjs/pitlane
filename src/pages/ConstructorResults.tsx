@@ -70,7 +70,8 @@ const ConstructorResults: React.FC<ConstructorResultsProps> = ({ match }) => {
               </IonThumbnail>
               <IonLabel>
                 <h2 className="font-weight-bold">{result.Circuit.Location.country}</h2>
-                <p>{new Date(result.date).toLocaleString('default', { day: 'numeric', month: 'numeric' })}</p>
+                <p>{result.Results[0].Driver.familyName} - P{result.Results[0].position} - {result.Results[0].points} pts</p>
+                <p>{result.Results[1].Driver.familyName} - P{result.Results[1].position} - {result.Results[1].points} pts</p>
               </IonLabel>
               <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</IonBadge>
             </IonItem>
