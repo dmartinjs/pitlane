@@ -38,8 +38,8 @@ import './theme/variables.css';
 /* Global styles */
 import './App.css';
 import RaceData from './pages/RaceData';
-import DriverResults from './components/driver/DriverResults';
-import ConstructorResults from './components/constructor/ConstructorResults';
+import DriverResults from './pages/DriverResults';
+import ConstructorResults from './pages/ConstructorResults';
 
 const App: React.FC = () => {
 

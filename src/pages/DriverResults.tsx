@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { IonBackButton, IonBadge, IonButtons, IonContent, IonHeader, IonIcon, IonImg, IonItem, IonLabel, IonList, IonPage, IonThumbnail, IonToolbar } from '@ionic/react';
-import { RaceResult, ConstructorStanding } from '../../models';
+import { RaceResult, DriverStanding } from '../models';
 import { RouteComponentProps } from 'react-router';
 
-interface ConstructorResultsProps extends RouteComponentProps<{
+interface DriverResultsProps extends RouteComponentProps<{
   season: string,
-  constructorId: string
+  driverId: string
 }> { }
 
-const ConstructorResults: React.FC<ConstructorResultsProps> = ({ match }) => {
+const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
   const [results, setResults] = useState<[RaceResult] | null>(null);
-  const [constructor, setConstructor] = useState<ConstructorStanding | null>(null);
+  const [driver, setDriver] = useState<DriverStanding | null>(null);
 
   useEffect(() => {
-    fetch(`https://ergast.com/api/f1/${match.params.season}/constructors/${match.params.constructorId}/results.json?limit=300`)
+    fetch(`https://ergast.com/api/f1/${match.params.season}/drivers/${match.params.driverId}/results.json`)
       .then(res => res.json())
       .then(result => setResults(result.MRData.RaceTable.Races));
 
-    fetch(`https://ergast.com/api/f1/${match.params.season}/constructors/${match.params.constructorId}/constructorStandings.json`)
+    fetch(`https://ergast.com/api/f1/${match.params.season}/drivers/${match.params.driverId}/driverStandings.json`)
       .then(res => res.json())
-      .then(result => setConstructor(result.MRData.StandingsTable.StandingsLists[0].ConstructorStandings[0]));
-  }, [match.params.season, match.params.constructorId]);
+      .then(result => setDriver(result.MRData.StandingsTable.StandingsLists[0].DriverStandings[0]));
+  }, [match.params.season, match.params.driverId]);
 
 
   return (
@@ -28,19 +28,18 @@ const ConstructorResults: React.FC<ConstructorResultsProps> = ({ match }) => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref={`/driver/${match.params.constructorId}`}></IonBackButton>
+            <IonBackButton defaultHref={`/driver/${match.params.driverId}`}></IonBackButton>
           </IonButtons>
         </IonToolbar>
         <IonToolbar>
-          {constructor && (
+          {driver && (
             <IonItem className='toolbar-item'>
-              <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${constructor.Constructor.constructorId}.svg`} />
+              <div slot="start" className={`driver-number ion-margin-end driver-${driver.Constructors[0].constructorId}`}>{driver.Driver.permanentNumber}</div>
               <IonLabel>
-                <h2 className="font-weight-bold">{constructor.Constructor.name}</h2>
+                <p>{driver.Driver.givenName}</p>
+                <h2 className="font-weight-bold ion-text-uppercase">{driver.Driver.familyName}</h2>
               </IonLabel>
-              <IonThumbnail slot="end" className="country-thumbnail">
-                <IonImg src={`assets/img/flags/${constructor.Constructor.nationality}.svg`} alt={constructor.Constructor.nationality} />
-              </IonThumbnail>
+              <IonIcon lazy slot="end" size="large" className="constructor" src={`assets/img/constructors/${driver.Constructors[0].constructorId}.svg`}/>
             </IonItem>
           )}
         </IonToolbar>
@@ -51,15 +50,16 @@ const ConstructorResults: React.FC<ConstructorResultsProps> = ({ match }) => {
             </IonLabel>
 
             <div className="driver-position ion-margin-end">
-              P{constructor?.position}
+              P{driver?.position}
             </div>
             <div slot="end" className="race-points">
-              {constructor?.points} Pts
+              {driver?.points} Pts
             </div>
           </IonItem>
         </IonToolbar>
       </IonHeader>
       <IonContent>
+        <IonList lines="full">
           {results && results.map(result =>
             <IonItem key={result.raceName} button routerLink={`/results/${result.season}/${result.round}/race`}>
               <div className="round-position ion-text-center font-weight-bold ion-margin-end">
@@ -72,12 +72,16 @@ const ConstructorResults: React.FC<ConstructorResultsProps> = ({ match }) => {
                 <h2 className="font-weight-bold">{result.Circuit.Location.country}</h2>
                 <p>{new Date(result.date).toLocaleString('default', { day: 'numeric', month: 'numeric' })}</p>
               </IonLabel>
-              <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{parseInt(result.Results[0].points) + parseInt(result.Results[1].points)}</IonBadge>
+              <div className="driver-position ion-text-center ion-margin-end font-weight-bold">
+                {result.Results[0].position}
+              </div>
+              <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{result.Results[0].points}</IonBadge>
             </IonItem>
           )}
+        </IonList>
       </IonContent>
     </IonPage>
   );
 };
 
-export default ConstructorResults;
+export default DriverResults;
