@@ -10,8 +10,6 @@ interface DriversProps extends RouteComponentProps<{
 
 const Drivers: React.FC<DriversProps> = ({match}) => {
 
-  const seasonNotCurrent = parseInt(match.params.season) !== new Date().getFullYear() ? parseInt(match.params.season) : undefined;
-
   return (
     <IonPage>
       <IonHeader>
@@ -25,7 +23,7 @@ const Drivers: React.FC<DriversProps> = ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <DriverStandings season={seasonNotCurrent}/>
+        <DriverStandings season={match.params.season}/>
       </IonContent>
     </IonPage>
   );

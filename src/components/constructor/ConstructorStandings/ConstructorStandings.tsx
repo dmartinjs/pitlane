@@ -4,13 +4,13 @@ import { useHistory } from 'react-router';
 import { ConstructorStanding, DriverStanding } from '../../../models';
 import './ConstructorStandings.css';
 
-const ConstructorStandings: React.FC<{season?: number}> = ({season}) => {
+const ConstructorStandings: React.FC<{season: string}> = ({season}) => {
   let history = useHistory();
   const [constructors, setConstructors] = useState<[ConstructorStanding] | null>(null);
   const [drivers, setDrivers] = useState<[DriverStanding] | null>(null);
 
   useEffect(() => {
-    if(season) {
+    if(parseInt(season) !== new Date().getFullYear()) {
       fetch(`https://ergast.com/api/f1/${season}/driverStandings.json`)
         .then(res => res.json())
         .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));

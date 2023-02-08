@@ -4,12 +4,12 @@ import { useHistory } from 'react-router';
 import { DriverStanding } from '../../../models';
 import './DriverStandings.css';
 
-const DriverStandings: React.FC<{season?: number}> = ({season}) => {
+const DriverStandings: React.FC<{season: string}> = ({season}) => {
   let history = useHistory();
   const [drivers, setDrivers] = useState<[DriverStanding] | null>(null);
 
   useEffect(() => {
-    if(season) {
+    if(parseInt(season) !== new Date().getFullYear()) {
       fetch(`https://ergast.com/api/f1/${season}/driverStandings.json`)
         .then(res => res.json())
         .then(result => setDrivers(result.MRData.StandingsTable.StandingsLists[0].DriverStandings));
@@ -21,7 +21,7 @@ const DriverStandings: React.FC<{season?: number}> = ({season}) => {
   }, [season]);
 
   const _handleClick = (driverId: string) => {
-    history.push(`/driver/${driverId}`);
+    history.push(`/driver/${driverId}/${season}`);
   }
 
   if (drivers === null) {

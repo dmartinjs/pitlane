@@ -8,6 +8,7 @@ import { slideOptions } from '../utils/SlideOptions';
 
 interface DriverDetailsProps extends RouteComponentProps<{
   driverId: string,
+  season: string
 }> {}
 
 const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
@@ -110,17 +111,19 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                   <IonRow>
                     <IonCol>
                       <DriverRacesPodiums driverId={driver[0].DriverStandings[0].Driver.driverId}/>
-                      <IonList>
-                        <IonListHeader>
-                          <IonLabel className="ion-text-left">Team</IonLabel>
-                        </IonListHeader>
-                        <IonItem button routerLink={`/constructor/${driver[0].DriverStandings[0].Constructors[0].constructorId}`}>
-                          <IonIcon lazy className="ion-margin-end" src={`assets/img/constructors/${driver[0].DriverStandings[0].Constructors[0].constructorId}.svg`}/>
-                          <IonLabel>
-                            {driver[0].DriverStandings[0].Constructors[0].name}
-                          </IonLabel>
-                        </IonItem>
-                      </IonList>
+                        {driver.filter(standing => standing.season === match.params.season ).forEach(standing => {
+                          <IonList>
+                            <IonListHeader>
+                              <IonLabel className="ion-text-left">{standing.season} Team</IonLabel>
+                            </IonListHeader>
+                            <IonItem button routerLink={`/constructor/${standing.DriverStandings[0].Constructors[0].constructorId}`}>
+                              <IonIcon lazy className="ion-margin-end" src={`assets/img/constructors/${standing.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
+                              <IonLabel>
+                                {standing.DriverStandings[0].Constructors[0].name}
+                              </IonLabel>
+                            </IonItem>
+                          </IonList>
+                        })}
                     </IonCol>
                   </IonRow>
                 </IonGrid>

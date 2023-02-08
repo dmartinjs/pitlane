@@ -23,7 +23,7 @@ const Races: React.FC<RacesProps> = ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <RaceList season={parseInt(match.params.season)}/>
+        <RaceList season={match.params.season}/>
       </IonContent>
     </IonPage>
   );

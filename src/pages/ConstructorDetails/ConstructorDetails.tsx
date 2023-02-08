@@ -66,9 +66,15 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
         return setConstructor(result.MRData.StandingsTable.StandingsLists.reverse());
       });
 
-    fetch(`https://ergast.com/api/f1/${match.params.season}/constructors/${match.params.constructorId}/drivers.json`)
-      .then(res => res.json())
-      .then(result => setDrivers(result.MRData.DriverTable.Drivers));
+    if(parseInt(match.params.season) !== new Date().getFullYear()) {
+      fetch(`https://ergast.com/api/f1/${match.params.season}/constructors/${match.params.constructorId}/drivers.json`)
+        .then(res => res.json())
+        .then(result => setDrivers(result.MRData.DriverTable.Drivers));
+    } else {
+      fetch(`https://ergast.com/api/f1/current/constructors/${match.params.constructorId}/drivers.json`)
+        .then(res => res.json())
+        .then(result => setDrivers(result.MRData.DriverTable.Drivers));
+    }
   }, [match.params.constructorId, match.params.season]);
 
   return (

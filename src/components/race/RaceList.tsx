@@ -3,12 +3,12 @@ import { IonList, IonItem, IonLabel, IonBadge, IonSkeletonText, IonThumbnail, Io
 import { useHistory } from 'react-router';
 import { Race } from '../../models';
 
-const RaceList: React.FC<{results?: boolean, season?: number}> = ({results, season}) => {
+const RaceList: React.FC<{results?: boolean, season: string}> = ({results, season}) => {
   let history = useHistory();
   const [races, setRaces] = useState<[Race] | null>(null);
 
   useEffect(() => {
-    if(season) {
+    if(parseInt(season) !== new Date().getFullYear()) {
       fetch(`https://ergast.com/api/f1/${season}.json`)
         .then(res => res.json())
         .then(result => setRaces(result.MRData.RaceTable.Races));

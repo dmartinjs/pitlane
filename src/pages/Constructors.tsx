@@ -10,8 +10,6 @@ interface ConstructorsProps extends RouteComponentProps<{
 
 const Constructors: React.FC<ConstructorsProps> = ({match}) => {
 
-  const seasonNotCurrent = parseInt(match.params.season) !== new Date().getFullYear() ? parseInt(match.params.season) : undefined;
-
   return (
     <IonPage>
       <IonHeader>
@@ -25,7 +23,7 @@ const Constructors: React.FC<ConstructorsProps> = ({match}) => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <ConstructorStandings season={seasonNotCurrent}/>
+        <ConstructorStandings season={match.params.season}/>
       </IonContent>
     </IonPage>
   );
