@@ -7,7 +7,8 @@ import {
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
-  IonTabs
+  IonTabs,
+  setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { flagOutline, peopleOutline, speedometerOutline } from 'ionicons/icons';
@@ -41,6 +42,10 @@ import RaceData from './pages/RaceData';
 import DriverResults from './pages/DriverResults';
 import ConstructorResults from './pages/ConstructorResults';
 
+setupIonicReact({
+  mode: 'md'
+});
+
 const App: React.FC = () => {
 
   return (
@@ -60,7 +65,7 @@ const App: React.FC = () => {
           <Route path="/constructor-results/:season/:constructorId" component={ConstructorResults} />
           <Route path="/results/:season/:round/:session" component={Results} />
           <Route path="/racedata/:season/:round/:driverId" component={RaceData} />
-          <Route path="/" render={() => <Redirect to="/races" />} exact={true} />
+          <Route path="/" render={() => <Redirect to={`/races/${new Date().getFullYear()}`} />} exact={true} />
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
           <IonTabButton tab="races" href={`/races/${new Date().getFullYear()}`}>

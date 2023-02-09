@@ -110,7 +110,8 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                 <IonGrid>
                   <IonRow>
                     <IonCol>
-                      <DriverRacesPodiums driverId={driver[0].DriverStandings[0].Driver.driverId}/>
+                      <>
+                        <DriverRacesPodiums driverId={driver[0].DriverStandings[0].Driver.driverId}/>
                         {driver.filter(standing => standing.season === match.params.season ).forEach(standing => {
                           <IonList>
                             <IonListHeader>
@@ -124,6 +125,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                             </IonItem>
                           </IonList>
                         })}
+                        </>
                     </IonCol>
                   </IonRow>
                 </IonGrid>
