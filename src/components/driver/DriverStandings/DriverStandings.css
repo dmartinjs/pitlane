@@ -53,6 +53,11 @@
   background-color: #fff500;
 }
 
+.driver-lotus_f1 {
+  color: #1f1f27;
+  background-color: #ffb800;
+}
+
 .driver-alphatauri {
   background-color: #2b4562;
 }
@@ -61,7 +66,8 @@
   background-color: #0032FF;
 }
 
-.driver-aston_martin {
+.driver-aston_martin,
+.driver-caterham {
   background-color: #006f62;
 }
 
@@ -86,4 +92,12 @@
 .driver-haas {
   color: #1f1f27;
   background-color: #ffffff;
+}
+
+.driver-marussia {
+  background-color: #fd1f32;
+}
+
+.driver-manor {
+  background-color: #e4591e;
 }
