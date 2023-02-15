@@ -75,15 +75,15 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
             </IonButtons>
           </IonToolbar>
           <IonToolbar>
-            {driver && (
-              <IonItem className='toolbar-item'>
-                <div slot="start" className={`driver-number ion-margin-end driver-${driver[0].DriverStandings[0].Constructors[0].constructorId}`}>{driver[0].DriverStandings[0].Driver.permanentNumber}</div>
+            {driver && driver.filter(driver => driver.season.toString() === match.params.season).map(driver =>
+              <IonItem className='toolbar-item' key={driver.season}>
+                <div slot="start" className={`driver-number ion-margin-end driver-${driver.DriverStandings[0].Constructors[0].constructorId}`}>{driver.DriverStandings[0].Driver.permanentNumber}</div>
                 <IonLabel>
-                  <p>{driver[0].DriverStandings[0].Driver.givenName}</p>
-                  <h2 className="font-weight-bold ion-text-uppercase">{driver[0].DriverStandings[0].Driver.familyName}</h2>
+                  <p>{driver.DriverStandings[0].Driver.givenName}</p>
+                  <h2 className="font-weight-bold ion-text-uppercase">{driver.DriverStandings[0].Driver.familyName}</h2>
                 </IonLabel>
                 <IonThumbnail slot="end" className="country-thumbnail">
-                  <IonImg src={`assets/img/flags/${driver[0].DriverStandings[0].Driver.nationality}.svg`} alt={driver[0].DriverStandings[0].Driver.nationality}/>
+                  <IonImg src={`assets/img/flags/${driver.DriverStandings[0].Driver.nationality}.svg`} alt={driver.DriverStandings[0].Driver.nationality}/>
                 </IonThumbnail>
               </IonItem>
             )}
@@ -112,19 +112,19 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                     <IonCol>
                       <>
                         <DriverRacesPodiums driverId={driver[0].DriverStandings[0].Driver.driverId}/>
-                        {driver.filter(standing => standing.season === match.params.season ).forEach(standing => {
-                          <IonList>
+                        {driver.filter(standing => standing.season.toString() === match.params.season ).map(standing =>
+                          <IonList key={standing.season}>
                             <IonListHeader>
                               <IonLabel className="ion-text-left">{standing.season} Team</IonLabel>
                             </IonListHeader>
-                            <IonItem button routerLink={`/constructor/${standing.DriverStandings[0].Constructors[0].constructorId}`}>
+                            <IonItem button routerLink={`/constructor/${standing.DriverStandings[0].Constructors[0].constructorId}/${standing.season}`}>
                               <IonIcon lazy className="ion-margin-end" src={`assets/img/constructors/${standing.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
                               <IonLabel>
                                 {standing.DriverStandings[0].Constructors[0].name}
                               </IonLabel>
                             </IonItem>
                           </IonList>
-                        })}
+                        )}
                         </>
                     </IonCol>
                   </IonRow>

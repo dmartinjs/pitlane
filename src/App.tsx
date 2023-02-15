@@ -59,7 +59,7 @@ const App: React.FC = () => {
           <Route path="/settings" component={Settings} />
           <Route path="/about" component={About} />
           <Route path="/race/:season/:round/:country/:circuit" component={RaceDetails} />
-          <Route path="/driver/:driverId" component={DriverDetails} />
+          <Route path="/driver/:driverId/:season" component={DriverDetails} />
           <Route path="/driverresults/:season/:driverId" component={DriverResults} />
           <Route path="/constructor/:constructorId/:season" component={ConstructorDetails} />
           <Route path="/constructor-results/:season/:constructorId" component={ConstructorResults} />

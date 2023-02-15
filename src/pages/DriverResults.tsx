@@ -28,7 +28,7 @@ const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref={`/driver/${match.params.driverId}`}></IonBackButton>
+            <IonBackButton defaultHref={`/driver/${match.params.driverId}/${new Date().getFullYear()}`}></IonBackButton>
           </IonButtons>
         </IonToolbar>
         <IonToolbar>

@@ -28,7 +28,7 @@ const ConstructorResults: React.FC<ConstructorResultsProps> = ({ match }) => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonBackButton defaultHref={`/driver/${match.params.constructorId}`}></IonBackButton>
+            <IonBackButton defaultHref={`/driver/${match.params.constructorId}/${new Date().getFullYear()}`}></IonBackButton>
           </IonButtons>
         </IonToolbar>
         <IonToolbar>
