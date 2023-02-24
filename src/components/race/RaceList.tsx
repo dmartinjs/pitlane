@@ -8,15 +8,9 @@ const RaceList: React.FC<{results?: boolean, season: string}> = ({results, seaso
   const [races, setRaces] = useState<[Race] | null>(null);
 
   useEffect(() => {
-    if(parseInt(season) !== new Date().getFullYear()) {
-      fetch(`https://ergast.com/api/f1/${season}.json`)
-        .then(res => res.json())
-        .then(result => setRaces(result.MRData.RaceTable.Races));
-    } else {
-      fetch('https://ergast.com/api/f1/current.json')
-        .then(res => res.json())
-        .then(result => setRaces(result.MRData.RaceTable.Races));
-    }
+    fetch(`https://ergast.com/api/f1/${season}.json`)
+      .then(res => res.json())
+      .then(result => setRaces(result.MRData.RaceTable.Races));
   }, [season]);
 
   const racesFiltered = results ? races && races.filter(race => new Date(race.date) < new Date()).reverse() : races;
