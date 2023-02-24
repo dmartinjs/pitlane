@@ -24,6 +24,12 @@ export interface ConstructorStanding {
 
 // Driver
 
+export interface DriverTable {
+  season:    string;
+  constructorId: string;
+  Drivers: Driver[];
+}
+
 export interface Driver {
   driverId:        string;
   permanentNumber: string;

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonThumbnail, IonIcon, IonImg, IonSegment, IonSegmentButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonBadge, IonList, IonListHeader } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
-import { ConstructorStandingsLists, Driver } from '../../models';
+import { ConstructorStandingsLists, DriverTable } from '../../models';
 import './ConstructorDetails.css';
 import { slideOptions } from '../../utils/SlideOptions';
 import { flagOutline, readerOutline, speedometerOutline, todayOutline, trophyOutline } from 'ionicons/icons';
@@ -13,7 +13,7 @@ interface ConstructorDetailsProps extends RouteComponentProps<{
 
 const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
   const [constructor, setConstructor] = useState<[ConstructorStandingsLists] | null>(null);
-  const [drivers, setDrivers] = useState<[Driver] | null>(null);
+  const [drivers, setDrivers] = useState<DriverTable | null>(null);
   const [description, setDescription] = useState<string | null>(null);
   const [selectedSegment, SetSelectedSegment] = useState<string>('overview');
 
@@ -69,11 +69,11 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
     if(parseInt(match.params.season) !== new Date().getFullYear()) {
       fetch(`https://ergast.com/api/f1/${match.params.season}/constructors/${match.params.constructorId}/drivers.json`)
         .then(res => res.json())
-        .then(result => setDrivers(result.MRData.DriverTable.Drivers));
+        .then(result => setDrivers(result.MRData.DriverTable));
     } else {
       fetch(`https://ergast.com/api/f1/current/constructors/${match.params.constructorId}/drivers.json`)
         .then(res => res.json())
-        .then(result => setDrivers(result.MRData.DriverTable.Drivers));
+        .then(result => setDrivers(result.MRData.DriverTable));
     }
   }, [match.params.constructorId, match.params.season]);
 
@@ -166,9 +166,9 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                   </IonList>
                   <IonList>
                     <IonListHeader>
-                      <IonLabel className="ion-text-left">{match.params.season} Drivers</IonLabel>
+                      <IonLabel className="ion-text-left">{drivers && drivers.season} Drivers</IonLabel>
                     </IonListHeader>
-                    {drivers && constructor && drivers.slice(0, 2).map(driver =>
+                    {drivers && constructor && drivers.Drivers.slice(0, 2).map(driver =>
                       <IonItem button lines='full' routerLink={`/driver/${driver.driverId}/${match.params.season}`} key={driver.driverId}>
                         <div slot="start" className={`driver-number driver-details-number ion-margin-end driver-${constructor[0].ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
                         <IonLabel>
