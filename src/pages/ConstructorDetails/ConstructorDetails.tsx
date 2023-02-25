@@ -90,7 +90,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
             <IonItem className='toolbar-item'>
               <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${constructor[0].ConstructorStandings[0].Constructor.constructorId}.svg`} />
               <IonLabel>
-                <h2 className="font-weight-bold">{constructor[0].ConstructorStandings[0].Constructor.name}</h2>
+                <h2 className="font-weight-bold ion-text-uppercase">{constructor[0].ConstructorStandings[0].Constructor.name}</h2>
               </IonLabel>
               <IonThumbnail slot="end" className="country-thumbnail">
                 <IonImg src={`assets/img/flags/${constructor[0].ConstructorStandings[0].Constructor.nationality}.svg`} alt={constructor[0].ConstructorStandings[0].Constructor.nationality} />
