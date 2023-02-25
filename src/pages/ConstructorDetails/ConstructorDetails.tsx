@@ -170,7 +170,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                     </IonListHeader>
                     {drivers && constructor && drivers.Drivers.slice(0, 2).map(driver =>
                       <IonItem button lines='full' routerLink={`/driver/${driver.driverId}/${match.params.season}`} key={driver.driverId}>
-                        <div slot="start" className={`driver-number driver-details-number ion-margin-end driver-${constructor[0].ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
+                        <div slot="start" className={`driver-number driver-details-number ion-margin-end team-${constructor[0].ConstructorStandings[0].Constructor.constructorId}`}>{driver.permanentNumber}</div>
                         <IonLabel>
                           <p>{driver.givenName}</p>
                           <h2 className="font-weight-bold ion-text-uppercase">{driver.familyName}</h2>
@@ -188,12 +188,14 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                 <IonCol>
                   {constructor && constructor.map(season =>
                     <IonItem key={season.season} lines="full" button routerLink={`/constructor-results/${season.season}/${season.ConstructorStandings[0].Constructor.constructorId}`}>
-                      <IonLabel>
-                        <p>{season.season} season</p>
-                      </IonLabel>
-                      <div className="race-position ion-margin-end font-weight-bold">
-                        P{season.ConstructorStandings[0].position}
+                      <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
+                        {season.season}
                       </div>
+                      <div className={`team-line ion-margin-end team-${constructor[0].ConstructorStandings[0].Constructor.constructorId}`}></div>
+                      <IonLabel>
+                        <h2 className="font-weight-bold">P{season.ConstructorStandings[0].position}</h2>
+                        <p>{season.ConstructorStandings[0].wins} wins - {season.round} races</p>
+                      </IonLabel>
                       <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{season.ConstructorStandings[0].points}</IonBadge>
                     </IonItem>
                   )}
