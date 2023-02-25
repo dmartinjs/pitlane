@@ -77,7 +77,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
           </IonToolbar>
           <IonToolbar>
             <IonItem className='toolbar-item' key={seasonDetails?.season}>
-              <div slot="start" className={`driver-number ion-margin-end driver-${seasonDetails?.DriverStandings[0].Constructors[0].constructorId}`}>{seasonDetails?.DriverStandings[0].Driver.permanentNumber}</div>
+              <div slot="start" className={`driver-number ion-margin-end team-${seasonDetails?.DriverStandings[0].Constructors[0].constructorId}`}>{seasonDetails?.DriverStandings[0].Driver.permanentNumber}</div>
               <IonLabel>
                 <p>{seasonDetails?.DriverStandings[0].Driver.givenName}</p>
                 <h2 className="font-weight-bold ion-text-uppercase">{seasonDetails?.DriverStandings[0].Driver.familyName}</h2>
@@ -132,14 +132,14 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                       <IonList lines="full">
                         {driver.map(season =>
                           <IonItem key={season.season} lines="full" button routerLink={`/driverresults/${season.season}/${season.DriverStandings[0].Driver.driverId}`}>
-                            <IonIcon lazy slot="start" size="large" className="constructor ion-margin-end" src={`assets/img/constructors/${season.DriverStandings[0].Constructors[0].constructorId}.svg`}/>
-                            <IonLabel>
-                              <p>{season.season}</p>
-                              <h2 className="font-weight-bold">{season.DriverStandings[0].Constructors[0].name}</h2>
-                            </IonLabel>
-                            <div className="race-position ion-margin-end font-weight-bold">
-                              P{season.DriverStandings[0].position}
+                            <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
+                              {season.season}
                             </div>
+                            <div className={`team-line ion-margin-end team-${season.DriverStandings[0].Constructors[0].constructorId}`}></div>
+                            <IonLabel>
+                              <h2 className="font-weight-bold">P{season.DriverStandings[0].position}</h2>
+                              <p>{season.DriverStandings[0].Constructors[0].name}</p>
+                            </IonLabel>
                             <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{season.DriverStandings[0].points}</IonBadge>
                           </IonItem>
                         )}

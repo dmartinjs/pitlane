@@ -50,7 +50,7 @@ const DriverStandings: React.FC<{season: string}> = ({season}) => {
           <div className="standings-position ion-text-center font-weight-bold ion-margin-end">
             {driver.position}.
           </div>
-          <div className={`driver-team-line ion-margin-end driver-${driver.Constructors[0].constructorId}`}></div>
+          <div className={`team-line ion-margin-end team-${driver.Constructors[0].constructorId}`}></div>
           <IonLabel>
             <h3>{driver.Driver.givenName} <strong className="ion-text-uppercase">{driver.Driver.familyName}</strong></h3>
             <p>{driver.Constructors[0].name}</p>

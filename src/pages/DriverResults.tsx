@@ -34,7 +34,7 @@ const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
         <IonToolbar>
           {driver && (
             <IonItem className='toolbar-item'>
-              <div slot="start" className={`driver-number ion-margin-end driver-${driver.Constructors[0].constructorId}`}>{driver.Driver.permanentNumber}</div>
+              <div slot="start" className={`driver-number ion-margin-end team-${driver.Constructors[0].constructorId}`}>{driver.Driver.permanentNumber}</div>
               <IonLabel>
                 <p>{driver.Driver.givenName}</p>
                 <h2 className="font-weight-bold ion-text-uppercase">{driver.Driver.familyName}</h2>
