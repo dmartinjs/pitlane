@@ -70,11 +70,10 @@ const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
               </IonThumbnail>
               <IonLabel>
                 <h2 className="font-weight-bold">{result.Circuit.Location.country}</h2>
-                <p>{new Date(result.date).toLocaleString('default', { day: 'numeric', month: 'numeric' })}</p>
+                <p>
+                  {result.Results[0].status === 'Finished' || result.Results[0].status.match(/\+[0-9]+ Lap/i) ? `P${result.Results[0].position}` : 'DNF'}
+                </p>
               </IonLabel>
-              <div className="driver-position ion-text-center ion-margin-end font-weight-bold">
-                {result.Results[0].position}
-              </div>
               <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{result.Results[0].points}</IonBadge>
             </IonItem>
           )}
