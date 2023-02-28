@@ -72,6 +72,7 @@ const DriverResults: React.FC<DriverResultsProps> = ({ match }) => {
                 <h2 className="font-weight-bold">{result.Circuit.Location.country}</h2>
                 <p>
                   {result.Results[0].status === 'Finished' || result.Results[0].status.match(/\+[0-9]+ Lap/i) ? `P${result.Results[0].position}` : 'DNF'}
+                  {result.Results[0]?.FastestLap?.rank === '1' && ' - Fastest Lap'}
                 </p>
               </IonLabel>
               <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{result.Results[0].points}</IonBadge>
