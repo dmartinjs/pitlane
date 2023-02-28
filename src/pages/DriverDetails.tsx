@@ -138,7 +138,7 @@ const DriverDetails: React.FC<DriverDetailsProps> = ({match}) => {
                             <div className={`team-line ion-margin-end team-${season.DriverStandings[0].Constructors[0].constructorId}`}></div>
                             <IonLabel>
                               <h2 className="font-weight-bold">P{season.DriverStandings[0].position}</h2>
-                              <p>{season.DriverStandings[0].Constructors[0].name}</p>
+                              <p>{season.DriverStandings[0].Constructors[0].name} - {season.round} races</p>
                             </IonLabel>
                             <IonBadge className="standings-points" slot="end" color="medium" mode="ios">{season.DriverStandings[0].points}</IonBadge>
                           </IonItem>
