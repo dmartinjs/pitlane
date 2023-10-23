@@ -1,20 +1,23 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonBackButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol } from '@ionic/react';
+import React, { useEffect, useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSegment, IonSegmentButton, IonLabel, IonButtons, IonBackButton, IonGrid, IonRow, IonCol } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { Race } from '../models';
 import RaceResults from '../components/results/RaceResults/RaceResults';
 import QualifyingResults from '../components/results/QualifyingResults';
 import SprintResults from '../components/results/SprintResults';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperInterface } from 'swiper';
 
 interface RaceDetailsProps extends RouteComponentProps<{
   season: string,
   round: string,
   session: string
-}> {}
+}> { }
 
-const Results: React.FC<RaceDetailsProps> = ({match}) => {
+const Results: React.FC<RaceDetailsProps> = ({ match }) => {
   const [selectedSegment, SetSelectedSegment] = useState<string>(match.params.session);
   const [race, setRace] = useState<Race | null>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperInterface>();
 
   useEffect(() => {
     fetch(`https://ergast.com/api/f1/${match.params.season}/${match.params.round}.json`)
@@ -24,56 +27,48 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
       });
   }, [match.params.season, match.params.round]);
 
-  const slider = useRef<HTMLIonSlidesElement>(null);
-
-  const slideOptions = {
-    autoHeight: true
-  }
-
   const onSegmentChange = (event: CustomEvent) => {
     SetSelectedSegment(event.detail.value);
 
-    switch(event.detail.value) {
+    switch (event.detail.value) {
       case 'qualifying':
-        slider.current!.slideTo(0);
+        swiperInstance?.slideTo(0);
         break;
       case 'sprint':
-        slider.current!.slideTo(1);
+        swiperInstance?.slideTo(1);
         break;
       case 'race':
-        slider.current!.slideTo(2);
+        swiperInstance?.slideTo(2);
         break;
     }
   }
 
   const onSlideLoad = () => {
-    switch(match.params.session) {
+    switch (match.params.session) {
       case 'qualifying':
-        slider.current!.slideTo(0);
+        swiperInstance?.slideTo(0);
         break;
       case 'sprint':
-        slider.current!.slideTo(1);
+        swiperInstance?.slideTo(1);
         break;
       case 'race':
-        slider.current!.slideTo(2);
+        swiperInstance?.slideTo(2);
         break;
     }
   }
 
-  const onSlideChange = (event: any) => {
-    event.target.getActiveIndex().then((value: any) => {
-      switch(value) {
-        case 0:
-          SetSelectedSegment('qualifying');
-          break;
-        case 1:
-          SetSelectedSegment('sprint');
-          break;
-        case 2:
-          SetSelectedSegment('race');
-          break;
-      }
-    })
+  const onSlideChange = () => {
+    switch (swiperInstance?.activeIndex) {
+      case 0:
+        SetSelectedSegment('qualifying');
+        break;
+      case 1:
+        SetSelectedSegment('sprint');
+        break;
+      case 2:
+        SetSelectedSegment('race');
+        break;
+    }
   }
 
   return (
@@ -104,37 +99,37 @@ const Results: React.FC<RaceDetailsProps> = ({match}) => {
             </IonToolbar>
           </IonHeader>
           <IonContent>
-            <IonSlides onIonSlideDidChange={onSlideChange} onIonSlidesDidLoad={onSlideLoad} ref={slider} options={slideOptions}>
-              <IonSlide>
+            <Swiper onSlideChange={onSlideChange} onInit={onSlideLoad} onSwiper={(swiper: SwiperInterface) => setSwiperInstance(swiper)} autoHeight={true}>
+              <SwiperSlide>
                 <IonGrid>
                   <IonRow>
                     <IonCol>
-                      <QualifyingResults season={match.params.season} round={match.params.round}/>
+                      <QualifyingResults season={match.params.season} round={match.params.round} />
                     </IonCol>
                   </IonRow>
                 </IonGrid>
-              </IonSlide>
-              {race?.Sprint !== undefined && 
-                <IonSlide>
+              </SwiperSlide>
+              {race?.Sprint !== undefined &&
+                <SwiperSlide>
                   <IonGrid>
                     <IonRow>
                       <IonCol>
-                        <SprintResults season={match.params.season} round={match.params.round}/>
+                        <SprintResults season={match.params.season} round={match.params.round} />
                       </IonCol>
                     </IonRow>
                   </IonGrid>
-                </IonSlide>
+                </SwiperSlide>
               }
-              <IonSlide>
+              <SwiperSlide>
                 <IonGrid>
                   <IonRow>
                     <IonCol>
-                      <RaceResults season={match.params.season} round={match.params.round}/>
+                      <RaceResults season={match.params.season} round={match.params.round} />
                     </IonCol>
                   </IonRow>
                 </IonGrid>
-              </IonSlide>
-            </IonSlides>
+              </SwiperSlide>
+            </Swiper>
           </IonContent>
         </>
       }

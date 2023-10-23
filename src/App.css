@@ -105,6 +105,11 @@
   --background: transparent;
 }
 
+.swiper {
+  height: 100%;
+  padding-top: 164px;
+}
+
 /* Standings */
 
 .circuit-country-thumbnail {

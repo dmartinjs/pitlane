@@ -36,6 +36,10 @@ import '@ionic/react/css/padding.css';
 /* Theme variables */
 import './theme/variables.css';
 
+/* Swiper styles */
+import 'swiper/css';
+import '@ionic/react/css/ionic-swiper.css';
+
 /* Global styles */
 import './App.css';
 import RaceData from './pages/RaceData';

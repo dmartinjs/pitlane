@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonThumbnail, IonIcon, IonImg, IonSegment, IonSegmentButton, IonSlides, IonSlide, IonGrid, IonRow, IonCol, IonBadge, IonList, IonListHeader } from '@ionic/react';
+import React, { useEffect, useState } from 'react';
+import { IonContent, IonHeader, IonPage, IonToolbar, IonButtons, IonBackButton, IonItem, IonLabel, IonThumbnail, IonIcon, IonImg, IonSegment, IonSegmentButton, IonGrid, IonRow, IonCol, IonBadge, IonList, IonListHeader } from '@ionic/react';
 import { RouteComponentProps } from 'react-router';
 import { ConstructorStandingsLists, DriverTable } from '../../models';
 import './ConstructorDetails.css';
-import { slideOptions } from '../../utils/SlideOptions';
 import { flagOutline, readerOutline, speedometerOutline, todayOutline, trophyOutline } from 'ionicons/icons';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper as SwiperInterface } from 'swiper';
 
 interface ConstructorDetailsProps extends RouteComponentProps<{
   constructorId: string,
@@ -16,39 +17,36 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
   const [drivers, setDrivers] = useState<DriverTable | null>(null);
   const [description, setDescription] = useState<string | null>(null);
   const [selectedSegment, SetSelectedSegment] = useState<string>('overview');
-
-  const slider = useRef<HTMLIonSlidesElement>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperInterface>();
 
   const onSegmentChange = (event: CustomEvent) => {
     SetSelectedSegment(event.detail.value);
 
     switch (event.detail.value) {
       case 'overview':
-        slider.current!.slideTo(0);
+        swiperInstance?.slideTo(0);
         break;
       case 'seasons':
-        slider.current!.slideTo(1);
+        swiperInstance?.slideTo(1);
         break;
       case 'bio':
-        slider.current!.slideTo(2);
+        swiperInstance?.slideTo(2);
         break;
     }
   }
 
-  const onSlideChange = (event: any) => {
-    event.target.getActiveIndex().then((value: any) => {
-      switch (value) {
-        case 0:
-          SetSelectedSegment('overview');
-          break;
-        case 1:
-          SetSelectedSegment('seasons');
-          break;
-        case 2:
-          SetSelectedSegment('bio');
-          break;
-      }
-    })
+  const onSlideChange = () => {
+    switch (swiperInstance?.activeIndex) {
+      case 0:
+        SetSelectedSegment('overview');
+        break;
+      case 1:
+        SetSelectedSegment('seasons');
+        break;
+      case 2:
+        SetSelectedSegment('bio');
+        break;
+    }
   }
 
   useEffect(() => {
@@ -66,7 +64,7 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
         return setConstructor(result.MRData.StandingsTable.StandingsLists.reverse());
       });
 
-    if(parseInt(match.params.season) !== new Date().getFullYear()) {
+    if (parseInt(match.params.season) !== new Date().getFullYear()) {
       fetch(`https://ergast.com/api/f1/${match.params.season}/constructors/${match.params.constructorId}/drivers.json`)
         .then(res => res.json())
         .then(result => setDrivers(result.MRData.DriverTable));
@@ -114,8 +112,8 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
       </IonHeader>
 
       <IonContent>
-        <IonSlides onIonSlideDidChange={onSlideChange} ref={slider} options={slideOptions}>
-          <IonSlide>
+        <Swiper onSlideChange={onSlideChange} onSwiper={(swiper: SwiperInterface) => setSwiperInstance(swiper)} initialSlide={0} autoHeight={true}>
+          <SwiperSlide>
             <IonGrid>
               <IonRow>
                 <IonCol>
@@ -181,8 +179,8 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                 </IonCol>
               </IonRow>
             </IonGrid>
-          </IonSlide>
-          <IonSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <IonGrid>
               <IonRow>
                 <IonCol>
@@ -202,8 +200,8 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                 </IonCol>
               </IonRow>
             </IonGrid>
-          </IonSlide>
-          <IonSlide>
+          </SwiperSlide>
+          <SwiperSlide>
             <IonGrid>
               <IonRow>
                 <IonCol>
@@ -237,8 +235,8 @@ const ConstructorDetails: React.FC<ConstructorDetailsProps> = ({ match }) => {
                 </IonCol>
               </IonRow>
             </IonGrid>
-          </IonSlide>
-        </IonSlides>
+          </SwiperSlide>
+        </Swiper>
       </IonContent>
     </IonPage>
   );
