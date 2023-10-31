@@ -105,9 +105,13 @@
   --background: transparent;
 }
 
-.swiper {
-  height: 100%;
-  padding-top: 164px;
+.swiper-wrapper {
+  height: 100% !important;
+}
+
+.swiper-slide {
+  overflow: auto;
+  height: auto;
 }
 
 /* Standings */
